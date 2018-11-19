@@ -1,3 +1,8 @@
+> WIP 
+> You won't able to install it at this moment, since I use `yarn link` to get latest version of `ackee-redux-token-auth`.
+
+---
+
 # HTTP Client
 
 Package that uses [axios](https://github.com/axios/axios) for making all HTTP requests and [ackee-redux-token-auth](https://www.npmjs.com/package/ackee-redux-token-auth) for setting access token to HTTP Authorization header.
