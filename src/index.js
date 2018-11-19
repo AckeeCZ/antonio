@@ -2,7 +2,7 @@ import axios from 'axios';
 import { takeEvery, fork, take } from 'redux-saga/effects';
 import { actionTypes } from 'ackee-redux-token-auth';
 
-let axiosClient = null;
+let authAxiosClient = null;
 let isAuth = false;
 
 const authRequestProxy = methodHandler =>
@@ -15,7 +15,8 @@ const authRequestProxy = methodHandler =>
     };
 
 export function create(options) {
-    axiosClient = axiosClient || axios.create(options);
+    const axiosClient = axios.create(options);
+    authAxiosClient = axios.create(options);
 
     const api = {};
     const authApi = {};
@@ -23,10 +24,8 @@ export function create(options) {
     // - unwrap axios HTTP method handlers
     // - add custom proxies
     for (const key of Object.keys(axiosClient)) {
-        const methodHandler = axiosClient[key];
-
-        api[key] = methodHandler;
-        authApi[key] = authRequestProxy(methodHandler);
+        api[key] = axiosClient[key];
+        authApi[key] = authRequestProxy(authAxiosClient[key]);
     }
 
     return {
@@ -48,5 +47,5 @@ function* manageAuthorizationHeader(headers) {
 }
 
 export function* saga() {
-    yield fork(manageAuthorizationHeader, axiosClient.defaults.headers);
+    yield fork(manageAuthorizationHeader, authAxiosClient.defaults.headers);
 }
