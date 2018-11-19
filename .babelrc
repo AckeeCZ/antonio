@@ -1,0 +1,22 @@
+{
+    "plugins": [
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-proposal-export-namespace-from"
+    ],
+    "env": {
+        "lib": {
+            "presets": ["@babel/preset-env"]
+        },
+        "es": {
+            "presets": [
+                [
+                    "@babel/preset-env",
+                    {
+                        "modules": false
+                    }
+                ]
+            ]
+        }
+    }
+}
