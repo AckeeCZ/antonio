@@ -11,7 +11,7 @@ Package that uses [axios](https://github.com/axios/axios) for making all HTTP re
 import { create } from 'ackee-http-client';
 import config '../config';
 
-const httpClient = HttpClient.create({
+const httpClient = create({
     baseURL: config.api.base,
 
     // default request options pass to axios.create()
