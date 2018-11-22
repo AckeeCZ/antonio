@@ -1,4 +1,4 @@
-# [WIP] HTTP Client
+# ackee-http-client
 
 The HTTP client uses [axios](https://github.com/axios/axios) for making all HTTP requests and [ackee-redux-token-auth](https://www.npmjs.com/package/ackee-redux-token-auth) for setting a access token to HTTP Authorization header.
 
