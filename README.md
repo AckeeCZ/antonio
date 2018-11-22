@@ -32,7 +32,7 @@ $ npm install ackee-http-client
 
 Initialization is a simple 2 steps process.
 
-First you will create new instance of `HttpClient`, which gives you `api` and `authApi` objects. Then you will launch a `httpClient`'s saga. That's all.
+By creating new instance of `HttpClient`, you will get `api` and `authApi` objects. Then you will launch a `httpClient`'s saga. That's all.
 
 ### 1. Create `httpClient` instance
 
@@ -70,10 +70,7 @@ import { api } from 'Config/http-client';
 
 async function fetchTodo(todoId) {
     const response = await api.get(`/todos/${todoId}`, {
-        // special options for this request
-        // https://github.com/axios/axios#request-config
-
-        // overwrite default baseURL
+        // overwrite the default baseURL
         baseURL: 'https://jsonplaceholder.typicode.com/',
     });
 
@@ -158,14 +155,27 @@ This method receives two objects as arguments.
 ```js
 import { create } from 'ackee-http-client';
 
-const { api, authApi } = create({
-    baseURL: 'https://jsonplaceholder.typicode.com/',
-});
+const { authApi } = create(
+    {
+        baseURL: 'https://jsonplaceholder.typicode.com/',
+    },
+    {
+        // Customize setting of the authorization header
+        // by providing a custom setAuthHeader method:
+        setAuthHeader(headers, accessToken) {
+            if (accessToken) {
+                headers.common.Authorization = accessToken;
+            } else {
+                delete headers.common.Authorization;
+            }
+        },
+    },
+);
 
 async function fetchTodo() {
-    const response = await api.get('/todos/1');
+    const response = await authApi.get('/todos/1');
 
-    console.log(response.data);
+    return response.data;
 }
 ```
 
