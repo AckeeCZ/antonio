@@ -5,7 +5,7 @@ import { actionTypes } from 'ackee-redux-token-auth';
 import * as Store from './store';
 
 const authRequestProxy = methodHandler =>
-    function* (...args) {
+    function*(...args) {
         if (!Store.get(Store.keys.IS_AUTH)) {
             yield take(actionTypes.ACCESS_TOKEN_AVAILABLE);
         }
@@ -13,24 +13,34 @@ const authRequestProxy = methodHandler =>
         return yield methodHandler(...args);
     };
 
-export default function create(options) {
+function createApiWithAxios(options, proxy) {
     const axiosClient = axios.create(options);
-    const authAxiosClient = axios.create(options);
-
-    Store.set(Store.keys.AUTH_AXIOS, authAxiosClient);
-
     const api = {};
-    const authApi = {};
 
     // - unwrap axios HTTP method handlers
     // - add custom proxies
     for (const key of Object.keys(axiosClient)) {
-        api[key] = axiosClient[key];
-        authApi[key] = authRequestProxy(authAxiosClient[key]);
+        const methodHandler = axiosClient[key];
+        api[key] = proxy ? proxy(methodHandler) : methodHandler;
     }
 
     Object.freeze(api);
-    Object.freeze(authApi);
+
+    return [api, axiosClient];
+}
+
+export default function create(axionsRequestConfig = {}, customConfig = {}) {
+    const defaultConfig = Store.get(Store.keys.CONFIG);
+
+    Store.set(Store.keys.CONFIG, {
+        ...defaultConfig,
+        ...customConfig,
+    });
+
+    const [api] = createApiWithAxios(axionsRequestConfig);
+    const [authApi, authAxiosClient] = createApiWithAxios(axionsRequestConfig, authRequestProxy);
+
+    Store.set(Store.keys.AUTH_AXIOS, authAxiosClient);
 
     return {
         api,
