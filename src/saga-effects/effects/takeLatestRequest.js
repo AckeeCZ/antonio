@@ -2,7 +2,7 @@ import { takeEvery, put, fork } from 'redux-saga/effects';
 import cancellableTask from '../cancelableTask';
 
 /**
- * @param {{ REQUEST: String, cancelTask: Function }} actionTypes
+ * @param {{ REQUEST: String, cancelTask: Function }} params
  * @param {Function} task
  */
 export default function* takeLatestRequest({ REQUEST, cancelTask }, task) {
