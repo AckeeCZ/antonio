@@ -197,4 +197,4 @@ export default function*() {
 
 ### <a name="api-saga-effects"></a> Saga Effects
 
-Custom Saga effects with built-in cancelation of API requests, [see the docs](https://gitlab.ack.ee/Web/token-auth/blob/master/src/saga-effects/saga-effects.md).
+Custom Saga effects with built-in cancelation of API requests, [see the docs](https://gitlab.ack.ee/Web/http-client/blob/master/src/saga-effects/saga-effects.md).
