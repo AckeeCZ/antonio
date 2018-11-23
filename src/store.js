@@ -4,12 +4,14 @@ const keys = {
     IS_AUTH: 'isAuth',
     AUTH_AXIOS: 'authAxios',
     CONFIG: 'config',
+    SAGA_INITIALIZE: 'sagaInitialize',
 };
 
 const state = {
     [keys.IS_AUTH]: false,
     [keys.AUTH_AXIOS]: null,
     [keys.CONFIG]: defaultConfig,
+    [keys.SAGA_INITIALIZE]: false,
 };
 
 /**

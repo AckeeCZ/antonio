@@ -1,7 +1,7 @@
 import { takeEvery } from 'redux-saga/effects';
 import { actionTypes } from 'ackee-redux-token-auth';
 
-import * as Store from './store';
+import * as Store from '../store';
 
 export default function* manageAuthHeader() {
     const { setAuthHeader } = Store.get(Store.keys.CONFIG);

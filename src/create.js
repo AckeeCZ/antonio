@@ -7,6 +7,12 @@ import * as Store from './store';
 const authRequestProxy = methodHandler =>
     function*(...args) {
         if (!Store.get(Store.keys.IS_AUTH)) {
+            if (!Store.get(Store.keys.SAGA_INITIALIZE)) {
+                throw new Error(
+                    `ackee-http-client: The HTTP client's 'saga' must be connected among your other sagas.`,
+                );
+            }
+
             yield take(actionTypes.ACCESS_TOKEN_AVAILABLE);
         }
 
