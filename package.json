@@ -15,6 +15,10 @@
     },
     "author": "Jiří Čermák <jiri.cermak@ackee.cz>",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://gitlab.ack.ee/Web/http-client"
+    },
     "devDependencies": {
         "@babel/cli": "^7.0.0",
         "@babel/core": "^7.0.0",
@@ -36,8 +40,8 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.1.5",
-        "ackee-redux-token-auth": "^1.0.1",
-        "axios": "^0.18.0",
-        "redux-saga": "^0.16.2"
+        "ackee-redux-token-auth": "2.x.x",
+        "axios": "0.18.x",
+        "redux-saga": "0.16.x"
     }
 }
