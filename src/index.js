@@ -5,6 +5,8 @@ import * as Store from './store';
 
 export { default as create } from './create';
 
+export * as sagaEffects from './saga-effects';
+
 export function* saga() {
     const sagas = [];
 

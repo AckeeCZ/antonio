@@ -9,6 +9,7 @@ The HTTP client uses [axios](https://github.com/axios/axios) for making all HTTP
 -   [API](#api)
     -   [create](#api-create)
     -   [saga](#api-saga)
+    -   [Saga Effects](#api-saga-effects)
 
 ---
 
@@ -193,3 +194,7 @@ export default function*() {
     yield all([httpClient()]);
 }
 ```
+
+### <a name="api-saga-effects"></a> Saga Effects
+
+Custom Saga effects with built-in cancelation of API requests, [see the docs](https://gitlab.ack.ee/Web/token-auth/blob/master/src/saga-effects/saga-effects.md).
