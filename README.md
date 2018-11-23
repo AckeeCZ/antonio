@@ -8,7 +8,6 @@ The HTTP client uses [axios](https://github.com/axios/axios) for making all HTTP
 -   [Initialization](#initialization)
 -   [API](#api)
     -   [create](#api-create)
-    -   [saga](#api-saga)
     -   [Saga Effects](#api-saga-effects)
 
 ---
@@ -33,7 +32,7 @@ $ npm install ackee-http-client
 
 Initialization is a simple 2 steps process.
 
-By creating new instance of `HttpClient`, you will get `api` and `authApi` objects. Then you will launch a `httpClient`'s saga. That's all.
+By creating a new instance of `HttpClient`, you will get `api`, `authApi` objects and `saga` function. Then you connect the saga among your other sagas. That's all.
 
 ### 1. Create `httpClient` instance
 
@@ -42,20 +41,20 @@ Create one `httpClient` instance object per project.
 ```js
 import { create } from 'ackee-http-client';
 
-const httpClient = create({
+const { api, authApi, saga } = create({
     baseURL: 'https://base-url.com/api/',
 });
 
-export const api = httpClient.api;
-export const authApi = httpClient.api;
+export { api, authApi, saga };
 ```
 
 ### 2. Launch HttpClient saga
 
 ```js
-import { saga as httpClient } from 'ackee-http-client';
+import { saga as httpClient } from 'Config/http-client';
 
 export default function*() {
+    // httpClient saga must come before redux-token-auth saga
     yield all([httpClient()]);
 }
 ```
@@ -103,11 +102,11 @@ async function fetchPost(postId) {
 
 This method receives two objects as arguments.
 
--   `axiosRequestConfig`
+-   `axiosRequestConfig: Object`
 
     The `axiosRequestConfig` is reserved for axios default request configuration, see [available options](https://github.com/axios/axios#request-config).
 
--   `customConfig`
+-   `customConfig: Object`
 
     The `customConfig` object offers following default options:
 
@@ -135,7 +134,9 @@ This method receives two objects as arguments.
     }
     ```
 
--   <a name="api-create-http-client"></a>`httpClient`
+-   <a name="api-create-http-client"></a>`httpClient: Object`
+
+    #### `api`, `authApi`
 
     The `httpClient` object contains two axios instances: `api` and `authApi` with the same properties:
 
@@ -150,6 +151,10 @@ This method receives two objects as arguments.
     -   `api.getUri([config])`
     -   [`api.defaults`](https://github.com/axios/axios#custom-instance-defaults)
     -   [`api.interceptors`](https://github.com/axios/axios#interceptors)
+
+
+    #### `saga`
+    Internal saga primarily for communication with `ackee-redux-token-auth`.
 
 #### Example
 
@@ -177,21 +182,6 @@ async function fetchTodo() {
     const response = await authApi.get('/todos/1');
 
     return response.data;
-}
-```
-
-### <a name="api-saga"></a>`saga(void) => ReduxSaga`
-
-Initializes the saga handlers generator. This should be passed along with your other sagas.
-
-#### Example
-
-```js
-import { all } from 'redux-saga/effects';
-import { saga as httpClient } from 'ackee-http-client';
-
-export default function*() {
-    yield all([httpClient()]);
 }
 ```
 

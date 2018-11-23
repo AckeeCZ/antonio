@@ -3,6 +3,7 @@ import { take } from 'redux-saga/effects';
 import { actionTypes } from 'ackee-redux-token-auth';
 
 import * as Store from './store';
+import saga from './sagas';
 
 const authRequestProxy = methodHandler =>
     function*(...args) {
@@ -51,5 +52,6 @@ export default function create(axionsRequestConfig = {}, customConfig = {}) {
     return {
         api,
         authApi,
+        saga,
     };
 }
