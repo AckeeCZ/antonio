@@ -112,12 +112,12 @@ This method receives two objects as arguments.
 
     ```js
     {
-        // If `managaAuthHeader` is true, then when access token state changes,
+        // If `manageAuthHeader` is true, then when access token state changes,
         // the `setAuthHeader` is triggered.
         // If it's false, `setAuthHeader` won't be ever triggered.
-        managaAuthHeader: true,
+        manageAuthHeader: true,
 
-        // If `managaAuthHeader` is enabled, `setAuthHeader` receives object with default headers,
+        // If `manageAuthHeader` is enabled, `setAuthHeader` receives object with default headers,
         // when access token state changes.
         /**
          * @param {Object} headers - reference to axios default request headers object (https://github.com/axios/axios#custom-instance-defaults)
