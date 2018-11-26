@@ -23,6 +23,7 @@ module.exports = {
                             '@babel/plugin-proposal-object-rest-spread',
                             '@babel/plugin-proposal-export-namespace-from',
                             '@babel/plugin-transform-runtime',
+                            '@babel/plugin-syntax-dynamic-import',
                         ],
                     },
                 },

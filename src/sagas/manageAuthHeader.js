@@ -1,9 +1,10 @@
 import { takeEvery } from 'redux-saga/effects';
-import { actionTypes } from 'ackee-redux-token-auth';
 
 import * as Store from '../store';
 
 export default function* manageAuthHeader() {
+    const { actionTypes } = yield import('ackee-redux-token-auth');
+
     const { setAuthHeader } = Store.get(Store.keys.CONFIG);
     const authAxios = Store.get(Store.keys.AUTH_AXIOS);
     const { headers } = authAxios.defaults;

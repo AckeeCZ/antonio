@@ -9,7 +9,7 @@
         "build:lib": "cross-env BABEL_ENV=lib babel src --out-dir lib",
         "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
         "build:dist": "webpack --config webpack.config.js",
-        "build": "npm run build:dist && npm run build:es && npm run build:lib",
+        "build": "rm -rf ./dist ./es ./lib && npm run build:dist && npm run build:es && npm run build:lib",
         "prepublish": "npm run build",
         "start": "npm run build:es && onchange 'src/**/*.js' -- npm run build:es"
     },
@@ -24,6 +24,7 @@
         "@babel/core": "^7.0.0",
         "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
         "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+        "@babel/plugin-syntax-dynamic-import": "^7.0.0",
         "@babel/plugin-transform-runtime": "^7.0.0",
         "@babel/preset-env": "^7.0.0",
         "babel-eslint": "^9.0.0",
