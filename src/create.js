@@ -7,7 +7,6 @@ import * as Store from './store';
 import saga from './sagas';
 import * as errors from './errors';
 import { enhancedError } from './utilities';
-import { METHODS } from 'http';
 
 /**
  * setAccessTokenTimeout is called when access token isn't available (IS_AUTH is false).
