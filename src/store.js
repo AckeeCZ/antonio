@@ -1,4 +1,6 @@
 import defaultConfig from './defaultConfig';
+import * as errors from './errors';
+import { enhancedError } from './utilities';
 
 const keys = {
     IS_AUTH: 'isAuth',
@@ -23,7 +25,7 @@ const state = {
  */
 const set = (key, value) => {
     if (value === undefined) {
-        throw new TypeError("The 'value' parameter mustn't be 'undefined', any other type is allowed.");
+        throw enhancedError(errors.store.undefinedValue, TypeError);
     }
 
     state[key] = value;

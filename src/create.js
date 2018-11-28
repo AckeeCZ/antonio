@@ -4,14 +4,14 @@ import { actionTypes } from 'ackee-redux-token-auth';
 
 import * as Store from './store';
 import saga from './sagas';
+import * as errors from './errors';
+import { enhancedError } from './utilities';
 
 const authRequestProxy = methodHandler =>
     function*(...args) {
         if (!Store.get(Store.keys.IS_AUTH)) {
             if (!Store.get(Store.keys.SAGA_INITIALIZED)) {
-                throw new Error(
-                    `ackee-http-client: The HTTP client's 'saga' must be connected among your other sagas.`,
-                );
+                throw enhancedError(errors.authRequestProxy.unconnectedSaga);
             }
 
             yield take(actionTypes.ACCESS_TOKEN_AVAILABLE);
@@ -38,7 +38,7 @@ function createApiWithAxios(options, proxy) {
 
 export default function create(axionsRequestConfig = {}, customConfig = {}) {
     if (Store.get(Store.keys.WAS_INITIALIZED)) {
-        throw new Error(`ackee-http-client: the 'create' method may be called only once.`);
+        throw enhancedError(errors.create.errors);
     }
 
     Store.set(Store.keys.WAS_INITIALIZED, true);
