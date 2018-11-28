@@ -96,6 +96,10 @@ async function fetchPost(postId) {
 }
 ```
 
+> ### Shared `defaults`
+>
+> Even though `api` and `authApi` are created as separated axios instances, they share the same default request config object - [`api.defaults` and `authApi.defaults`](https://github.com/axios/axios#request-config). This issue/feature is caused by how axios is implemented and `ackee-http-client` won't change it. Just don't be surprised, when you see the `Authorization` header also in requests created by the `api`.
+
 ---
 
 ## <a name="api"></a>API
