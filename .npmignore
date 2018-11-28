@@ -1,1 +1,10 @@
-/src/
+node_modules
+package-lock.json
+src/
+prettier.config.js
+yarn.lock
+.eslintrc.json
+.eslintignore
+.editorconfig
+babel.config.js
+.gitignore
