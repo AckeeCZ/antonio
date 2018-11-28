@@ -80,7 +80,9 @@ async function fetchTodo(todoId) {
 
 ### `authApi` - authorized requests
 
-By using methods under `authApi` object, it's guarantee that each HTTP request is going to have access token in its `Authorization` header.
+By using methods under `authApi` object, it's guaranteed that each HTTP request is going to have access token in its `Authorization` header.
+
+If the access token isn't available at the moment, the request is paused by `take(ACCESS_TOKEN_AVAILABLE)` effect, and timeout, if enabled, is set. See [`accessTokenUnavailableTimeout` at create method](#api-create-customConfig) for more details.
 
 See [available properties](#api-create-http-client) of the `authApi` object.
 
@@ -106,7 +108,7 @@ This method receives two objects as arguments.
 
     The `axiosRequestConfig` is reserved for axios default request configuration, see [available options](https://github.com/axios/axios#request-config).
 
--   `customConfig: Object`
+-   <a name="api-create-customConfig"></a>`customConfig: Object`
 
     The `customConfig` object offers following default options:
 
@@ -117,9 +119,9 @@ This method receives two objects as arguments.
         // If it's false, `setAuthHeader` won't be ever triggered.
         manageAuthHeader: true,
 
-        // If `manageAuthHeader` is enabled, `setAuthHeader` receives object with default headers,
-        // when access token state changes.
         /**
+         * If `manageAuthHeader` is enabled, `setAuthHeader` receives
+         * object with default headers, when access token state changes.
          * @param {Object} headers - reference to axios default request headers object (https://github.com/axios/axios#custom-instance-defaults)
          * @param {String|null} accessToken
          */
@@ -130,7 +132,20 @@ This method receives two objects as arguments.
             } else {
                 delete headers.common.Authorization;
             }
-        }
+        },
+
+        // If it's used `authApi` and access token isn't available,
+        // there is optionable timeout with following default values:
+        accessTokenUnavailableTimeout: {
+            // enable / disable the timeout
+            enabled: false,
+            // set timeout duration for 30s
+            duration: 1000 * 30,
+            // if silent is true, then throw a custom error,
+            // othewise API request will be made that fails,
+            // and throws a server error
+            silent: false,
+        },
     }
     ```
 

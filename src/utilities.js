@@ -10,7 +10,7 @@ export const enhancedError = (error = {}, ErrorClass = Error) => {
         const row = `\t"${entry[0]}": "${entry[1]}"`;
 
         return `${acc}\n${row}`;
-    }, `\n:${pkgName} {`);
+    }, `\n${pkgName}: {`);
 
     return new ErrorClass(`${string}\n}`);
 };
