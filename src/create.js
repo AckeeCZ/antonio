@@ -7,6 +7,7 @@ import * as Store from './store';
 import saga from './sagas';
 import * as errors from './errors';
 import { enhancedError } from './utilities';
+import { METHODS } from 'http';
 
 /**
  * setAccessTokenTimeout is called when access token isn't available (IS_AUTH is false).
@@ -49,11 +50,15 @@ function createApiWithAxios(options, proxy) {
     const axiosClient = axios.create(options);
     const api = {};
 
+    const objects = new Set(['defaults', 'interceptors']);
+
     // - unwrap axios HTTP method handlers
     // - add custom proxies
     for (const key of Object.keys(axiosClient)) {
         const methodHandler = axiosClient[key];
-        api[key] = proxy ? proxy(methodHandler) : methodHandler;
+
+        // wrap only functions with proxy function
+        api[key] = !objects.has(key) && proxy ? proxy(methodHandler) : methodHandler;
     }
 
     Object.freeze(api);
