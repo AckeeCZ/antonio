@@ -8,7 +8,7 @@ import saga from './sagas';
 const authRequestProxy = methodHandler =>
     function*(...args) {
         if (!Store.get(Store.keys.IS_AUTH)) {
-            if (!Store.get(Store.keys.SAGA_INITIALIZE)) {
+            if (!Store.get(Store.keys.SAGA_INITIALIZED)) {
                 throw new Error(
                     `ackee-http-client: The HTTP client's 'saga' must be connected among your other sagas.`,
                 );
@@ -37,6 +37,12 @@ function createApiWithAxios(options, proxy) {
 }
 
 export default function create(axionsRequestConfig = {}, customConfig = {}) {
+    if (Store.get(Store.keys.WAS_INITIALIZED)) {
+        throw new Error(`ackee-http-client: the 'create' method may be called only once.`);
+    }
+
+    Store.set(Store.keys.WAS_INITIALIZED, true);
+
     const defaultConfig = Store.get(Store.keys.CONFIG);
 
     Store.set(Store.keys.CONFIG, {
