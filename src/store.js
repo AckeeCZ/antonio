@@ -1,5 +1,5 @@
 import defaultConfig from './defaultConfig';
-import * as errors from './errors';
+import * as Errors from './errors';
 import { enhancedError } from './utilities';
 
 const keys = {
@@ -25,7 +25,7 @@ const state = {
  */
 const set = (key, value) => {
     if (value === undefined) {
-        throw enhancedError(errors.store.undefinedValue, TypeError);
+        throw enhancedError(Errors.store.undefinedValue, TypeError);
     }
 
     state[key] = value;

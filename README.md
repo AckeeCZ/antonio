@@ -153,6 +153,8 @@ This method receives two objects as arguments.
     }
     ```
 
+#### And returns:
+
 -   <a name="api-create-http-client"></a>`httpClient: Object`
 
     #### `api`, `authApi`
@@ -170,6 +172,24 @@ This method receives two objects as arguments.
     -   `api.getUri([config])`
     -   [`api.defaults`](https://github.com/axios/axios#custom-instance-defaults)
     -   [`api.interceptors`](https://github.com/axios/axios#interceptors)
+
+    ##### `config`
+
+    -   `uriParams: Object` - Key-value object containing request uri params. Params that are found in url are replaced, rest is ignored.
+
+        ```js
+        yield api.get('/todos/:todoId', {
+            baseURL: 'https://jsonplaceholder.typicode.com',
+            uriParams: {
+                // ':todoId' will be replaced with '1'
+                todoId: '1',
+                // 'foo' will be ignored and won't be added as a query parameter
+                foo: '2,
+            },
+        });
+        ```
+
+        See rest of available options - [axios/request-config](https://github.com/axios/axios#request-config)
 
 
     #### `saga`
