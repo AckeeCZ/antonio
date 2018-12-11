@@ -32,12 +32,15 @@
         "eslint-config-prettier": "^3.3.0",
         "onchange": "^5.1.0",
         "prettier": "^1.15.2",
-        "prettier-config-ackee": "^0.0.4"
+        "prettier-config-ackee": "^0.0.4",
+        "redux-saga": "0.16.x"
     },
     "dependencies": {
         "@babel/runtime": "^7.1.5",
         "ackee-redux-token-auth": "2.x.x",
-        "axios": "0.18.x",
+        "axios": "0.18.x"
+    },
+    "peerDependencies": {
         "redux-saga": "0.16.x"
     },
     "browserslist": [
