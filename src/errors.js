@@ -22,3 +22,19 @@ export const store = {
         message: "The 'value' parameter mustn't be 'undefined', any other type is allowed.",
     },
 };
+
+export const requestInterceptors = {
+    undefinedUriParamProp: ({ uriParamKey, config: { method, baseURL, uriParams, url } }) => ({
+        name: 'uriParams/undefined-property',
+        message: `uriParams object must include '${uriParamKey}' property. Check request config with: ${JSON.stringify(
+            {
+                method,
+                baseURL,
+                uriParams,
+                url,
+            },
+            null,
+            6,
+        )}`,
+    }),
+};
