@@ -1,6 +1,6 @@
 {
     "name": "@ackee/antonio",
-    "version": "2.2.7",
+    "version": "2.2.9",
     "description": "A HTTP client built on axios. An access token is injected to authorization header by @ackee/petrus.",
     "main": "lib/index.js",
     "module": "es/index.js",
@@ -8,9 +8,9 @@
         "prettier": "prettier --config ./prettier.config.js --write './src/**/*.{js,jsx}'",
         "build:lib": "rm -rf ./lib && cross-env BABEL_ENV=lib babel src --out-dir lib",
         "build:es": "rm -rf ./es && cross-env BABEL_ENV=es babel src --out-dir es",
-        "build": "yarn run build:es & npm run build:lib",
-        "prepare": "npm run build",
-        "start": "yarn install && yarn lint && yarn run build:es && onchange 'src/**/*.{js,jsx}' -- yarn run build:es",
+        "build": "yarn build:es & yarn build:lib",
+        "prepare": "yarn build",
+        "start": "yarn install && yarn lint && yarn build:es && onchange 'src/**/*.{js,jsx}' -- yarn build:es",
         "lint": "eslint 'src/**/*.{js,jsx}'"
     },
     "author": "Jiří Čermák <jiri.cermak@ackee.cz>",
@@ -44,7 +44,10 @@
         "axios": "0.18.0"
     },
     "peerDependencies": {
-        "redux-saga": "0.16.x"
+        "redux-saga": "0.16.x",
+        "react": "^16.6.3",
+        "react-redux": "^6.0.0",
+        "redux": "^4.0.1"
     },
     "browserslist": [
         "last 2 version",
