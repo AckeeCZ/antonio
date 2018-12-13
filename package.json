@@ -1,6 +1,6 @@
 {
     "name": "@ackee/antonio",
-    "version": "2.2.1",
+    "version": "2.2.2",
     "description": "A HTTP client built on axios. Authorized requests are handled by @ackee/petrus.",
     "main": "lib/index.js",
     "module": "es/index.js",
