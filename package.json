@@ -1,7 +1,7 @@
 {
-    "name": "ackee-http-client",
+    "name": "@ackee/antonio",
     "version": "2.2.1",
-    "description": "",
+    "description": "A HTTP client built on axios. Authorized requests are handled by @ackee/petrus.",
     "main": "lib/index.js",
     "module": "es/index.js",
     "scripts": {
@@ -10,35 +10,38 @@
         "build:es": "rm -rf ./es && cross-env BABEL_ENV=es babel src --out-dir es",
         "build": "yarn run build:es & npm run build:lib",
         "prepare": "npm run build",
-        "start": "yarn install && yarn run build:es && onchange 'src/**/*.{js,jsx}' -- yarn run build:es"
+        "start": "yarn install && yarn lint && yarn run build:es && onchange 'src/**/*.{js,jsx}' -- yarn run build:es",
+        "lint": "eslint 'src/**/*.{js,jsx}'"
     },
     "author": "Jiří Čermák <jiri.cermak@ackee.cz>",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://gitlab.ack.ee/Web/http-client"
+        "url": "https://github.com/AckeeCZ/antonio"
     },
     "devDependencies": {
-        "@babel/cli": "^7.0.0",
-        "@babel/core": "^7.0.0",
-        "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
-        "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-        "@babel/plugin-transform-runtime": "^7.0.0",
-        "@babel/preset-env": "^7.0.0",
-        "babel-eslint": "^9.0.0",
+        "@babel/cli": "^7.2.0",
+        "@babel/core": "^7.2.0",
+        "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+        "@babel/plugin-transform-runtime": "^7.2.0",
+        "@babel/preset-env": "^7.2.0",
+        "babel-eslint": "^10.0.1",
         "cross-env": "^5.2.0",
-        "eslint": "^5.9.0",
+        "eslint": "^5.10.0",
         "eslint-config-ackee": "^0.9.0",
         "eslint-config-prettier": "^3.3.0",
-        "onchange": "^5.1.0",
-        "prettier": "^1.15.2",
-        "prettier-config-ackee": "^0.0.4",
+        "husky": "^1.2.0",
+        "lint-staged": "^8.1.0",
+        "onchange": "^5.2.0",
+        "prettier": "^1.15.3",
+        "prettier-config-ackee": "^0.0.5",
         "redux-saga": "0.16.x"
     },
     "dependencies": {
-        "@babel/runtime": "^7.1.5",
-        "ackee-redux-token-auth": "2.x.x",
-        "axios": "0.18.x"
+        "@ackee/petrus": "3.0.x",
+        "@babel/runtime": "^7.2.0",
+        "axios": "0.18.0"
     },
     "peerDependencies": {
         "redux-saga": "0.16.x"
@@ -49,5 +52,19 @@
         "maintained node versions",
         "not dead",
         "IE > 11"
-    ]
+    ],
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,jsx,json,scss,less,css,md}": [
+            "prettier --config ./prettier.config.js --write && yarn lint",
+            "git add"
+        ]
+    },
+    "publishConfig": {
+        "access": "public"
+    }
 }

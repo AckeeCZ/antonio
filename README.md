@@ -1,6 +1,8 @@
-# ackee-http-client
+![ackee|Antonio](https://img.ack.ee/ackee/image/github/js)
 
-The HTTP client uses [axios](https://github.com/axios/axios) for making all HTTP requests and [ackee-redux-token-auth](https://www.npmjs.com/package/ackee-redux-token-auth) for setting a access token to HTTP Authorization header.
+# Antonio
+
+The HTTP client uses [axios](https://github.com/axios/axios) for making all HTTP requests and [@ackee/petrus](https://www.npmjs.com/package/@ackee/petrus) for adding an access token to HTTP Authorization header.
 
 ## Table of contents
 
@@ -17,13 +19,13 @@ The HTTP client uses [axios](https://github.com/axios/axios) for making all HTTP
 Using yarn:
 
 ```bash
-$ yarn add ackee-http-client
+$ yarn add @ackee/antonio
 ```
 
 Using npm:
 
 ```bash
-$ npm install ackee-http-client
+$ npm i -S @ackee/antonio
 ```
 
 ---
@@ -39,9 +41,9 @@ By creating a new instance of `HttpClient`, you will get `api`, `authApi` object
 Create one `httpClient` instance object per project.
 
 ```js
-import { create } from 'ackee-http-client';
+import * as Antonio from '@ackee/antonio';
 
-const { api, authApi, saga } = create({
+const { api, authApi, saga } = Antonio.create({
     baseURL: 'https://base-url.com/api/',
 });
 
@@ -51,7 +53,7 @@ export { api, authApi, saga };
 ### 2. Launch HttpClient saga
 
 ```js
-import { saga as httpClient } from 'Config/http-client';
+import { saga as httpClient } from 'Config/antonio';
 
 export default function*() {
     // httpClient saga must come before redux-token-auth saga
@@ -66,7 +68,7 @@ export default function*() {
 See [available properties](#api-create-http-client) of the `api` object.
 
 ```js
-import { api } from 'Config/http-client';
+import { api } from 'Config/antonio';
 
 async function fetchTodo(todoId) {
     const response = await api.get(`/todos/${todoId}`, {
@@ -87,7 +89,7 @@ If the access token isn't available at the moment, the request is paused by `tak
 See [available properties](#api-create-http-client) of the `authApi` object.
 
 ```js
-import { authApi } from 'Config/http-client';
+import { authApi } from 'Config/antonio';
 
 async function fetchPost(postId) {
     const response = await authApi.get(`/posts/${postId}`);
@@ -98,7 +100,7 @@ async function fetchPost(postId) {
 
 > ### Shared `defaults`
 >
-> Even though `api` and `authApi` are created as separated axios instances, they share the same default request config object - [`api.defaults` and `authApi.defaults`](https://github.com/axios/axios#request-config). This issue/feature is caused by how axios is implemented and `ackee-http-client` won't change it. Just don't be surprised, when you see the `Authorization` header also in requests created by the `api`.
+> Even though `api` and `authApi` are created as separated axios instances, they share the same default request config object - [`api.defaults` and `authApi.defaults`](https://github.com/axios/axios#request-config). This issue/feature is caused by how axios is implemented and `@ackee/antonio` won't change it. Just don't be surprised, when you see the `Authorization` header also in requests created by the `api`.
 
 ---
 
@@ -198,9 +200,9 @@ This method receives two objects as arguments.
 #### Example
 
 ```js
-import { create } from 'ackee-http-client';
+import * as Antonio from '@ackee/antonio';
 
-const { authApi } = create(
+const { authApi } = Antonio.create(
     {
         baseURL: 'https://jsonplaceholder.typicode.com/',
     },
