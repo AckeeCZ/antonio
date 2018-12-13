@@ -71,9 +71,12 @@ See [available properties](#api-create-http-client) of the `api` object.
 import { api } from 'Config/antonio';
 
 async function fetchTodo(todoId) {
-    const response = await api.get(`/todos/${todoId}`, {
+    const response = await api.get('/todos/:todoId', {
         // overwrite the default baseURL
         baseURL: 'https://jsonplaceholder.typicode.com/',
+        uriParams: {
+            todoId,
+        },
     });
 
     return response.data;
