@@ -1,6 +1,6 @@
 import { delay } from 'redux-saga';
 import { take, call, race } from 'redux-saga/effects';
-import { actionTypes } from 'ackee-redux-token-auth';
+import { actionTypes } from '@ackee/petrus';
 
 import * as Store from '../store';
 import * as Errors from '../errors';

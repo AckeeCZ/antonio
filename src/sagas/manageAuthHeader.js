@@ -1,5 +1,5 @@
 import { takeEvery } from 'redux-saga/effects';
-import { actionTypes } from 'ackee-redux-token-auth';
+import { actionTypes } from '@ackee/petrus';
 
 import * as Store from '../store';
 
