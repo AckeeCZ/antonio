@@ -186,7 +186,7 @@ This method receives two objects as arguments.
                 // ':todoId' will be replaced with '1'
                 todoId: '1',
                 // 'foo' will be ignored and won't be added as a query parameter
-                foo: '2,
+                foo: '2',
             },
         });
         ```
