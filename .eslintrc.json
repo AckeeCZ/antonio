@@ -3,5 +3,13 @@
         "browser": true,
         "node": true
     },
-    "extends": ["ackee", "prettier"]
+    "extends": ["ackee", "prettier"],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    }
 }
