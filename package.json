@@ -1,7 +1,7 @@
 {
     "name": "@ackee/antonio",
     "version": "2.2.3",
-    "description": "A HTTP client built on axios. Authorized requests are handled by @ackee/petrus.",
+    "description": "A HTTP client built on axios. An access token is injected to authorization header by @ackee/petrus.",
     "main": "lib/index.js",
     "module": "es/index.js",
     "scripts": {
