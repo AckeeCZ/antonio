@@ -44,7 +44,10 @@
         "axios": "0.18.0"
     },
     "peerDependencies": {
-        "redux-saga": "0.16.x"
+        "redux-saga": "0.16.x",
+        "react": "^16.6.3",
+        "react-redux": "^6.0.0",
+        "redux": "^4.0.1"
     },
     "browserslist": [
         "last 2 version",
