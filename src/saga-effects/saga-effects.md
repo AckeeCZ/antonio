@@ -1,5 +1,7 @@
 # Custom Saga Effects
 
+Custom Saga effects with built-in cancelation of API requests.
+
 ## API
 
 ### `takeRequest(actionTypes: Object, task: Function)`
@@ -17,7 +19,7 @@
 import { create } from '@ackee/antonio';
 import { takeRequest } from '@ackee/antonio/lib/saga-effects';
 
-// create antoio instance
+// create antonio instance
 const { api } = create({
     baseURL: 'https://jsonplaceholder.typicode.com/',
 });
@@ -55,10 +57,10 @@ export default function*() {
 #### Example
 
 ```js
-import { create } from '@ackee/antoio';
-import { takeLatestRequest } from '@ackee/antoio/lib/saga-effects';
+import { create } from '@ackee/antonio';
+import { takeLatestRequest } from '@ackee/antonio/lib/saga-effects';
 
-// create antoio instance
+// create antonio instance
 const { api } = create({
     baseURL: 'https://jsonplaceholder.typicode.com/',
 });
@@ -104,9 +106,9 @@ Low-level method used in previous custom effects.
 #### Implementation
 
 ```js
-import { CancelToken } from 'axios'; 
+import { CancelToken } from 'axios';
 import { race, call, take } from 'redux-saga/effects';
-import { takeLatestRequest } from '@ackee/antoio/lib/saga-effects';
+import { takeLatestRequest } from '@ackee/antonio/lib/saga-effects';
 
 export default function* cancellableTask({ taskArg, CANCEL, task }) {
     const source = CancelToken.source();
