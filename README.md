@@ -10,7 +10,7 @@ A HTTP client that uses [axios](https://github.com/axios/axios) for making all H
 -   [Initialization](#initialization)
 -   [API](#api)
     -   [create](#api-create)
-    -   [Saga Effects](#api-saga-effects)
+    -   [Saga Effects](src/saga-effects/saga-effects.md)
 
 ---
 
@@ -32,7 +32,7 @@ $ npm i -S @ackee/antonio
 
 ## <a name="initialization"></a>Initialization
 
-### 1. Create new instance 
+### 1. Create new instance
 
 ```js
 import * as Antonio from '@ackee/antonio';
@@ -47,6 +47,7 @@ export { api, authApi, saga };
 ```
 
 ### 2. Connect the saga
+
 Initializes the saga handlers generator. This should be passed along with your other sagas.
 
 ```js
@@ -112,11 +113,12 @@ This method receives two objects as arguments.
 
 -   `defaultRequestConfig: Object`
 
-    The `defaultRequestConfig` object is passed to axios as default request configuration. 
-    
-    __Available properties__:
-    - [axios request config](https://github.com/axios/axios#request-config)   
-    - additional props:
+    The `defaultRequestConfig` object is passed to axios as default request configuration.
+
+    **Available properties**:
+
+    -   [axios request config](https://github.com/axios/axios#request-config)
+    -   additional props:
         ```js
         // `uriParams` - Key-value object containing request uri params. Params that are found in url are replaced, rest is ignored.
         uriParams: {
@@ -188,6 +190,7 @@ This method receives two objects as arguments.
     -   [`api.interceptors`](https://github.com/axios/axios#interceptors)
 
     #### `saga`
+
     Internal saga, primarily for communication with [`@ackee/petrus`](https://github.com/AckeeCZ/petrus).
 
 #### Example
