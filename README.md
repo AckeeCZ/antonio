@@ -2,7 +2,7 @@
 
 # Antonio
 
-The HTTP client uses [axios](https://github.com/axios/axios) for making all HTTP requests and [@ackee/petrus](https://www.npmjs.com/package/@ackee/petrus) for adding an access token to HTTP Authorization header.
+A HTTP client that uses [axios](https://github.com/axios/axios) for making all HTTP requests and [@ackee/petrus](https://www.npmjs.com/package/@ackee/petrus) for adding an access token to the Authorization header.
 
 ## Table of contents
 
@@ -32,32 +32,29 @@ $ npm i -S @ackee/antonio
 
 ## <a name="initialization"></a>Initialization
 
-Initialization is a simple 2 steps process.
-
-By creating a new instance of `HttpClient`, you will get `api`, `authApi` objects and `saga` function. Then you connect the saga among your other sagas. That's all.
-
-### 1. Create `httpClient` instance
-
-Create one `httpClient` instance object per project.
+### 1. Create new instance 
 
 ```js
 import * as Antonio from '@ackee/antonio';
 
-const { api, authApi, saga } = Antonio.create({
-    baseURL: 'https://base-url.com/api/',
-});
+const defaultRequestConfig = {
+    baseURL: 'https://base-url.com/api',
+};
+
+const { api, authApi, saga } = Antonio.create(defaultRequestConfig);
 
 export { api, authApi, saga };
 ```
 
-### 2. Launch HttpClient saga
+### 2. Connect the saga
+Initializes the saga handlers generator. This should be passed along with your other sagas.
 
 ```js
-import { saga as httpClient } from 'Config/antonio';
+import { saga as antonio } from 'Config/antonio';
 
 export default function*() {
-    // httpClient saga must come before redux-token-auth saga
-    yield all([httpClient()]);
+    // antonio's saga must come before @ackee/petrus saga
+    yield all([antonio()]);
 }
 ```
 
@@ -70,8 +67,8 @@ See [available properties](#api-create-http-client) of the `api` object.
 ```js
 import { api } from 'Config/antonio';
 
-async function fetchTodo(todoId) {
-    const response = await api.get('/todos/:todoId', {
+function* fetchTodo(todoId) {
+    const response = yield api.get('/todos/:todoId', {
         // overwrite the default baseURL
         baseURL: 'https://jsonplaceholder.typicode.com/',
         uriParams: {
@@ -85,17 +82,17 @@ async function fetchTodo(todoId) {
 
 ### `authApi` - authorized requests
 
-By using methods under `authApi` object, it's guaranteed that each HTTP request is going to have access token in its `Authorization` header.
+By using methods under `authApi` object, it's guaranteed that each HTTP request is going to have an access token in its `Authorization` header.
 
-If the access token isn't available at the moment, the request is paused by `take(ACCESS_TOKEN_AVAILABLE)` effect, and timeout, if enabled, is set. See [`accessTokenUnavailableTimeout` at create method](#api-create-customConfig) for more details.
+If the access token isn't available at the moment, the request is paused by `take(ACCESS_TOKEN_AVAILABLE)` effect, and timeout, if enabled, is set. See the [`accessTokenUnavailableTimeout`](#api-create-customConfig) for more details.
 
 See [available properties](#api-create-http-client) of the `authApi` object.
 
 ```js
 import { authApi } from 'Config/antonio';
 
-async function fetchPost(postId) {
-    const response = await authApi.get(`/posts/${postId}`);
+function* fetchPost(postId) {
+    const response = yield authApi.get(`/posts/${postId}`);
 
     return response.data;
 }
@@ -109,13 +106,25 @@ async function fetchPost(postId) {
 
 ## <a name="api"></a>API
 
-### <a name="api-create"></a>`create(axiosRequestConfig: Object, customConfig: Object) => httpClient:Object`
+### <a name="api-create"></a>`create(defaultRequestConfig: Object, customConfig: Object) => Object`
 
 This method receives two objects as arguments.
 
--   `axiosRequestConfig: Object`
+-   `defaultRequestConfig: Object`
 
-    The `axiosRequestConfig` is reserved for axios default request configuration, see [available options](https://github.com/axios/axios#request-config).
+    The `defaultRequestConfig` object is passed to axios as default request configuration. 
+    
+    __Available properties__:
+    - [axios request config](https://github.com/axios/axios#request-config)   
+    - additional props:
+        ```js
+        // `uriParams` - Key-value object containing request uri params. Params that are found in url are replaced, rest is ignored.
+        uriParams: {
+            // ':todoId' will be replaced with '1'
+            // '/todos/:todoId' -> '/todos/1'
+            todoId: '1',
+        },
+        ```
 
 -   <a name="api-create-customConfig"></a>`customConfig: Object`
 
@@ -160,11 +169,11 @@ This method receives two objects as arguments.
 
 #### And returns:
 
--   <a name="api-create-http-client"></a>`httpClient: Object`
+-   <a name="api-create-http-client"></a>`Object`
 
     #### `api`, `authApi`
 
-    The `httpClient` object contains two axios instances: `api` and `authApi` with the same properties:
+    `api` and `authApi` have the same following properties:
 
     -   `api.request(config)`
     -   `api.get(url[, config])`
@@ -178,27 +187,8 @@ This method receives two objects as arguments.
     -   [`api.defaults`](https://github.com/axios/axios#custom-instance-defaults)
     -   [`api.interceptors`](https://github.com/axios/axios#interceptors)
 
-    ##### `config`
-
-    -   `uriParams: Object` - Key-value object containing request uri params. Params that are found in url are replaced, rest is ignored.
-
-        ```js
-        yield api.get('/todos/:todoId', {
-            baseURL: 'https://jsonplaceholder.typicode.com',
-            uriParams: {
-                // ':todoId' will be replaced with '1'
-                todoId: '1',
-                // 'foo' will be ignored and won't be added as a query parameter
-                foo: '2',
-            },
-        });
-        ```
-
-        See rest of available options - [axios/request-config](https://github.com/axios/axios#request-config)
-
-
     #### `saga`
-    Internal saga primarily for communication with `ackee-redux-token-auth`.
+    Internal saga, primarily for communication with [`@ackee/petrus`](https://github.com/AckeeCZ/petrus).
 
 #### Example
 
