@@ -3,7 +3,7 @@ node_js:
     - 8
 script: yarn lint && yarn install && yarn build
 deploy:
-    provider: yarn
+    provider: npm
     email: ackeedevelopment@gmail.com
     skip_cleanup: true
     api_key:
