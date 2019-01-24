@@ -145,12 +145,12 @@ This method receives two objects as arguments.
          * If `manageAuthHeader` is enabled, `setAuthHeader` receives
          * object with default headers, when access token state changes.
          * @param {Object} headers - reference to axios default request headers object (https://github.com/axios/axios#custom-instance-defaults)
-         * @param {String|null} accessToken
+         * @param {Object|null} accessToken
          */
         setAuthHeader(headers, accessToken) {
             if (accessToken) {
                 // `common` indicates that it's a default header for all HTTP methods
-                headers.common.Authorization = `Bearer ${accessToken}`;
+                headers.common.Authorization = `Bearer ${accessToken.token}`;
             } else {
                 delete headers.common.Authorization;
             }

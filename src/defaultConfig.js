@@ -3,7 +3,7 @@ const config = {
 
     setAuthHeader(headers, accessToken) {
         if (accessToken) {
-            headers.common.Authorization = `Bearer ${accessToken}`;
+            headers.common.Authorization = `Bearer ${accessToken.token}`;
         } else {
             delete headers.common.Authorization;
         }
