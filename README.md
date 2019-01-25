@@ -209,7 +209,7 @@ const { authApi } = Antonio.create(
         // by providing a custom setAuthHeader method:
         setAuthHeader(headers, accessToken) {
             if (accessToken) {
-                headers.common.Authorization = accessToken;
+                headers.common.Authorization = `${accessToken.tokenType} ${accessToken.token}`;
             } else {
                 delete headers.common.Authorization;
             }
