@@ -1,5 +1,5 @@
 import { takeEvery } from 'redux-saga/effects';
-import { actionTypes } from '@ackee/petrus';
+import { actionTypes } from '@ackee/petrus/worker';
 
 import * as Store from '../store';
 
