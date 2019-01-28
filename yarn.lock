@@ -11,6 +11,15 @@
     localforage "^1.7.3"
     react-display-name "^0.2.4"
 
+"@ackee/petrus@https://github.com/AckeeCZ/petrus.git#feature/redux-worker":
+  version "3.1.0"
+  resolved "https://github.com/AckeeCZ/petrus.git#c63f2aa9a57c48051945806f82338817c567a98a"
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    localforage "^1.7.3"
+    lodash "^4.17.11"
+    react-display-name "^0.2.4"
+
 "@babel/cli@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.2.0.tgz#505ed8d351daee6a88918da02c046c18c8c5a24f"
@@ -2492,7 +2501,7 @@ lodash.debounce@^4.0.8:
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
-lodash@^4.17.10, lodash@^4.17.4, lodash@^4.17.5:
+lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==

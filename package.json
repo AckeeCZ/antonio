@@ -39,15 +39,15 @@
         "redux-saga": "0.16.x"
     },
     "dependencies": {
-        "@ackee/petrus": "3.0.x",
+        "@ackee/petrus": "https://github.com/AckeeCZ/petrus.git#feature/redux-worker",
         "@babel/runtime": "^7.2.0",
         "axios": "0.18.0"
     },
     "peerDependencies": {
-        "redux-saga": "0.16.x",
         "react": "^16.6.3",
-        "redux-worker": "^6.0.0",
-        "redux": "^4.0.1"
+        "redux": "^4.0.1",
+        "redux-saga": "0.16.x",
+        "redux-worker": "^6.0.0"
     },
     "browserslist": [
         "last 2 version",
