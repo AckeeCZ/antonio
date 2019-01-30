@@ -1,5 +1,4 @@
-import { delay } from 'redux-saga';
-import { take, call, race } from 'redux-saga/effects';
+import { take, call, race, delay } from 'redux-saga/effects';
 import { actionTypes } from '@ackee/petrus';
 
 import * as Store from '../store';
