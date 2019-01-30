@@ -17,7 +17,7 @@ Custom Saga effects with built-in cancelation of API requests.
 
 ```js
 import { create } from '@ackee/antonio';
-import { takeRequest } from '@ackee/antonio/lib/saga-effects';
+import { takeRequest } from '@ackee/antonio/es/saga-effects';
 
 // create antonio instance
 const { api } = create({
@@ -51,14 +51,16 @@ export default function*() {
 
 -   `params: Object`
     -   `REQUEST: String` - action type that starts the task
-    -   `cancelTask: Function` - Redux action that will cancel the running task
+    -   `cancelTask: Function` - Redux action that will cancel the
+        running task
+    -   `requestIdSelector: Function` (optional) - A function that receives request action as 1st arg. and returns unique ID of this action, e.g. user ID.
 -   `task(requestAction, cancelToken): Function` - the actual API request is made here
 
 #### Example
 
 ```js
 import { create } from '@ackee/antonio';
-import { takeLatestRequest } from '@ackee/antonio/lib/saga-effects';
+import { takeLatestRequest } from '@ackee/antonio/es/saga-effects';
 
 // create antonio instance
 const { api } = create({
@@ -90,31 +92,75 @@ export default function*() {
 }
 ```
 
+### Example - take latest request for certain user
+
+If `requestIdSelector` function provided, instead of cancelling of all previous requests and taking only the last one for certain action type, take the lastest request for certain user, i.e. **identify the request by action type and by an ID**.
+
+```js
+import { create } from '@ackee/antonio';
+import { takeLatestRequest } from '@ackee/antonio/es/saga-effects';
+
+// create antonio instance
+const { api } = create({
+    baseURL: 'https://jsonplaceholder.typicode.com/',
+});
+
+// The 'cancelToken' must be passed to the request config object:
+function* fetchUser(requestAction, cancelToken) {
+    const { userId } = requestAction;
+    const response = yield api.get(`users/${userId}`, {
+        cancelToken,
+    });
+
+    return response.data;
+}
+
+const fetchUserInvalidate = userId => ({
+    type: 'FETCH_USER_INVALIDATE',
+    userId,
+});
+
+export default function*() {
+    // Works same as the Redux saga takeLatest effect, but on top of that, it cancels the API request.
+    yield takeLatestRequest(
+        {
+            REQUEST: 'FETCH_USER_REQUEST',
+            cancelTask: fetchUserInvalidate,
+            requestIdSelector: action => action.userId,
+        },
+        fetchUser,
+    );
+}
+```
+
 ---
 
-### `cancelableTask({ task: Function, taskArg: Any, CANCEL: String })`
+### `cancelableHandler({ handler: Function, handlerArg: Any, CANCEL: String })`
 
 Low-level method used in previous custom effects.
 
 #### Parameters
 
 -   `Object`
-    -   `task: Function` - A function that receives `taskArg` and `cancelToken` as first two parameters.
-    -   `taskArg: Any` - any value passed as 1st argument to the `task` function (most likely object returned by a request action)
-    -   `CANCEL: String` - An action type that cancel the running `task` with the API request in progress.
+    -   `handler: Function` - A function that receives `handlerArg` and `cancelToken` as first two parameters.
+    -   `handlerArg: Any` - any value passed as 1st argument to the `handler` function (most likely object returned by a request action)
+    -   `CANCEL: String` - An action type that cancel the running `handler` with the API request in progress.
 
 #### Implementation
 
 ```js
 import { CancelToken } from 'axios';
 import { race, call, take } from 'redux-saga/effects';
-import { takeLatestRequest } from '@ackee/antonio/lib/saga-effects';
+import { takeLatestRequest } from '@ackee/antonio/es/saga-effects';
 
-export default function* cancellableTask({ taskArg, CANCEL, task }) {
+export default function* cancellableHandler({ handlerArg, CANCEL, handler, onComplete }) {
     const source = CancelToken.source();
 
     const result = yield race({
-        task: call(task, taskArg, source.token),
+        *handler() {
+            yield call(handler, handlerArg, source.token);
+            yield call(onComplete);
+        },
         cancel: take(CANCEL),
     });
 
