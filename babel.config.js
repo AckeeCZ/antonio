@@ -1,9 +1,5 @@
 module.exports = function(api) {
-    const plugins = [
-        '@babel/plugin-proposal-object-rest-spread',
-        '@babel/plugin-proposal-export-namespace-from',
-        '@babel/plugin-transform-runtime',
-    ];
+    const plugins = ['@babel/plugin-proposal-object-rest-spread', '@babel/plugin-proposal-export-namespace-from'];
 
     const presets = {
         lib: ['@babel/preset-env'],
