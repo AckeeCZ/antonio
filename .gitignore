@@ -2,6 +2,8 @@ node_modules/
 /lib/
 /es/
 /dist/
+.yalc/
 
 *.log
 .DS_Store
+yalc.lock
