@@ -1,2 +1,2 @@
 export * from './effects';
-export { default as cancelableTask } from './cancelableTask';
+export { default as cancellableHandler } from './cancellableHandler';

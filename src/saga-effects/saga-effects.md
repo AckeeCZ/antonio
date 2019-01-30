@@ -167,7 +167,6 @@ Low-level method used in previous custom effects.
 ```js
 import { CancelToken } from 'axios';
 import { race, call, take } from 'redux-saga/effects';
-import { takeLatestRequest } from '@ackee/antonio/es/saga-effects';
 
 export default function* cancellableHandler({ handlerArg, CANCEL, handler, onComplete }) {
     const source = CancelToken.source();
