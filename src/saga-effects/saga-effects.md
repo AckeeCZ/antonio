@@ -2,16 +2,30 @@
 
 Custom Saga effects with built-in cancelation of API requests.
 
-## API
+## Table of contents
 
-### `takeRequest(actionTypes: Object, task: Function)`
+-   API Reference
+
+    -   Effect creators
+
+        -   [`takeRequest(actionTypes, saga)`](#api-takeRequest)
+        -   [`takeLatestRequest(params, saga)`](#api-takeLatestRequest)
+
+    -   Low-level
+        -   [`cancelableHandler(params)`](#api-cancelableHandler)
+
+---
+
+## <a name="api"></a>API Reference
+
+### <a name="api-takeRequest"></a>`takeRequest(actionTypes: Object, saga: Function)`
 
 #### Parameters
 
 -   `actionTypes: Object`
-    -   `REQUEST: String` - action type that starts the task
-    -   `CANCEL: String` - action type that aborts the running task
--   `task(requestAction, cancelToken): Function` - the actual API request is made here
+    -   `REQUEST: String` - action type that launches the saga
+    -   `CANCEL: String` - action type that aborts the running saga
+-   `saga(requestAction, cancelToken): Function` - the actual API request is made here
 
 #### Example
 
@@ -45,16 +59,18 @@ export default function*() {
 }
 ```
 
-### `takeLatestRequest(params: Object, task: Function)`
+---
+
+### <a name="api-takeLatestRequest"></a>`takeLatestRequest(params: Object, saga: Function)`
 
 #### Parameters
 
 -   `params: Object`
-    -   `REQUEST: String` - action type that starts the task
+    -   `REQUEST: String` - action type that launches the saga
     -   `cancelTask: Function` - Redux action that will cancel the
-        running task
+        running saga
     -   `requestIdSelector: Function` (optional) - A function that receives request action as 1st arg. and returns unique ID of this action, e.g. user ID.
--   `task(requestAction, cancelToken): Function` - the actual API request is made here
+-   `saga(requestAction, cancelToken): Function` - the actual API request is made here
 
 #### Example
 
@@ -135,7 +151,7 @@ export default function*() {
 
 ---
 
-### `cancelableHandler({ handler: Function, handlerArg: Any, CANCEL: String })`
+### <a name="api-cancelableHandler"></a>`cancelableHandler({ handler: Function, handlerArg: Any, CANCEL: String })`
 
 Low-level method used in previous custom effects.
 
