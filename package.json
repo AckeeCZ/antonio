@@ -1,6 +1,6 @@
 {
     "name": "@ackee/antonio",
-    "version": "2.3.0",
+    "version": "2.3.1",
     "description": "A HTTP client built on axios. An access token is injected to authorization header by @ackee/petrus.",
     "main": "lib/index.js",
     "module": "es/index.js",
