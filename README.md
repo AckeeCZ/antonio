@@ -12,7 +12,7 @@ A HTTP client that uses [axios](https://github.com/axios/axios) for making all H
 -   [Initialization](#initialization)
 -   [API](#api)
     -   [create](#api-create)
-    -   [Saga Effects](src/saga-effects/saga-effects.md)
+    -   [Saga Effects](src/saga-effects/README.md)
 
 ---
 
@@ -226,4 +226,4 @@ async function fetchTodo() {
 
 ### <a name="api-saga-effects"></a> Saga Effects
 
-Custom Saga effects with built-in cancelation of API requests, [see the docs](src/saga-effects/saga-effects.md).
+Custom Saga effects with built-in cancelation of API requests, [see the docs](src/saga-effects/README.md).
