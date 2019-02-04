@@ -38,7 +38,7 @@
         "redux-saga": "0.x"
     },
     "dependencies": {
-        "@ackee/petrus": "3.1.2",
+        "@ackee/petrus": "3.2.3",
         "axios": "0.18.0"
     },
     "peerDependencies": {
