@@ -10,8 +10,6 @@ export default function* takeRequest(actionTypes = {}, handler) {
     while (true) {
         const action = yield take(actionTypes.REQUEST);
 
-        console.log(action);
-
         yield cancellableHandler({
             handler,
             handlerArg: action,
