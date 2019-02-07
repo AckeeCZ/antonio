@@ -32,7 +32,10 @@ export function create(axiosRequestConfig = {}, customConfig = {}) {
 
     Store.set(Store.keys.CONFIG, {
         ...defaultConfig,
-        ...customConfig,
+        accessTokenUnavailableTimeout: {
+            ...defaultConfig.accessTokenUnavailableTimeout,
+            ...customConfig.accessTokenUnavailableTimeout,
+        },
     });
 
     const [api] = createApiWithAxios(axiosRequestConfig);
