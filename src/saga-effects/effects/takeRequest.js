@@ -4,15 +4,17 @@ import cancellableHandler from '../cancellableHandler';
 /**
  * Blocking custom saga effect that can actually cancel the API request
  * @param {{ REQUEST: String, CANCEL: String }} params
- * @param {Function} task
+ * @param {Function} handler
  */
-export default function* takeRequest(actionTypes = {}, task) {
+export default function* takeRequest(actionTypes = {}, handler) {
     while (true) {
         const action = yield take(actionTypes.REQUEST);
 
+        console.log(action);
+
         yield cancellableHandler({
-            task,
-            taskArg: action,
+            handler,
+            handlerArg: action,
             CANCEL: actionTypes.CANCEL,
         });
     }

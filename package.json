@@ -38,7 +38,8 @@
         "redux-saga": "0.x"
     },
     "dependencies": {
-        "@ackee/petrus": "3.2.3",
+        "@ackee/petrus": "file:.yalc/@ackee/petrus",
+        "@ackee/redux-worker": "file:.yalc/@ackee/redux-worker",
         "axios": "0.18.0"
     },
     "peerDependencies": {
