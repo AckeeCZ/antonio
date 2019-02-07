@@ -5,7 +5,7 @@ import * as Store from '../store';
 import manageAuthHeader from './manageAuthHeader';
 
 export default function* saga() {
-    Store.set(Store.keys.SAGA_INITIALIZE, true);
+    Store.set(Store.keys.SAGA_INITIALIZED, true);
 
     const sagas = [];
 
