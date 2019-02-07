@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   custom saga effects: `takeRequest`, `takeLatestRequest`
 
+### Updated
+
+-   upgrade `@ackee/petrus` to version `3.3.0`
+
 ## 2.3.1 - 2019-02-04
 
 ### Updated
