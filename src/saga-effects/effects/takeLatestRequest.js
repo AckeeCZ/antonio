@@ -6,7 +6,7 @@ import cancellableHandler from '../cancellableHandler';
  * @param {Function} requestHandler
  */
 export default function* takeLatestRequest({ REQUEST, cancelTask, requestIdSelector }, requestHandler) {
-    const runningTasks = new Set();
+    const runningTasks = new Map();
     const DEFAULT_REQUEST_ID = Symbol('DEFAULT_REQUEST_ID');
 
     yield takeEvery(REQUEST, function*(action) {
