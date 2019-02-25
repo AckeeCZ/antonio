@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@ackee/petrus@3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@ackee/petrus/-/petrus-3.3.0.tgz#43cb48382c9b48ca6c9c5b5cab7705d032da7430"
-  integrity sha512-XjUqgNGmKotVEQxO+K6YPSBhEC4/PWeOv7LJw5/J680ArI45DSul8b5VVKYazaCPTywF1F2iUDZakMiPhZGj8Q==
+"@ackee/petrus@^3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@ackee/petrus/-/petrus-3.5.0.tgz#fffcac8c124b7be29bbbc2f6d8968b1ceee3e0cd"
+  integrity sha512-OJtNXzoDCfUs4/toJNKQI3E8NrrdGyROrnjtSzRmtAvLIO20qcL699gPCWhwikU/FlT+J6T7ddunXpPGY7jBCA==
   dependencies:
     "@babel/runtime" "^7.2.0"
     localforage "^1.7.3"
