@@ -1,4 +1,5 @@
-import { call } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
+import { actions } from '@ackee/petrus';
 
 import * as Store from '../store';
 import saga from '../sagas';
@@ -7,6 +8,20 @@ import { enhancedError } from '../utilities';
 
 import setAccessTokenTimeout from './setAccessTokenTimeout';
 import createApiWithAxios from './createApiWithAxios';
+
+// TODO: this is kind of solve the problem,
+// but better would to repeat the request one more time
+// when the access token availability verification successfully resolves.
+function* handleResponse(response) {
+    switch (response.request.status) {
+        case 401:
+            // 401 - unauthorized
+            yield put(actions.verifyAccessTokenAvailability());
+            break;
+
+        default:
+    }
+}
 
 const authRequestProxy = methodHandler =>
     function*(...args) {
@@ -18,7 +33,11 @@ const authRequestProxy = methodHandler =>
             yield call(setAccessTokenTimeout);
         }
 
-        return yield methodHandler(...args);
+        const response = yield methodHandler(...args);
+
+        yield handleResponse(response);
+
+        return response;
     };
 
 export function create(axiosRequestConfig = {}, customConfig = {}) {
@@ -32,6 +51,7 @@ export function create(axiosRequestConfig = {}, customConfig = {}) {
 
     Store.set(Store.keys.CONFIG, {
         ...defaultConfig,
+        ...customConfig,
         accessTokenUnavailableTimeout: {
             ...defaultConfig.accessTokenUnavailableTimeout,
             ...customConfig.accessTokenUnavailableTimeout,
