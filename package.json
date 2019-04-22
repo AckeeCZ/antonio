@@ -38,8 +38,8 @@
         "redux-saga": "0.x"
     },
     "dependencies": {
-        "@ackee/petrus": "^3.7.4",
-        "axios": "0.18.0"
+        "@ackee/petrus": "^3.7.x",
+        "axios": "0.18.x"
     },
     "peerDependencies": {
         "react": "16.x",
