@@ -1,6 +1,6 @@
 import { delay } from 'redux-saga';
 import { take, call, race } from 'redux-saga/effects';
-import { actionTypes } from '@ackee/petrus';
+import { ACCESS_TOKEN_AVAILABLE } from '@ackee/petrus/es/actionType';
 
 import * as Store from '../store';
 import * as Errors from '../errors';
@@ -22,7 +22,7 @@ function* setAccessTokenTimeout() {
 
     const result = yield race({
         timeout: call(delay, duration),
-        accessTokenAvailable: take(actionTypes.ACCESS_TOKEN_AVAILABLE),
+        accessTokenAvailable: take(ACCESS_TOKEN_AVAILABLE),
     });
 
     if (result.timeout && !silent) {
