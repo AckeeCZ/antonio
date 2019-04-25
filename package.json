@@ -11,7 +11,8 @@
         "build": "yarn build:es & yarn build:lib",
         "prepare": "yarn build",
         "start": "yarn install && yarn lint && yarn build:es && onchange 'src/**/*.{js,jsx}' -- yarn build:es",
-        "lint": "eslint 'src/**/*.{js,jsx}'"
+        "lint": "eslint 'src/**/*.{js,jsx}'",
+        "size": "package-size ./lib --no-cache"
     },
     "author": "Jiří Čermák <jiri.cermak@ackee.cz>",
     "license": "MIT",
@@ -33,6 +34,7 @@
         "husky": "1.x",
         "lint-staged": "8.x",
         "onchange": "5.x",
+        "package-size": "^2.3.0",
         "prettier": "1.x",
         "prettier-config-ackee": "0.x",
         "redux-saga": "0.x"
