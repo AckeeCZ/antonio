@@ -1,6 +1,5 @@
-import { delay } from 'redux-saga';
-import { take, call, race } from 'redux-saga/effects';
-import { ACCESS_TOKEN_AVAILABLE } from '@ackee/petrus/es/actionType';
+import { take, call, race, delay } from 'redux-saga/effects';
+import { ACCESS_TOKEN_AVAILABLE } from '@ackee/petrus';
 
 import * as Store from '../store';
 import * as Errors from '../errors';

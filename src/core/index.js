@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects';
-import { verifyAccessTokenAvailability } from '@ackee/petrus/es/actions';
+import { checkAccessTokenExpiration } from '@ackee/petrus';
 
 import * as Store from '../store';
 import saga from '../sagas';
@@ -16,7 +16,7 @@ function* handleResponse(response) {
     switch (response.request.status) {
         case 401:
             // 401 - unauthorized
-            yield put(verifyAccessTokenAvailability());
+            yield put(checkAccessTokenExpiration());
             break;
 
         default:
