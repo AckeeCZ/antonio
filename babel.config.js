@@ -1,20 +1,23 @@
-module.exports = function(api) {
-    const plugins = ['@babel/plugin-proposal-object-rest-spread', '@babel/plugin-proposal-export-namespace-from'];
+const path = require('path');
 
-    const presets = {
-        lib: ['@babel/preset-env'],
-        es: [
-            [
-                '@babel/preset-env',
-                {
-                    modules: false,
-                },
-            ],
+module.exports = {
+    presets: [
+        [
+            '@babel/env',
+            {
+                modules: process.env.BABEL_ENV === 'es' ? false : 'auto',
+            },
         ],
-    };
-
-    return {
-        plugins,
-        presets: presets[api.env()],
-    };
+    ],
+    plugins: [
+        '@babel/plugin-proposal-object-rest-spread',
+        '@babel/plugin-proposal-export-namespace-from',
+        [
+            'babel-plugin-custom-import-path-transform',
+            {
+                transformImportPath: path.resolve(__dirname, 'scripts/transformImportPath.js'),
+            },
+        ],
+    ],
+    ignore: ['**/__tests__/'],
 };

@@ -1159,6 +1159,11 @@ babel-eslint@10.x:
     eslint-scope "3.7.1"
     eslint-visitor-keys "^1.0.0"
 
+babel-plugin-custom-import-path-transform@1.x:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/babel-plugin-custom-import-path-transform/-/babel-plugin-custom-import-path-transform-1.0.3.tgz#673e45410534bca0a62fa75c8d7fe3cf94073269"
+  integrity sha512-DXyafkuDzW0nm4Qm2Zfq7Y8SnLA4YO77Vx0y28QwcebOVsHs73p1PXHCrUsB8lEjhDkLS/M1yV90T4JyZ5O3Vg==
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
