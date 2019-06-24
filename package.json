@@ -23,7 +23,6 @@
     "devDependencies": {
         "@babel/cli": "7.x",
         "@babel/core": "7.x",
-        "@babel/plugin-proposal-export-namespace-from": "7.x",
         "@babel/plugin-proposal-object-rest-spread": "7.x",
         "@babel/plugin-transform-runtime": "7.x",
         "@babel/preset-env": "7.x",
@@ -43,9 +42,9 @@
         "reselect": "^4.0.0"
     },
     "dependencies": {
-        "@ackee/petrus": "4.0.0-alpha.2",
+        "@ackee/petrus": "^4.0.0-beta.1",
         "@babel/runtime": "7.x",
-        "axios": "0.18.x"
+        "axios": "^0.19.0"
     },
     "peerDependencies": {
         "react": "16.x",
