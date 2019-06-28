@@ -5,7 +5,7 @@
  * @returns {ErrorClass}
  */
 export const enhancedError = (error = {}, ErrorClass = Error) => {
-    const pkgName = 'ackee-http-client';
+    const pkgName = '@ackee/antonio';
     const string = Object.entries(error).reduce((acc, entry) => {
         const row = `\t"${entry[0]}": "${entry[1]}"`;
 

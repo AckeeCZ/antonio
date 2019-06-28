@@ -1,5 +1,10 @@
-import { takeLatest, takeLeading } from 'redux-saga/effects';
-import { ACCESS_TOKEN_AVAILABLE, ACCESS_TOKEN_UNAVAILABLE } from '@ackee/petrus';
+import { takeLatest, takeLeading, put } from 'redux-saga/effects';
+import {
+    APPLY_ACCESS_TOKEN_REQUEST,
+    UNAPPLY_ACCESS_TOKEN_REQUEST,
+    applyAccessTokenResolve,
+    unapplyAccessTokenResolve,
+} from '@ackee/petrus';
 
 import * as Store from '../store';
 
@@ -8,13 +13,19 @@ export default function* manageAuthHeader() {
     const authAxios = Store.get(Store.keys.AUTH_AXIOS);
     const { headers } = authAxios.defaults;
 
-    yield takeLatest(ACCESS_TOKEN_AVAILABLE, action => {
+    yield takeLatest(APPLY_ACCESS_TOKEN_REQUEST, function*(action) {
         setAuthHeader(headers, action.payload);
+
         Store.set(Store.keys.IS_AUTH, true);
+
+        yield put(applyAccessTokenResolve());
     });
 
-    yield takeLeading(ACCESS_TOKEN_UNAVAILABLE, () => {
+    yield takeLeading(UNAPPLY_ACCESS_TOKEN_REQUEST, function*() {
         Store.set(Store.keys.IS_AUTH, false);
+
         setAuthHeader(headers, null);
+
+        yield put(unapplyAccessTokenResolve());
     });
 }

@@ -1,44 +1,11 @@
-import { call, put } from 'redux-saga/effects';
-import { checkAccessTokenExpiration } from '@ackee/petrus';
-
 import * as Store from '../store';
 import saga from '../sagas';
 import * as Errors from '../errors';
 import { enhancedError } from '../utilities';
 
-import setAccessTokenTimeout from './setAccessTokenTimeout';
 import createApiWithAxios from './createApiWithAxios';
-
-// TODO: this is kind of solve the problem,
-// but better would to repeat the request one more time
-// when the access token availability verification successfully resolves.
-function* handleResponse(response) {
-    switch (response.request.status) {
-        case 401:
-            // 401 - unauthorized
-            yield put(checkAccessTokenExpiration());
-            break;
-
-        default:
-    }
-}
-
-const authRequestProxy = methodHandler =>
-    function*(...args) {
-        if (!Store.get(Store.keys.IS_AUTH)) {
-            if (!Store.get(Store.keys.SAGA_INITIALIZED)) {
-                throw enhancedError(Errors.authRequestProxy.unconnectedSaga);
-            }
-
-            yield call(setAccessTokenTimeout);
-        }
-
-        const response = yield methodHandler(...args);
-
-        yield handleResponse(response);
-
-        return response;
-    };
+import { requestInterceptors } from './interceptors';
+import { createRequestProxy } from './utils';
 
 export function create(axiosRequestConfig = {}, customConfig = {}) {
     if (Store.get(Store.keys.WAS_INITIALIZED)) {
@@ -58,10 +25,25 @@ export function create(axiosRequestConfig = {}, customConfig = {}) {
         },
     });
 
-    const [api] = createApiWithAxios(axiosRequestConfig);
-    const [authApi, authAxiosClient] = createApiWithAxios(axiosRequestConfig, authRequestProxy);
+    const nonAuthInterceptorsConfig = {
+        auth: false,
+    };
 
-    Store.set(Store.keys.AUTH_AXIOS, authAxiosClient);
+    const authInterceptorsConfig = {
+        auth: true,
+    };
+
+    const api = createApiWithAxios(
+        axiosRequestConfig,
+        createRequestProxy(requestInterceptors(nonAuthInterceptorsConfig)),
+    );
+
+    const authApi = createApiWithAxios(
+        axiosRequestConfig,
+        createRequestProxy(requestInterceptors(authInterceptorsConfig)),
+    );
+
+    Store.set(Store.keys.AUTH_AXIOS, authApi);
 
     return {
         api,

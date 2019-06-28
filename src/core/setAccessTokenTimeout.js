@@ -1,4 +1,4 @@
-import { take, call, race, delay } from 'redux-saga/effects';
+import { take, race, delay } from 'redux-saga/effects';
 import { ACCESS_TOKEN_AVAILABLE } from '@ackee/petrus';
 
 import * as Store from '../store';
@@ -20,7 +20,7 @@ function* setAccessTokenTimeout() {
     }
 
     const result = yield race({
-        timeout: call(delay, duration),
+        timeout: delay(duration),
         accessTokenAvailable: take(ACCESS_TOKEN_AVAILABLE),
     });
 
