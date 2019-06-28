@@ -4,6 +4,7 @@
     "description": "A HTTP client built on axios. An access token is injected to authorization header by @ackee/petrus.",
     "main": "lib/index.js",
     "module": "es/index.js",
+    "sideEffects": false,
     "scripts": {
         "prettier": "prettier --config ./prettier.config.js --write './src/**/*.{js,jsx}'",
         "build:lib": "rm -rf ./lib && cross-env BABEL_ENV=lib babel src --out-dir lib",
