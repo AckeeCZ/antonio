@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@ackee/petrus@^4.0.0-beta.1":
-  version "4.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@ackee/petrus/-/petrus-4.0.0-beta.1.tgz#3867c80426a1969f65d821558ca784f91b5592a1"
-  integrity sha512-YGfWhvFgVcLYtvi9BqiVTwKtAy1Lzsxof54X0k556D7h945G7QmcifVLaXwUott8WYDiu8k/FrqhvrhkteA8OQ==
+"@ackee/petrus@4.0.0-beta.2":
+  version "4.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@ackee/petrus/-/petrus-4.0.0-beta.2.tgz#11df9d2c71e58fb4399ef640cc183b997d7404c4"
+  integrity sha512-Cfp+0yLuz+t822cAG+XE8kw+2F0TZOcn87lXL+0JABAYu4iu68Fq+u7nZ6r1rTKfttTCEmLAUHJG/n9PSAFUzg==
   dependencies:
     "@ackee/redux-utils" "^2.0.0-beta.1"
     "@babel/runtime" "7.4.x"

@@ -3,20 +3,20 @@ import * as Errors from './errors';
 import { enhancedError } from './utilities';
 
 const keys = {
-    IS_AUTH: 'isAuth',
-    AUTH_AXIOS: 'authAxios',
-    CONFIG: 'config',
-    SAGA_INITIALIZED: 'sagaInitialized',
-    WAS_INITIALIZED: 'wasInitialized',
+    IS_AUTH: Symbol('isAuth'),
+    AUTH_AXIOS: Symbol('authAxios'),
+    CONFIG: Symbol('config'),
+    SAGA_INITIALIZED: Symbol('sagaInitialized'),
+    WAS_INITIALIZED: Symbol('wasInitialized'),
 };
 
-const state = {
-    [keys.IS_AUTH]: false,
-    [keys.AUTH_AXIOS]: null,
-    [keys.CONFIG]: defaultConfig,
-    [keys.SAGA_INITIALIZED]: false,
-    [keys.WAS_INITIALIZED]: false,
-};
+const state = new Map([
+    [keys.IS_AUTH, false],
+    [keys.AUTH_AXIOS, null],
+    [keys.CONFIG, defaultConfig],
+    [keys.SAGA_INITIALIZED, false],
+    [keys.WAS_INITIALIZED, false],
+]);
 
 /**
  * @param {String} key
@@ -28,7 +28,7 @@ const set = (key, value) => {
         throw enhancedError(Errors.store.undefinedValue, TypeError);
     }
 
-    state[key] = value;
+    state.set(key, value);
 
     return value;
 };
@@ -38,7 +38,7 @@ const set = (key, value) => {
  * @returns {Any|null}
  */
 const get = key => {
-    const value = state[key];
+    const value = state.get(key);
 
     return value === undefined ? null : value;
 };
