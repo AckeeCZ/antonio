@@ -20,7 +20,7 @@ export default function* takeLatestRequest({ REQUEST, cancelTask, requestIdSelec
         yield spawn(cancellableHandler, {
             handler: requestHandler,
             handlerArg: action,
-            CANCEL: cancelTask(action).type,
+            CANCEL: cancelTask(requestId, action).type,
             onComplete() {
                 runningTasks.delete(requestId);
             },
