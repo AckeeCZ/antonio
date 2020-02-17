@@ -1,4 +1,4 @@
-import { takeEvery, put, fork } from 'redux-saga/effects';
+import { takeEvery, put, spawn } from 'redux-saga/effects';
 import cancellableHandler from '../cancellableHandler';
 
 /**
@@ -17,7 +17,7 @@ export default function* takeLatestRequest({ REQUEST, cancelTask, requestIdSelec
             runningTasks.delete(requestId);
         }
 
-        yield fork(cancellableHandler, {
+        yield spawn(cancellableHandler, {
             handler: requestHandler,
             handlerArg: action,
             CANCEL: cancelTask(action).type,
