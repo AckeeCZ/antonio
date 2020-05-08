@@ -1,19 +1,25 @@
 {
     "name": "@ackee/antonio",
-    "version": "3.0.0-beta.6",
-    "description": "A HTTP client built on axios. An access token is injected to authorization header by @ackee/petrus.",
+    "version": "3.0.0",
+    "description": "A HTTP client built on fetch with axios-like API.",
     "main": "lib/index.js",
     "module": "es/index.js",
     "sideEffects": false,
     "scripts": {
-        "prettier": "prettier --config ./prettier.config.js --write './src/**/*.{js,jsx}'",
-        "build:lib": "rm -rf ./lib && cross-env BABEL_ENV=lib babel src --out-dir lib",
-        "build:es": "rm -rf ./es && cross-env BABEL_ENV=es babel src --out-dir es",
-        "build": "yarn build:es & yarn build:lib",
+        "build:lib": "BABEL_ENV=lib babel src --out-dir lib --extensions \".js,.jsx\" --source-maps inline",
+        "build:es": "BABEL_ENV=es babel src --out-dir es --extensions \".js,.jsx\" --source-maps inline",
+        "build:js": "yarn build:es && yarn build:lib",
+        "clean": "rm -rf lib es",
+        "build": "yarn clean && yarn build:js",
         "prepare": "yarn build",
-        "push": "yarn build:es  && yalc push",
-        "start": "yarn build:es && onchange 'src/**/*.{js,jsx}' -- yarn push",
-        "lint": "eslint 'src/**/*.{js,jsx}'",
+        "lint": "eslint \"src/**/*.{js,jsx}\"",
+        "test": "BABEL_ENV=test jest",
+        "push": "yarn build && yalc push",
+        "start": "yarn build && onchange 'src/**/*.{js,jsx}' -- yarn build",
+        "changelog": "gitmoji-changelog",
+        "version": "yarn changelog && code --wait CHANGELOG.md && git add CHANGELOG.md",
+        "release": "yarn version",
+        "prettier": "prettier --config ./prettier.config.js --write './src/**/*.{js,jsx}'",
         "size": "package-size ./es --no-cache"
     },
     "author": "Jiří Čermák <jiri.cermak@ackee.cz>",
@@ -23,45 +29,42 @@
         "url": "https://github.com/AckeeCZ/antonio"
     },
     "devDependencies": {
+        "@ackee/eslint-config": "^2.1.0",
         "@babel/cli": "7.x",
         "@babel/core": "7.x",
+        "@babel/plugin-proposal-class-properties": "^7.8.3",
         "@babel/plugin-proposal-object-rest-spread": "7.x",
         "@babel/plugin-transform-runtime": "7.x",
         "@babel/preset-env": "7.x",
+        "@babel/preset-modules": "0.x",
+        "@babel/preset-typescript": "^7.9.0",
         "babel-eslint": "10.x",
         "babel-plugin-custom-import-path-transform": "1.x",
-        "cross-env": "5.x",
-        "eslint": "5.x",
-        "eslint-config-ackee": "0.x",
-        "eslint-config-prettier": "4.x",
-        "husky": "1.x",
-        "lint-staged": "8.x",
+        "eslint": "6.x",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-jest": "23.x",
+        "gitmoji-changelog": "2.x",
+        "husky": "4.x",
+        "jest": "26.x",
+        "lint-staged": "^10.2.2",
         "onchange": "5.x",
         "package-size": "2.x",
-        "prettier": "1.x",
+        "prettier": "2.x",
         "prettier-config-ackee": "0.x",
         "redux-saga": "1.x",
-        "reselect": "^4.0.0"
+        "reselect": "4.x"
     },
     "dependencies": {
-        "@ackee/petrus": "^4.0.0-beta.18",
-        "@babel/runtime": "7.x",
-        "axios": "^0.19.0"
+        "@ackee/petrus": "4.x",
+        "@babel/runtime": "7.x"
     },
     "peerDependencies": {
         "react": "16.x",
-        "react-redux": "6.x",
+        "react-redux": "7.x",
         "redux": "4.x",
         "redux-saga": "1.x",
         "reselect": "4.x"
     },
-    "browserslist": [
-        "last 2 version",
-        "> 1%",
-        "maintained node versions",
-        "not dead",
-        "IE > 11"
-    ],
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged",
@@ -69,9 +72,11 @@
         }
     },
     "lint-staged": {
-        "*.{js,jsx,json,scss,less,css,md}": [
-            "prettier --config ./prettier.config.js --write && yarn lint",
-            "git add"
+        "src/*.{js,jsx,json,scss,less,css,md}": [
+            "prettier --config ./prettier.config.js --write"
+        ],
+        "src/*.{js,jsx}": [
+            "yarn lint"
         ]
     },
     "publishConfig": {

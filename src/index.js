@@ -1,2 +1,3 @@
-export { create } from './core';
-export * from './saga-effects';
+export default function () {
+    console.log('hello world');
+}
