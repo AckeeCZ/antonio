@@ -1,6 +1,6 @@
 {
     "name": "@ackee/antonio",
-    "version": "4.0.0-alpha.0",
+    "version": "4.0.0-alpha.1",
     "description": "A HTTP client built on fetch with axios-like API.",
     "main": "es/index.js",
     "module": "es/index.js",

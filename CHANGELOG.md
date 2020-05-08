@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="4.0.0-alpha.1"></a>
+## 4.0.0-alpha.1 (2020-05-08)
+
+### Removed
+
+- ➖ Remove @ackee/petrus [[4ae214b](https://github.com/AckeeCZ/antonio/commit/4ae214b86308167e78766ca144f6445e172c6d94)]
+
+
 <a name="4.0.0-alpha.0"></a>
 
 ## 4.0.0-alpha.0 (2020-05-08)
