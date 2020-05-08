@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-    - 8
-script: yarn lint && yarn install && yarn build
+    - 10
+script: yarn lint && yarn && yarn build
 deploy:
     provider: npm
     email: ackeedevelopment@gmail.com

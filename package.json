@@ -23,6 +23,7 @@
         "url": "https://github.com/AckeeCZ/antonio"
     },
     "devDependencies": {
+        "@ackee/eslint-config": "^2.1.0",
         "@babel/cli": "7.x",
         "@babel/core": "7.x",
         "@babel/plugin-proposal-object-rest-spread": "7.x",
@@ -31,27 +32,26 @@
         "@babel/preset-modules": "^0.1.0",
         "babel-eslint": "10.x",
         "babel-plugin-custom-import-path-transform": "1.x",
-        "cross-env": "5.x",
-        "eslint": "5.x",
-        "eslint-config-ackee": "0.x",
+        "cross-env": "^7.0.2",
+        "eslint": "^6.8.0",
         "eslint-config-prettier": "4.x",
-        "husky": "1.x",
-        "lint-staged": "8.x",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.2.2",
         "onchange": "5.x",
         "package-size": "2.x",
-        "prettier": "1.x",
+        "prettier": "^2.0.5",
         "prettier-config-ackee": "0.x",
         "redux-saga": "1.x",
-        "reselect": "^4.0.0"
+        "reselect": "4.x"
     },
     "dependencies": {
-        "@ackee/petrus": "^4.0.0-beta.19",
+        "@ackee/petrus": "4.x",
         "@babel/runtime": "7.x",
-        "axios": "^0.19.0"
+        "axios": "0.19.x"
     },
     "peerDependencies": {
         "react": "16.x",
-        "react-redux": "6.x",
+        "react-redux": "7.x",
         "redux": "4.x",
         "redux-saga": "1.x",
         "reselect": "4.x"
@@ -64,8 +64,10 @@
     },
     "lint-staged": {
         "*.{js,jsx,json,scss,less,css,md}": [
-            "prettier --config ./prettier.config.js --write && yarn lint",
-            "git add"
+            "prettier --config ./prettier.config.js --write"
+        ],
+        "*.{js,jsx}": [
+            "yarn lint"
         ]
     },
     "publishConfig": {
