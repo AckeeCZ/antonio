@@ -7,4 +7,3 @@ yarn.lock
 .eslintignore
 .editorconfig
 babel.config.js
-.gitignore
