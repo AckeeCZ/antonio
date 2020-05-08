@@ -1,3 +1,1 @@
-export default function () {
-    console.log('hello world');
-}
+export { create } from './modules/core';

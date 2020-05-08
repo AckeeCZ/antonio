@@ -1,3 +1,10 @@
 {
-    "extends": ["@ackee/eslint-config", "eslint-config-prettier"]
+    "extends": ["@ackee/eslint-config", "eslint-config-prettier"],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src"]
+            }
+        }
+    }
 }
