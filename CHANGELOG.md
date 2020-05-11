@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="4.0.0-alpha.2"></a>
+## 4.0.0-alpha.2 (2020-05-11)
+
+### Changed
+
+- ♻️ Rewrite codebase to typescript [[43d393e](https://github.com/AckeeCZ/antonio/commit/43d393edddbee46ec76792435e73437b218a3b4c)]
+
+
 <a name="4.0.0-alpha.1"></a>
 ## 4.0.0-alpha.1 (2020-05-08)
 
