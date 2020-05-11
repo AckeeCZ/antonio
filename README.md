@@ -114,19 +114,19 @@ These are the available config options for making requests. None of these is req
     // Default: undefined
     baseUrl: 'https://jsonplaceholder.typicode.com/',
 
-    // Default: "json"
     // Options: "json" | "blob" | "text" | "formData" | undefined
+    // Default: "json"
     responseType: "json",
 
-    // Default: undefined
     // Options: object | undefined
+    // Default: undefined
     uriParams: {
         id: '2'
     },
 
     // `headers` are custom headers to be sent
     // Must be a plain object or a Headers object
-    // Default: undefined
+    // Default: new Headers()
     headers: new Headers({
         'X-Custom-Header': 1234
     }),

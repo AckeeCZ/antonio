@@ -1,9 +1,9 @@
 import { RequestConfig, RequestHeaders, RequestSearchParams } from '../constants';
 
-const getSearchParamsEntries = (value: RequestSearchParams) =>
+const getSearchParamsEntries = (value?: RequestSearchParams) =>
     value instanceof URLSearchParams ? value.entries() : Object.entries(value ?? {});
 
-export function mergeUrlSearchParams(paramsA: RequestSearchParams, paramsB: RequestSearchParams): URLSearchParams {
+export function mergeUrlSearchParams(paramsA?: RequestSearchParams, paramsB?: RequestSearchParams): URLSearchParams {
     const result = new URLSearchParams();
 
     for (const [key, value] of getSearchParamsEntries(paramsA)) {
@@ -17,10 +17,10 @@ export function mergeUrlSearchParams(paramsA: RequestSearchParams, paramsB: Requ
     return result;
 }
 
-const getHeadersEntries = (value: RequestHeaders) =>
+const getHeadersEntries = (value?: RequestHeaders) =>
     value instanceof Headers ? value.entries() : Object.entries(value ?? {});
 
-function mergeHeaders(headersA: RequestHeaders, headersB: RequestHeaders): HeadersInit {
+function mergeHeaders(headersA?: RequestHeaders, headersB?: RequestHeaders): HeadersInit {
     const result = new Headers();
 
     for (const [key, value] of getHeadersEntries(headersA)) {
@@ -34,35 +34,25 @@ function mergeHeaders(headersA: RequestHeaders, headersB: RequestHeaders): Heade
     return result;
 }
 
-export function mergeConfig(
-    // FIXME: remove & { [key: string]: any }
-    configA: RequestConfig & { [key: string]: any } = {},
-    configB: RequestConfig & { [key: string]: any } = {},
-): RequestConfig {
-    const result: RequestConfig & { [key: string]: any } = {};
+export function mergeConfig(configA: RequestConfig = {}, configB: RequestConfig = {}): RequestConfig {
+    const result: RequestConfig = {
+        ...configA,
+        ...configB,
+    };
 
-    for (const [key, value] of Object.entries(configA)) {
-        const newValue = configB[key];
+    if (configA.headers || configB.headers) {
+        result.headers = mergeHeaders(configA.headers, configB.headers);
+    }
 
-        switch (key) {
-            case 'headers':
-                result[key] = mergeHeaders(value, newValue);
-                break;
+    if (configA.uriParams || configB.uriParams) {
+        result.uriParams = {
+            ...configA.uriParams,
+            ...configB.uriParams,
+        };
+    }
 
-            case 'uriParams':
-                result[key] = {
-                    ...value,
-                    ...newValue,
-                };
-                break;
-
-            case 'searchParams':
-                result[key] = mergeUrlSearchParams(value, newValue);
-                break;
-
-            default:
-                result[key] = newValue ?? value;
-        }
+    if (configA.searchParams || configB.searchParams) {
+        result.searchParams = mergeUrlSearchParams(configA.searchParams, configB.searchParams);
     }
 
     return result;

@@ -40,6 +40,11 @@ export interface RequestConfig extends Omit<RequestInit, 'body' | 'headers' | 'm
     searchParams?: RequestSearchParams;
 }
 
+export interface DefaultRequestConfig extends RequestConfig {
+    headers: RequestHeaders;
+    responseType: ResponseType;
+}
+
 export interface RequestResult {
     request: Request;
     response: Response;

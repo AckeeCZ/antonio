@@ -61,7 +61,10 @@ export function createRequestUrl(requestUrl: string, requestConfig: RequestConfi
         return url.toString();
     } catch (e) {
         // TODO: use log-level
-        console.error(e);
+        console.error(e, {
+            requestUrl,
+            requestConfig,
+        });
         throw new TypeError(
             `Could not compose request url from: requestUrl: '${requestUrl}' and baseURL: '${requestConfig.baseURL}'.`,
         );

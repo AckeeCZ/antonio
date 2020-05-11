@@ -1,5 +1,6 @@
-import { RequestConfig } from '../constants';
+import { DefaultRequestConfig } from '../constants';
 
-export const defaultRequestConfig: RequestConfig = {
+export const defaultRequestConfig: DefaultRequestConfig = {
     responseType: 'json',
+    headers: new Headers(),
 };
