@@ -1,5 +1,8 @@
 export class HTTPError extends Error {
-    constructor(response) {
+    name: string;
+    response: any;
+
+    constructor(response: Response) {
         // Set the message to the status text, such as Unauthorized,
         // with some fallbacks. This message should never be undefined.
         super(
