@@ -1,18 +1,26 @@
-import { ResponseType, Header, ResponseTypes, Methods } from '../constants';
-import { mergeUrlSearchParams } from '../utils';
+import {
+    Header,
+    ResponseTypes,
+    RequestMethod,
+    RequestConfig,
+    RequestHeaders,
+    RequestUriParams,
+    RequestBody,
+} from '../constants';
+import { mergeUrlSearchParams } from './config';
 
-export function formatRequestBody(body, config) {
-    if (config.responseType === ResponseType.JSON) {
+export function formatRequestBody(body: RequestBody, config: RequestConfig): RequestBody {
+    if (config.responseType === 'json') {
         return JSON.stringify(body);
     }
 
     return body;
 }
 
-const isTokenTemplate = token => token.startsWith(':');
+const isTokenTemplate = (token: string): boolean => token.startsWith(':');
 
-function setUriParams(templateUrl, uriParams) {
-    const templateToValue = token => {
+function setUriParams(templateUrl: string, uriParams: RequestUriParams): string {
+    const templateToValue = (token: string) => {
         if (!isTokenTemplate(token)) {
             return token;
         }
@@ -37,7 +45,7 @@ function setUriParams(templateUrl, uriParams) {
     return templateUrl.split('/').map(templateToValue).join('/');
 }
 
-export function createRequestUrl(requestUrl, requestConfig) {
+export function createRequestUrl(requestUrl: string, requestConfig: RequestConfig): string {
     try {
         if (requestConfig.uriParams) {
             requestUrl = setUriParams(requestUrl, requestConfig.uriParams);
@@ -45,9 +53,12 @@ export function createRequestUrl(requestUrl, requestConfig) {
 
         const url = new URL(requestUrl, requestConfig.baseURL);
 
-        url.search = mergeUrlSearchParams(new URLSearchParams(url.search), requestConfig.searchParams);
+        url.search = mergeUrlSearchParams(
+            new URLSearchParams(url.search),
+            new URLSearchParams(requestConfig.searchParams),
+        ).toString();
 
-        return url;
+        return url.toString();
     } catch (e) {
         // TODO: use log-level
         console.error(e);
@@ -57,10 +68,10 @@ export function createRequestUrl(requestUrl, requestConfig) {
     }
 }
 
-export function setRequestHeaders(method, config) {
+export function setRequestHeaders(method: RequestMethod, config: RequestConfig): RequestHeaders {
     const headers = new Headers(config.headers);
 
-    if (!headers.has(Header.CONTENT_TYPE) && method !== Methods.HEAD) {
+    if (!headers.has(Header.CONTENT_TYPE) && method !== 'head' && config.responseType) {
         headers.set(Header.CONTENT_TYPE, ResponseTypes[config.responseType]);
     }
 
