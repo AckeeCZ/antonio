@@ -32,13 +32,12 @@ export default async function request(
 
     const response = await fetch(request);
 
-    if (!response.ok) {
-        // TODO: try response.error instead
-        throw new HTTPError(response);
-    }
-
     const data = await parseResponse(config.responseType, response);
 
+    if (!response.ok) {
+        // TODO: try response.error instead
+        throw new HTTPError(response, data);
+    }
     return {
         request,
         response,

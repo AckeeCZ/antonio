@@ -1,8 +1,9 @@
 export class HTTPError extends Error {
     name: string;
-    response: any;
+    originalResponse: Response;
+    response: BodyInit | null;
 
-    constructor(response: Response) {
+    constructor(response: Response, data: BodyInit | null) {
         // Set the message to the status text, such as Unauthorized,
         // with some fallbacks. This message should never be undefined.
         super(
@@ -10,6 +11,7 @@ export class HTTPError extends Error {
                 String(response.status === 0 || response.status ? response.status : 'Unknown response error'),
         );
         this.name = 'HTTPError';
-        this.response = response;
+        this.originalResponse = response;
+        this.response = data;
     }
 }
