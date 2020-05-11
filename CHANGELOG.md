@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="4.0.0-alpha.3"></a>
+## 4.0.0-alpha.3 (2020-05-11)
+
+### Fixed
+
+- 🐛 Fix merging default and custom request config [[21318ae](https://github.com/AckeeCZ/antonio/commit/21318aecad862bf13b3f9ccbc52e34542bac3552)]
+
+
 <a name="4.0.0-alpha.2"></a>
 ## 4.0.0-alpha.2 (2020-05-11)
 
