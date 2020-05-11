@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="4.0.0-alpha.4"></a>
+## 4.0.0-alpha.4 (2020-05-11)
+
+### Fixed
+
+- 🐛 Fix error handling [[9c8b676](https://github.com/AckeeCZ/antonio/commit/9c8b676a277ad88b1b08ccf625ffcf912f394483)]
+
+
 <a name="4.0.0-alpha.3"></a>
 ## 4.0.0-alpha.3 (2020-05-11)
 
