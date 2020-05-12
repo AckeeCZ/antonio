@@ -36,8 +36,9 @@ export default async function request(
 
     if (!response.ok) {
         // TODO: try response.error instead
-        throw new HTTPError(response, data);
+        throw new HTTPError(request, response, data);
     }
+
     return {
         request,
         response,
