@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="4.0.0-alpha.5"></a>
+## 4.0.0-alpha.5 (2020-05-12)
+
+### Changed
+
+- 🎨 Update HTTPError - include request and data [[c05a48d](https://github.com/AckeeCZ/antonio/commit/c05a48dfcde008d7f741608dc7f0d4a26632241f)]
+
+
 <a name="4.0.0-alpha.4"></a>
 ## 4.0.0-alpha.4 (2020-05-11)
 
