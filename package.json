@@ -1,55 +1,43 @@
 {
-    "name": "@ackee/antonio",
-    "version": "4.0.0-alpha.5",
-    "description": "A HTTP client built on fetch with axios-like API.",
-    "main": "es/index.js",
-    "module": "es/index.js",
-    "sideEffects": false,
+    "private": true,
+    "workspaces": [
+        "packages/@ackee/*"
+    ],
     "scripts": {
-        "build:lib": "BABEL_ENV=lib babel src --out-dir lib --extensions \".ts\" --source-maps inline",
-        "build:es": "BABEL_ENV=es babel src --out-dir es --extensions \".ts\" --source-maps inline",
+        "bootstrap": "lerna bootstrap --use-workspaces",
+        "build:es": "lerna exec --parallel -- BABEL_ENV=es babel src --out-dir es --extensions \".ts\" --config-file=../../../babel.config.js --source-maps inline",
+        "build:types": "lerna exec -- tsc --project ./tsconfig.types.json --emitDeclarationOnly",
         "build:js": "yarn build:es",
-        "build:types": "tsc --project tsconfig.types.json --emitDeclarationOnly",
-        "clean": "rm -rf lib es",
         "build": "yarn clean && yarn build:js && yarn build:types",
-        "prepare": "yarn build",
+        "clean": "lerna exec -- rm -rf lib es",
         "lint": "tslint \"src/**/*.ts\"",
-        "test": "BABEL_ENV=test jest",
-        "push": "yarn build && yalc push",
         "type-check": "tsc --noEmit",
         "type-check:watch": "yarn type-check -- --watch",
-        "start": "yarn build && onchange 'src/**/*.ts' -- yarn rebuild",
-        "rebuild": "yarn clean && yarn build:es && yalc push",
+        "test": "BABEL_ENV=test jest",
+        "push": "yarn build && yalc push",
+        "rebuild": "yarn build && yalc push",
+        "start": "yarn build && onchange 'packages/@ackee/*/src/**/*.ts' -- yarn rebuild",
         "changelog": "gitmoji-changelog",
         "version": "yarn changelog && code --wait CHANGELOG.md && git add CHANGELOG.md",
         "release": "yarn version",
-        "prettier": "prettier --config ./prettier.config.ts --write './src/**/*.ts'",
-        "size": "package-size ./es --no-cache"
-    },
-    "author": "Jiří Čermák <jiri.cermak@ackee.cz>",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/AckeeCZ/antonio"
+        "prettier": "prettier --config ./prettier.config.js --write 'packages/@ackee/*/src/**/*.ts'"
     },
     "devDependencies": {
         "@babel/cli": "7.x",
         "@babel/core": "7.x",
-        "@babel/plugin-proposal-class-properties": "^7.8.3",
-        "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3",
+        "@babel/plugin-proposal-class-properties": "7.x",
+        "@babel/plugin-proposal-nullish-coalescing-operator": "7.x",
         "@babel/plugin-proposal-object-rest-spread": "7.x",
         "@babel/plugin-transform-runtime": "7.x",
         "@babel/preset-env": "7.x",
         "@babel/preset-modules": "0.x",
-        "@babel/preset-typescript": "^7.9.0",
-        "@types/jest": "^25.2.1",
-        "babel-eslint": "10.x",
+        "@babel/preset-typescript": "7.x",
+        "@types/jest": "25.x",
         "babel-plugin-custom-import-path-transform": "1.x",
-        "eslint": "6.x",
-        "eslint-plugin-jest": "23.x",
         "gitmoji-changelog": "2.x",
         "husky": "4.x",
         "jest": "26.x",
+        "lerna": "^3.20.2",
         "lint-staged": "^10.2.2",
         "onchange": "5.x",
         "package-size": "2.x",
@@ -58,7 +46,7 @@
         "redux-saga": "1.x",
         "reselect": "4.x",
         "ts-jest": "25.x",
-        "tslint-config-ackee": "^0.3.0",
+        "tslint-config-ackee": "0.x",
         "tslint-config-prettier": "1.x",
         "typescript": "3.x"
     },
@@ -67,19 +55,15 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged",
-            "pre-push": "yarn lint"
+            "pre-commit": "lint-staged"
         }
     },
     "lint-staged": {
-        "src/*.{ts,json,scss,less,css,md}": [
+        "*.{ts,json,md}": [
             "prettier --config ./prettier.config.js --write"
         ],
-        "src/*.{ts}": [
-            "yarn lint"
+        "*.{ts}": [
+            "yarn lint && yarn type-check"
         ]
-    },
-    "publishConfig": {
-        "access": "public"
     }
 }

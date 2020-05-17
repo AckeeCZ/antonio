@@ -17,6 +17,6 @@
         "esModuleInterop": true,
         "noUnusedLocals": true
     },
-    "include": ["src"],
+    "include": ["packages/@ackee/*/src"],
     "exclude": ["**/__tests__/"]
 }

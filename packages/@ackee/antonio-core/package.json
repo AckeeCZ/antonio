@@ -1,0 +1,36 @@
+{
+    "name": "@ackee/antonio-core",
+    "version": "4.0.0-alpha.5",
+    "description": "A HTTP client built on fetch API with axios-like API.",
+    "keywords": [
+        "http-client",
+        "fetch",
+        "javascript",
+        "ackee"
+    ],
+    "author": "Jiří Čermák <jiri.cermak@ackee.cz>",
+    "homepage": "https://github.com/AckeeCZ/antonio#readme",
+    "license": "MIT",
+    "main": "es/index.js",
+    "module": "es/index.js",
+    "sideEffects": false,
+    "files": [
+        "es"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AckeeCZ/antonio.git"
+    },
+    "scripts": {
+        "size": "package-size es --no-cache"
+    },
+    "bugs": {
+        "url": "https://github.com/AckeeCZ/antonio/issues"
+    },
+    "engines": {
+        "node": ">=10"
+    }
+}

@@ -11,9 +11,6 @@
         "strict": true,
         // Import non-ES modules as default imports.
         "esModuleInterop": true,
-        "jsx": "react",
-        "outDir": "es"
-    },
-    "include": ["src"],
-    "exclude": ["**/__tests__/"]
+        "jsx": "react"
+    }
 }
