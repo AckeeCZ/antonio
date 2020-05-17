@@ -5,9 +5,10 @@
     ],
     "scripts": {
         "bootstrap": "lerna bootstrap --use-workspaces",
+        "build:lib": "lerna exec --parallel -- BABEL_ENV=lib babel src --out-dir lib --extensions \".ts\" --config-file=../../../babel.config.js --source-maps inline",
         "build:es": "lerna exec --parallel -- BABEL_ENV=es babel src --out-dir es --extensions \".ts\" --config-file=../../../babel.config.js --source-maps inline",
         "build:types": "lerna exec -- tsc --project ./tsconfig.types.json --emitDeclarationOnly",
-        "build:js": "yarn build:es",
+        "build:js": "yarn build:es & yarn build:lib",
         "build": "yarn clean && yarn build:js && yarn build:types",
         "clean": "lerna exec -- rm -rf lib es",
         "lint": "tslint \"src/**/*.ts\"",
