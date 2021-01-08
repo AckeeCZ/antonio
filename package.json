@@ -47,7 +47,7 @@
     "dependencies": {
         "@ackee/petrus": "4.x",
         "@babel/runtime": "7.x",
-        "axios": "0.19.x"
+        "axios": "0.21.x"
     },
     "peerDependencies": {
         "react": "16.x",
