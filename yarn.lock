@@ -18,22 +18,22 @@
     eslint-plugin-react "7.x"
     eslint-plugin-react-hooks "1.x"
 
-"@ackee/petrus@4.x":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@ackee/petrus/-/petrus-4.0.2.tgz#3c75aa21f654e6829404a2e6a8ec66b573781688"
-  integrity sha512-UMFwMqNrU/hu/iAD6dJ5uU4saSMZ2o5v3WvUzSdN5P82z+SpkZyW3aM0tYqS8H6WMD2Ux6XU4/tGNWDJPHeDsw==
+"@ackee/petrus@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@ackee/petrus/-/petrus-5.1.1.tgz#fccc57664388ee6e3d43fad610ee5024fe92587c"
+  integrity sha512-5NkrkUZOrrPRC+nFyd/J3Di1PKvdugy6Ifo3wpTz9/Qg72yOv4SNDSby9wi7TWSeRxt4nkLQy69ivH8rtOG7TA==
   dependencies:
-    "@ackee/redux-utils" "2.x"
-    "@babel/runtime" "7.x"
-    idb "4.x"
+    "@ackee/redux-utils" "2.3.3"
+    "@babel/runtime" "7.10.2"
+    idb "5.0.4"
     react-display-name "0.x"
 
-"@ackee/redux-utils@2.x":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@ackee/redux-utils/-/redux-utils-2.1.1.tgz#0660384e851eb92342cc1d98135f3bdc7c674aa0"
-  integrity sha512-tBiKk/CzFV2Li3sTYhsOaU0ZuJHZTbZlrV6yCFEz+hNpaVorJn8wikunr0BEUPwTi9mlaPmlIY+Sxfz4RDQXjQ==
+"@ackee/redux-utils@2.3.3":
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/@ackee/redux-utils/-/redux-utils-2.3.3.tgz#9314e158309e02c60cb310a7ff4dacbd8681d83f"
+  integrity sha512-RW/RtygV64ernjQ1XFi/BZZjMqRftZgNcFxrq3vhr+8J1WrvUcvvOGcp4uErN4wvN57QeBEU6Yab+aVrzK83cA==
   dependencies:
-    "@babel/runtime" "7.x"
+    "@babel/runtime" "7.10.2"
 
 "@babel/cli@7.x":
   version "7.8.4"
@@ -768,6 +768,13 @@
   integrity sha512-6toWAfaALQjt3KMZQc6fABqZwUDDuWzz+cAfPhqyEnzxvdWOAkjwPNxgF8xlmo7OWLsSjaKjsskpKHRLaMArOA==
   dependencies:
     core-js-pure "^3.0.0"
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@7.10.2":
+  version "7.10.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
+  integrity sha512-6sF3uQw2ivImfVIl62RZ7MXhO2tap69WeWK57vAaimT6AZbE4FbqjdEJIN1UqoD6wI6B+1n9UiagafH1sxjOtg==
+  dependencies:
     regenerator-runtime "^0.13.4"
 
 "@babel/runtime@7.x", "@babel/runtime@^7.4.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
@@ -3429,10 +3436,10 @@ iconv-lite@^0.4.24, iconv-lite@^0.4.4:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-idb@4.x:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/idb/-/idb-4.0.5.tgz#23b930fbb0abce391e939c35b7b31a669e74041f"
-  integrity sha512-P+Fk9HT2h1DhXoE1YNK183SY+CRh2GHNh28de94sGwhe0bUA75JJeVJWt3SenE5p0BXK7maflIq29dl6UZHrFw==
+idb@5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/idb/-/idb-5.0.4.tgz#9b6d42d5eff3c7f063b6f4d3e7c7e9aaeae2fd7a"
+  integrity sha512-g+CRa0NLB5R+VTd8UQK/J8eEPlZk82iwekJQOYA0bFJsc7TGDKyBywNmLBUdHPUyyazV1wN8DdHhSKzEX9Z9kQ==
 
 ieee754@^1.1.4:
   version "1.1.13"

@@ -45,7 +45,7 @@
         "reselect": "4.x"
     },
     "dependencies": {
-        "@ackee/petrus": "4.x",
+        "@ackee/petrus": "5.x",
         "@babel/runtime": "7.x",
         "axios": "0.21.x"
     },
