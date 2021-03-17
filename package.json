@@ -14,7 +14,10 @@
         "push": "yarn build:es  && yalc push",
         "start": "yarn build:es && onchange 'src/**/*.{js,jsx}' -- yarn push",
         "lint": "eslint 'src/**/*.{js,jsx}'",
-        "size": "package-size ./es --no-cache"
+        "size": "package-size ./es --no-cache",
+        "changelog": "gitmoji-changelog",
+        "version": "yarn changelog && code --wait CHANGELOG.md && git add CHANGELOG.md",
+        "release": "git fetch origin && yarn version"
     },
     "author": "Jiří Čermák <jiri.cermak@ackee.cz>",
     "license": "MIT",
@@ -35,6 +38,7 @@
         "cross-env": "^7.0.2",
         "eslint": "^6.8.0",
         "eslint-config-prettier": "4.x",
+        "gitmoji-changelog": "^2.2.0",
         "husky": "^4.2.5",
         "lint-staged": "^10.2.2",
         "onchange": "5.x",
