@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="3.0.5"></a>
+
+## 3.0.5 (2021-03-23)
+
+### Fixed
+
+-   🐛 Run yarn install to refresh yarn.lock [[9911393](https://github.com/AckeeCZ/antonio/commit/991139351440fad88430c640a236ad67e6c652c5)]
+
 <a name="3.0.4"></a>
 
 ## 3.0.4 (2021-03-23)
