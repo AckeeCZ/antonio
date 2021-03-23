@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="3.0.6"></a>
+
+## 3.0.6 (2021-03-23)
+
+### Miscellaneous
+
+-   🏷️ Fix param definition at setAuthHeader util [[879eeda](https://github.com/AckeeCZ/antonio/commit/879eedacfa000a10fac5c1956a1a65a2457f05a7)]
+
 <a name="3.0.5"></a>
 
 ## 3.0.5 (2021-03-23)
