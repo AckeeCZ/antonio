@@ -7,7 +7,7 @@
 
 /**
  * @param {CommonHeaders} headers
- * @param {string | null} accessToken
+ * @param {{ token: string } | null} accessToken
  */
 export function setAuthHeader(headers, accessToken) {
     if (accessToken) {
