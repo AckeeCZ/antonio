@@ -18,10 +18,10 @@
     eslint-plugin-react "7.x"
     eslint-plugin-react-hooks "1.x"
 
-"@ackee/petrus@5.x":
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/@ackee/petrus/-/petrus-5.1.1.tgz#fccc57664388ee6e3d43fad610ee5024fe92587c"
-  integrity sha512-5NkrkUZOrrPRC+nFyd/J3Di1PKvdugy6Ifo3wpTz9/Qg72yOv4SNDSby9wi7TWSeRxt4nkLQy69ivH8rtOG7TA==
+"@ackee/petrus@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@ackee/petrus/-/petrus-5.2.0.tgz#804068cc8a23ea45c0b91b72a4c32dfa30e110de"
+  integrity sha512-k+49jXsQx5d13HUYJeH/W9icXz1/AsLGlF9sWYcMzW9HdRSO4XNxy2yzzDQ8hRC102Ki2/x4zzFRoDdkZUjgJA==
   dependencies:
     "@ackee/redux-utils" "2.3.3"
     "@babel/runtime" "7.10.2"
