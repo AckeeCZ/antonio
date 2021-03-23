@@ -13,6 +13,7 @@ A HTTP client that uses [axios](https://github.com/axios/axios) for making all H
 -   [API](#api)
     -   [create](#api-create)
     -   [Saga Effects](src/saga-effects/README.md)
+    -   [Utilities](#utilities)
 
 ---
 
@@ -55,7 +56,7 @@ Initializes the saga handlers generator. This should be passed along with your o
 ```js
 import { saga as antonio } from 'Config/antonio';
 
-export default function*() {
+export default function* () {
     // antonio's saga must come before @ackee/petrus saga
     yield all([antonio()]);
 }
@@ -227,3 +228,9 @@ async function fetchTodo() {
 ### <a name="api-saga-effects"></a> Saga Effects
 
 Custom Saga effects with built-in cancelation of API requests, [see the docs](src/saga-effects/README.md).
+
+### Utilities
+
+#### `setAuthHeader(headers: CommonHeaders, accessToken: string | null): void`
+
+A utility used in the default config for setting bearer access token value to `Authorization` header.

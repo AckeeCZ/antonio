@@ -1,13 +1,26 @@
+/**
+ * @typedef CommonHeaders
+ * @type {Object}
+ * @property {Object} common
+ * @property {string | null} common.Authorization
+ */
+
+/**
+ * @param {CommonHeaders} headers
+ * @param {string | null} accessToken
+ */
+export function setAuthHeader(headers, accessToken) {
+    if (accessToken) {
+        headers.common.Authorization = `Bearer ${accessToken.token}`;
+    } else {
+        delete headers.common.Authorization;
+    }
+}
+
 const config = {
     manageAuthHeader: true,
 
-    setAuthHeader(headers, accessToken) {
-        if (accessToken) {
-            headers.common.Authorization = `Bearer ${accessToken.token}`;
-        } else {
-            delete headers.common.Authorization;
-        }
-    },
+    setAuthHeader,
 
     accessTokenUnavailableTimeout: {
         enabled: false,
