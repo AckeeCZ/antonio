@@ -18,7 +18,7 @@
     eslint-plugin-react "7.x"
     eslint-plugin-react-hooks "1.x"
 
-"@ackee/petrus@^5.2.0":
+"@ackee/petrus@5.x":
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/@ackee/petrus/-/petrus-5.2.0.tgz#804068cc8a23ea45c0b91b72a4c32dfa30e110de"
   integrity sha512-k+49jXsQx5d13HUYJeH/W9icXz1/AsLGlF9sWYcMzW9HdRSO4XNxy2yzzDQ8hRC102Ki2/x4zzFRoDdkZUjgJA==
