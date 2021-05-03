@@ -1,0 +1,40 @@
+{
+    "name": "@ackee/antonio",
+    "version": "4.0.0-alpha.5",
+    "description": "> TODO: description",
+    "keywords": [
+        "ackee",
+        "http-client",
+        "javascript",
+        "fetch"
+    ],
+    "author": "Jiří Čermák <jiri.cermak@ackee.cz>",
+    "homepage": "https://github.com/AckeeCZ/antonio#readme",
+    "license": "MIT",
+    "main": "lib/index.js",
+    "module": "es/index.js",
+    "files": [
+        "lib",
+        "es"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AckeeCZ/antonio.git",
+        "directory": "packages/@ackee/antonio"
+    },
+    "scripts": {
+        "test": "echo \"Error: run tests from root\" && exit 1"
+    },
+    "bugs": {
+        "url": "https://github.com/AckeeCZ/antonio/issues"
+    },
+    "engines": {
+        "node": ">=10"
+    },
+    "dependencies": {
+        "@ackee/antonio-core": "^4.0.0-alpha.5"
+    }
+}

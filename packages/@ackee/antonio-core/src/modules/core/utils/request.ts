@@ -1,3 +1,4 @@
+import Headers from 'fetch-headers';
 import {
     Header,
     ResponseTypes,
@@ -61,6 +62,7 @@ export function createRequestUrl(requestUrl: string, requestConfig: RequestConfi
         return url.toString();
     } catch (e) {
         // TODO: use log-level
+        // eslint-disable-next-line no-console
         console.error(e, {
             requestUrl,
             requestConfig,
