@@ -7,7 +7,7 @@ import {
     RequestHeaders,
     RequestUriParams,
     RequestBody,
-} from '../constants';
+} from '../types';
 import { mergeUrlSearchParams } from './config';
 
 export function formatRequestBody(body: RequestBody, config: RequestConfig): RequestBody {

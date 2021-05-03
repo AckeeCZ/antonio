@@ -1,7 +1,7 @@
-import { RequestConfig } from './constants';
+import { RequestConfig } from './types';
 
 import HttpClient from './models/HttpClient';
 
-export function create(customRequestConfig?: RequestConfig) {
-    return new HttpClient(customRequestConfig);
+export function create(requestConfig?: RequestConfig) {
+    return new HttpClient(requestConfig);
 }

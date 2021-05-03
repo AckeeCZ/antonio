@@ -1,4 +1,4 @@
-import { RequestConfig, RequestBody } from '../constants';
+import { RequestConfig, RequestBody } from '../types';
 import { defaultRequestConfig } from '../config';
 import { mergeConfig } from '../utils';
 

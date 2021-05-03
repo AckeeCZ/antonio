@@ -1,4 +1,4 @@
-import { ResponseType, Header, ResponseTypes } from '../constants';
+import { ResponseType, Header, ResponseTypes } from '../types';
 
 function parseHeaderValue(headerValue: string | null): string[] {
     if (!headerValue) {

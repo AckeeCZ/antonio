@@ -1,4 +1,4 @@
-import { RequestMethod, RequestConfig, RequestResult } from './constants';
+import { RequestMethod, RequestConfig, RequestResult } from './types';
 import { HTTPError } from './errors';
 import { createRequestUrl, formatRequestBody, setRequestHeaders, parseResponse, mergeConfig } from './utils';
 
