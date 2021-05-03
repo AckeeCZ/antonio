@@ -1,3 +1,5 @@
+import type { Logger } from 'loglevel';
+
 export type RequestMethod = 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options' | 'head';
 
 export type ResponseType = 'json' | 'blob' | 'formData' | 'text';
@@ -38,6 +40,10 @@ export interface RequestConfig extends Omit<RequestInit, 'body' | 'headers' | 'm
     headers?: RequestHeaders;
 
     searchParams?: RequestSearchParams;
+}
+
+export interface GeneralConfig {
+    logger: Logger;
 }
 
 export interface DefaultRequestConfig extends RequestConfig {

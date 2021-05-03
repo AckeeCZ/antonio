@@ -1,6 +1,6 @@
-import { RequestMethod, RequestConfig, RequestResult } from './types';
+import { RequestMethod, RequestConfig, RequestResult, GeneralConfig } from '../../types';
 import { HTTPError } from './errors';
-import { createRequestUrl, formatRequestBody, setRequestHeaders, parseResponse, mergeConfig } from './utils';
+import { createRequestUrl, formatRequestBody, setRequestHeaders, parseResponse, mergeRequestConfigs } from './utils';
 
 export default async function request(
     method: RequestMethod,
@@ -8,10 +8,11 @@ export default async function request(
     body: BodyInit | undefined,
     requestConfig: RequestConfig | undefined,
     defaultRequestConfig: RequestConfig,
+    generalConfig: GeneralConfig,
 ): Promise<RequestResult> {
-    const config = mergeConfig(defaultRequestConfig, requestConfig);
+    const config = mergeRequestConfigs(defaultRequestConfig, requestConfig);
 
-    const url = createRequestUrl(requestUrl, config);
+    const url = createRequestUrl(requestUrl, config, generalConfig);
 
     const { mode, credentials, cache, redirect, referrer, referrerPolicy, integrity, keepalive, signal } = config;
 

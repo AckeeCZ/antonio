@@ -1,5 +1,5 @@
 import Headers from 'fetch-headers';
-import { RequestConfig, RequestHeaders, RequestSearchParams } from '../types';
+import { RequestConfig, RequestHeaders, RequestSearchParams } from '../../../types';
 
 const getSearchParamsEntries = (value?: RequestSearchParams) =>
     value instanceof URLSearchParams ? value.entries() : Object.entries(value ?? {});
@@ -35,7 +35,7 @@ function mergeHeaders(headersA?: RequestHeaders, headersB?: RequestHeaders): Hea
     return result;
 }
 
-export function mergeConfig(configA: RequestConfig = {}, configB: RequestConfig = {}): RequestConfig {
+export function mergeRequestConfigs(configA: RequestConfig = {}, configB: RequestConfig = {}): RequestConfig {
     const result: RequestConfig = {
         ...configA,
         ...configB,
