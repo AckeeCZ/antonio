@@ -8,17 +8,17 @@
         "javascript",
         "ackee"
     ],
-    "author": "Jiří Čermák <jiri.cermak@ackee.cz>",
-    "license": "MIT",
     "main": "lib/index.js",
     "module": "es/index.js",
+    "jsnext:main": "es/index.js",
     "sideEffects": false,
     "files": [
         "es",
         "lib"
     ],
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "es"
     },
     "repository": {
         "type": "git",
@@ -32,6 +32,8 @@
         "url": "https://github.com/AckeeCZ/antonio/issues"
     },
     "engines": {
-        "node": ">=10"
-    }
+        "node": ">=12"
+    },
+    "author": "Jiří Čermák <jiri.cermak@ackee.cz>",
+    "license": "MIT"
 }

@@ -8,8 +8,12 @@
         // Generate corresponding .d.ts file.
         "declaration": true,
         // Enable strictest settings like strictNullChecks & noImplicitAny.
-        "strict": true,
+        "strict": false,
         // Import non-ES modules as default imports.
-        "esModuleInterop": true
-    }
+        "esModuleInterop": true,
+
+        "strictNullChecks": true,
+        "noImplicitAny": false
+    },
+    "include": ["packages/@ackee/*/src"]
 }
