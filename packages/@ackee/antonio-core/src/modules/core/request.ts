@@ -32,12 +32,15 @@ export default async function request(
         headers: setRequestHeaders(method, config),
     });
 
+    // TODO: implemenet req. interceptors
+
     const response = await fetch(request);
+
+    // TODO: implemenet req. interceptors
 
     const data = await parseResponse(config.responseType, response);
 
     if (!response.ok) {
-        // TODO: try response.error instead
         throw new HTTPError(request, response, data);
     }
 

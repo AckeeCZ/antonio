@@ -1,7 +1,7 @@
 import { RequestConfig, GeneralConfig } from '../../types';
 
-import HttpClient from './models/HttpClient';
+import Antonio from './models/Antonio';
 
 export default function create(requestConfig?: RequestConfig, generalConfig?: Partial<GeneralConfig>) {
-    return new HttpClient(requestConfig, generalConfig);
+    return new Antonio(requestConfig, generalConfig);
 }

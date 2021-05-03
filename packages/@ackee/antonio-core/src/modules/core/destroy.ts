@@ -1,5 +1,5 @@
-import HttpClient, { generalConfigs } from './models/HttpClient';
+import Antonio, { generalConfigs } from './models/Antonio';
 
-export default function destroy(httpClient: HttpClient) {
-    return generalConfigs.delete(httpClient);
+export default function destroy(antonio: Antonio) {
+    return generalConfigs.delete(antonio);
 }

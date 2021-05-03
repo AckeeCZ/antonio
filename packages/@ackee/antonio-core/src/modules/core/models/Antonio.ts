@@ -5,7 +5,8 @@ import { mergeRequestConfigs } from '../utils';
 import request from '../request';
 
 export const generalConfigs = new WeakMap();
-class HttpClient {
+
+class Antonio {
     readonly defaults: DefaultRequestConfig;
     readonly config: GeneralConfig;
 
@@ -48,4 +49,4 @@ class HttpClient {
     }
 }
 
-export default HttpClient;
+export default Antonio;
