@@ -7,8 +7,9 @@ import {
     RequestHeaders,
     RequestUriParams,
     RequestBody,
-} from '../constants';
-import { mergeUrlSearchParams } from './config';
+    GeneralConfig,
+} from '../../../types';
+import { mergeUrlSearchParams } from './mergeRequestConfigs';
 
 export function formatRequestBody(body: RequestBody, config: RequestConfig): RequestBody {
     if (config.responseType === 'json') {
@@ -46,7 +47,11 @@ function setUriParams(templateUrl: string, uriParams: RequestUriParams): string 
     return templateUrl.split('/').map(templateToValue).join('/');
 }
 
-export function createRequestUrl(requestUrl: string, requestConfig: RequestConfig): string {
+export function createRequestUrl(
+    requestUrl: string,
+    requestConfig: RequestConfig,
+    generalConfig: GeneralConfig,
+): string {
     try {
         if (requestConfig.uriParams) {
             requestUrl = setUriParams(requestUrl, requestConfig.uriParams);
@@ -61,9 +66,7 @@ export function createRequestUrl(requestUrl: string, requestConfig: RequestConfi
 
         return url.toString();
     } catch (e) {
-        // TODO: use log-level
-        // eslint-disable-next-line no-console
-        console.error(e, {
+        generalConfig.logger.error(e, {
             requestUrl,
             requestConfig,
         });

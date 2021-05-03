@@ -8,23 +8,25 @@ A HTTP client built on Fetch API with similar API to [axios](https://github.com/
 
 ## Table of contents
 
--   [Installing](#installing)
+-   [Install](#install)
 -   [Setup](#setup)
 -   [API](#api)
+    -   [`create(requestConfig?: RequestConfig, generalConfig?: GeneralConfig): Antonio`](#create)
+    -   [`destroy(api: Antonio): boolean`](#destroy)
+    -   [`requestConfig: RequestConfig`](#request-config)
+    -   [`generalConfig: GeneralConfig`](#general-config)
 
 ---
 
-## <a name="installing"></a>Installing
+## <a name="install"></a>Install
 
 ```bash
-$ yarn add @ackee/antonio-core -S
+yarn add @ackee/antonio-core -S
 ```
 
 ---
 
 ## <a name="setup"></a>Setup
-
-Create a new instance and you're ready to go.
 
 ```js
 import { create } from '@ackee/antonio-core';
@@ -74,39 +76,52 @@ api.delete('/todos/:id', {
 
 ## <a name="api"></a>API
 
-### `create([config])`
+### `create(requestConfig?: RequestConfig, generalConfig?: GeneralConfig): Antonio`
 
-```js
-import * as Antonio from '@ackee/antonio-core';
+Creates a new instance of `Antonio` with custom request config and general config:
 
-const antonio = Antonio.create({
+```ts
+import { create } from '@ackee/antonio-core';
+
+const api = create({
     baseURL: 'https://some-domain.com/api/',
 });
 ```
 
-### Instance methods
+#### Instance methods
 
+```ts
+api.get(url: string, requestConfig?: RequestConfig): Promise<RequestResult>
+
+api.delete(url: string, requestConfig?: RequestConfig): Promise<RequestResult>
+
+api.head(url: string, requestConfig?: RequestConfig): Promise<RequestResult>
+
+api.options(url: string, requestConfig?: RequestConfig): Promise<RequestResult>
+
+api.post(url: string, data: RequestBody, requestConfig?: RequestConfig): Promise<RequestResult>
+
+api.put(url: string, data: RequestBody, requestConfig?: RequestConfig): Promise<RequestResult>
+
+api.patch(url: string, data: RequestBody, requestConfig?: RequestConfig): Promise<RequestResult>
 ```
-antonio#get(url[, config])
 
-antonio#delete(url[, config])
+### `destroy(api: Antonio): boolean`
 
-antonio#head(url[, config])
+Clears-up memory after the current Antonio instance.
 
-antonio#options(url[, config])
+```ts
+import { destroy } from '@ackee/antonio-core';
+import { api } from '...';
 
-antonio#post(url[, data[, config]])
-
-antonio#put(url[, data[, config]])
-
-antonio#patch(url[, data[, config]])
+destroy(api);
 ```
 
-## Request config
+## `requestConfig: RequestConfig`
 
-These are the available config options for making requests. None of these is required.
+These are the available config options for an API request. None of these are required.
 
-```js
+```ts
 {
     // `baseURL` will be prepended to `url` unless `url` is absolute.
     // It can be convenient to set `baseURL` for an instance of antonio to pass relative URLs
@@ -116,26 +131,26 @@ These are the available config options for making requests. None of these is req
 
     // Options: "json" | "blob" | "text" | "formData" | undefined
     // Default: "json"
-    responseType: "json",
+    responseType: 'json',
 
     // Options: object | undefined
     // Default: undefined
     uriParams: {
-        id: '2'
+        id: '2',
     },
 
     // `headers` are custom headers to be sent
     // Must be a plain object or a Headers object
     // Default: new Headers()
     headers: new Headers({
-        'X-Custom-Header': 1234
+        'X-Custom-Header': 1234,
     }),
 
     // `searchParams` are the URL parameters to be sent with the request
     // Must be a plain object or a URLSearchParams object
     // Default: undefined
     searchParams: new URLSearchParams({
-        query: 'foo'
+        query: 'foo',
     }),
 
     // Following props are pass to Request constructor,
@@ -149,5 +164,13 @@ These are the available config options for making requests. None of these is req
     integrity: undefined,
     keepalive: undefined,
     signal: undefined,
+}
+```
+
+## `generalConfig: GeneralConfig`
+
+```ts
+{
+    logger: loglevel,
 }
 ```

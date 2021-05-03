@@ -1,17 +1,19 @@
-import { RequestMethod, RequestConfig, RequestResult } from './constants';
+import { RequestMethod, RequestResult, GeneralConfig, RequestConfig } from 'types';
+import { DefaultRequestConfig } from './config';
 import { HTTPError } from './errors';
-import { createRequestUrl, formatRequestBody, setRequestHeaders, parseResponse, mergeConfig } from './utils';
+import { createRequestUrl, formatRequestBody, setRequestHeaders, parseResponse, mergeRequestConfigs } from './utils';
 
 export default async function request(
     method: RequestMethod,
     requestUrl: string,
     body: BodyInit | undefined,
     requestConfig: RequestConfig | undefined,
-    defaultRequestConfig: RequestConfig,
+    defaultRequestConfig: DefaultRequestConfig,
+    generalConfig: GeneralConfig,
 ): Promise<RequestResult> {
-    const config = mergeConfig(defaultRequestConfig, requestConfig);
+    const config = mergeRequestConfigs(defaultRequestConfig, requestConfig);
 
-    const url = createRequestUrl(requestUrl, config);
+    const url = createRequestUrl(requestUrl, config, generalConfig);
 
     const { mode, credentials, cache, redirect, referrer, referrerPolicy, integrity, keepalive, signal } = config;
 
@@ -30,12 +32,15 @@ export default async function request(
         headers: setRequestHeaders(method, config),
     });
 
+    // TODO: implemenet req. interceptors
+
     const response = await fetch(request);
+
+    // TODO: implemenet req. interceptors
 
     const data = await parseResponse(config.responseType, response);
 
     if (!response.ok) {
-        // TODO: try response.error instead
         throw new HTTPError(request, response, data);
     }
 

@@ -1,3 +1,5 @@
+import type { Logger } from 'loglevel';
+
 export type RequestMethod = 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options' | 'head';
 
 export type ResponseType = 'json' | 'blob' | 'formData' | 'text';
@@ -15,34 +17,35 @@ export type RequestUriParams = Params;
 export type RequestSearchParams = URLSearchParams | Params;
 
 export enum ResponseTypes {
-    json = 'application/json',
-    text = 'text/*',
-    formData = 'multipart/form-data',
-    blob = '*/*',
+    JSON = 'application/json',
+    TEXT = 'text/*',
+    FORM_DATA = 'multipart/form-data',
+    BLOB = '*/*',
 }
 
 export enum Header {
     CONTENT_TYPE = 'Content-Type',
 }
 
-export interface RequestConfig extends Omit<RequestInit, 'body' | 'headers' | 'method'> {
+export interface FullRequestConfig extends Omit<RequestInit, 'body' | 'headers' | 'method'> {
     // `baseURL` will be prepended to `url` unless `url` is absolute.
     // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
     // to methods of that instance.
-    baseURL?: string;
+    baseURL: string;
 
-    responseType?: ResponseType;
+    responseType: ResponseType;
 
-    uriParams?: RequestUriParams;
+    uriParams: RequestUriParams;
 
-    headers?: RequestHeaders;
+    headers: RequestHeaders;
 
-    searchParams?: RequestSearchParams;
+    searchParams: RequestSearchParams;
 }
 
-export interface DefaultRequestConfig extends RequestConfig {
-    headers: RequestHeaders;
-    responseType: ResponseType;
+export type RequestConfig = Partial<FullRequestConfig>;
+
+export interface GeneralConfig {
+    logger: Logger;
 }
 
 export interface RequestResult {

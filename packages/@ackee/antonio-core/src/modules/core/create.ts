@@ -1,7 +1,7 @@
-import { RequestConfig } from './constants';
+import { RequestConfig, GeneralConfig } from '../../types';
 
-import HttpClient from './models/HttpClient';
+import Antonio from './models/Antonio';
 
-export function create(customRequestConfig?: RequestConfig) {
-    return new HttpClient(customRequestConfig);
+export default function create(requestConfig?: RequestConfig, generalConfig?: Partial<GeneralConfig>) {
+    return new Antonio(requestConfig, generalConfig);
 }
