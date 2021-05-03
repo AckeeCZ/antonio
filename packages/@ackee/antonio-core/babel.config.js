@@ -2,7 +2,7 @@ module.exports = {
     extends: '../../../babel.config.js',
     plugins: [
         [
-            require.resolve('babel-plugin-module-resolver'),
+            'babel-plugin-module-resolver',
             {
                 alias: {
                     config: './src/config',
