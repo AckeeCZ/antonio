@@ -2246,6 +2246,11 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
+"@types/fetch-headers@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@types/fetch-headers/-/fetch-headers-2.0.0.tgz#8bc9321fc43797be59b9f69942afa5f5d1ed2a0d"
+  integrity sha512-zJ1F8w2iFs68z5lAEcsa6S8wAwoc0bK7ZJkNgMb46HFP0uqWPpPc7HCKdZMSRDCrlAd7L1sgDuh/BzmCe64Xew==
+
 "@types/graceful-fs@^4.1.2":
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/@types/graceful-fs/-/graceful-fs-4.1.5.tgz#21ffba0d98da4350db64891f92a9e5db3cdb4e15"
@@ -5407,6 +5412,11 @@ fb-watchman@^2.0.0:
   integrity sha512-DkPJKQeY6kKwmuMretBhr7G6Vodr7bFwDYTXIkfG1gjvNpaxBTQV3PbXg6bR1c1UP4jPOX0jHUbbHANL9vRjVg==
   dependencies:
     bser "2.1.1"
+
+fetch-headers@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/fetch-headers/-/fetch-headers-2.0.0.tgz#bab7531c39b3d72d21ac189f179756f08541cf55"
+  integrity sha1-urdTHDmz1y0hrBifF5dW8IVBz1U=
 
 figgy-pudding@^3.4.1, figgy-pudding@^3.5.1:
   version "3.5.2"

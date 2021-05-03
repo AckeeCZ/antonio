@@ -1,3 +1,4 @@
+import Headers from 'fetch-headers';
 import { RequestConfig, RequestHeaders, RequestSearchParams } from '../constants';
 
 const getSearchParamsEntries = (value?: RequestSearchParams) =>
