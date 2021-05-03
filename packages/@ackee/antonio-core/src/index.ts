@@ -1,2 +1,2 @@
 export { create as default } from './modules/core';
-export type { DefaultRequestConfig } from './types';
+export type { RequestConfig } from './types';

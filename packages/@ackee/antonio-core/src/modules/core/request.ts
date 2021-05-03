@@ -1,4 +1,5 @@
-import { RequestMethod, RequestConfig, RequestResult, GeneralConfig } from '../../types';
+import { RequestMethod, RequestResult, GeneralConfig, RequestConfig } from 'types';
+import { DefaultRequestConfig } from './config';
 import { HTTPError } from './errors';
 import { createRequestUrl, formatRequestBody, setRequestHeaders, parseResponse, mergeRequestConfigs } from './utils';
 
@@ -7,7 +8,7 @@ export default async function request(
     requestUrl: string,
     body: BodyInit | undefined,
     requestConfig: RequestConfig | undefined,
-    defaultRequestConfig: RequestConfig,
+    defaultRequestConfig: DefaultRequestConfig,
     generalConfig: GeneralConfig,
 ): Promise<RequestResult> {
     const config = mergeRequestConfigs(defaultRequestConfig, requestConfig);

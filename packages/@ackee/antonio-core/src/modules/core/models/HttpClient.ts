@@ -1,16 +1,16 @@
 import { RequestConfig, RequestBody, GeneralConfig } from '../../../types';
-import { defaultRequestConfig, defaultGeneralConfig } from '../config';
+import { defaultRequestConfig, defaultGeneralConfig, DefaultRequestConfig } from '../config';
 import { mergeRequestConfigs } from '../utils';
 
 import request from '../request';
 
 export const generalConfigs = new WeakMap();
 class HttpClient {
-    readonly defaults: RequestConfig;
+    readonly defaults: DefaultRequestConfig;
     readonly config: GeneralConfig;
 
     constructor(requestConfig?: RequestConfig, generalConfig?: Partial<GeneralConfig>) {
-        this.defaults = Object.freeze<RequestConfig>(mergeRequestConfigs(defaultRequestConfig, requestConfig));
+        this.defaults = Object.freeze<DefaultRequestConfig>(mergeRequestConfigs(defaultRequestConfig, requestConfig));
 
         const config = Object.freeze<GeneralConfig>({
             ...defaultGeneralConfig,

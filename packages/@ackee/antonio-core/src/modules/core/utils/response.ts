@@ -15,7 +15,7 @@ export function parseResponse(responseType: ResponseType | undefined, response: 
     switch (responseType) {
         case 'json': {
             const contentType = response.headers.get(Header.CONTENT_TYPE);
-            const hasJsonResponseType = parseHeaderValue(contentType).includes(ResponseTypes.json);
+            const hasJsonResponseType = parseHeaderValue(contentType).includes(ResponseTypes.JSON);
 
             return hasJsonResponseType ? response.json() : null;
         }
