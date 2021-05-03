@@ -6,10 +6,12 @@ const config = {
         [
             '@babel/env',
             {
-                useBuiltIns: false,
+                useBuiltIns: 'usage',
+                corejs: '3.11',
                 loose: true,
                 modules: false,
                 bugfixes: true,
+                browserslistEnv: 'production',
             },
         ],
     ],
@@ -27,6 +29,15 @@ const config = {
             'babel-plugin-custom-import-path-transform',
             {
                 transformImportPath: path.resolve(__dirname, 'scripts/transformImportPath.js'),
+            },
+        ],
+        [
+            'babel-plugin-transform-imports',
+            {
+                lodash: {
+                    transform: 'lodash/${member}',
+                    preventFullImport: true,
+                },
             },
         ],
         '@babel/plugin-transform-runtime',
