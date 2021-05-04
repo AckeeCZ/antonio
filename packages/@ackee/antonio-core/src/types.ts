@@ -17,10 +17,10 @@ export type RequestUriParams = Params;
 export type RequestSearchParams = URLSearchParams | Params;
 
 export enum ResponseTypes {
-    JSON = 'application/json',
-    TEXT = 'text/*',
-    FORM_DATA = 'multipart/form-data',
-    BLOB = '*/*',
+    json = 'application/json',
+    text = 'text/*',
+    formData = 'multipart/form-data',
+    blob = '*/*',
 }
 
 export enum Header {

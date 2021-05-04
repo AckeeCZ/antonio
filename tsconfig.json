@@ -23,10 +23,5 @@
         "forceConsistentCasingInFileNames": true
     },
     "include": ["packages/@ackee/*/src"],
-    "exclude": ["**/__tests__/"],
-    "references": [
-        {
-            "path": "./packages/@ackee/antonio-core"
-        }
-    ]
+    "exclude": ["**/__tests__/"]
 }

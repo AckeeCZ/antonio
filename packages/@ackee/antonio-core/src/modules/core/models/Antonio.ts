@@ -1,52 +1,62 @@
-import { RequestConfig, RequestBody, GeneralConfig } from '../../../types';
-import { defaultRequestConfig, defaultGeneralConfig, DefaultRequestConfig } from '../config';
-import { mergeRequestConfigs } from '../utils';
+import { RequestConfig, RequestBody, GeneralConfig } from 'types';
 
+import { defaultRequestConfig, DefaultRequestConfig } from '../request-config';
+import { defaultGeneralConfig, generalConfigs } from '../general-config';
+import { mergeRequestConfigs } from '../utils';
 import request from '../request';
 
-export const generalConfigs = new WeakMap();
+import InterceptorManager, { InterceptorManagers } from './InterceptorManager';
 
 class Antonio {
     readonly defaults: DefaultRequestConfig;
-    readonly config: GeneralConfig;
+    readonly interceptors: InterceptorManagers;
 
     constructor(requestConfig?: RequestConfig, generalConfig?: Partial<GeneralConfig>) {
         this.defaults = Object.freeze<DefaultRequestConfig>(mergeRequestConfigs(defaultRequestConfig, requestConfig));
 
-        const config = Object.freeze<GeneralConfig>({
-            ...defaultGeneralConfig,
-            ...generalConfig,
+        this.interceptors = Object.freeze<InterceptorManagers>({
+            request: new InterceptorManager<RequestInit>(),
+            response: new InterceptorManager<Response>(),
         });
-        generalConfigs.set(this, config);
+
+        generalConfigs.set(
+            this,
+            Object.freeze<GeneralConfig>({
+                ...defaultGeneralConfig,
+                ...generalConfig,
+            }),
+        );
     }
 
-    post(url: string, body: RequestBody, requestConfig?: RequestConfig) {
-        return request('post', url, body, requestConfig, this.defaults, generalConfigs.get(this));
+    *post(url: string, body: RequestBody, requestConfig?: RequestConfig) {
+        return yield request('post', url, body, requestConfig, this);
     }
 
-    put(url: string, body: RequestBody, requestConfig?: RequestConfig) {
-        return request('put', url, body, requestConfig, this.defaults, generalConfigs.get(this));
+    *put(url: string, body: RequestBody, requestConfig?: RequestConfig) {
+        return yield request('put', url, body, requestConfig, this);
     }
 
-    patch(url: string, body: RequestBody, requestConfig?: RequestConfig) {
-        return request('patch', url, body, requestConfig, this.defaults, generalConfigs.get(this));
+    *patch(url: string, body: RequestBody, requestConfig?: RequestConfig) {
+        return yield request('patch', url, body, requestConfig, this);
     }
 
-    get(url: string, requestConfig?: RequestConfig) {
-        return request('get', url, undefined, requestConfig, this.defaults, generalConfigs.get(this));
+    *get(url: string, requestConfig?: RequestConfig) {
+        return yield request('get', url, undefined, requestConfig, this);
     }
 
-    delete(url: string, requestConfig?: RequestConfig) {
-        return request('delete', url, undefined, requestConfig, this.defaults, generalConfigs.get(this));
+    *delete(url: string, requestConfig?: RequestConfig) {
+        return yield request('delete', url, undefined, requestConfig, this);
     }
 
-    head(url: string, requestConfig?: RequestConfig) {
-        return request('head', url, undefined, requestConfig, this.defaults, generalConfigs.get(this));
+    *head(url: string, requestConfig?: RequestConfig) {
+        return yield request('head', url, undefined, requestConfig, this);
     }
 
-    options(url: string, requestConfig?: RequestConfig) {
-        return request('options', url, undefined, requestConfig, this.defaults, generalConfigs.get(this));
+    *options(url: string, requestConfig?: RequestConfig) {
+        return yield request('options', url, undefined, requestConfig, this);
     }
 }
+
+export type TAntonio = Antonio;
 
 export default Antonio;

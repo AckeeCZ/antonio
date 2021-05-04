@@ -8,10 +8,12 @@ import {
     RequestUriParams,
     RequestBody,
     GeneralConfig,
-} from '../../../types';
-import { mergeUrlSearchParams } from './mergeRequestConfigs';
+} from 'types';
+import { DefaultRequestConfig } from '../request-config';
 
-export function formatRequestBody(body: RequestBody, config: RequestConfig): RequestBody {
+import { mergeUrlSearchParams, mergeRequestConfigs } from './mergeRequestConfigs';
+
+function formatRequestBody(body: RequestBody, config: RequestConfig): RequestBody {
     if (config.responseType === 'json') {
         return JSON.stringify(body);
     }
@@ -47,11 +49,7 @@ function setUriParams(templateUrl: string, uriParams: RequestUriParams): string 
     return templateUrl.split('/').map(templateToValue).join('/');
 }
 
-export function createRequestUrl(
-    requestUrl: string,
-    requestConfig: RequestConfig,
-    generalConfig: GeneralConfig,
-): string {
+function createRequestUrl(requestUrl: string, requestConfig: RequestConfig, generalConfig: GeneralConfig): string {
     try {
         if (requestConfig.uriParams) {
             requestUrl = setUriParams(requestUrl, requestConfig.uriParams);
@@ -76,7 +74,7 @@ export function createRequestUrl(
     }
 }
 
-export function setRequestHeaders(method: RequestMethod, config: RequestConfig): RequestHeaders {
+function setRequestHeaders(method: RequestMethod, config: RequestConfig): RequestHeaders {
     const headers = new Headers(config.headers);
 
     if (!headers.has(Header.CONTENT_TYPE) && method !== 'head' && config.responseType) {
@@ -84,4 +82,37 @@ export function setRequestHeaders(method: RequestMethod, config: RequestConfig):
     }
 
     return headers;
+}
+
+export function createRequestInit(
+    method: RequestMethod,
+    requestUrl: string,
+    body: BodyInit | undefined,
+    requestConfig: RequestConfig | undefined,
+    defaultRequestConfig: DefaultRequestConfig,
+    generalConfig: GeneralConfig,
+) {
+    const config = mergeRequestConfigs(defaultRequestConfig, requestConfig);
+    const url = createRequestUrl(requestUrl, config, generalConfig);
+    const { mode, credentials, cache, redirect, referrer, referrerPolicy, integrity, keepalive, signal } = config;
+    const requestInit: RequestInit = {
+        method,
+        mode,
+        credentials,
+        cache,
+        redirect,
+        referrer,
+        referrerPolicy,
+        integrity,
+        keepalive,
+        signal,
+        body: formatRequestBody(body, config),
+        headers: setRequestHeaders(method, config),
+    };
+
+    return {
+        url,
+        requestInit,
+        config,
+    };
 }
