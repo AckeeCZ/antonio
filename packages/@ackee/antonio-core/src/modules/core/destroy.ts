@@ -1,5 +1,8 @@
-import Antonio, { generalConfigs } from './models/Antonio';
+import Antonio from './models/Antonio';
+import { generalConfigs } from './general-config';
+import { interceptors } from './models/InterceptorManager';
 
 export default function destroy(antonio: Antonio) {
-    return generalConfigs.delete(antonio);
+    interceptors.delete(antonio);
+    generalConfigs.delete(antonio);
 }

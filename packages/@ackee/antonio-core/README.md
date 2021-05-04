@@ -12,7 +12,7 @@ A HTTP client built on Fetch API with similar API to [axios](https://github.com/
 -   [Setup](#setup)
 -   [API](#api)
     -   [`create(requestConfig?: RequestConfig, generalConfig?: GeneralConfig): Antonio`](#create)
-    -   [`destroy(api: Antonio): boolean`](#destroy)
+    -   [`destroy(api: Antonio): void`](#destroy)
     -   [`requestConfig: RequestConfig`](#request-config)
     -   [`generalConfig: GeneralConfig`](#general-config)
 
@@ -106,7 +106,7 @@ api.put(url: string, data: RequestBody, requestConfig?: RequestConfig): Promise<
 api.patch(url: string, data: RequestBody, requestConfig?: RequestConfig): Promise<RequestResult>
 ```
 
-### `destroy(api: Antonio): boolean`
+### `destroy(api: Antonio): void`
 
 Clears-up memory after the current Antonio instance.
 

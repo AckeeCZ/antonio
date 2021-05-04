@@ -15,10 +15,5 @@
         "strictNullChecks": true,
         "noImplicitAny": false
     },
-    "include": ["packages/@ackee/*/src"],
-    "references": [
-        {
-            "path": "./packages/@ackee/antonio-core"
-        }
-    ]
+    "include": ["packages/@ackee/*/src"]
 }

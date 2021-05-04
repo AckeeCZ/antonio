@@ -1,6 +1,6 @@
 import Headers from 'fetch-headers';
 import { RequestConfig, RequestHeaders, RequestSearchParams } from 'types';
-import { DefaultRequestConfig } from '../config';
+import { DefaultRequestConfig } from '../request-config';
 
 const getSearchParamsEntries = (value?: RequestSearchParams) =>
     value instanceof URLSearchParams ? value.entries() : Object.entries(value ?? {});
