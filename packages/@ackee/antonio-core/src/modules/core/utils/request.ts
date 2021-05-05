@@ -49,13 +49,20 @@ function setUriParams(templateUrl: string, uriParams: RequestUriParams): string 
     return templateUrl.split('/').map(templateToValue).join('/');
 }
 
+const removeSlashAsLastChar = (chunk: string) => chunk.replace(/\/$/, '');
+
+function joinUrlChunks(baseUrl?: string, ...path: string[]) {
+    const joinedUrl = [baseUrl, ...path].filter(Boolean).map(removeSlashAsLastChar).join('/');
+    return new URL(joinedUrl);
+}
+
 function createRequestUrl(requestUrl: string, requestConfig: RequestConfig, generalConfig: GeneralConfig): string {
     try {
         if (requestConfig.uriParams) {
             requestUrl = setUriParams(requestUrl, requestConfig.uriParams);
         }
 
-        const url = new URL(requestUrl, requestConfig.baseURL);
+        const url = joinUrlChunks(requestConfig.baseURL, requestUrl);
 
         url.search = mergeUrlSearchParams(
             new URLSearchParams(url.search),

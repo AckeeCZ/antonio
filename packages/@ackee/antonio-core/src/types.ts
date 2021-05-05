@@ -52,4 +52,24 @@ export interface RequestResult {
     request: Request;
     response: Response;
     data: BodyInit | null;
+
+    /**
+     * @deprecated This prop is going to be removed in next major relase. Use `response.status` instead.
+     */
+    status: number;
+
+    /**
+     * @deprecated This prop is going to be removed in next major relase. Use `response.statusText` instead.
+     */
+    statusText: string;
+
+    /**
+     * @deprecated This prop is going to be removed in next major relase. Use `response.headers` instead.
+     */
+    headers: {};
+
+    /**
+     * @deprecated This prop is going to be removed in next major relase. Depend on properties in the `request`.
+     */
+    config: {};
 }
