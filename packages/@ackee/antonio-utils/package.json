@@ -11,7 +11,9 @@
     "main": "lib/index.js",
     "module": "es/index.js",
     "jsnext:main": "es/index.js",
-    "sideEffects": false,
+    "sideEffects": [
+        "abortcontroller-polyfill/dist/abortcontroller-polyfill-only.js"
+    ],
     "files": [
         "es",
         "lib"
