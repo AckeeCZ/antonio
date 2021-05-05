@@ -1,4 +1,4 @@
-import { RequestMethod, RequestConfig, GeneralConfig } from 'types';
+import { RequestMethod, RequestConfig, GeneralConfig, RequestResult } from 'types';
 
 import { interceptors } from './models/InterceptorManager';
 import type { RequestInterceptorsEntries, ResponseInterceptorsEntries } from './models/InterceptorManager';
@@ -106,7 +106,23 @@ export default function* request(
     const request = yield applyRequestInteceptors(requestInterceptors, url, requestInit);
 
     const responseInterceptors: ResponseInterceptorsEntries = interceptors.get(antonio.interceptors.response);
-    const { response, data } = yield applyResponseInterceptors(responseInterceptors, request, config);
+    const {
+        response,
+        data,
+    }: {
+        response: Response;
+        data: BodyInit | null;
+    } = yield applyResponseInterceptors(responseInterceptors, request, config);
 
-    return { request, response, data };
+    const result: RequestResult = {
+        request,
+        response,
+        data,
+        status: response.status,
+        statusText: response.statusText,
+        config,
+        headers: Object.fromEntries(response.headers.entries()),
+    };
+
+    return result;
 }
