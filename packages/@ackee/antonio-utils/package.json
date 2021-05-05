@@ -1,7 +1,7 @@
 {
-    "name": "@ackee/antonio-core",
+    "name": "@ackee/antonio-utils",
     "version": "4.0.0-beta.0",
-    "description": "A HTTP client built on fetch API with axios-like API.",
+    "description": "",
     "keywords": [
         "http-client",
         "fetch",
@@ -17,22 +17,23 @@
         "lib"
     ],
     "publishConfig": {
-        "access": "public",
-        "directory": "es"
+        "access": "public"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/AckeeCZ/antonio.git",
-        "directory": "packages/@ackee/antonio-core"
+        "directory": "packages/@ackee/antonio-utils"
     },
+    "homepage": "",
     "scripts": {
         "size": "package-size es --no-cache"
     },
-    "dependencies": {
-        "fetch-headers": "^2.0.0"
+    "peerDependencies": {
+        "redux-saga": "1.x"
     },
     "devDependencies": {
-        "@types/fetch-headers": "^2.0.0"
+        "redux-saga": "1.1.3",
+        "redux": "4.1.0"
     },
     "bugs": {
         "url": "https://github.com/AckeeCZ/antonio/issues"
