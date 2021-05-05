@@ -29,7 +29,8 @@
         "size": "package-size es --no-cache"
     },
     "dependencies": {
-        "fetch-headers": "^2.0.0"
+        "fetch-headers": "^2.0.0",
+        "loglevel": "^1.7.1"
     },
     "devDependencies": {
         "@types/fetch-headers": "^2.0.0"
