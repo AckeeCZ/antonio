@@ -28,6 +28,9 @@
     "scripts": {
         "size": "package-size es --no-cache"
     },
+    "dependencies": {
+        "abortcontroller-polyfill": "1.7.1"
+    },
     "peerDependencies": {
         "redux-saga": "1.x"
     },
