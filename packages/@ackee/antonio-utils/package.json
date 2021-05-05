@@ -1,0 +1,46 @@
+{
+    "name": "@ackee/antonio-utils",
+    "version": "4.0.0-beta.0",
+    "description": "",
+    "keywords": [
+        "http-client",
+        "fetch",
+        "javascript",
+        "ackee"
+    ],
+    "main": "lib/index.js",
+    "module": "es/index.js",
+    "jsnext:main": "es/index.js",
+    "sideEffects": false,
+    "files": [
+        "es",
+        "lib"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AckeeCZ/antonio.git",
+        "directory": "packages/@ackee/antonio-utils"
+    },
+    "homepage": "",
+    "scripts": {
+        "size": "package-size es --no-cache"
+    },
+    "peerDependencies": {
+        "redux-saga": "1.x"
+    },
+    "devDependencies": {
+        "redux-saga": "1.1.3",
+        "redux": "4.1.0"
+    },
+    "bugs": {
+        "url": "https://github.com/AckeeCZ/antonio/issues"
+    },
+    "engines": {
+        "node": ">=12"
+    },
+    "author": "Jiří Čermák <jiri.cermak@ackee.cz>",
+    "license": "MIT"
+}

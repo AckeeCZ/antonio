@@ -57,5 +57,10 @@ export function mergeRequestConfigs(configA: DefaultRequestConfig, configB: Requ
         result.searchParams = mergeUrlSearchParams(configA.searchParams, configB.searchParams);
     }
 
+    if (configB.cancelToken) {
+        delete result.cancelToken;
+        result.signal = configB.cancelToken;
+    }
+
     return result;
 }

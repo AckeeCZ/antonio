@@ -42,7 +42,12 @@ export interface FullRequestConfig extends Omit<RequestInit, 'body' | 'headers' 
     searchParams: RequestSearchParams;
 }
 
-export type RequestConfig = Partial<FullRequestConfig>;
+export type RequestConfig = Partial<FullRequestConfig> & {
+    /**
+     * @deprecated This prop is going to be removed in next major relase. Use `signal` prop instead.
+     */
+    cancelToken?: AbortSignal;
+};
 
 export interface GeneralConfig {
     logger: Logger;
