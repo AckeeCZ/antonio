@@ -15,5 +15,10 @@
             "tag: underlying tools": ":hammer: Underlying Tools"
         },
         "cacheDir": ".changelog"
+    },
+    "command": {
+        "publish": {
+            "message": "🔖 Publish"
+        }
     }
 }

@@ -21,7 +21,9 @@
         "rebuild": "yarn build && yalc push",
         "start": "yarn build && onchange 'packages/@ackee/*/src/**/*.ts' -- yarn rebuild",
         "changelog": "gitmoji-changelog",
-        "format": "prettier --config ./prettier.config.js --write 'packages/@ackee/*/src/**/*.ts' '*.{js,json}' --loglevel warn"
+        "format": "prettier --config ./prettier.config.js --write 'packages/@ackee/*/src/**/*.ts' '*.{js,json}' --loglevel warn",
+        "release": "lerna publish --no-push",
+        "release:beta": "yarn release --dist-tag beta --no-push"
     },
     "devDependencies": {
         "@ackee/browserslist-config": "^1.0.1",
