@@ -22,7 +22,7 @@ export function mergeUrlSearchParams(paramsA?: RequestSearchParams, paramsB?: Re
 const getHeadersEntries = (value?: RequestHeaders) =>
     value instanceof Headers ? value.entries() : Object.entries(value ?? {});
 
-function mergeHeaders(headersA?: RequestHeaders, headersB?: RequestHeaders): HeadersInit {
+function mergeHeaders(headersA?: RequestHeaders, headersB?: RequestHeaders): Headers {
     const result = new Headers();
 
     for (const [key, value] of getHeadersEntries(headersA)) {

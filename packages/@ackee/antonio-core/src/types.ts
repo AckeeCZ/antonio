@@ -10,7 +10,7 @@ interface Params {
     [key: string]: string;
 }
 
-export type RequestHeaders = HeadersInit | Params;
+export type RequestHeaders = Headers | HeadersInit | Params;
 
 export type RequestUriParams = Params;
 

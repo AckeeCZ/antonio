@@ -9,8 +9,11 @@ Custom Saga effects with built-in cancelation of API requests.
 
     -   Effect creators
 
-        -   [`takeRequest(actionTypes, saga)`](#api-takeRequest)
-        -   [`takeLatestRequest(params, saga)`](#api-takeLatestRequest)
+        -   [`takeRequest`](#api-takeRequest)
+        -   [`takeLatestRequest`](#api-takeLatestRequest)
+
+    -   Auth utils
+        -   [`setAuthHeader](#setAuthHeader)
 
 ---
 
@@ -126,4 +129,19 @@ export default function* () {
         fetchUser,
     );
 }
+```
+
+---
+
+### <a name="setAuthHeader"></a>`setAuthHeader(headers: Headers, tokenValue?: string, tokenType: TokenType | string = TokenType.Bearer): void`
+
+Sets or deletes the `Authorization` header with provided `tokenType` and `tokenValue`:
+
+```js
+const accessToken = 'eqwo123490ewqj123njir43';
+const headers = new Headers();
+
+setAuthHeader(headers, accessToken);
+
+console.assert(headers.get('Authorization') === `Bearer eqwo123490ewqj123njir43`);
 ```

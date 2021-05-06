@@ -20,7 +20,10 @@
         "preserveConstEnums": false,
         "noFallthroughCasesInSwitch": true,
         "allowSyntheticDefaultImports": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "paths": {
+            "types/*": ["types/*"]
+        }
     },
     "include": ["packages/@ackee/*/src"],
     "exclude": ["**/__tests__/"]
