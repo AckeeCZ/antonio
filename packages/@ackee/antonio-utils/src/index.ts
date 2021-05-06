@@ -1,3 +1,3 @@
 export * from './saga-effects';
 export type { TakeLatestRequest, TakeRequest, RequestId } from './types';
-export * from './auth-utils';
+export { default as setAuthHeader } from './setAuthHeader';

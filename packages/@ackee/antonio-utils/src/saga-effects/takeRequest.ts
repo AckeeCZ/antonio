@@ -1,5 +1,5 @@
 import { take } from 'redux-saga/effects';
-import type { Fn, TakeRequest } from 'types';
+import type { Fn, TakeRequest } from '../types';
 import cancellableHandler from './utils/cancellableHandler';
 
 /**
