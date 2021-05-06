@@ -1,11 +1,11 @@
 enum TokenType {
-    Bearer,
+    BEARER = 'Bearer',
 }
 
 export default function setAuthHeader(
     headers: Headers,
     tokenValue?: string,
-    tokenType: TokenType | string = TokenType.Bearer,
+    tokenType: TokenType | string = TokenType.BEARER,
 ): void {
     if (tokenValue) {
         headers.set('Authorization', `${tokenType} ${tokenValue}`);
