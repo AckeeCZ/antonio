@@ -13,7 +13,7 @@ Custom Saga effects with built-in cancelation of API requests.
         -   [`takeLatestRequest`](#api-takeLatestRequest)
 
     -   Auth utils
-        -   [`setAuthHeader](#setAuthHeader)
+        -   [`setAuthHeader`](#setAuthHeader)
 
 ---
 
