@@ -28,11 +28,11 @@ interface InterceptorsEntry<V> {
     onRejected?: (error: any) => any;
 }
 
-export type RequestInterceptorsEntries = Map<number, InterceptorsEntry<RequestInit>>;
+export type RequestInterceptorsEntries = Map<number, InterceptorsEntry<Request>>;
 export type ResponseInterceptorsEntries = Map<number, InterceptorsEntry<Response>>;
 
 export interface InterceptorManagers {
-    request: InterceptorManager<RequestInit>;
+    request: InterceptorManager<Request>;
     response: InterceptorManager<Response>;
 }
 
