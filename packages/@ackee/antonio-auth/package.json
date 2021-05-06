@@ -18,7 +18,7 @@
     ],
     "publishConfig": {
         "access": "public",
-        "directory": "es"
+        "tag": "@ackee/antonio-auth"
     },
     "repository": {
         "type": "git",
