@@ -4,7 +4,7 @@
 
 # `@ackee/antonio-core`
 
-A HTTP client built on Fetch API with similar API to [axios](https://github.com/axios/axios).
+HTTP client built on Fetch API with similar API to [axios](https://github.com/axios/axios).
 
 ## Table of contents
 
@@ -29,7 +29,7 @@ yarn add @ackee/antonio-core -S
 ## <a name="setup"></a>Setup
 
 ```js
-import { create } from '@ackee/antonio-core';
+import { create, detroy } from '@ackee/antonio-core';
 
 export const api = create({
     baseURL: 'https://jsonplaceholder.typicode.com/',
@@ -41,35 +41,15 @@ export const api = create({
 ```js
 import { api } from '...';
 
-api.get('/todos').then(({ data, request, response }) => {
-    // ...
-});
-
-api.post('/todos', {
-    title: 'Lorem ipsum',
-});
-
-api.put(
-    '/todos/:id',
-    {
-        title: 'Not lorem ipsum',
-    },
-    {
-        uriParams: {
-            id: '2',
+function* fetchTodos() {
+    // Note we're using `yield*` to make TS types auto-completion work
+    const { data, request, response } = yield* api.get('/todos', {
+        searchParams: {
+            page: 1,
+            limit: 20,
         },
-    },
-);
-
-api.get('/todos/:id', {
-    uriParams: {
-        id: '2',
-    },
-});
-
-api.delete('/todos/:id', {
-    uriParams: '2',
-});
+    });
+}
 ```
 
 ---
@@ -91,19 +71,19 @@ const api = create({
 #### Instance methods
 
 ```ts
-api.get(url: string, requestConfig?: RequestConfig): Promise<RequestResult>
+api.get(url: string, requestConfig?: RequestConfig): Generator<any, RequestResult>
 
-api.delete(url: string, requestConfig?: RequestConfig): Promise<RequestResult>
+api.delete(url: string, requestConfig?: RequestConfig): Generator<any, RequestResult>
 
-api.head(url: string, requestConfig?: RequestConfig): Promise<RequestResult>
+api.head(url: string, requestConfig?: RequestConfig): Generator<any, RequestResult>
 
-api.options(url: string, requestConfig?: RequestConfig): Promise<RequestResult>
+api.options(url: string, requestConfig?: RequestConfig): Generator<any, RequestResult>
 
-api.post(url: string, data: RequestBody, requestConfig?: RequestConfig): Promise<RequestResult>
+api.post(url: string, data: RequestBody, requestConfig?: RequestConfig): Generator<any, RequestResult>
 
-api.put(url: string, data: RequestBody, requestConfig?: RequestConfig): Promise<RequestResult>
+api.put(url: string, data: RequestBody, requestConfig?: RequestConfig): Generator<any, RequestResult>
 
-api.patch(url: string, data: RequestBody, requestConfig?: RequestConfig): Promise<RequestResult>
+api.patch(url: string, data: RequestBody, requestConfig?: RequestConfig): Generator<any, RequestResult>
 ```
 
 ### `destroy(api: Antonio): void`
@@ -119,13 +99,10 @@ destroy(api);
 
 ## `requestConfig: RequestConfig`
 
-These are the available config options for an API request. None of these are required.
+_Optional_ request config options:
 
 ```ts
 {
-    // `baseURL` will be prepended to `url` unless `url` is absolute.
-    // It can be convenient to set `baseURL` for an instance of antonio to pass relative URLs
-    // to methods of that instance.
     // Default: undefined
     baseUrl: 'https://jsonplaceholder.typicode.com/',
 
@@ -169,8 +146,11 @@ These are the available config options for an API request. None of these are req
 
 ## `generalConfig: GeneralConfig`
 
+Optional `@ackee/antonio-core` configuration:
+
 ```ts
 {
+    // Default is [`loglevel`](https://www.npmjs.com/package/loglevel)
     logger: loglevel,
 }
 ```
