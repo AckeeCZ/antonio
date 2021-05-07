@@ -1,12 +1,14 @@
 import { AnyAction } from 'redux';
 import type { ActionPattern } from 'redux-saga/effects';
 
-export type Fn = (...args: any[]) => any;
+type Fn = (...args: any[]) => any;
+
+export type RequestHandler = (requestAction: AnyAction, signal: AbortSignal) => any;
 
 export interface CancellableHandler {
     handlerArg: any;
     CANCEL: ActionPattern;
-    handler: Fn;
+    handler: RequestHandler;
     onComplete?: Fn;
 }
 

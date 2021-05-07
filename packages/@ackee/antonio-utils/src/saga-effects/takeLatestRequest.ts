@@ -1,11 +1,11 @@
 import { takeEvery, put, spawn } from 'redux-saga/effects';
 import cancellableHandler from './utils/cancellableHandler';
 
-import type { TakeLatestRequest, Fn, RequestId } from '../types';
+import type { TakeLatestRequest, RequestHandler, RequestId } from '../types';
 
 export default function* takeLatestRequest(
     { REQUEST, cancelTask, requestIdSelector }: TakeLatestRequest,
-    requestHandler: Fn,
+    requestHandler: RequestHandler,
 ) {
     const runningTasks = new Set<RequestId>();
     const DEFAULT_REQUEST_ID = Symbol('DEFAULT_REQUEST_ID');

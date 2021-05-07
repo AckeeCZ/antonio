@@ -1,11 +1,11 @@
 import { take } from 'redux-saga/effects';
-import type { Fn, TakeRequest } from '../types';
+import type { RequestHandler, TakeRequest } from '../types';
 import cancellableHandler from './utils/cancellableHandler';
 
 /**
  * Blocking custom saga effect that can cancel the API request
  */
-export default function* takeRequest(actionTypes: TakeRequest, handler: Fn) {
+export default function* takeRequest(actionTypes: TakeRequest, handler: RequestHandler) {
     while (true) {
         const action = yield take(actionTypes.REQUEST);
 

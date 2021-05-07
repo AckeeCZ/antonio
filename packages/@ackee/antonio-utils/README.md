@@ -27,14 +27,14 @@ yarn add @ackee/antonio-utils -S
 
 ## <a name="api"></a>API Reference
 
-### <a name="api-takeRequest"></a>`takeRequest(actionTypes: Object, saga: Function)`
+### <a name="api-takeRequest"></a>`takeRequest(actionTypes: TakeRequest, saga: Function)`
 
 #### Parameters
 
 -   `actionTypes: Object`
-    -   `REQUEST: String` - action type that launches the saga
-    -   `CANCEL: String` - action type that aborts the running saga
--   `saga(requestAction, cancelToken): Function` - the actual API request is made here
+    -   `REQUEST: ActionPattern` - action type that launches the saga
+    -   `CANCEL: ActionPattern` - action type that aborts the running saga
+-   `saga(requestAction, signal: Signal): Function` - the actual API request is made here
 
 #### Example
 
@@ -55,26 +55,26 @@ export default function* () {
 
 ---
 
-### <a name="api-takeLatestRequest"></a>`takeLatestRequest(params: Object, saga: Function)`
+### <a name="api-takeLatestRequest"></a>`takeLatestRequest(params: TakeLatestRequest, saga: Function)`
 
 #### Parameters
 
--   `params: Object`
-    -   `REQUEST: String` - action type that launches the saga
-    -   `cancelTask: Function` - Redux action that will cancel the
+-   `params: TakeLatestRequest`
+    -   `REQUEST: ActionPattern` - action type that launches the saga
+    -   `cancelTask: (requestId: RequestId, action: AnyAction) => AnyAction` - Redux action that will cancel the
         running saga
-    -   `requestIdSelector: Function` (optional) - A function that receives request action as 1st arg. and returns unique ID of this action, e.g. user ID.
--   `saga(requestAction, cancelToken): Function` - the actual API request is made here
+    -   `requestIdSelector?: (action: AnyAction) => RequestId` - A function that receives request action as 1st arg. and returns unique ID of this action, e.g. user ID.
+-   `saga(requestAction, signal: Signal): Function` - the actual API request is made here
 
 #### Example
 
 ```js
 import { takeLatestRequest } from '@ackee/antonio-utils';
 
-// The 'cancelToken' must be passed to the request config object:
-function* fetchTodoItem(requestAction, cancelToken) {
-    const response = yield api.get(`todos/1`, {
-        cancelToken,
+// The 'signal' must be passed to the request config object:
+function* fetchTodoItem(requestAction, signal) {
+    const response = yield* api.get(`todos/1`, {
+        signal,
     });
 
     return response.data;
@@ -103,11 +103,11 @@ If `requestIdSelector` function provided, instead of cancelling of all previous 
 ```js
 import { takeLatestRequest } from '@ackee/antonio-utils';
 
-// The 'cancelToken' must be passed to the request config object:
-function* fetchUser(requestAction, cancelToken) {
+// The 'signal' must be passed to the request config object:
+function* fetchUser(requestAction, signal) {
     const { userId } = requestAction;
-    const response = yield api.get(`users/${userId}`, {
-        cancelToken,
+    const response = yield* api.get(`users/${userId}`, {
+        signal,
     });
 
     return response.data;
