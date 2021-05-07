@@ -12,13 +12,14 @@ function* applyRequestInteceptors(
     requestInterceptors: RequestInterceptorsEntries,
     url: string,
     requestInit: RequestInit,
+    config: RequestConfig,
 ) {
     try {
         let request = new Request(url, requestInit);
 
         for (const [id, requestInterceptor] of requestInterceptors.entries()) {
             if (requestInterceptor.onFulfilled) {
-                request = yield requestInterceptor.onFulfilled(request);
+                request = yield requestInterceptor.onFulfilled(request, config);
 
                 if (!(request instanceof Request)) {
                     throw new TypeError(
@@ -35,7 +36,7 @@ function* applyRequestInteceptors(
     } catch (e) {
         for (const requestInterceptor of requestInterceptors.values()) {
             if (requestInterceptor.onRejected) {
-                yield requestInterceptor.onRejected(e);
+                yield requestInterceptor.onRejected(e, config);
             }
         }
         throw e;
@@ -52,7 +53,7 @@ function* applyResponseInterceptors(
 
         for (const [id, responseInterceptor] of responseInterceptors.entries()) {
             if (responseInterceptor.onFulfilled) {
-                response = yield responseInterceptor.onFulfilled(response);
+                response = yield responseInterceptor.onFulfilled(response, config);
 
                 if (!(response instanceof Response)) {
                     throw new TypeError(
@@ -78,7 +79,7 @@ function* applyResponseInterceptors(
     } catch (e) {
         for (const responseInterceptor of responseInterceptors.values()) {
             if (responseInterceptor.onRejected) {
-                yield responseInterceptor.onRejected(e);
+                yield responseInterceptor.onRejected(e, config);
             }
         }
         throw e;
@@ -103,7 +104,7 @@ export default function* request(
     );
 
     const requestInterceptors: RequestInterceptorsEntries = interceptors.get(antonio.interceptors.request);
-    const request = yield* applyRequestInteceptors(requestInterceptors, url, requestInit);
+    const request = yield* applyRequestInteceptors(requestInterceptors, url, requestInit, config);
 
     const responseInterceptors: ResponseInterceptorsEntries = interceptors.get(antonio.interceptors.response);
     const { response, data } = yield* applyResponseInterceptors(responseInterceptors, request, config);

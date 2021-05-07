@@ -15,8 +15,8 @@ class Antonio {
         this.defaults = Object.freeze<DefaultRequestConfig>(mergeRequestConfigs(defaultRequestConfig, requestConfig));
 
         this.interceptors = Object.freeze<InterceptorManagers>({
-            request: new InterceptorManager<Request>(),
-            response: new InterceptorManager<Response>(),
+            request: new InterceptorManager<Request, RequestConfig>(),
+            response: new InterceptorManager<Response, RequestConfig>(),
         });
 
         generalConfigs.set(

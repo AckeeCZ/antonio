@@ -12,9 +12,10 @@ HTTP client built on Fetch API with similar API to [axios](https://github.com/ax
 -   [Setup](#setup)
 -   [API](#api)
     -   [`create(requestConfig?: RequestConfig, generalConfig?: GeneralConfig): Antonio`](#create)
+        -   [`requestConfig: RequestConfig`](#request-config)
+        -   [`generalConfig: GeneralConfig`](#general-config)
     -   [`destroy(api: Antonio): void`](#destroy)
-    -   [`requestConfig: RequestConfig`](#request-config)
-    -   [`generalConfig: GeneralConfig`](#general-config)
+    -   TODO: Interceptors
 
 ---
 
@@ -42,7 +43,7 @@ export const api = create({
 import { api } from '...';
 
 function* fetchTodos() {
-    // Note we're using `yield*` to make TS types auto-completion work
+    // Note the `yield*` instead of just `yield`: it makes TS types auto-completion work
     const { data, request, response } = yield* api.get('/todos', {
         searchParams: {
             page: 1,
