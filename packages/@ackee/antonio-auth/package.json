@@ -35,7 +35,7 @@
         "@ackee/antonio-utils": "^4.0.0-beta.5"
     },
     "devDependencies": {
-        "@ackee/petrus": "5.2.0"
+        "@ackee/petrus": "5.2.1"
     },
     "peerDependencies": {
         "@ackee/petrus": "5.x"
