@@ -8,7 +8,7 @@ import {
     RequestUriParams,
     RequestBody,
     GeneralConfig,
-} from 'types';
+} from '../../../types';
 import { DefaultRequestConfig } from '../request-config';
 
 import { mergeUrlSearchParams, mergeRequestConfigs } from './mergeRequestConfigs';
