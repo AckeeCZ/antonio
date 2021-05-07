@@ -66,7 +66,7 @@ function createRequestUrl(requestUrl: string, requestConfig: RequestConfig, gene
 
         url.search = mergeUrlSearchParams(
             new URLSearchParams(url.search),
-            new URLSearchParams(requestConfig.searchParams),
+            new URLSearchParams(requestConfig.searchParams || requestConfig.params),
         ).toString();
 
         return url.toString();

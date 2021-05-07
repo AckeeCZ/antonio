@@ -40,6 +40,11 @@ export interface FullRequestConfig extends Omit<RequestInit, 'body' | 'headers' 
     headers: RequestHeaders;
 
     searchParams: RequestSearchParams;
+
+    /**
+     * @deprecated This prop is going to be removed in next major relase. Use `searchParams` prop instead.
+     */
+    params: RequestSearchParams;
 }
 
 export type RequestConfig = Partial<FullRequestConfig> & {
