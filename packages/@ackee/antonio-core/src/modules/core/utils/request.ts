@@ -49,10 +49,10 @@ function setUriParams(templateUrl: string, uriParams: RequestUriParams): string 
     return templateUrl.split('/').map(templateToValue).join('/');
 }
 
-const removeSlashAsLastChar = (chunk: string) => chunk.replace(/\/$/, '');
+const removeSlashAtStartAndAtEnd = (chunk: string) => chunk.replace(/^\/|\/$/g, '');
 
 function joinUrlChunks(baseUrl?: string, ...path: string[]) {
-    const joinedUrl = [baseUrl, ...path].filter(Boolean).map(removeSlashAsLastChar).join('/');
+    const joinedUrl = [baseUrl, ...path].filter(Boolean).map(removeSlashAtStartAndAtEnd).join('/');
     return new URL(joinedUrl);
 }
 
