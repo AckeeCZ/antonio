@@ -1,4 +1,5 @@
 import Headers from 'fetch-headers';
+import { serialize } from 'v8';
 import {
     Header,
     ResponseTypes,
@@ -56,6 +57,22 @@ function joinUrlChunks(baseUrl?: string, ...path: string[]) {
     return new URL(joinedUrl);
 }
 
+const isValidSearchParam = (value: any) => {
+    value = String(value);
+
+    return value !== 'undefined' && value !== 'null' && value !== '';
+};
+
+function getValidSearchParams(searchParams: URLSearchParams): URLSearchParams {
+    const validSearchParams = new URLSearchParams();
+    for (const [key, value] of searchParams.entries()) {
+        if (isValidSearchParam(value)) {
+            validSearchParams.set(key, value);
+        }
+    }
+    return validSearchParams;
+}
+
 function createRequestUrl(requestUrl: string, requestConfig: RequestConfig, generalConfig: GeneralConfig): string {
     try {
         if (requestConfig.uriParams) {
@@ -64,9 +81,11 @@ function createRequestUrl(requestUrl: string, requestConfig: RequestConfig, gene
 
         const url = joinUrlChunks(requestConfig.baseURL, requestUrl);
 
-        url.search = mergeUrlSearchParams(
-            new URLSearchParams(url.search),
-            new URLSearchParams(requestConfig.searchParams || requestConfig.params),
+        url.search = getValidSearchParams(
+            mergeUrlSearchParams(
+                new URLSearchParams(url.search),
+                new URLSearchParams(requestConfig.searchParams || requestConfig.params),
+            ),
         ).toString();
 
         return url.toString();
