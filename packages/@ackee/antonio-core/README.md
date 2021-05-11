@@ -15,7 +15,7 @@ HTTP client built on Fetch API with similar API to [axios](https://github.com/ax
         -   [`requestConfig: RequestConfig`](#request-config)
         -   [`generalConfig: GeneralConfig`](#general-config)
     -   [`destroy(api: Antonio): void`](#destroy)
-    -   TODO: Interceptors
+    -   [Request & Response interceptors](./docs/interceptors.md)
 
 ---
 
