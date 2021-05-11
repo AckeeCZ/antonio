@@ -1,5 +1,7 @@
 ![ackee|Antonio](assets/ackee_git_frontend_antonio.png)
 
+# ![node version](https://img.shields.io/node/v/@ackee/antonio-auth) ![@ackee/antonio license](https://img.shields.io/github/license/ackeecz/antonio)
+
 # Antonio
 
 HTTP client built on top of `fetch` API inspired by API design of [axios](https://github.com/axios/axios).
