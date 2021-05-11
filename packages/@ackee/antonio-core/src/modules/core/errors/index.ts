@@ -18,3 +18,5 @@ export class AntonioError extends Error {
         this.isAntonioError = true;
     }
 }
+
+export type TAntonioError = typeof AntonioError;
