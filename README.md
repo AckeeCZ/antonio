@@ -13,3 +13,7 @@ HTTP client built on top of `fetch` API inspired by API design of [axios](https:
 -   [@ackee/antonio-auth](packages/@ackee/antonio-auth/README.md) - A request interceptor which sets the `Authorization` header to access token obtained from [@ackee/petrus](https://github.com/AckeeCZ/petrus).
 
 ![@ackee/antonio_monorepo_dependency_graph](assets/dependecy-graph.png)
+
+## Browsers support
+
+It's compatible with all browsers in [`@ackee/browserslist-config`](https://github.com/AckeeCZ/browserslist-config).
