@@ -1,7 +1,9 @@
-import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only.js';
-
 import { call, take, race } from 'redux-saga/effects';
 import { CancellableHandler } from '../../types';
+
+if (!('AbortController' in window)) {
+    require('abortcontroller-polyfill/dist/abortcontroller-polyfill-only.js');
+}
 
 const noop = function* () {};
 
