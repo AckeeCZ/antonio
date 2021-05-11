@@ -1,5 +1,4 @@
-export { create, destroy } from './modules/core';
-export type { TAntonioError } from './modules/core';
+export { create, destroy, AntonioError } from './modules/core';
 export type {
     RequestConfig,
     RequestResult,
