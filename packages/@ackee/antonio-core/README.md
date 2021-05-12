@@ -11,10 +11,10 @@ HTTP client built on Fetch API with similar API to [axios](https://github.com/ax
 -   [Install](#install)
 -   [Setup](#setup)
 -   [API](#api)
-    -   [`create(requestConfig?: RequestConfig, generalConfig?: GeneralConfig): Antonio`](#create)
-        -   [`requestConfig: RequestConfig`](#request-config)
-        -   [`generalConfig: GeneralConfig`](#general-config)
-    -   [`destroy(api: Antonio): void`](#destroy)
+    -   [`create(requestConfig?: RequestConfig, generalConfig?: GeneralConfig): Antonio`](#api-create)
+        -   [`requestConfig: RequestConfig`](#api-request-config)
+        -   [`generalConfig: GeneralConfig`](#api-general-config)
+    -   [`destroy(api: Antonio): void`](#api-destroy)
     -   [Request & Response interceptors](./docs/interceptors.md)
 
 ---
@@ -57,7 +57,7 @@ function* fetchTodos() {
 
 ## <a name="api"></a>API
 
-### `create(requestConfig?: RequestConfig, generalConfig?: GeneralConfig): Antonio`
+### <a name="api-create"></a>`create(requestConfig?: RequestConfig, generalConfig?: GeneralConfig): Antonio`
 
 Creates a new instance of `Antonio` with custom request config and general config:
 
@@ -87,7 +87,7 @@ api.put(url: string, data: RequestBody, requestConfig?: RequestConfig): Generato
 api.patch(url: string, data: RequestBody, requestConfig?: RequestConfig): Generator<any, RequestResult>
 ```
 
-### `destroy(api: Antonio): void`
+### <a name="api-destroy"></a>`destroy(api: Antonio): void`
 
 Clears-up memory after the current Antonio instance.
 
@@ -98,7 +98,7 @@ import { api } from '...';
 destroy(api);
 ```
 
-## `requestConfig: RequestConfig`
+## <a name="api-request-config"></a>`requestConfig: RequestConfig`
 
 _Optional_ request config options:
 
@@ -145,7 +145,7 @@ _Optional_ request config options:
 }
 ```
 
-## `generalConfig: GeneralConfig`
+## <a name="api-general-config"></a>`generalConfig: GeneralConfig`
 
 Optional `@ackee/antonio-core` configuration:
 
