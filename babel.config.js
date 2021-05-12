@@ -7,9 +7,9 @@ const config = {
             '@babel/env',
             {
                 useBuiltIns: 'usage',
-                corejs: '3.11',
+                corejs: '3.x',
                 loose: true,
-                modules: false,
+                modules: process.env.BABEL_ENV === 'es' ? false : 'auto',
                 bugfixes: true,
                 browserslistEnv: 'production',
             },
@@ -40,7 +40,6 @@ const config = {
                 },
             },
         ],
-        '@babel/plugin-transform-runtime',
     ],
     ignore: ['**/__tests__/', '**/*.test.js'],
 };

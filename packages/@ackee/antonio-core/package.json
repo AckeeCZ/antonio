@@ -24,12 +24,10 @@
         "url": "git+https://github.com/AckeeCZ/antonio.git",
         "directory": "packages/@ackee/antonio-core"
     },
-    "scripts": {
-        "size": "package-size es --no-cache"
-    },
     "dependencies": {
         "fetch-headers": "^2.0.0",
-        "loglevel": "^1.7.1"
+        "loglevel": "^1.7.1",
+        "@babel/runtime": "7.14.0"
     },
     "devDependencies": {
         "@types/fetch-headers": "^2.0.0"

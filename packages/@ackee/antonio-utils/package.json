@@ -26,12 +26,9 @@
         "url": "git+https://github.com/AckeeCZ/antonio.git",
         "directory": "packages/@ackee/antonio-utils"
     },
-    "homepage": "",
-    "scripts": {
-        "size": "package-size es --no-cache"
-    },
     "dependencies": {
-        "abortcontroller-polyfill": "1.7.1"
+        "abortcontroller-polyfill": "1.7.1",
+        "@babel/runtime": "7.14.0"
     },
     "peerDependencies": {
         "redux-saga": "1.x"

@@ -1,5 +1,5 @@
 import loglevel from 'loglevel';
-import { GeneralConfig } from '../../../types';
+import type { GeneralConfig } from '../../../types';
 
 export const defaultGeneralConfig: GeneralConfig = {
     logger: loglevel,

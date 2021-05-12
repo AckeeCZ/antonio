@@ -24,15 +24,12 @@
         "url": "git+https://github.com/AckeeCZ/antonio.git",
         "directory": "packages/@ackee/antonio-auth"
     },
-    "scripts": {
-        "test": "echo \"Error: run tests from root\" && exit 1",
-        "size": "package-size es --no-cache"
-    },
     "engines": {
         "node": ">=12"
     },
     "dependencies": {
-        "@ackee/antonio-utils": "^4.0.0-beta.7"
+        "@ackee/antonio-utils": "^4.0.0-beta.7",
+        "@babel/runtime": "7.14.0"
     },
     "devDependencies": {
         "@ackee/petrus": "5.2.1"

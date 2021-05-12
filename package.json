@@ -4,20 +4,18 @@
         "packages/@ackee/*"
     ],
     "scripts": {
-        "bootstrap": "lerna bootstrap --use-workspaces",
-        "postinstall": "yarn bootstrap",
-        "build:lib": "lerna exec --scope={@ackee/antonio-core,@ackee/antonio-utils,@ackee/antonio-auth} -- babel src --out-dir lib --extensions \".ts\" --config-file=./babel.config.js --source-maps inline",
-        "build:es": "lerna exec --scope={@ackee/antonio-core,@ackee/antonio-utils,@ackee/antonio-auth} -- babel src --out-dir es --extensions \".ts\" --config-file=./babel.config.js --source-maps inline",
+        "postinstall": "lerna bootstrap --use-workspaces",
+        "build:lib": "lerna exec -- BABEL_ENV=lib babel src --out-dir lib --extensions \".ts\" --config-file=./babel.config.js --source-maps inline",
+        "build:es": "lerna exec -- BABEL_ENV=es babel src --out-dir es --extensions \".ts\" --config-file=./babel.config.js --source-maps inline",
         "build:test": "babel ./packages/test/src --out-dir lib --extensions \".ts\" --config-file=./babel.config.js",
-        "build:types": "lerna exec --scope={@ackee/antonio-core,@ackee/antonio-utils,@ackee/antonio-auth} -- tsc --project ./tsconfig.types.json --emitDeclarationOnly",
+        "build:types": "lerna exec -- tsc --project ./tsconfig.types.json --emitDeclarationOnly",
         "build:js": "yarn build:es & yarn build:lib",
         "build": "yarn clean && yarn build:js && yarn build:types",
         "clean": "lerna exec -- rm -rf lib es",
-        "lint": "lerna exec --scope={@ackee/antonio-core,@ackee/antonio-utils,@ackee/antonio-auth} -- eslint 'src/**/*.ts'",
+        "lint": "lerna exec -- eslint 'src/**/*.ts'",
         "type-check": "tsc --noEmit",
         "type-check:watch": "yarn type-check -- --watch",
         "test": "jest",
-        "push": "yarn build && yalc push",
         "rebuild": "yarn build && yalc push",
         "start": "yarn build && onchange 'packages/@ackee/*/src/**/*.ts' -- yarn rebuild",
         "changelog": "gitmoji-changelog",
@@ -46,7 +44,7 @@
         "babel-eslint": "^10.1.0",
         "babel-plugin-custom-import-path-transform": "1.x",
         "babel-plugin-transform-imports": "^2.0.0",
-        "core-js": "^3.11.2",
+        "core-js": "^3.12.1",
         "eslint": "^7.5.0",
         "eslint-plugin-compat": "3.9.0",
         "eslint-plugin-flowtype": "^5.2.0",
@@ -60,17 +58,12 @@
         "lerna": "4.x",
         "lint-staged": "^10.2.2",
         "onchange": "7.x",
-        "package-size": "2.x",
         "prettier": "2.x",
         "prettier-config-ackee": "0.x",
         "redux-saga": "1.x",
         "reselect": "4.x",
         "ts-jest": "25.x",
         "typescript": "4.x"
-    },
-    "dependencies": {
-        "@babel/runtime": "7.x",
-        "loglevel": "1.x"
     },
     "husky": {
         "hooks": {
