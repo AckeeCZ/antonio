@@ -1,6 +1,6 @@
 {
     "name": "@ackee/antonio-core",
-    "version": "4.0.0-beta.10",
+    "version": "4.0.0-beta.11",
     "description": "A HTTP client built on fetch API with axios-like API.",
     "keywords": [
         "http-client",
@@ -25,9 +25,9 @@
         "directory": "packages/@ackee/antonio-core"
     },
     "dependencies": {
+        "@babel/runtime": "7.14.0",
         "fetch-headers": "^2.0.0",
-        "loglevel": "^1.7.1",
-        "@babel/runtime": "7.14.0"
+        "loglevel": "^1.7.1"
     },
     "devDependencies": {
         "@types/fetch-headers": "^2.0.0"
