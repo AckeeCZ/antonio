@@ -31,7 +31,8 @@
         "abortcontroller-polyfill": "1.7.1"
     },
     "peerDependencies": {
-        "redux-saga": "1.x"
+        "redux-saga": "1.x",
+        "core-js": "3.x"
     },
     "devDependencies": {
         "redux": "4.1.0",
