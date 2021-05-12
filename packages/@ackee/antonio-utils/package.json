@@ -1,6 +1,6 @@
 {
     "name": "@ackee/antonio-utils",
-    "version": "4.0.0-beta.9",
+    "version": "4.0.0-beta.10",
     "description": "",
     "keywords": [
         "http-client",
@@ -31,8 +31,8 @@
         "abortcontroller-polyfill": "1.7.1"
     },
     "peerDependencies": {
-        "redux-saga": "1.x",
-        "core-js": "3.x"
+        "core-js": "3.x",
+        "redux-saga": "1.x"
     },
     "devDependencies": {
         "redux": "4.1.0",
