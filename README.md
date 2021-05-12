@@ -16,4 +16,4 @@ HTTP client built on top of `fetch` API inspired by API design of [axios](https:
 
 ## Browsers support
 
-It's compatible with all browsers in [`@ackee/browserslist-config`](https://github.com/AckeeCZ/browserslist-config).
+It's compatible with all browsers defined in [`@ackee/browserslist-config`](https://github.com/AckeeCZ/browserslist-config).
