@@ -1,0 +1,21 @@
+{
+    "name": "ackee-antonio-core400",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.html",
+    "scripts": {
+        "start": "parcel index.html --open",
+        "build": "parcel build index.html"
+    },
+    "dependencies": {
+        "core-js": "3.12.1",
+        "parcel-bundler": "^1.6.1"
+    },
+    "devDependencies": {
+        "typescript": "4.2.3"
+    },
+    "resolutions": {
+        "@babel/preset-env": "7.13.8"
+    },
+    "keywords": []
+}
