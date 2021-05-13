@@ -1,0 +1,5 @@
+{
+    "packages": ["packages/@ackee/antonio-auth", "packages/@ackee/antonio-core", "packages/@ackee/antonio-utils"],
+    "sandboxes": ["new", "vanilla"],
+    "node": "12"
+}
