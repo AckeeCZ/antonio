@@ -6,7 +6,6 @@ import { mergeRequestConfigs } from '../utils';
 import request from '../request';
 
 import InterceptorManager, { InterceptorManagers } from './InterceptorManager';
-
 class Antonio {
     readonly defaults: DefaultRequestConfig;
     readonly interceptors: InterceptorManagers;
@@ -28,32 +27,32 @@ class Antonio {
         );
     }
 
-    *post(url: string, body: RequestBody, requestConfig?: RequestConfig) {
-        return yield* request('post', url, body, requestConfig, this);
+    post(url: string, body: RequestBody, requestConfig?: RequestConfig) {
+        return request('post', url, body, requestConfig, this);
     }
 
-    *put(url: string, body: RequestBody, requestConfig?: RequestConfig) {
-        return yield* request('put', url, body, requestConfig, this);
+    put(url: string, body: RequestBody, requestConfig?: RequestConfig) {
+        return request('put', url, body, requestConfig, this);
     }
 
-    *patch(url: string, body: RequestBody, requestConfig?: RequestConfig) {
-        return yield* request('patch', url, body, requestConfig, this);
+    patch(url: string, body: RequestBody, requestConfig?: RequestConfig) {
+        return request('patch', url, body, requestConfig, this);
     }
 
-    *get(url: string, requestConfig?: RequestConfig) {
-        return yield* request('get', url, undefined, requestConfig, this);
+    get(url: string, requestConfig?: RequestConfig) {
+        return request('get', url, undefined, requestConfig, this);
     }
 
-    *delete(url: string, requestConfig?: RequestConfig) {
-        return yield* request('delete', url, undefined, requestConfig, this);
+    delete(url: string, requestConfig?: RequestConfig) {
+        return request('delete', url, undefined, requestConfig, this);
     }
 
-    *head(url: string, requestConfig?: RequestConfig) {
-        return yield* request('head', url, undefined, requestConfig, this);
+    head(url: string, requestConfig?: RequestConfig) {
+        return request('head', url, undefined, requestConfig, this);
     }
 
-    *options(url: string, requestConfig?: RequestConfig) {
-        return yield* request('options', url, undefined, requestConfig, this);
+    options(url: string, requestConfig?: RequestConfig) {
+        return request('options', url, undefined, requestConfig, this);
     }
 }
 

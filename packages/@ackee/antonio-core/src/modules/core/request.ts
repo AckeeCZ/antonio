@@ -1,4 +1,4 @@
-import { RequestMethod, RequestConfig, GeneralConfig, RequestResult } from '../../types';
+import { RequestMethod, RequestConfig, GeneralConfig, RequestResult, ResolverType } from '../../types';
 
 import { interceptors } from './models/InterceptorManager';
 import type { RequestInterceptorsEntries, ResponseInterceptorsEntries } from './models/InterceptorManager';
@@ -43,13 +43,13 @@ function* applyRequestInteceptors(
     }
 }
 
-function* applyResponseInterceptors(
+async function* applyResponseInterceptors(
     responseInterceptors: ResponseInterceptorsEntries,
     request: Request,
     config: DefaultRequestConfig,
 ) {
     try {
-        let response: Response = yield fetch(request);
+        let response = await fetch(request);
 
         for (const [id, responseInterceptor] of responseInterceptors.entries()) {
             if (responseInterceptor.onFulfilled) {
@@ -66,7 +66,7 @@ function* applyResponseInterceptors(
             }
         }
 
-        const data: BodyInit | null = yield parseResponse(config.responseType, response);
+        const data = await parseResponse(config.responseType, response);
 
         if (!response.ok) {
             throw new AntonioError(request, response, data);
@@ -86,14 +86,14 @@ function* applyResponseInterceptors(
     }
 }
 
-export default function* request(
+async function* request(
     method: RequestMethod,
     requestUrl: string,
     body: BodyInit | undefined,
     requestConfig: RequestConfig | undefined,
     antonio: TAntonio,
+    generalConfig: GeneralConfig,
 ) {
-    const generalConfig: GeneralConfig = generalConfigs.get(antonio);
     const { url, requestInit, config } = createRequestInit(
         method,
         requestUrl,
@@ -120,4 +120,60 @@ export default function* request(
     };
 
     return result;
+}
+
+async function asyncGeneratorToPromise<T>(it: AsyncGenerator<any, T>) {
+    let result: IteratorResult<any, T> = await it.next();
+
+    while (!result.done) {
+        if (result.value[Symbol.iterator]) {
+            throw new SyntaxError(
+                [
+                    `'resolverType: ResolverType.PROMISE' can't have generator function as an interceptor.`,
+                    `Use 'resolverType: ResolverType.GENERATOR' if you need such an option.`,
+                ].join('\n'),
+            );
+        }
+        const prevValue = result.value;
+        result = await it.next(prevValue);
+    }
+
+    return result.value;
+}
+
+function* asyncGeneratorToGenerator<T>(it: ReturnType<typeof request>) {
+    let result: IteratorResult<any, T> = yield it.next();
+
+    while (!result.done) {
+        const prevValue = yield result.value;
+        result = yield it.next(prevValue);
+    }
+
+    return result.value;
+}
+
+export default function requestTypeResolver(
+    method: RequestMethod,
+    requestUrl: string,
+    body: BodyInit | undefined,
+    requestConfig: RequestConfig | undefined,
+    antonio: TAntonio,
+) {
+    const generalConfig: GeneralConfig = generalConfigs.get(antonio);
+    const it = request(method, requestUrl, body, requestConfig, antonio, generalConfig);
+
+    switch (generalConfig.resolverType) {
+        case ResolverType.GENERATOR:
+            return asyncGeneratorToGenerator<RequestResult>(it);
+
+        case ResolverType.PROMISE:
+            return asyncGeneratorToPromise<RequestResult>(it);
+
+        default:
+            throw new TypeError(
+                `'resolverType' must be one of: ${Object.values(ResolverType).join(', ')}. Received: '${
+                    generalConfig.resolverType
+                }'`,
+            );
+    }
 }

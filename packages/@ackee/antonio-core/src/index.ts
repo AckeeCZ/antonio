@@ -3,7 +3,6 @@ export type {
     RequestConfig,
     RequestResult,
     GeneralConfig,
-    ResponseTypes,
     RequestSearchParams,
     RequestUriParams,
     RequestHeaders,
@@ -11,3 +10,4 @@ export type {
     ResponseType,
     RequestMethod,
 } from './types';
+export { ResponseTypes, ResolverType } from './types';

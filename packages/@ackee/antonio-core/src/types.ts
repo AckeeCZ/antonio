@@ -54,8 +54,14 @@ export type RequestConfig = Partial<FullRequestConfig> & {
     cancelToken?: AbortSignal;
 };
 
+export enum ResolverType {
+    GENERATOR = 'generator',
+    PROMISE = 'promise',
+}
+
 export interface GeneralConfig {
     logger: Logger;
+    resolverType: ResolverType;
 }
 
 export interface RequestResult {
@@ -83,3 +89,7 @@ export interface RequestResult {
      */
     config: {};
 }
+
+export type GeneratorRequestResult = Generator<any, RequestResult>;
+export type PromiseRequestResult = Promise<RequestResult>;
+export type RequestReturnType = GeneratorRequestResult | PromiseRequestResult;

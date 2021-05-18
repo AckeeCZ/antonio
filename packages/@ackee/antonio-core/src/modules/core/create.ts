@@ -1,4 +1,4 @@
-import { RequestConfig, GeneralConfig } from '../../types';
+import type { RequestConfig, GeneralConfig } from '../../types';
 
 import Antonio from './models/Antonio';
 

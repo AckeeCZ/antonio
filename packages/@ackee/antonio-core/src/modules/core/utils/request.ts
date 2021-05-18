@@ -1,5 +1,4 @@
 import Headers from 'fetch-headers';
-import { serialize } from 'v8';
 import {
     Header,
     ResponseTypes,

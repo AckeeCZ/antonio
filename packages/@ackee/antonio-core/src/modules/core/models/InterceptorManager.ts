@@ -4,15 +4,19 @@ export const interceptors = new WeakMap();
 
 let id = 0;
 
+interface OnFulfilled<V, C> {
+    (value: V, config: C): V | IterableIterator<V>;
+}
+
+interface OnRejected<C> {
+    (error: any, config: C): void;
+}
 class InterceptorManager<V, C> {
     constructor() {
         interceptors.set(this, new Map());
     }
 
-    use(
-        onFulfilled?: (value: V, config: C) => V | IterableIterator<V>,
-        onRejected?: (error: any, config: C) => any,
-    ): number {
+    use(onFulfilled?: OnFulfilled<V, C>, onRejected?: OnRejected<C>): number {
         const nextId = id++;
 
         interceptors.get(this).set(nextId, {
@@ -29,8 +33,8 @@ class InterceptorManager<V, C> {
 }
 
 interface InterceptorsEntry<V, C> {
-    onFulfilled?: (value: V, config: C) => V | IterableIterator<V>;
-    onRejected?: (error: any, config: C) => any;
+    onFulfilled?: OnFulfilled<V, C>;
+    onRejected?: OnRejected<C>;
 }
 
 export type RequestInterceptorsEntries = Map<number, InterceptorsEntry<Request, RequestConfig>>;
