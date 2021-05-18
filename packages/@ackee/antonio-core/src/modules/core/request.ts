@@ -1,4 +1,5 @@
 import { RequestMethod, RequestConfig, GeneralConfig, RequestResult, ResolverType } from '../../types';
+import type { RequestReturnType } from '../../types';
 
 import { interceptors } from './models/InterceptorManager';
 import type { RequestInterceptorsEntries, ResponseInterceptorsEntries } from './models/InterceptorManager';
@@ -141,7 +142,7 @@ async function asyncGeneratorToPromise<T>(it: AsyncGenerator<any, T>) {
     return result.value;
 }
 
-function* asyncGeneratorToGenerator<T>(it: ReturnType<typeof request>) {
+function* asyncGeneratorToGenerator<T>(it: ReturnType<typeof request>): Generator<any, T, any> {
     let result: IteratorResult<any, T> = yield it.next();
 
     while (!result.done) {
@@ -158,7 +159,7 @@ export default function requestTypeResolver(
     body: BodyInit | undefined,
     requestConfig: RequestConfig | undefined,
     antonio: TAntonio,
-) {
+): RequestReturnType {
     const generalConfig: GeneralConfig = generalConfigs.get(antonio);
     const it = request(method, requestUrl, body, requestConfig, antonio, generalConfig);
 

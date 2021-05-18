@@ -90,6 +90,4 @@ export interface RequestResult {
     config: {};
 }
 
-export type GeneratorRequestResult = Generator<any, RequestResult>;
-export type PromiseRequestResult = Promise<RequestResult>;
-export type RequestReturnType = GeneratorRequestResult | PromiseRequestResult;
+export type RequestReturnType = Generator<any, RequestResult> | Promise<RequestResult>;

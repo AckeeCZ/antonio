@@ -40,12 +40,7 @@ const config = {
                 },
             },
         ],
-        [
-            '@babel/plugin-transform-runtime',
-            {
-                regenerator: false,
-            },
-        ],
+        '@babel/plugin-transform-runtime',
     ],
     ignore: ['**/__tests__/', '**/*.test.js'],
 };

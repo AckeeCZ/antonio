@@ -16,13 +16,13 @@
         "type-check": "tsc --noEmit",
         "type-check:watch": "yarn type-check -- --watch",
         "test": "jest",
-        "rebuild": "yarn build && yalc push",
-        "start": "yarn build && onchange 'packages/@ackee/*/src/**/*.ts' -- yarn rebuild",
+        "start": "yarn build && onchange 'packages/@ackee/*/src/**/*.ts' -- yarn release:yalc",
         "changelog": "gitmoji-changelog",
         "format": "prettier --config ./prettier.config.js --write 'packages/@ackee/*/src/**/*.ts' '*.{js,json}' --loglevel warn",
         "release": "lerna publish --no-push",
         "release:beta": "yarn release --dist-tag beta --no-push",
-        "prepare": "yarn build"
+        "prepare": "yarn build",
+        "release:yalc": "yarn prepare && lerna exec -- yalc push --no-scripts"
     },
     "devDependencies": {
         "@ackee/browserslist-config": "^1.0.1",
