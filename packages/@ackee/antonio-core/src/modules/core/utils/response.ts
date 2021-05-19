@@ -29,6 +29,9 @@ export function parseResponse(responseType: ResponseType | undefined, response: 
         case 'text':
             return response.text();
 
+        case 'arrayBuffer':
+            return response.arrayBuffer();
+
         default:
             return null;
     }

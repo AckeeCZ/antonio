@@ -2,7 +2,7 @@ import type { Logger } from 'loglevel';
 
 export type RequestMethod = 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options' | 'head';
 
-export type ResponseType = 'json' | 'blob' | 'formData' | 'text';
+export type ResponseType = 'json' | 'blob' | 'formData' | 'text' | 'arrayBuffer';
 
 export type RequestBody = BodyInit | any;
 
