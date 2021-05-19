@@ -1,5 +1,4 @@
 import { RequestMethod, RequestConfig, GeneralConfig, RequestResult, ResolverType } from '../../types';
-import type { RequestReturnType } from '../../types';
 
 import { interceptors } from './models/InterceptorManager';
 import type { RequestInterceptorsEntries, ResponseInterceptorsEntries } from './models/InterceptorManager';
@@ -110,7 +109,7 @@ async function* request(
     const responseInterceptors: ResponseInterceptorsEntries = interceptors.get(antonio.interceptors.response);
     const { response, data } = yield* applyResponseInterceptors(responseInterceptors, request, config);
 
-    const result: RequestResult = {
+    const result = {
         request,
         response,
         data,
@@ -159,8 +158,15 @@ export default function requestTypeResolver(
     body: BodyInit | undefined,
     requestConfig: RequestConfig | undefined,
     antonio: TAntonio,
-): RequestReturnType {
-    const generalConfig: GeneralConfig = generalConfigs.get(antonio);
+) {
+    const generalConfig = generalConfigs.get(antonio);
+
+    if (!generalConfig) {
+        throw new Error(
+            `'requestTypeResolver' can't be called before settings generalConfig for a given Antonio instance.`,
+        );
+    }
+
     const it = request(method, requestUrl, body, requestConfig, antonio, generalConfig);
 
     switch (generalConfig.resolverType) {
