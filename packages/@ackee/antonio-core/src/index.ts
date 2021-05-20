@@ -6,7 +6,6 @@ export type {
     RequestSearchParams,
     RequestUriParams,
     RequestHeaders,
-    RequestBody,
     ResponseType,
     RequestMethod,
 } from './types';

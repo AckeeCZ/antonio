@@ -1,10 +1,11 @@
 import type { Logger } from 'loglevel';
+import type { IterableStream } from './modules/core/utils/response';
 
 export type RequestMethod = 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options' | 'head';
 
-export type ResponseType = 'json' | 'blob' | 'formData' | 'text' | 'arrayBuffer';
+export type ResponseType = 'json' | 'blob' | 'formData' | 'text' | 'arrayBuffer' | 'iterableStream' | 'stream';
 
-export type RequestBody = BodyInit | any;
+export type ResponseData = BodyInit | null | IterableStream;
 
 interface Params {
     [key: string]: string;
@@ -67,7 +68,7 @@ export interface GeneralConfig {
 export interface RequestResult {
     request: Request;
     response: Response;
-    data: BodyInit | null;
+    data: ResponseData;
 
     /**
      * @deprecated This prop is going to be removed in next major relase. Use `response.status` instead.

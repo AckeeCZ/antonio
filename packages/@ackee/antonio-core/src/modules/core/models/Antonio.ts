@@ -1,4 +1,4 @@
-import { RequestConfig, RequestBody, GeneralConfig } from '../../../types';
+import { RequestConfig, GeneralConfig } from '../../../types';
 
 import { defaultRequestConfig, DefaultRequestConfig } from '../request-config';
 import { defaultGeneralConfig, generalConfigs } from '../general-config';
@@ -27,15 +27,15 @@ class Antonio {
         );
     }
 
-    post(url: string, body: RequestBody, requestConfig?: RequestConfig) {
+    post(url: string, body: BodyInit, requestConfig?: RequestConfig) {
         return request('post', url, body, requestConfig, this);
     }
 
-    put(url: string, body: RequestBody, requestConfig?: RequestConfig) {
+    put(url: string, body: BodyInit, requestConfig?: RequestConfig) {
         return request('put', url, body, requestConfig, this);
     }
 
-    patch(url: string, body: RequestBody, requestConfig?: RequestConfig) {
+    patch(url: string, body: BodyInit, requestConfig?: RequestConfig) {
         return request('patch', url, body, requestConfig, this);
     }
 

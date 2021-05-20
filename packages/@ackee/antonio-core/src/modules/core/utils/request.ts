@@ -6,14 +6,13 @@ import {
     RequestConfig,
     RequestHeaders,
     RequestUriParams,
-    RequestBody,
     GeneralConfig,
 } from '../../../types';
 import { DefaultRequestConfig } from '../request-config';
 
 import { mergeUrlSearchParams, mergeRequestConfigs } from './mergeRequestConfigs';
 
-function formatRequestBody(body: RequestBody, config: RequestConfig): RequestBody {
+function formatRequestBody(body: BodyInit | undefined, config: RequestConfig) {
     if (config.responseType === 'json') {
         return JSON.stringify(body);
     }
