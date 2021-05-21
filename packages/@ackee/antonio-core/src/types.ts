@@ -35,6 +35,9 @@ export interface FullRequestConfig extends Omit<RequestInit, 'body' | 'headers' 
     // to methods of that instance.
     baseURL: string;
 
+    /**
+     * https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+     */
     responseType: ResponseType;
 
     uriParams: RequestUriParams;

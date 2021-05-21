@@ -22,7 +22,8 @@
         "release": "lerna publish --no-push",
         "release:beta": "yarn release --dist-tag beta --no-push",
         "prepare": "yarn build",
-        "release:yalc": "yarn prepare && lerna exec -- yalc push --no-scripts"
+        "release:yalc": "yarn prepare && lerna exec -- yalc push --no-scripts",
+        "circular-modules": "lerna exec -- madge --circular src"
     },
     "devDependencies": {
         "@ackee/browserslist-config": "^1.0.1",
@@ -50,6 +51,7 @@
         "jest": "26.x",
         "lerna": "4.x",
         "lint-staged": "^10.2.2",
+        "madge": "^4.0.2",
         "onchange": "7.x",
         "prettier": "2.x",
         "prettier-config-ackee": "0.x",
@@ -58,7 +60,8 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged"
+            "pre-commit": "lint-staged",
+            "pre-push": "circular-modules"
         }
     },
     "lint-staged": {
