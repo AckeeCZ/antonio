@@ -1,4 +1,4 @@
-export { create, destroy, AntonioError, resolverTypes, responseTypes } from './modules/core';
+export { create, destroy, AntonioError, resolverTypes, responseTypes, runIterableStream } from './modules/core';
 export type {
     RequestConfig,
     RequestResult,
