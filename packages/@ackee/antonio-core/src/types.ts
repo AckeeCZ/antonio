@@ -5,6 +5,8 @@ export type RequestMethod = 'get' | 'post' | 'put' | 'patch' | 'delete' | 'optio
 
 export type ResponseType = 'json' | 'blob' | 'formData' | 'text' | 'arrayBuffer' | 'iterableStream' | 'stream';
 
+export type ResponseTypes = Record<ResponseType, string>;
+
 export type ResponseData = BodyInit | null | IterableStream;
 
 interface Params {
@@ -17,17 +19,16 @@ export type RequestUriParams = Params;
 
 export type RequestSearchParams = URLSearchParams | Params;
 
-export enum ResponseTypes {
-    json = 'application/json',
-    text = 'text/*',
-    formData = 'multipart/form-data',
-    blob = '*/*',
-}
-
-export enum Header {
+export const enum Header {
     CONTENT_TYPE = 'Content-Type',
 }
 
+export type ResolverType = 'generator' | 'promise';
+
+export interface ResolverTypes {
+    GENERATOR: 'generator';
+    PROMISE: 'promise';
+}
 export interface FullRequestConfig extends Omit<RequestInit, 'body' | 'headers' | 'method'> {
     // `baseURL` will be prepended to `url` unless `url` is absolute.
     // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
@@ -54,11 +55,6 @@ export type RequestConfig = Partial<FullRequestConfig> & {
      */
     cancelToken?: AbortSignal;
 };
-
-export enum ResolverType {
-    GENERATOR = 'generator',
-    PROMISE = 'promise',
-}
 
 export interface GeneralConfig {
     logger: Logger;

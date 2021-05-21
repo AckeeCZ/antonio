@@ -19,5 +19,13 @@ module.exports = {
             },
         ],
     ],
+    plugins: [
+        [
+            'babel-plugin-const-enum',
+            {
+                transform: 'constObject',
+            },
+        ],
+    ],
     ignore: ['**/__tests__/', '**/*.test.js'],
 };

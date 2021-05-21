@@ -1,13 +1,6 @@
 import Headers from 'fetch-headers';
-import {
-    Header,
-    ResponseTypes,
-    RequestMethod,
-    RequestConfig,
-    RequestHeaders,
-    RequestUriParams,
-    GeneralConfig,
-} from '../../../types';
+import { Header, RequestMethod, RequestConfig, RequestHeaders, RequestUriParams, GeneralConfig } from '../../../types';
+import { responseTypes } from '../constants';
 import { DefaultRequestConfig } from '../request-config';
 
 import { mergeUrlSearchParams, mergeRequestConfigs } from './mergeRequestConfigs';
@@ -102,7 +95,7 @@ function setRequestHeaders(method: RequestMethod, config: RequestConfig): Reques
     const headers = new Headers(config.headers);
 
     if (!headers.has(Header.CONTENT_TYPE) && method !== 'head' && config.responseType) {
-        headers.set(Header.CONTENT_TYPE, ResponseTypes[config.responseType]);
+        headers.set(Header.CONTENT_TYPE, responseTypes[config.responseType]);
     }
 
     return headers;

@@ -1,4 +1,4 @@
-export { create, destroy, AntonioError } from './modules/core';
+export { create, destroy, AntonioError, resolverTypes, responseTypes } from './modules/core';
 export type {
     RequestConfig,
     RequestResult,
@@ -8,5 +8,5 @@ export type {
     RequestHeaders,
     ResponseType,
     RequestMethod,
+    ResolverType,
 } from './types';
-export { ResponseTypes, ResolverType } from './types';

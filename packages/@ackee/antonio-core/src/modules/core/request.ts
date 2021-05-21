@@ -1,5 +1,6 @@
-import { RequestMethod, RequestConfig, GeneralConfig, RequestResult, ResolverType } from '../../types';
+import { RequestMethod, RequestConfig, GeneralConfig, RequestResult } from '../../types';
 
+import { resolverTypes } from './constants';
 import { interceptors } from './models/InterceptorManager';
 import type { RequestInterceptorsEntries, ResponseInterceptorsEntries } from './models/InterceptorManager';
 import { generalConfigs } from './general-config';
@@ -129,8 +130,8 @@ async function asyncGeneratorToPromise<T>(it: AsyncGenerator<any, T>) {
         if (result.value[Symbol.iterator]) {
             throw new SyntaxError(
                 [
-                    `'resolverType: ResolverType.PROMISE' can't have generator function as an interceptor.`,
-                    `Use 'resolverType: ResolverType.GENERATOR' if you need such an option.`,
+                    `'resolverType: resolverType.promise' can't have generator function as an interceptor.`,
+                    `Use 'resolverType: resolverType.generator' if you need such an option.`,
                 ].join('\n'),
             );
         }
@@ -170,15 +171,15 @@ export default function requestTypeResolver(
     const it = request(method, requestUrl, body, requestConfig, antonio, generalConfig);
 
     switch (generalConfig.resolverType) {
-        case ResolverType.GENERATOR:
+        case resolverTypes.GENERATOR:
             return asyncGeneratorToGenerator<RequestResult>(it);
 
-        case ResolverType.PROMISE:
+        case resolverTypes.PROMISE:
             return asyncGeneratorToPromise<RequestResult>(it);
 
         default:
             throw new TypeError(
-                `'resolverType' must be one of: ${Object.values(ResolverType).join(', ')}. Received: '${
+                `'resolverType' must be one of: ${Object.values(resolverTypes).join(', ')}. Received: '${
                     generalConfig.resolverType
                 }'`,
             );

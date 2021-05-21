@@ -1,14 +1,12 @@
-import { ResponseType, Header, ResponseTypes } from '../../../types';
+import { ResponseType, Header } from '../../../types';
+import { responseTypes } from '../constants';
 
-function parseHeaderValue(headerValue: string | null): string[] {
-    if (!headerValue) {
-        return [];
-    }
-
-    return headerValue
-        .split(';')
-        .map(str => str.trim())
-        .filter(str => str.length > 0);
+/**
+ * accepts: 'type/subtype; parameter=value; boundary=somthing'
+ * returns: 'type/subtype'
+ */
+function parseMediaType(value: string | null): string | null {
+    return value?.split(';')[0] ?? null;
 }
 
 interface Unparsed {
@@ -94,9 +92,8 @@ async function* iterableStream(stream: Body['body'], contentTypeIsJson: boolean)
 
 export type IterableStream = ReturnType<typeof iterableStream>;
 
-const isJsonContentType = (headers: Headers): boolean => {
-    const contentType = headers.get(Header.CONTENT_TYPE);
-    return parseHeaderValue(contentType).includes(ResponseTypes.json);
+const isJsonMediaType = (headers: Headers): boolean => {
+    return parseMediaType(headers.get(Header.CONTENT_TYPE)) === responseTypes.json;
 };
 
 export function parseResponse(
@@ -105,7 +102,7 @@ export function parseResponse(
 ): Promise<BodyInit> | IterableStream | ReadableStream<Uint8Array> | null {
     switch (responseType) {
         case 'json':
-            return isJsonContentType(response.headers) ? response.json() : null;
+            return isJsonMediaType(response.headers) ? response.json() : null;
 
         case 'blob':
             return response.blob();
@@ -120,7 +117,7 @@ export function parseResponse(
             return response.arrayBuffer();
 
         case 'iterableStream':
-            return iterableStream(response.body, isJsonContentType(response.headers));
+            return iterableStream(response.body, isJsonMediaType(response.headers));
 
         case 'stream':
             return response.body;
