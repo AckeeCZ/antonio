@@ -27,7 +27,6 @@
         "directory": "packages/@ackee/antonio-utils"
     },
     "dependencies": {
-        "@babel/runtime": "7.14.0",
         "abortcontroller-polyfill": "1.7.1"
     },
     "peerDependencies": {
