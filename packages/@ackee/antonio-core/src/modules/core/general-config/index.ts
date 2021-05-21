@@ -1,6 +1,6 @@
 import loglevel from 'loglevel';
 import type { GeneralConfig } from '../../../types';
-import { resolverTypes } from '../../../modules/core';
+import { resolverTypes } from '../constants';
 import type { TAntonio } from '../models/Antonio';
 
 export const defaultGeneralConfig: GeneralConfig = {
