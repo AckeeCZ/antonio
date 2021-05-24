@@ -77,7 +77,11 @@ async function* iterableStream(stream: Body['body'], contentTypeIsJson: boolean)
             const arrayBuffer = result.value;
             const decodedChunk = decoder.decode(arrayBuffer, { stream: true });
 
-            yield parser ? parser.parse(decodedChunk) : decodedChunk;
+            const parsedChunk = parser ? parser.parse(decodedChunk) : decodedChunk;
+
+            if (parsedChunk.length > 0) {
+                yield parsedChunk;
+            }
 
             result = await reader.read();
         }
