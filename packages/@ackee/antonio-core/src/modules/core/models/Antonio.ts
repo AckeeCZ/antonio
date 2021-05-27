@@ -44,11 +44,31 @@ class Antonio {
     }
 
     delete(url: string, requestConfig?: RequestConfig) {
-        return request('delete', url, undefined, requestConfig, this);
+        return request(
+            'delete',
+            url,
+            undefined,
+            {
+                ...requestConfig,
+                // TODO: Consider other option that jsut forcing it here.
+                // Maybe, use different default configs for each req. method.
+                responseType: 'text',
+            },
+            this,
+        );
     }
 
     head(url: string, requestConfig?: RequestConfig) {
-        return request('head', url, undefined, requestConfig, this);
+        return request(
+            'head',
+            url,
+            undefined,
+            {
+                ...requestConfig,
+                responseType: 'text',
+            },
+            this,
+        );
     }
 
     options(url: string, requestConfig?: RequestConfig) {
