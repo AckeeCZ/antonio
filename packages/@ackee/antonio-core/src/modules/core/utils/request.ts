@@ -3,7 +3,8 @@ import { Header, RequestMethod, RequestConfig, RequestHeaders, RequestUriParams,
 import { responseTypes } from '../constants';
 import { DefaultRequestConfig } from '../request-config';
 
-import { mergeUrlSearchParams, mergeRequestConfigs } from './mergeRequestConfigs';
+import { mergeRequestConfigs } from './mergeRequestConfigs';
+import { getValidSearchParams, encodeParamsToSearchParams } from './searchParams';
 
 function formatRequestBody(body: BodyInit | undefined, config: RequestConfig) {
     if (config.responseType === 'json') {
@@ -48,22 +49,6 @@ function joinUrlChunks(baseUrl?: string, ...path: string[]) {
     return new URL(joinedUrl);
 }
 
-const isValidSearchParam = (value: any) => {
-    value = String(value);
-
-    return value !== 'undefined' && value !== 'null' && value !== '';
-};
-
-function getValidSearchParams(searchParams: URLSearchParams): URLSearchParams {
-    const validSearchParams = new URLSearchParams();
-    for (const [key, value] of searchParams.entries()) {
-        if (isValidSearchParam(value)) {
-            validSearchParams.set(key, value);
-        }
-    }
-    return validSearchParams;
-}
-
 function createRequestUrl(requestUrl: string, requestConfig: RequestConfig, generalConfig: GeneralConfig): string {
     try {
         if (requestConfig.uriParams) {
@@ -72,12 +57,8 @@ function createRequestUrl(requestUrl: string, requestConfig: RequestConfig, gene
 
         const url = joinUrlChunks(requestConfig.baseURL, requestUrl);
 
-        url.search = getValidSearchParams(
-            mergeUrlSearchParams(
-                new URLSearchParams(url.search),
-                new URLSearchParams(requestConfig.searchParams || requestConfig.params),
-            ),
-        ).toString();
+        const searchParams = encodeParamsToSearchParams(requestConfig.searchParams || requestConfig.params);
+        url.search = getValidSearchParams(searchParams).toString();
 
         return url.toString();
     } catch (e) {

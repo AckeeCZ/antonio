@@ -1,23 +1,6 @@
 import Headers from 'fetch-headers';
-import { RequestConfig, RequestHeaders, RequestSearchParams } from '../../../types';
+import { RequestConfig, RequestHeaders } from '../../../types';
 import { DefaultRequestConfig } from '../request-config';
-
-const getSearchParamsEntries = (value?: RequestSearchParams) =>
-    value instanceof URLSearchParams ? value.entries() : Object.entries(value ?? {});
-
-export function mergeUrlSearchParams(paramsA?: RequestSearchParams, paramsB?: RequestSearchParams): URLSearchParams {
-    const result = new URLSearchParams();
-
-    for (const [key, value] of getSearchParamsEntries(paramsA)) {
-        result.set(key, value);
-    }
-
-    for (const [key, value] of getSearchParamsEntries(paramsB)) {
-        result.set(key, value);
-    }
-
-    return result;
-}
 
 const getHeadersEntries = (value?: RequestHeaders) =>
     value instanceof Headers ? value.entries() : Object.entries(value ?? {});
@@ -54,7 +37,7 @@ export function mergeRequestConfigs(configA: DefaultRequestConfig, configB: Requ
     }
 
     if (configA.searchParams || configB.searchParams) {
-        result.searchParams = mergeUrlSearchParams(configA.searchParams, configB.searchParams);
+        result.searchParams = configA.searchParams || configB.searchParams;
     }
 
     if (configB.cancelToken) {
