@@ -100,13 +100,36 @@ const isJsonMediaType = (headers: Headers): boolean => {
     return parseMediaType(headers.get(Header.CONTENT_TYPE)) === responseTypes.json;
 };
 
+/**
+*  FIXME: Use `Content-Length` header instead
+
+ * By default, it's set responseType to `json`, if it isn't declared otherwise per request.
+ * But response body might empty, thus not parsable string to json. However, there's no way to finding out
+ * before reading the body, if the body is empty or not.
+ */
+async function tryToParseAsJson(response: Response): Promise<any | string> {
+    const clone = response.clone();
+    try {
+        if (isJsonMediaType(response.headers)) {
+            return await response.json();
+        }
+
+        return null;
+    } catch (e) {
+        if (e.message === 'Unexpected end of JSON input') {
+            return await clone.text();
+        }
+        throw e;
+    }
+}
+
 export function parseResponse(
     responseType: ResponseType | undefined,
     response: Response,
 ): Promise<BodyInit> | IterableStream | ReadableStream<Uint8Array> | null {
     switch (responseType) {
         case 'json':
-            return isJsonMediaType(response.headers) ? response.json() : null;
+            return tryToParseAsJson(response);
 
         case 'blob':
             return response.blob();
