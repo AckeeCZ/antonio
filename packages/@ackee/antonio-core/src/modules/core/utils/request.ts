@@ -7,7 +7,7 @@ import { mergeRequestConfigs } from './mergeRequestConfigs';
 import { getValidSearchParams, encodeParamsToSearchParams } from './searchParams';
 
 function formatRequestBody(body: BodyInit | undefined, config: RequestConfig) {
-    if (config.responseType === 'json') {
+    if (body && config.responseType === 'json') {
         return JSON.stringify(body);
     }
 
