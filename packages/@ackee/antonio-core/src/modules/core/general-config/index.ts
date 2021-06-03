@@ -6,6 +6,6 @@ import type { TAntonio } from '../models/Antonio';
 export const defaultGeneralConfig: GeneralConfig = {
     logger: loglevel,
     resolverType: resolverTypes.GENERATOR,
-};
+} as const;
 
 export const generalConfigs = new WeakMap<TAntonio, GeneralConfig>();
