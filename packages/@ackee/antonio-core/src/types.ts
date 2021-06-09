@@ -1,7 +1,7 @@
 import type { Logger } from 'loglevel';
 import type { IterableStream } from './modules/core/utils/response';
 
-export type RequestMethod = 'get' | 'post' | 'put' | 'patch' | 'delete' | 'options' | 'head';
+export type RequestMethod = 'get' | 'post' | 'put' | 'PATCH' | 'delete' | 'options' | 'head';
 
 export type ResponseType = 'json' | 'blob' | 'formData' | 'text' | 'arrayBuffer' | 'iterableStream' | 'stream';
 

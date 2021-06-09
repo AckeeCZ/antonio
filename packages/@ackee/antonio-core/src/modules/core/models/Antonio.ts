@@ -36,7 +36,7 @@ class Antonio {
     }
 
     patch(url: string, body: BodyInit, requestConfig?: RequestConfig) {
-        return request('patch', url, body, requestConfig, this);
+        return request('PATCH', url, body, requestConfig, this);
     }
 
     get(url: string, requestConfig?: RequestConfig) {
