@@ -14,7 +14,9 @@ function setContentTypeHeader(method: RequestMethod, config: DefaultRequestConfi
 
     if (!headers.has(Header.CONTENT_TYPE) && method !== 'HEAD' && body) {
         const defaultMimeType = getDefaultRequestMimeType(body);
-        headers.set(Header.CONTENT_TYPE, defaultMimeType);
+        if (defaultMimeType) {
+            headers.set(Header.CONTENT_TYPE, defaultMimeType);
+        }
     }
 
     return headers;

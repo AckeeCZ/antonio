@@ -9,8 +9,6 @@ const defaultRequestMimeTypes = {
     DataView: 'application/octet-stream',
     ReadableStream: 'application/octet-stream',
     URLSearchParams: 'application/x-www-form-urlencoded',
-    FormData: 'multipart/form-data',
-    any: '*/*',
 } as const;
 
 type RequestBodyType = keyof typeof defaultRequestMimeTypes;
@@ -20,7 +18,7 @@ function getBodyType(body: RequestBody): RequestBodyType {
     return typeof body === 'string' ? 'string' : body[Symbol.toStringTag];
 }
 
-export function getDefaultRequestMimeType(body: RequestBody): RequestMimeType {
+export function getDefaultRequestMimeType(body: RequestBody): RequestMimeType | undefined {
     const bodyType = getBodyType(body);
-    return defaultRequestMimeTypes[bodyType] || defaultRequestMimeTypes.any;
+    return defaultRequestMimeTypes[bodyType];
 }

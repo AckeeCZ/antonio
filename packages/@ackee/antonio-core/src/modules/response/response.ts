@@ -10,6 +10,18 @@ import { getResponseDataType } from './responseDataTypes';
 import { AntonioError } from './errors';
 import { parseResponse, hasEmptyContentLength } from './utils';
 
+function chooseResponseDataType(config: DefaultRequestConfig, headers: Headers) {
+    if (hasEmptyContentLength(headers)) {
+        return null;
+    }
+
+    if (config.responseDataType !== undefined) {
+        return config.responseDataType;
+    }
+
+    return getResponseDataType(headers.get(Header.CONTENT_TYPE));
+}
+
 async function* applyResponseInterceptors(
     responseInterceptors: ResponseInterceptorsEntries,
     request: Request,
@@ -33,9 +45,7 @@ async function* applyResponseInterceptors(
             }
         }
 
-        const responseDataType = hasEmptyContentLength(response.headers)
-            ? null
-            : config.responseDataType || getResponseDataType(response.headers.get(Header.CONTENT_TYPE));
+        const responseDataType = chooseResponseDataType(config, response.headers);
         const data = await parseResponse(responseDataType, response);
 
         if (!response.ok) {
