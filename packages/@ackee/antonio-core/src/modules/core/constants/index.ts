@@ -1,16 +1,7 @@
-import type { ResponseTypes, ResolverTypes } from '../../../types';
-
-export const responseTypes: ResponseTypes = {
-    json: 'application/json',
-    text: 'text/*',
-    formData: 'multipart/form-data',
-    blob: '*/*',
-    arrayBuffer: '*/*',
-    stream: '*/*',
-    iterableStream: '*/*',
-};
-
-export const resolverTypes: ResolverTypes = {
+export const resolverTypes = {
     GENERATOR: 'generator',
     PROMISE: 'promise',
-};
+} as const;
+
+type ResolverTypesKeys = keyof typeof resolverTypes;
+export type ResolverType = typeof resolverTypes[ResolverTypesKeys];

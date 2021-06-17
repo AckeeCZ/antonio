@@ -1,12 +1,13 @@
-export { create, destroy, AntonioError, resolverTypes, responseTypes, runIterableStream } from './modules/core';
 export type {
     RequestConfig,
     RequestResult,
-    GeneralConfig,
     RequestSearchParams,
     RequestUriParams,
     RequestHeaders,
-    ResponseType,
     RequestMethod,
-    ResolverType,
+    ResponseDataType,
 } from './types';
+export type { GeneralConfig } from './modules/core/general-config';
+export { create, destroy, resolverTypes } from './modules/core';
+export { AntonioError } from './modules/response/errors';
+export { runIterableStream } from './modules/response/utils';

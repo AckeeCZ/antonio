@@ -1,13 +1,28 @@
-import type { Logger } from 'loglevel';
-import type { IterableStream } from './modules/core/utils/response';
+import type { IterableStream } from './modules/response/iterableStream';
+
+export type Primitive = bigint | boolean | null | number | string | undefined;
+
+export type PlainObject = Record<string, Primitive | any[]>;
 
 export type RequestMethod = 'get' | 'post' | 'put' | 'PATCH' | 'delete' | 'options' | 'head';
 
-export type ResponseType = 'json' | 'blob' | 'formData' | 'text' | 'arrayBuffer' | 'iterableStream' | 'stream';
+export type RequestBodyData = BodyInit | Primitive | PlainObject | any[];
 
-export type ResponseTypes = Record<ResponseType, string>;
+export type RequestBody = BodyInit;
 
-export type ResponseData = BodyInit | null | IterableStream;
+export type ResponseDataType = 'json' | 'blob' | 'formData' | 'text' | 'arrayBuffer' | 'iterableStream' | 'stream';
+
+export type ResponseData =
+    | ArrayBuffer
+    | FormData
+    | ReadableStream<Uint8Array>
+    | ArrayBufferView
+    | Blob
+    | Primitive
+    | PlainObject
+    | any[]
+    | IterableStream
+    | null;
 
 interface Params {
     [key: string]: string;
@@ -19,36 +34,18 @@ export type RequestUriParams = Params;
 
 export type RequestSearchParams = URLSearchParams | Params;
 
-export const enum Header {
-    CONTENT_TYPE = 'Content-Type',
-}
-
-export type ResolverType = 'generator' | 'promise';
-
-export interface ResolverTypes {
-    GENERATOR: 'generator';
-    PROMISE: 'promise';
-}
 export interface FullRequestConfig extends Omit<RequestInit, 'body' | 'headers' | 'method'> {
     // `baseURL` will be prepended to `url` unless `url` is absolute.
     // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
     // to methods of that instance.
     baseURL: string;
 
-    /**
-     * https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
-     */
-    responseType: ResponseType;
+    responseDataType: ResponseDataType;
 
     uriParams: RequestUriParams;
 
     headers: RequestHeaders;
 
-    searchParams: RequestSearchParams;
-
-    /**
-     * @deprecated This prop is going to be removed in next major relase. Use `searchParams` prop instead.
-     */
     params: RequestSearchParams;
 }
 
@@ -59,15 +56,10 @@ export type RequestConfig = Partial<FullRequestConfig> & {
     cancelToken?: AbortSignal;
 };
 
-export interface GeneralConfig {
-    logger: Logger;
-    resolverType: ResolverType;
-}
-
-export interface RequestResult {
+export interface RequestResult<D = ResponseData> {
     request: Request;
     response: Response;
-    data: ResponseData;
+    data: D;
 
     /**
      * @deprecated This prop is going to be removed in next major relase. Use `response.status` instead.

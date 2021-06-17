@@ -1,11 +1,11 @@
-import type { RequestConfig } from '../../../types';
+import type { RequestConfig } from '../../types';
 
 export const interceptors = new WeakMap();
 
 let id = 0;
 
 interface OnFulfilled<V, C> {
-    (value: V, config: C): V | IterableIterator<V>;
+    (value: V, config: C): V | Generator<unknown, V>;
 }
 
 interface OnRejected<C> {

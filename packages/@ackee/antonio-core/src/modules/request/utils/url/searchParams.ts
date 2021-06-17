@@ -1,4 +1,4 @@
-import type { RequestSearchParams } from '../../../types';
+import type { RequestSearchParams } from '../../../../types';
 
 const isValidSearchParam = (value: string) => {
     return value !== 'undefined' && value !== 'null' && value !== '';

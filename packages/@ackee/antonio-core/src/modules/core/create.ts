@@ -1,4 +1,5 @@
-import type { RequestConfig, GeneralConfig } from '../../types';
+import type { RequestConfig } from '../../types';
+import type { GeneralConfig } from './general-config';
 
 import Antonio from './models/Antonio';
 
