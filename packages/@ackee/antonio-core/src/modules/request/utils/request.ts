@@ -12,7 +12,7 @@ import { formatBodyData } from './formatBodyData';
 function setContentTypeHeader(method: RequestMethod, config: DefaultRequestConfig, body?: BodyInit): RequestHeaders {
     const headers = config.headers as Headers;
 
-    if (!headers.has(Header.CONTENT_TYPE) && method !== 'head' && body) {
+    if (!headers.has(Header.CONTENT_TYPE) && method !== 'HEAD' && body) {
         const defaultMimeType = getDefaultRequestMimeType(body);
         headers.set(Header.CONTENT_TYPE, defaultMimeType);
     }

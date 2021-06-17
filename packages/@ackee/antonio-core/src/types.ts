@@ -4,7 +4,7 @@ export type Primitive = bigint | boolean | null | number | string | undefined;
 
 export type PlainObject = Record<string, Primitive | any[]>;
 
-export type RequestMethod = 'get' | 'post' | 'put' | 'PATCH' | 'delete' | 'options' | 'head';
+export type RequestMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | 'OPTIONS' | 'HEAD';
 
 export type RequestBodyData = BodyInit | Primitive | PlainObject | any[];
 

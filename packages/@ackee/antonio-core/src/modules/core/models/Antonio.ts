@@ -30,11 +30,11 @@ class Antonio {
     }
 
     post(url: string, body: RequestBodyData, requestConfig?: RequestConfig) {
-        return makeRequest('post', url, body, requestConfig, this);
+        return makeRequest('POST', url, body, requestConfig, this);
     }
 
     put(url: string, body: RequestBodyData, requestConfig?: RequestConfig) {
-        return makeRequest('put', url, body, requestConfig, this);
+        return makeRequest('PUT', url, body, requestConfig, this);
     }
 
     patch(url: string, body: RequestBodyData, requestConfig?: RequestConfig) {
@@ -42,12 +42,12 @@ class Antonio {
     }
 
     get(url: string, requestConfig?: RequestConfig) {
-        return makeRequest('get', url, undefined, requestConfig, this);
+        return makeRequest('GET', url, undefined, requestConfig, this);
     }
 
     delete(url: string, requestConfig?: RequestConfig) {
         return makeRequest(
-            'delete',
+            'DELETE',
             url,
             undefined,
             // TODO: test
@@ -64,7 +64,7 @@ class Antonio {
 
     head(url: string, requestConfig?: RequestConfig) {
         return makeRequest(
-            'head',
+            'HEAD',
             url,
             undefined,
             // TODO: test
@@ -78,7 +78,7 @@ class Antonio {
     }
 
     options(url: string, requestConfig?: RequestConfig) {
-        return makeRequest('options', url, undefined, requestConfig, this);
+        return makeRequest('OPTIONS', url, undefined, requestConfig, this);
     }
 }
 
