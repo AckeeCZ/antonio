@@ -8,7 +8,7 @@ import { DefaultRequestConfig } from '../request/config';
 import { getResponseDataType } from './responseDataTypes';
 
 import { AntonioError } from './errors';
-import { parseResponse } from './utils';
+import { parseResponse, hasEmptyContentLength } from './utils';
 
 async function* applyResponseInterceptors(
     responseInterceptors: ResponseInterceptorsEntries,
@@ -33,8 +33,9 @@ async function* applyResponseInterceptors(
             }
         }
 
-        const responseDataType =
-            config.responseDataType || getResponseDataType(response.headers.get(Header.CONTENT_TYPE));
+        const responseDataType = hasEmptyContentLength(response.headers)
+            ? null
+            : config.responseDataType || getResponseDataType(response.headers.get(Header.CONTENT_TYPE));
         const data = await parseResponse(responseDataType, response);
 
         if (!response.ok) {

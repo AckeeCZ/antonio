@@ -46,35 +46,11 @@ class Antonio {
     }
 
     delete(url: string, requestConfig?: RequestConfig) {
-        return makeRequest(
-            'DELETE',
-            url,
-            undefined,
-            // TODO: test
-            requestConfig,
-            // {
-            //     ...requestConfig,
-            //     // TODO: Consider other option that jsut forcing it here.
-            //     // Maybe, use different default configs for each req. method.
-            //     responseDataType: 'text',
-            // },
-            this,
-        );
+        return makeRequest('DELETE', url, undefined, requestConfig, this);
     }
 
     head(url: string, requestConfig?: RequestConfig) {
-        return makeRequest(
-            'HEAD',
-            url,
-            undefined,
-            // TODO: test
-            requestConfig,
-            // {
-            //     ...requestConfig,
-            //     responseDataType: 'text',
-            // },
-            this,
-        );
+        return makeRequest('HEAD', url, undefined, requestConfig, this);
     }
 
     options(url: string, requestConfig?: RequestConfig) {

@@ -4,7 +4,7 @@ import { Header } from '../../../constants';
 import { parseContentTypeHeader, parseMimeTypes } from '../responseDataTypes';
 import { iterableStream } from '../iterableStream';
 
-const hasJsonMimeType = (headers: Headers) => {
+function hasJsonMimeType(headers: Headers) {
     const contentType = headers.get(Header.CONTENT_TYPE);
 
     if (!contentType) {
@@ -14,7 +14,11 @@ const hasJsonMimeType = (headers: Headers) => {
     const mimeTypes = parseMimeTypes(parseContentTypeHeader(contentType));
 
     return mimeTypes.includes('application/json');
-};
+}
+
+export function hasEmptyContentLength(headers: Headers) {
+    return headers.get(Header.CONTENT_LENGTH) === '0';
+}
 
 export async function parseResponse(
     responseDataType: ResponseDataType | undefined | null,
