@@ -89,7 +89,7 @@ api.patch(url: string, data: RequestBody, requestConfig?: RequestConfig): Genera
 
 ### <a name="api-destroy"></a>`destroy(api: Antonio): void`
 
-Clears-up memory after the current Antonio instance.
+It clears up memory after the current Antonio instance.
 
 ```ts
 import { destroy } from '@ackee/antonio-core';
@@ -107,9 +107,9 @@ _Optional_ request config options:
     // Default: undefined
     baseUrl: 'https://jsonplaceholder.typicode.com/',
 
-    // Options: "json" | "blob" | "text" | "formData" | undefined
-    // Default: "json"
-    responseType: 'json',
+    // Options: "json" | "blob" | "text" | "formData" | 'arrayBuffer' | 'stream' \ 'iterableStream' | undefined | null
+    // Default: undefined
+    responseDataType: undefined',
 
     // Options: object | undefined
     // Default: undefined
@@ -124,10 +124,10 @@ _Optional_ request config options:
         'X-Custom-Header': 1234,
     }),
 
-    // `searchParams` are the URL parameters to be sent with the request
+    // `params` are the URL parameters to be sent with the request
     // Must be a plain object or a URLSearchParams object
     // Default: undefined
-    searchParams: new URLSearchParams({
+    params: new URLSearchParams({
         query: 'foo',
     }),
 
