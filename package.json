@@ -24,7 +24,9 @@
         "release:beta": "yarn release --dist-tag beta --no-push",
         "prepare": "yarn build",
         "release:yalc": "yarn prepare && lerna exec -- yalc push --no-scripts",
-        "circular-modules": "lerna exec -- madge --circular src"
+        "circular-modules": "lerna exec -- madge --circular src",
+        "docs:compile": "lerna exec --scope=@ackee/antonio-core -- typedoc --out docs-api ./src/index.ts --plugin typedoc-plugin-markdown",
+        "docs:commit": "git add ./packages/@ackee/antonio-core/docs-api && git commit -m ':memo: Update API references'"
     },
     "devDependencies": {
         "@ackee/browserslist-config": "^1.0.1",
@@ -57,12 +59,14 @@
         "prettier": "2.x",
         "prettier-config-ackee": "0.x",
         "ts-jest": "^27.0.2",
+        "typedoc": "^0.21.0",
+        "typedoc-plugin-markdown": "^3.10.0",
         "typescript": "4.x"
     },
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged",
-            "pre-push": "yarn circular-modules"
+            "pre-push": "yarn circular-modules && yarn docs:compile && yarn docs:commit"
         }
     },
     "lint-staged": {

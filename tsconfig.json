@@ -17,10 +17,11 @@
         "esModuleInterop": true,
         "noUnusedLocals": true,
         "strictNullChecks": true,
-        "preserveConstEnums": false,
+        "preserveConstEnums": true,
         "noFallthroughCasesInSwitch": true,
         "allowSyntheticDefaultImports": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "lib": ["DOM", "ESNext", "DOM.Iterable"]
     },
     "include": ["packages/@ackee/*/src"],
     "exclude": ["**/__tests__/"],
