@@ -49,7 +49,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:13](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L13)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:13](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L13)
 
 ## Properties
 
@@ -59,7 +59,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:12](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L12)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:12](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L12)
 
 ---
 
@@ -69,7 +69,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:13](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L13)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:13](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L13)
 
 ## Methods
 
@@ -90,7 +90,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:58](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L58)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:58](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L58)
 
 ---
 
@@ -106,7 +106,7 @@ Clears-up memory after the current Antonio instance.
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:73](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L73)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:73](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L73)
 
 ---
 
@@ -127,7 +127,7 @@ Clears-up memory after the current Antonio instance.
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:54](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L54)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:54](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L54)
 
 ---
 
@@ -148,7 +148,7 @@ Clears-up memory after the current Antonio instance.
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:62](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L62)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:62](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L62)
 
 ---
 
@@ -169,7 +169,7 @@ Clears-up memory after the current Antonio instance.
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:66](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L66)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:66](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L66)
 
 ---
 
@@ -191,7 +191,7 @@ Clears-up memory after the current Antonio instance.
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:50](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L50)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:50](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L50)
 
 ---
 
@@ -213,7 +213,7 @@ Clears-up memory after the current Antonio instance.
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:42](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L42)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:42](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L42)
 
 ---
 
@@ -235,4 +235,4 @@ Clears-up memory after the current Antonio instance.
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:46](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L46)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:46](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L46)

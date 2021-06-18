@@ -39,7 +39,7 @@ It can be convenient to set `baseURL` for an instance of antonio to pass relativ
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:133](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/types.ts#L133)
+[packages/@ackee/antonio-core/src/types.ts:133](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L133)
 
 ---
 
@@ -81,7 +81,7 @@ node_modules/typescript/lib/lib.dom.d.ts:1614
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:139](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/types.ts#L139)
+[packages/@ackee/antonio-core/src/types.ts:139](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L139)
 
 ---
 
@@ -139,7 +139,7 @@ node_modules/typescript/lib/lib.dom.d.ts:1634
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:141](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/types.ts#L141)
+[packages/@ackee/antonio-core/src/types.ts:141](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L141)
 
 ---
 
@@ -197,7 +197,7 @@ node_modules/typescript/lib/lib.dom.d.ts:1646
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:135](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/types.ts#L135)
+[packages/@ackee/antonio-core/src/types.ts:135](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L135)
 
 ---
 
@@ -223,7 +223,7 @@ node_modules/typescript/lib/lib.dom.d.ts:1650
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:137](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/types.ts#L137)
+[packages/@ackee/antonio-core/src/types.ts:137](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L137)
 
 ---
 

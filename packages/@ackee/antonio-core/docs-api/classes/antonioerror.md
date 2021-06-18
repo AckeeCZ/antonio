@@ -50,7 +50,7 @@ Error.constructor
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:11](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L11)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:11](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L11)
 
 ## Properties
 
@@ -60,7 +60,7 @@ Error.constructor
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:10](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L10)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:10](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L10)
 
 ---
 
@@ -70,7 +70,7 @@ Error.constructor
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:11](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L11)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:11](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L11)
 
 ---
 
@@ -98,7 +98,7 @@ Error.name
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:7](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L7)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:7](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L7)
 
 ---
 
@@ -108,7 +108,7 @@ Error.name
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:8](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L8)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:8](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L8)
 
 ---
 
@@ -118,7 +118,7 @@ Error.name
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:9](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L9)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:9](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L9)
 
 ---
 

@@ -49,7 +49,7 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/general-config/index.ts:7](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/core/general-config/index.ts#L7)
+[packages/@ackee/antonio-core/src/modules/core/general-config/index.ts:7](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/core/general-config/index.ts#L7)
 
 ---
 
@@ -59,7 +59,7 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:9](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/types.ts#L9)
+[packages/@ackee/antonio-core/src/types.ts:9](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L9)
 
 ---
 
@@ -69,7 +69,7 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:144](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/types.ts#L144)
+[packages/@ackee/antonio-core/src/types.ts:144](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L144)
 
 ---
 
@@ -79,7 +79,7 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:91](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/types.ts#L91)
+[packages/@ackee/antonio-core/src/types.ts:91](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L91)
 
 ---
 
@@ -113,7 +113,7 @@ api.get('/posts', {
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:126](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/types.ts#L126)
+[packages/@ackee/antonio-core/src/types.ts:126](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L126)
 
 ---
 
@@ -135,7 +135,7 @@ console.assert(data.id === '1');
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:103](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/types.ts#L103)
+[packages/@ackee/antonio-core/src/types.ts:103](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L103)
 
 ---
 
@@ -145,7 +145,7 @@ console.assert(data.id === '1');
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/constants/index.ts:7](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/core/constants/index.ts#L7)
+[packages/@ackee/antonio-core/src/modules/core/constants/index.ts:7](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/core/constants/index.ts#L7)
 
 ---
 
@@ -155,7 +155,7 @@ console.assert(data.id === '1');
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:75](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/types.ts#L75)
+[packages/@ackee/antonio-core/src/types.ts:75](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L75)
 
 ---
 
@@ -231,7 +231,7 @@ function* fetchPosts() {
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:73](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/types.ts#L73)
+[packages/@ackee/antonio-core/src/types.ts:73](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L73)
 
 ## Variables
 
@@ -248,7 +248,7 @@ function* fetchPosts() {
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/constants/index.ts:1](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/core/constants/index.ts#L1)
+[packages/@ackee/antonio-core/src/modules/core/constants/index.ts:1](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/core/constants/index.ts#L1)
 
 ## Functions
 
@@ -294,4 +294,4 @@ function* fetchPosts() {
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/utils/runIterableStream.ts:24](https://github.com/AckeeCZ/antonio/blob/70b57b9/packages/@ackee/antonio-core/src/modules/response/utils/runIterableStream.ts#L24)
+[packages/@ackee/antonio-core/src/modules/response/utils/runIterableStream.ts:24](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/modules/response/utils/runIterableStream.ts#L24)
