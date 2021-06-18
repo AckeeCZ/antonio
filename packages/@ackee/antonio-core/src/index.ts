@@ -4,10 +4,14 @@ export type {
     RequestSearchParams,
     RequestUriParams,
     RequestHeaders,
-    RequestMethod,
     ResponseDataType,
+    FullRequestConfig,
+    RequestBodyData,
+    ResponseData,
 } from './types';
 export type { GeneralConfig } from './modules/core/general-config';
-export { create, destroy, resolverTypes } from './modules/core';
+export type { ResolverType } from './modules/core/constants';
+export { Antonio } from './modules/core/models/Antonio';
+export { resolverTypes } from './modules/core';
 export { AntonioError } from './modules/response/errors';
 export { runIterableStream } from './modules/response/utils';

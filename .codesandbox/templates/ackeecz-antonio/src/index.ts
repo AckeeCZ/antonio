@@ -1,6 +1,6 @@
-import { create } from '@ackee/antonio-core';
+import { Antonio } from '@ackee/antonio-core';
 
-const api = create({
+const api = new Antonio({
     baseURL: 'https://jsonplaceholder.typicode.com/',
 });
 

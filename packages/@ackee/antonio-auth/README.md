@@ -24,10 +24,10 @@ A request interceptor that sets the `Authorization` header with `setAuthHeader` 
 #### Default usage example
 
 ```js
-import { create } from '@ackee/antonio-core';
+import { Antonio } from '@ackee/antonio-core';
 import { requestAuthHeaderInterceptor } from '@ackee/antonio-auth';
 
-const api = create({
+const api = new Antonio({
     baseURL: '...',
 });
 
@@ -37,10 +37,10 @@ api.interceptors.request.use(requestAuthHeaderInterceptor);
 #### Custom usage example (without @ackee/petrus)
 
 ```js
-import { create } from '@ackee/antonio-core';
+import { Antonio } from '@ackee/antonio-core';
 import { setAuthHeader } from '@ackee/antonio-utils';
 
-const api = create({
+const api = new Antonio({
     baseURL: '...',
 });
 

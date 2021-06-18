@@ -7,11 +7,21 @@ import { defaultGeneralConfig, generalConfigs } from '../general-config';
 import type { GeneralConfig } from '../general-config';
 import makeRequest from '../makeRequest';
 
-import InterceptorManager, { InterceptorManagers } from '../../interceptors/InterceptorManager';
-class Antonio {
+import InterceptorManager, { InterceptorManagers, interceptors } from '../../interceptors/InterceptorManager';
+export class Antonio {
     readonly defaults: DefaultRequestConfig;
     readonly interceptors: InterceptorManagers;
 
+    /**
+     * @example
+     * ```ts
+     * import { Antonio } from `@ackee/antonio-core`;
+     *
+     * const api = new Antonio({
+     *  baseURL: 'https://some-domain.com/api/',
+     * });
+     * ```
+     */
     constructor(requestConfig?: RequestConfig, generalConfig?: Partial<GeneralConfig>) {
         this.defaults = Object.freeze<DefaultRequestConfig>(mergeRequestConfigs(defaultRequestConfig, requestConfig));
 
@@ -56,8 +66,14 @@ class Antonio {
     options(url: string, requestConfig?: RequestConfig) {
         return makeRequest('OPTIONS', url, undefined, requestConfig, this);
     }
+
+    /**
+     * Clears-up memory after the current Antonio instance.
+     */
+    destroy() {
+        interceptors.delete(this);
+        generalConfigs.delete(this);
+    }
 }
 
 export type TAntonio = Antonio;
-
-export default Antonio;

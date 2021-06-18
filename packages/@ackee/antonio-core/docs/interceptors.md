@@ -9,9 +9,9 @@ The API design has been inspired by [interceptors in axios](https://axios-http.c
 ### Example
 
 ```ts
-import { create } from '@ackee/antonio-core';
+import { Antonio } from '@ackee/antonio-core';
 
-const api = create();
+const api = new Antonio();
 
 // Add a request interceptor
 api.interceptors.request.use(

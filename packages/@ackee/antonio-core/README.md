@@ -11,7 +11,7 @@ HTTP client built on Fetch API with similar API to [axios](https://github.com/ax
 -   [Install](#install)
 -   [Setup](#setup)
 -   [API](./docs-api/modules.md)
--   [Guides]
+-   Guides
     -   [Request & Response interceptors](./docs/interceptors.md)
 
 ---
@@ -54,7 +54,7 @@ function* fetchTodos() {
 
 ## <a name="api"></a>API
 
-### <a name="api-create"></a>`create(requestConfig?: RequestConfig, generalConfig?: GeneralConfig): Antonio`
+### <a name="api-create"></a>`new Antonio(requestConfig?: RequestConfig, generalConfig?: GeneralConfig)`
 
 Creates a new instance of `Antonio` with custom request config and general config:
 

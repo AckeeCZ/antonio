@@ -7,7 +7,7 @@ interface OnProgress<T> {
  * Use it to handle `iterableStream` response data type.
  *
  * @example
- * ```js
+ * ```ts
  * import { runIterableStream } from `@ackee/antonio-core`;
  *
  * function* fetchPosts() {
