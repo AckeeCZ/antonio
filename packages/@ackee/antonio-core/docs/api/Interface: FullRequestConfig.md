@@ -1,7 +1,3 @@
-[@ackee/antonio-core](../README.md) / [Exports](../modules.md) / FullRequestConfig
-
-# Interface: FullRequestConfig
-
 ## Hierarchy
 
 -   `Omit`<RequestInit, `"body"` \| `"headers"` \| `"method"`\>
@@ -12,21 +8,21 @@
 
 ### Properties
 
--   [baseURL](fullrequestconfig.md#baseurl)
--   [cache](fullrequestconfig.md#cache)
--   [credentials](fullrequestconfig.md#credentials)
--   [headers](fullrequestconfig.md#headers)
--   [integrity](fullrequestconfig.md#integrity)
--   [keepalive](fullrequestconfig.md#keepalive)
--   [mode](fullrequestconfig.md#mode)
--   [params](fullrequestconfig.md#params)
--   [redirect](fullrequestconfig.md#redirect)
--   [referrer](fullrequestconfig.md#referrer)
--   [referrerPolicy](fullrequestconfig.md#referrerpolicy)
--   [responseDataType](fullrequestconfig.md#responsedatatype)
--   [signal](fullrequestconfig.md#signal)
--   [uriParams](fullrequestconfig.md#uriparams)
--   [window](fullrequestconfig.md#window)
+-   [baseURL](../wiki/Interface:%20FullRequestConfig#baseurl)
+-   [cache](../wiki/Interface:%20FullRequestConfig#cache)
+-   [credentials](../wiki/Interface:%20FullRequestConfig#credentials)
+-   [headers](../wiki/Interface:%20FullRequestConfig#headers)
+-   [integrity](../wiki/Interface:%20FullRequestConfig#integrity)
+-   [keepalive](../wiki/Interface:%20FullRequestConfig#keepalive)
+-   [mode](../wiki/Interface:%20FullRequestConfig#mode)
+-   [params](../wiki/Interface:%20FullRequestConfig#params)
+-   [redirect](../wiki/Interface:%20FullRequestConfig#redirect)
+-   [referrer](../wiki/Interface:%20FullRequestConfig#referrer)
+-   [referrerPolicy](../wiki/Interface:%20FullRequestConfig#referrerpolicy)
+-   [responseDataType](../wiki/Interface:%20FullRequestConfig#responsedatatype)
+-   [signal](../wiki/Interface:%20FullRequestConfig#signal)
+-   [uriParams](../wiki/Interface:%20FullRequestConfig#uriparams)
+-   [window](../wiki/Interface:%20FullRequestConfig#window)
 
 ## Properties
 
@@ -39,7 +35,7 @@ It can be convenient to set `baseURL` for an instance of antonio to pass relativ
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:133](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L133)
+[packages/@ackee/antonio-core/src/types.ts:133](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/types.ts#L133)
 
 ---
 
@@ -77,11 +73,11 @@ node_modules/typescript/lib/lib.dom.d.ts:1614
 
 ### headers
 
-• **headers**: [RequestHeaders](../modules.md#requestheaders)
+• **headers**: [RequestHeaders](../wiki/Exports#requestheaders)
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:139](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L139)
+[packages/@ackee/antonio-core/src/types.ts:139](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/types.ts#L139)
 
 ---
 
@@ -135,11 +131,11 @@ node_modules/typescript/lib/lib.dom.d.ts:1634
 
 ### params
 
-• **params**: [RequestSearchParams](../modules.md#requestsearchparams)
+• **params**: [RequestSearchParams](../wiki/Exports#requestsearchparams)
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:141](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L141)
+[packages/@ackee/antonio-core/src/types.ts:141](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/types.ts#L141)
 
 ---
 
@@ -193,11 +189,11 @@ node_modules/typescript/lib/lib.dom.d.ts:1646
 
 ### responseDataType
 
-• **responseDataType**: [ResponseDataType](../modules.md#responsedatatype)
+• **responseDataType**: [ResponseDataType](../wiki/Exports#responsedatatype)
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:135](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L135)
+[packages/@ackee/antonio-core/src/types.ts:135](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/types.ts#L135)
 
 ---
 
@@ -223,7 +219,7 @@ node_modules/typescript/lib/lib.dom.d.ts:1650
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:137](https://github.com/AckeeCZ/antonio/blob/ceeaf1e/packages/@ackee/antonio-core/src/types.ts#L137)
+[packages/@ackee/antonio-core/src/types.ts:137](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/types.ts#L137)
 
 ---
 

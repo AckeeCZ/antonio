@@ -1,5 +1,3 @@
-@ackee/antonio-core / [Exports](modules.md)
-
 ![ackee|Antonio](/assets/ackee_git_frontend_antonio.png)
 
 # [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/AckeeCZ/antonio/blob/master/LICENSE) [![CI Status](https://img.shields.io/travis/com/AckeeCZ/antonio.svg?style=flat)](https://travis-ci.com/AckeeCZ/antonio) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request) [![Dependency Status](https://img.shields.io/david/AckeeCZ/antonio.svg?style=flat-square)](https://david-dm.org/AckeeCZ/antonio) [![bundlephobia](https://flat.badgen.net/bundlephobia/min/@ackee/antonio-core)](https://bundlephobia.com/result?p=@ackee/antonio-core) [![bundlephobia](https://flat.badgen.net/bundlephobia/minzip/@ackee/antonio-core)](https://bundlephobia.com/result?p=@ackee/antonio-core) ![node version](https://img.shields.io/node/v/@ackee/antonio-core)
@@ -13,7 +11,7 @@ HTTP client built on Fetch API with similar API to [axios](https://github.com/ax
 -   [Install](#install)
 -   [Setup](#setup)
 -   [API](./docs-api/modules.md)
--   [Guides]
+-   Guides
     -   [Request & Response interceptors](./docs/interceptors.md)
 
 ---
@@ -56,7 +54,7 @@ function* fetchTodos() {
 
 ## <a name="api"></a>API
 
-### <a name="api-create"></a>`create(requestConfig?: RequestConfig, generalConfig?: GeneralConfig): Antonio`
+### <a name="api-create"></a>`new Antonio(requestConfig?: RequestConfig, generalConfig?: GeneralConfig)`
 
 Creates a new instance of `Antonio` with custom request config and general config:
 
