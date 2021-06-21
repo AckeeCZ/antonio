@@ -23,7 +23,7 @@ function chooseResponseDataType(config: DefaultRequestConfig, headers: Headers, 
     return getResponseDataType(headers.get(Header.CONTENT_TYPE));
 }
 
-async function* applyResponseInterceptors(
+async function* applyResponseInterceptors<TSuccessData, TErrorData>(
     responseInterceptors: ResponseInterceptorsEntries,
     request: Request,
     config: DefaultRequestConfig,
@@ -50,11 +50,11 @@ async function* applyResponseInterceptors(
         const data = await parseResponse(responseDataType, response);
 
         if (!response.ok) {
-            throw new AntonioError(request, response, data);
+            throw new AntonioError<TErrorData>(request, response, data as unknown as TErrorData);
         }
 
         return {
-            data,
+            data: data as unknown as TSuccessData,
             response,
         };
     } catch (e) {
@@ -67,9 +67,17 @@ async function* applyResponseInterceptors(
     }
 }
 
-export async function* processRequest(request: Request, config: DefaultRequestConfig, antonio: TAntonio) {
+export async function* processRequest<TSuccessData, TErrorData>(
+    request: Request,
+    config: DefaultRequestConfig,
+    antonio: TAntonio,
+) {
     const responseInterceptors: ResponseInterceptorsEntries = interceptors.get(antonio.interceptors.response);
-    const { response, data } = yield* applyResponseInterceptors(responseInterceptors, request, config);
+    const { response, data } = yield* applyResponseInterceptors<TSuccessData, TErrorData>(
+        responseInterceptors,
+        request,
+        config,
+    );
 
     const result = {
         request,
