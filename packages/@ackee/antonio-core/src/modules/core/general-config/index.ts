@@ -11,6 +11,9 @@ export type GeneralConfig = {
 
 export const defaultGeneralConfig: GeneralConfig = {
     logger: loglevel,
+    /**
+     *  Staticly set to "generator" option to fix return type of `requestTypeResolver` function.
+     */
     resolverType: resolverTypes.GENERATOR,
 };
 

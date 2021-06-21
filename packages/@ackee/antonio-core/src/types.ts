@@ -2,11 +2,9 @@ import type { IterableStream } from './modules/response/iterableStream';
 
 export type Primitive = bigint | boolean | null | number | string | undefined;
 
-export type PlainObject = Record<string, Primitive | any[]>;
-
 export type RequestMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | 'OPTIONS' | 'HEAD';
 
-export type RequestBodyData = BodyInit | Primitive | PlainObject | any[];
+export type RequestBodyData = BodyInit | Primitive | object | any[];
 
 export type RequestBody = BodyInit;
 
@@ -79,16 +77,21 @@ export type ResponseData =
     | ArrayBufferView
     | Blob
     | Primitive
-    | PlainObject
+    | object
     | any[]
     | IterableStream
     | null;
 
 interface Params {
-    [key: string]: string;
+    [key: string]: string | number;
 }
 
-export type RequestHeaders = Headers | HeadersInit | Params;
+export type RequestHeaders =
+    | Headers
+    | HeadersInit
+    | {
+          [key: string]: string;
+      };
 
 /**
  * @example

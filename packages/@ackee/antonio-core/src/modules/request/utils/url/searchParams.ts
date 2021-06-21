@@ -33,7 +33,7 @@ export function encodeParamsToSearchParams(params?: RequestSearchParams): URLSea
         if (Array.isArray(value)) {
             value.forEach(item => searchParams.append(name, item));
         } else {
-            searchParams.append(name, value);
+            searchParams.append(name, String(value));
         }
     }
 

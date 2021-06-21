@@ -1,16 +1,14 @@
-import type { ResponseData } from '../../../types';
-
 type AntonioErrorName = 'AntonioError';
 type IsAntonioErrorFlag = true;
 
-export class AntonioError extends Error {
+export class AntonioError<D> extends Error {
     name: AntonioErrorName;
     request: Request;
     response: Response;
-    data: ResponseData;
+    data: D;
     isAntonioError: IsAntonioErrorFlag;
 
-    constructor(request: Request, response: Response, data: ResponseData) {
+    constructor(request: Request, response: Response, data: D) {
         super(response.statusText || String(response.status ?? 'Unknown response error'));
 
         this.name = 'AntonioError';
