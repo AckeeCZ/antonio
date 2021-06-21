@@ -1,4 +1,5 @@
 import { Header } from '../../constants';
+import type { RequestMethod } from '../../types';
 
 import type { ResponseInterceptorsEntries } from '../interceptors';
 import { interceptors } from '../interceptors';
@@ -10,8 +11,8 @@ import { getResponseDataType } from './responseDataTypes';
 import { AntonioError } from './errors';
 import { parseResponse, hasEmptyContentLength } from './utils';
 
-function chooseResponseDataType(config: DefaultRequestConfig, headers: Headers) {
-    if (hasEmptyContentLength(headers)) {
+function chooseResponseDataType(config: DefaultRequestConfig, headers: Headers, requestMethod: RequestMethod) {
+    if (hasEmptyContentLength(headers) || requestMethod === 'HEAD' || requestMethod === 'OPTIONS') {
         return null;
     }
 
@@ -45,7 +46,7 @@ async function* applyResponseInterceptors(
             }
         }
 
-        const responseDataType = chooseResponseDataType(config, response.headers);
+        const responseDataType = chooseResponseDataType(config, response.headers, request.method as RequestMethod);
         const data = await parseResponse(responseDataType, response);
 
         if (!response.ok) {
