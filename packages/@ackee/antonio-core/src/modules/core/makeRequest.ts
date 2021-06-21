@@ -42,7 +42,7 @@ function* asyncGeneratorToGenerator<T, TReturn, TNext = unknown>(it: AsyncGenera
     return result.value;
 }
 
-async function* makeRequest(
+async function* makeRequest<D>(
     method: RequestMethod,
     requestUrl: string,
     bodyData: RequestBodyData | undefined,
@@ -61,10 +61,10 @@ async function* makeRequest(
 
     const result = yield* processRequest(request, config, antonio);
 
-    return result;
+    return result as unknown as RequestResult<D>;
 }
 
-export default function requestTypeResolver(
+export default function requestTypeResolver<D>(
     method: RequestMethod,
     requestUrl: string,
     bodyData: RequestBodyData | undefined,
@@ -73,13 +73,13 @@ export default function requestTypeResolver(
 ) {
     const generalConfig = generalConfigs.get(antonio) as GeneralConfig;
 
-    const it = makeRequest(method, requestUrl, bodyData, requestConfig, antonio, generalConfig);
+    const it = makeRequest<D>(method, requestUrl, bodyData, requestConfig, antonio, generalConfig);
 
     // NOTE: disable it until I'll figure out how to do dynamic return type
     // – i.e. how to change based on constant option.
     // switch (generalConfig.resolverType) {
     // case resolverTypes.GENERATOR:
-    return asyncGeneratorToGenerator<unknown, RequestResult>(it);
+    return asyncGeneratorToGenerator<unknown, RequestResult<D>>(it);
 
     // case resolverTypes.PROMISE:
     // return asyncGeneratorToPromise<RequestResult>(it);

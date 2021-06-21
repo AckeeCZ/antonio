@@ -151,10 +151,10 @@ export type RequestConfig = Partial<FullRequestConfig> & {
     cancelToken?: AbortSignal;
 };
 
-export interface RequestResult {
+export interface RequestResult<D = any> {
     request: Request;
     response: Response;
-    data: ResponseData;
+    data: D;
 
     /**
      * @deprecated This prop is going to be removed in next major relase. Use `response.status` instead.
