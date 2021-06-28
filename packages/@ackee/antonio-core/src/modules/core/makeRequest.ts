@@ -3,9 +3,6 @@ import { RequestMethod, RequestConfig, RequestBodyData, RequestResult } from '..
 import { createRequest } from '../request';
 import { processRequest } from '../response';
 
-// import { resolverTypes } from './constants';
-import { generalConfigs } from './general-config';
-import type { GeneralConfig } from './general-config';
 import type { TAntonio } from './models/Antonio';
 
 export async function generatorToPromise<T>(it: AsyncGenerator<any, T> | Generator<any, T>) {
@@ -31,7 +28,7 @@ export async function generatorToPromise<T>(it: AsyncGenerator<any, T> | Generat
     return result.value;
 }
 
-function* asyncGeneratorToGenerator<T, TReturn, TNext = unknown>(it: AsyncGenerator<T, TReturn, TNext>) {
+export function* asyncGeneratorToGenerator<T, TReturn, TNext = unknown>(it: AsyncGenerator<T, TReturn, TNext>) {
     let result: IteratorResult<T, TReturn> = yield it.next();
 
     while (!result.done) {
@@ -48,16 +45,8 @@ async function* makeRequest<TSuccessData, TErrorData>(
     bodyData: RequestBodyData | undefined,
     requestConfig: RequestConfig | undefined,
     antonio: TAntonio,
-    generalConfig: GeneralConfig,
 ) {
-    const { request, config } = yield* createRequest(
-        method,
-        requestUrl,
-        bodyData,
-        requestConfig,
-        antonio,
-        generalConfig,
-    );
+    const { request, config } = yield* createRequest(method, requestUrl, bodyData, requestConfig, antonio);
 
     const result = yield* processRequest<TSuccessData, TErrorData>(request, config, antonio);
 
@@ -71,31 +60,7 @@ export default function requestTypeResolver<TSuccessData, TErrorData>(
     requestConfig: RequestConfig | undefined,
     antonio: TAntonio,
 ) {
-    const generalConfig = generalConfigs.get(antonio) as GeneralConfig;
+    const it = makeRequest<TSuccessData, TErrorData>(method, requestUrl, bodyData, requestConfig, antonio);
 
-    const it = makeRequest<TSuccessData, TErrorData>(
-        method,
-        requestUrl,
-        bodyData,
-        requestConfig,
-        antonio,
-        generalConfig,
-    );
-
-    // NOTE: disable it until I'll figure out how to do dynamic return type
-    // – i.e. how to change based on constant option.
-    // switch (generalConfig.resolverType) {
-    // case resolverTypes.GENERATOR:
     return asyncGeneratorToGenerator<unknown, RequestResult>(it);
-
-    // case resolverTypes.PROMISE:
-    // return asyncGeneratorToPromise<RequestResult>(it);
-
-    //     default:
-    //         throw new TypeError(
-    //             `'resolverType' must be one of: ${Object.values(resolverTypes).join(', ')}. Received: '${
-    //                 generalConfig.resolverType
-    //             }'`,
-    //         );
-    // }
 }

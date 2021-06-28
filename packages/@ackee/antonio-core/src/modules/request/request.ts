@@ -3,7 +3,6 @@ import { RequestMethod, RequestConfig, RequestBodyData } from '../../types';
 import { interceptors } from '../interceptors/InterceptorManager';
 import type { RequestInterceptorsEntries } from '../interceptors/InterceptorManager';
 import type { TAntonio } from '../core/models/Antonio';
-import type { GeneralConfig } from '../core/general-config';
 import { createRequestInit } from './utils';
 
 function* applyRequestInteceptors(
@@ -47,7 +46,6 @@ export function* createRequest(
     bodyData: RequestBodyData | undefined,
     requestConfig: RequestConfig | undefined,
     antonio: TAntonio,
-    generalConfig: GeneralConfig,
 ) {
     const { url, requestInit, config } = createRequestInit(
         method,
@@ -55,7 +53,7 @@ export function* createRequest(
         bodyData,
         requestConfig,
         antonio.defaults,
-        generalConfig,
+        antonio.generalConfig,
     );
 
     const requestInterceptors: RequestInterceptorsEntries = interceptors.get(antonio.interceptors.request);
