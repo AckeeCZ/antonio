@@ -1,18 +1,12 @@
 import type { RequestSearchParams } from '../../../../types';
 
-const isValidSearchParam = (value: string) => {
-    return value !== 'undefined' && value !== 'null' && value !== '';
-};
-
 // TODO: add test
 export function getValidSearchParams(searchParams?: URLSearchParams): URLSearchParams {
     const validSearchParams = new URLSearchParams();
 
     if (searchParams !== undefined) {
         for (const [name, value] of searchParams.entries()) {
-            if (isValidSearchParam(value)) {
-                validSearchParams.append(name, value);
-            }
+            validSearchParams.append(name, value);
         }
     }
 
