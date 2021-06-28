@@ -24,7 +24,7 @@ export function createRequestUrl(
 
         const url = joinUrlChunks(requestConfig.baseURL, requestUrl);
 
-        const searchParams = encodeParamsToSearchParams(requestConfig.params || requestConfig.params);
+        const searchParams = encodeParamsToSearchParams(requestConfig.params);
         url.search = getValidSearchParams(searchParams).toString();
 
         return url.toString();

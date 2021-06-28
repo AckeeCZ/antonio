@@ -4,6 +4,7 @@ const isValidSearchParam = (value: string) => {
     return value !== 'undefined' && value !== 'null' && value !== '';
 };
 
+// TODO: add test
 export function getValidSearchParams(searchParams?: URLSearchParams): URLSearchParams {
     const validSearchParams = new URLSearchParams();
 
@@ -18,6 +19,7 @@ export function getValidSearchParams(searchParams?: URLSearchParams): URLSearchP
     return validSearchParams;
 }
 
+// TODO: add test
 export function encodeParamsToSearchParams(params?: RequestSearchParams): URLSearchParams | undefined {
     if (params === undefined) {
         return;
@@ -26,6 +28,10 @@ export function encodeParamsToSearchParams(params?: RequestSearchParams): URLSea
     if (params instanceof URLSearchParams) {
         return params;
     }
+
+    // TODO: if requestCOnfig contains paramsSerializer
+    // BE might require array items to have been suffixed with `[]`:
+    // ['includeTag[]', 1], not only ['includeTag', 1] (e.g. on Expenses)
 
     const searchParams = new URLSearchParams();
 
