@@ -1,24 +1,8 @@
-import { getValidSearchParams, encodeParamsToSearchParams } from '../searchParams';
+import { encodeParamsToSearchParams } from '../searchParams';
 
-describe('getValidSearchParams', () => {
-    it('returns params without null, undefined or empty string', () => {
-        const params = new URLSearchParams({
-            a: 'null',
-            b: 'undefined',
-            c: '',
-            d: 'foo',
-        });
-
-        const validParams = getValidSearchParams(params);
-
-        expect(validParams.has('d')).toBe(true);
-        expect(Array.from(validParams.entries()).length).toBe(1);
-    });
-});
-
-describe.only('encodeParamsToSearchParams', () => {
+describe('encodeParamsToSearchParams', () => {
     it(`returns undefined if undefined params received`, () => {
-        expect(encodeParamsToSearchParams()).toBe(undefined);
+        expect(encodeParamsToSearchParams()).toBeInstanceOf(URLSearchParams);
     });
 
     it(`returns received params if they're instace of URLSearchParams`, () => {
@@ -26,15 +10,19 @@ describe.only('encodeParamsToSearchParams', () => {
         expect(encodeParamsToSearchParams(params)).toBe(params);
     });
 
-    // TODO:
-    it.skip(`encodes object literal to an instance of URLSearchParams`, () => {
+    it(`encodes object literal to an instance of URLSearchParams`, () => {
         const params = {
             a: 1,
-            b: ['a', 'b'],
+            b: [1, 2],
             c: 'foo',
+            d: true,
         };
 
-        // TODO: continue here
-        // const result = encodeParamsToSearchParams(params);
+        const result = encodeParamsToSearchParams(params);
+
+        expect(result.get('a')).toBe('1');
+        expect(result.getAll('b')).toEqual(['1', '2']);
+        expect(result.get('c')).toBe('foo');
+        expect(result.get('d')).toBe('true');
     });
 });

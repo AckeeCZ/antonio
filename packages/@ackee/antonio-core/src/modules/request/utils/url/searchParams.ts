@@ -1,22 +1,8 @@
 import type { RequestSearchParams } from '../../../../types';
 
-// TODO: add test
-export function getValidSearchParams(searchParams?: URLSearchParams): URLSearchParams {
-    const validSearchParams = new URLSearchParams();
-
-    if (searchParams !== undefined) {
-        for (const [name, value] of searchParams.entries()) {
-            validSearchParams.append(name, value);
-        }
-    }
-
-    return validSearchParams;
-}
-
-// TODO: add test
-export function encodeParamsToSearchParams(params?: RequestSearchParams): URLSearchParams | undefined {
+export function encodeParamsToSearchParams(params?: RequestSearchParams) {
     if (params === undefined) {
-        return;
+        return new URLSearchParams();
     }
 
     if (params instanceof URLSearchParams) {
@@ -31,7 +17,7 @@ export function encodeParamsToSearchParams(params?: RequestSearchParams): URLSea
 
     for (const [name, value] of Object.entries(params)) {
         if (Array.isArray(value)) {
-            value.forEach(item => searchParams.append(name, item));
+            value.forEach(item => searchParams.append(name, String(item)));
         } else {
             searchParams.append(name, String(value));
         }

@@ -82,10 +82,6 @@ export type ResponseData =
     | IterableStream
     | null;
 
-interface Params {
-    [key: string]: string | number;
-}
-
 export type RequestHeaders =
     | Headers
     | HeadersInit
@@ -103,7 +99,9 @@ export type RequestHeaders =
  * console.assert(data.id === '1');
  * ```
  */
-export type RequestUriParams = Params;
+export type RequestUriParams = {
+    [key: string]: string | number;
+};
 
 /**
  * An instace of `URLSearchParams` or a plain object.
@@ -126,7 +124,11 @@ export type RequestUriParams = Params;
  * });
  * ```
  */
-export type RequestSearchParams = URLSearchParams | Params;
+export type RequestSearchParams =
+    | URLSearchParams
+    | {
+          [key: string]: string | number | boolean | (string | number | boolean)[];
+      };
 
 export interface FullRequestConfig extends Omit<RequestInit, 'body' | 'headers' | 'method'> {
     /**

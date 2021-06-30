@@ -2,7 +2,7 @@ import type { GeneralConfig } from '../../../core/general-config';
 
 import type { DefaultRequestConfig } from '../../config';
 
-import { getValidSearchParams, encodeParamsToSearchParams } from './searchParams';
+import { encodeParamsToSearchParams } from './searchParams';
 import { setUriParams } from './uriParams';
 
 const removeSlashAtStartAndAtEnd = (chunk: string) => chunk.replace(/^\/|\/$/g, '');
@@ -24,8 +24,7 @@ export function createRequestUrl(
 
         const url = joinUrlChunks(requestConfig.baseURL, requestUrl);
 
-        const searchParams = encodeParamsToSearchParams(requestConfig.params);
-        url.search = getValidSearchParams(searchParams).toString();
+        url.search = encodeParamsToSearchParams(requestConfig.params).toString();
 
         return url.toString();
     } catch (e) {
