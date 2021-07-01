@@ -1,48 +1,57 @@
-import type { RequestMethod, RequestConfig, RequestBodyData, RequestParams } from '../../types';
+import type { RequestMethod, RequestConfig, RequestBodyData } from '../../types';
 
-import type { RequestInterceptors } from '../interceptors/requestInterceptors';
 import type { TAntonio } from '../core/models/Antonio';
 import { createRequestInit, mergeRequestConfigs } from './utils';
 
-function* applyRequestInteceptors(
-    requestInterceptors: RequestInterceptors,
-    requestMethod: RequestMethod,
-    requestParams: RequestParams,
-) {
-    let result = requestParams;
-
-    for (const [id, requestInterceptor] of requestInterceptors.entries()) {
-        result = yield requestInterceptor(requestParams, requestMethod);
-
-        if (!result || !result.bodyData || !result.config || !result.url) {
-            throw new TypeError(
-                // eslint-disable-next-line max-len
-                `A request interceptor with id '${id}' must return object with shape of '{ url: string; config: RequestConfig; bodyData:  RequestBodyData; }'.\nReceived: ${JSON.stringify(
-                    result,
-                    null,
-                    2,
-                )}`,
-            );
-        }
-    }
-
-    return result;
-}
-
 export function* createRequest(
     antonio: TAntonio,
-    method: RequestMethod,
+    requestMethod: RequestMethod,
     url: string,
     bodyData: RequestBodyData,
     requestConfig?: RequestConfig,
 ) {
     const config = mergeRequestConfigs(antonio.defaults, requestConfig);
 
-    const requestInterceptors = antonio.interceptors.request._interceptors;
-    const requestParams = yield* applyRequestInteceptors(requestInterceptors, method, { url, config, bodyData });
+    // @ts-ignore - Property 'interceptors' is protected and only accessible within class 'RequestInterceptorManager' and its subclasses
+    const requestInterceptors = antonio.interceptors.request.interceptors;
+    let requestParams = { url, config, bodyData };
 
-    const { requestUrl, requestInit } = createRequestInit(method, requestParams, antonio.generalConfig);
-    const request = new Request(requestUrl, requestInit);
+    for (const [id, requestInterceptor] of requestInterceptors.entries()) {
+        if (requestInterceptor.onRequestParams) {
+            requestParams = yield requestInterceptor.onRequestParams(requestParams, requestMethod);
+
+            if (!requestParams || !requestParams.bodyData || !requestParams.config || !requestParams.url) {
+                throw new TypeError(
+                    // eslint-disable-next-line max-len
+                    `An onRequestParams method of request interceptor with id '${id}' must return object with shape of '{ url: string; config: RequestConfig; bodyData:  RequestBodyData; }'.\nReceived: ${JSON.stringify(
+                        requestParams,
+                        null,
+                        2,
+                    )}`,
+                );
+            }
+        }
+    }
+
+    const { requestUrl, requestInit } = createRequestInit(requestMethod, requestParams, antonio.generalConfig);
+    let request = new Request(requestUrl, requestInit);
+
+    for (const [id, requestInterceptor] of requestInterceptors.entries()) {
+        if (requestInterceptor.onRequest) {
+            request = yield requestInterceptor.onRequest(request);
+
+            if (!(request instanceof Request)) {
+                throw new TypeError(
+                    // eslint-disable-next-line max-len
+                    `An onRequest method of interceptor with id '${id}' must return an instance of Request.\nReceived: ${JSON.stringify(
+                        request,
+                        null,
+                        2,
+                    )}`,
+                );
+            }
+        }
+    }
 
     return {
         request,

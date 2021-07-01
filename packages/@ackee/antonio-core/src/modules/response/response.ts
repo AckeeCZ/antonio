@@ -6,7 +6,7 @@ import type { TAntonio } from '../core/models/Antonio';
 
 import { getResponseDataType } from './responseDataTypes';
 
-import { AntonioError } from './errors';
+import { AntonioError, isAntonioError } from './errors';
 import { parseResponse, hasEmptyContentLength } from './utils';
 
 function chooseResponseDataType(config: RequestConfig, headers: Headers, requestMethod: RequestMethod) {
@@ -69,7 +69,12 @@ async function* applyResponseInterceptors<TSuccessData, TErrorData>(
             }
         }
 
-        throw error;
+        if (error || !isAntonioError(e)) {
+            throw error;
+        }
+
+        const { response } = e;
+        return { response, data: null };
     }
 }
 
@@ -79,7 +84,8 @@ export async function* processRequest<TSuccessData, TErrorData>(
     requestParams: RequestParams,
     requestConfig: RequestConfig,
 ) {
-    const responseInterceptors = antonio.interceptors.response._interceptors;
+    // @ts-ignore - Property 'interceptors' is protected and only accessible within class 'ResponseInterceptorManager' and its subclasses.
+    const responseInterceptors = antonio.interceptors.response.interceptors;
     const { response, data } = yield* applyResponseInterceptors<TSuccessData, TErrorData>(
         responseInterceptors,
         request,

@@ -120,6 +120,7 @@ export type RequestUriParams = {
  *   params: {
  *     page: 1,
  *     limit: 20,
+ *     userIds: [1, 2, 3]
  *   }
  * });
  * ```

@@ -31,7 +31,7 @@ const api = new Antonio({
     baseURL: '...',
 });
 
-api.interceptors.request.use(requestAuthHeaderInterceptor);
+api.interceptors.request.use(null, requestAuthHeaderInterceptor);
 ```
 
 #### Custom usage example (without @ackee/petrus)
@@ -48,7 +48,7 @@ function* getAccessToken() {
     // Your custom function for obtaining the access token.
 }
 
-api.interceptors.request.use(function* (request) {
+api.interceptors.request.use(null, function* (request) {
     const accessToken = yield getAccessToken();
 
     setAuthHeader(requst.headers, accessToken);
