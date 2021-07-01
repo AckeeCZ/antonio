@@ -40,27 +40,33 @@ export function* asyncGeneratorToGenerator<T, TReturn, TNext = unknown>(it: Asyn
 }
 
 async function* makeRequest<TSuccessData, TErrorData>(
+    antonio: TAntonio,
     method: RequestMethod,
     requestUrl: string,
-    bodyData: RequestBodyData | undefined,
-    requestConfig: RequestConfig | undefined,
-    antonio: TAntonio,
+    bodyData: RequestBodyData,
+    requestConfig?: RequestConfig,
 ) {
-    const { request, config } = yield* createRequest(method, requestUrl, bodyData, requestConfig, antonio);
+    const { request, config, requestParams } = yield* createRequest(
+        antonio,
+        method,
+        requestUrl,
+        bodyData,
+        requestConfig,
+    );
 
-    const result = yield* processRequest<TSuccessData, TErrorData>(request, config, antonio);
+    const result = yield* processRequest<TSuccessData, TErrorData>(antonio, request, requestParams, config);
 
     return result;
 }
 
 export default function requestTypeResolver<TSuccessData, TErrorData>(
+    antonio: TAntonio,
     method: RequestMethod,
     requestUrl: string,
-    bodyData: RequestBodyData | undefined,
-    requestConfig: RequestConfig | undefined,
-    antonio: TAntonio,
+    bodyData: RequestBodyData,
+    requestConfig?: RequestConfig,
 ) {
-    const it = makeRequest<TSuccessData, TErrorData>(method, requestUrl, bodyData, requestConfig, antonio);
+    const it = makeRequest<TSuccessData, TErrorData>(antonio, method, requestUrl, bodyData, requestConfig);
 
     return asyncGeneratorToGenerator<unknown, RequestResult>(it);
 }

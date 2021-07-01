@@ -1,17 +1,15 @@
 import { Header } from '../../constants';
-import type { RequestMethod } from '../../types';
+import type { RequestConfig, RequestMethod, RequestParams } from '../../types';
 
-import type { ResponseInterceptorsEntries } from '../interceptors';
-import { interceptors } from '../interceptors';
+import type { ResponseInterceptors } from '../interceptors/responseInterceptors';
 import type { TAntonio } from '../core/models/Antonio';
-import { DefaultRequestConfig } from '../request/config';
 
 import { getResponseDataType } from './responseDataTypes';
 
 import { AntonioError } from './errors';
 import { parseResponse, hasEmptyContentLength } from './utils';
 
-function chooseResponseDataType(config: DefaultRequestConfig, headers: Headers, requestMethod: RequestMethod) {
+function chooseResponseDataType(config: RequestConfig, headers: Headers, requestMethod: RequestMethod) {
     if (hasEmptyContentLength(headers) || requestMethod === 'HEAD' || requestMethod === 'OPTIONS') {
         return null;
     }
@@ -24,16 +22,17 @@ function chooseResponseDataType(config: DefaultRequestConfig, headers: Headers, 
 }
 
 async function* applyResponseInterceptors<TSuccessData, TErrorData>(
-    responseInterceptors: ResponseInterceptorsEntries,
+    responseInterceptors: ResponseInterceptors,
     request: Request,
-    config: DefaultRequestConfig,
+    requestParams: RequestParams,
+    requestConfig: RequestConfig,
 ) {
     try {
         let response = await fetch(request);
 
         for (const [id, responseInterceptor] of responseInterceptors.entries()) {
             if (responseInterceptor.onFulfilled) {
-                response = yield responseInterceptor.onFulfilled(response, config);
+                response = yield responseInterceptor.onFulfilled(response, request, requestParams);
 
                 if (!(response instanceof Response)) {
                     throw new TypeError(
@@ -46,7 +45,11 @@ async function* applyResponseInterceptors<TSuccessData, TErrorData>(
             }
         }
 
-        const responseDataType = chooseResponseDataType(config, response.headers, request.method as RequestMethod);
+        const responseDataType = chooseResponseDataType(
+            requestConfig,
+            response.headers,
+            request.method as RequestMethod,
+        );
         const data = await parseResponse(responseDataType, response);
 
         if (!response.ok) {
@@ -58,25 +61,30 @@ async function* applyResponseInterceptors<TSuccessData, TErrorData>(
             response,
         };
     } catch (e) {
+        let error = e;
+
         for (const responseInterceptor of responseInterceptors.values()) {
             if (responseInterceptor.onRejected) {
-                yield responseInterceptor.onRejected(e, config);
+                error = yield responseInterceptor.onRejected(e, request, requestParams);
             }
         }
-        throw e;
+
+        throw error;
     }
 }
 
 export async function* processRequest<TSuccessData, TErrorData>(
-    request: Request,
-    config: DefaultRequestConfig,
     antonio: TAntonio,
+    request: Request,
+    requestParams: RequestParams,
+    requestConfig: RequestConfig,
 ) {
-    const responseInterceptors: ResponseInterceptorsEntries = interceptors.get(antonio.interceptors.response);
+    const responseInterceptors = antonio.interceptors.response._interceptors;
     const { response, data } = yield* applyResponseInterceptors<TSuccessData, TErrorData>(
         responseInterceptors,
         request,
-        config,
+        requestParams,
+        requestConfig,
     );
 
     const result = {
@@ -85,7 +93,7 @@ export async function* processRequest<TSuccessData, TErrorData>(
         data,
         status: response.status,
         statusText: response.statusText,
-        config,
+        config: requestConfig,
         headers: Object.fromEntries(response.headers.entries()),
     };
 

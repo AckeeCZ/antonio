@@ -1,63 +1,52 @@
-import { RequestMethod, RequestConfig, RequestBodyData } from '../../types';
+import type { RequestMethod, RequestConfig, RequestBodyData, RequestParams } from '../../types';
 
-import { interceptors } from '../interceptors/InterceptorManager';
-import type { RequestInterceptorsEntries } from '../interceptors/InterceptorManager';
+import type { RequestInterceptors } from '../interceptors/requestInterceptors';
 import type { TAntonio } from '../core/models/Antonio';
-import { createRequestInit } from './utils';
+import { createRequestInit, mergeRequestConfigs } from './utils';
 
 function* applyRequestInteceptors(
-    requestInterceptors: RequestInterceptorsEntries,
-    url: string,
-    requestInit: RequestInit,
-    config: RequestConfig,
+    requestInterceptors: RequestInterceptors,
+    requestMethod: RequestMethod,
+    requestParams: RequestParams,
 ) {
-    try {
-        let request = new Request(url, requestInit);
+    let result = requestParams;
 
-        for (const [id, requestInterceptor] of requestInterceptors.entries()) {
-            if (requestInterceptor.onFulfilled) {
-                request = yield requestInterceptor.onFulfilled(request, config);
+    for (const [id, requestInterceptor] of requestInterceptors.entries()) {
+        result = yield requestInterceptor(requestParams, requestMethod);
 
-                if (!(request instanceof Request)) {
-                    throw new TypeError(
-                        // eslint-disable-next-line max-len
-                        `An 'onFulfilled' callback of a request interceptor with id '${id}' must return a Request instance. Received ${JSON.stringify(
-                            request,
-                        )}`,
-                    );
-                }
-            }
+        if (!result || !result.bodyData || !result.config || !result.url) {
+            throw new TypeError(
+                // eslint-disable-next-line max-len
+                `A request interceptor with id '${id}' must return object with shape of '{ url: string; config: RequestConfig; bodyData:  RequestBodyData; }'.\nReceived: ${JSON.stringify(
+                    result,
+                    null,
+                    2,
+                )}`,
+            );
         }
-
-        return request;
-    } catch (e) {
-        for (const requestInterceptor of requestInterceptors.values()) {
-            if (requestInterceptor.onRejected) {
-                yield requestInterceptor.onRejected(e, config);
-            }
-        }
-        throw e;
     }
+
+    return result;
 }
 
 export function* createRequest(
-    method: RequestMethod,
-    requestUrl: string,
-    bodyData: RequestBodyData | undefined,
-    requestConfig: RequestConfig | undefined,
     antonio: TAntonio,
+    method: RequestMethod,
+    url: string,
+    bodyData: RequestBodyData,
+    requestConfig?: RequestConfig,
 ) {
-    const { url, requestInit, config } = createRequestInit(
-        method,
-        requestUrl,
-        bodyData,
-        requestConfig,
-        antonio.defaults,
-        antonio.generalConfig,
-    );
+    const config = mergeRequestConfigs(antonio.defaults, requestConfig);
 
-    const requestInterceptors: RequestInterceptorsEntries = interceptors.get(antonio.interceptors.request);
-    const request = yield* applyRequestInteceptors(requestInterceptors, url, requestInit, config);
+    const requestInterceptors = antonio.interceptors.request._interceptors;
+    const requestParams = yield* applyRequestInteceptors(requestInterceptors, method, { url, config, bodyData });
 
-    return { request, config };
+    const { requestUrl, requestInit } = createRequestInit(method, requestParams, antonio.generalConfig);
+    const request = new Request(requestUrl, requestInit);
+
+    return {
+        request,
+        requestParams,
+        config,
+    };
 }

@@ -25,10 +25,6 @@ describe('Antonio', () => {
         });
     });
 
-    afterEach(() => {
-        api.destroy();
-    });
-
     it('has correct default config', () => {
         expect(api.defaults).toEqual({
             baseURL: BASE_URL,

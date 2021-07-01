@@ -21,24 +21,24 @@ function mergeHeaders(headersA?: RequestHeaders, headersB?: RequestHeaders): Hea
     return result;
 }
 
-export function mergeRequestConfigs(configA: DefaultRequestConfig, configB: RequestConfig = {}): DefaultRequestConfig {
-    const result: DefaultRequestConfig = {
+export function mergeRequestConfigs(configA: DefaultRequestConfig, configB: RequestConfig = {}) {
+    const result = {
         ...configA,
         ...configB,
     };
 
-    if (configA.headers || configB.headers) {
+    if (configA.headers && configB.headers) {
         result.headers = mergeHeaders(configA.headers, configB.headers);
     }
 
-    if (configA.uriParams || configB.uriParams) {
+    if (configA.uriParams && configB.uriParams) {
         result.uriParams = {
             ...configA.uriParams,
             ...configB.uriParams,
         };
     }
 
-    if (configA.params || configB.params) {
+    if (configA.params && configB.params) {
         result.params = configA.params || configB.params;
     }
 

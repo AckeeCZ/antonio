@@ -7,7 +7,9 @@ import { defaultGeneralConfig } from '../general-config';
 import type { GeneralConfig } from '../general-config';
 import makeRequest from '../makeRequest';
 
-import InterceptorManager, { InterceptorManagers, interceptors } from '../../interceptors/InterceptorManager';
+import type { InterceptorManagers } from '../../interceptors';
+import RequestInterceptorManager from '../../interceptors/requestInterceptors';
+import ResponseInterceptorManager from '../../interceptors/responseInterceptors';
 export class Antonio<TSuccessDataDefault = any, TErrorDataDefault = any> {
     readonly defaults: DefaultRequestConfig;
     readonly interceptors: InterceptorManagers;
@@ -27,8 +29,8 @@ export class Antonio<TSuccessDataDefault = any, TErrorDataDefault = any> {
         this.defaults = Object.freeze<DefaultRequestConfig>(mergeRequestConfigs(defaultRequestConfig, requestConfig));
 
         this.interceptors = Object.freeze<InterceptorManagers>({
-            request: new InterceptorManager<Request, RequestConfig>(),
-            response: new InterceptorManager<Response, RequestConfig>(),
+            request: new RequestInterceptorManager(),
+            response: new ResponseInterceptorManager(),
         });
 
         this.generalConfig = Object.freeze<GeneralConfig>({
@@ -42,7 +44,7 @@ export class Antonio<TSuccessDataDefault = any, TErrorDataDefault = any> {
         body: RequestBodyData,
         requestConfig?: RequestConfig,
     ) {
-        return makeRequest<TSuccessData, TErrorData>('POST', url, body, requestConfig, this);
+        return makeRequest<TSuccessData, TErrorData>(this, 'POST', url, body, requestConfig);
     }
 
     put<TSuccessData = TSuccessDataDefault, TErrorData = TErrorDataDefault>(
@@ -50,7 +52,7 @@ export class Antonio<TSuccessDataDefault = any, TErrorDataDefault = any> {
         body: RequestBodyData,
         requestConfig?: RequestConfig,
     ) {
-        return makeRequest<TSuccessData, TErrorData>('PUT', url, body, requestConfig, this);
+        return makeRequest<TSuccessData, TErrorData>(this, 'PUT', url, body, requestConfig);
     }
 
     patch<TSuccessData = TSuccessDataDefault, TErrorData = TErrorDataDefault>(
@@ -58,42 +60,35 @@ export class Antonio<TSuccessDataDefault = any, TErrorDataDefault = any> {
         body: RequestBodyData,
         requestConfig?: RequestConfig,
     ) {
-        return makeRequest<TSuccessData, TErrorData>('PATCH', url, body, requestConfig, this);
+        return makeRequest<TSuccessData, TErrorData>(this, 'PATCH', url, body, requestConfig);
     }
 
     get<TSuccessData = TSuccessDataDefault, TErrorData = TErrorDataDefault>(
         url: string,
         requestConfig?: RequestConfig,
     ) {
-        return makeRequest<TSuccessData, TErrorData>('GET', url, undefined, requestConfig, this);
+        return makeRequest<TSuccessData, TErrorData>(this, 'GET', url, null, requestConfig);
     }
 
     delete<TSuccessData = TSuccessDataDefault, TErrorData = TErrorDataDefault>(
         url: string,
         requestConfig?: RequestConfig,
     ) {
-        return makeRequest<TSuccessData, TErrorData>('DELETE', url, undefined, requestConfig, this);
+        return makeRequest<TSuccessData, TErrorData>(this, 'DELETE', url, null, requestConfig);
     }
 
     head<TSuccessData = TSuccessDataDefault, TErrorData = TErrorDataDefault>(
         url: string,
         requestConfig?: RequestConfig,
     ) {
-        return makeRequest<TSuccessData, TErrorData>('HEAD', url, undefined, requestConfig, this);
+        return makeRequest<TSuccessData, TErrorData>(this, 'HEAD', url, null, requestConfig);
     }
 
     options<TSuccessData = TSuccessDataDefault, TErrorData = TErrorDataDefault>(
         url: string,
         requestConfig?: RequestConfig,
     ) {
-        return makeRequest<TSuccessData, TErrorData>('OPTIONS', url, undefined, requestConfig, this);
-    }
-
-    /**
-     * Clears-up memory after the current Antonio instance.
-     */
-    destroy() {
-        interceptors.delete(this);
+        return makeRequest<TSuccessData, TErrorData>(this, 'OPTIONS', url, null, requestConfig);
     }
 }
 

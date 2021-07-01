@@ -130,28 +130,26 @@ export type RequestSearchParams =
           [key: string]: string | number | boolean | (string | number | boolean)[];
       };
 
-export interface FullRequestConfig extends Omit<RequestInit, 'body' | 'headers' | 'method'> {
+export interface RequestConfig extends Omit<RequestInit, 'body' | 'headers' | 'method'> {
     /**
      * `baseURL` will be prepended to `url` unless `url` is absolute.
      * It can be convenient to set `baseURL` for an instance of antonio to pass relative URLs.
      */
-    baseURL: string;
+    baseURL?: string;
 
-    responseDataType: ResponseDataType;
+    responseDataType?: ResponseDataType;
 
-    uriParams: RequestUriParams;
+    uriParams?: RequestUriParams;
 
-    headers: RequestHeaders;
+    headers?: RequestHeaders;
 
-    params: RequestSearchParams;
-}
+    params?: RequestSearchParams;
 
-export type RequestConfig = Partial<FullRequestConfig> & {
     /**
      * @deprecated This prop is going to be removed in next major relase. Use `signal` prop instead.
      */
     cancelToken?: AbortSignal;
-};
+}
 
 export interface RequestResult<D = any> {
     request: Request;
@@ -177,4 +175,10 @@ export interface RequestResult<D = any> {
      * @deprecated This prop is going to be removed in next major relase. Depend on properties in the `request`.
      */
     config: {};
+}
+
+export interface RequestParams {
+    url: string;
+    config: RequestConfig;
+    bodyData: RequestBodyData;
 }

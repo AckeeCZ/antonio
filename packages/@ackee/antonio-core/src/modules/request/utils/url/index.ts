@@ -1,6 +1,6 @@
 import type { GeneralConfig } from '../../../core/general-config';
 
-import type { DefaultRequestConfig } from '../../config';
+import type { RequestConfig } from '../../../../types';
 
 import { encodeParamsToSearchParams } from './searchParams';
 import { setUriParams } from './uriParams';
@@ -14,7 +14,7 @@ function joinUrlChunks(baseUrl?: string, ...path: string[]) {
 
 export function createRequestUrl(
     requestUrl: string,
-    requestConfig: DefaultRequestConfig,
+    requestConfig: RequestConfig,
     generalConfig: GeneralConfig,
 ): string {
     try {
