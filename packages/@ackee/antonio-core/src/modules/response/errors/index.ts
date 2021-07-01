@@ -1,7 +1,6 @@
 type AntonioErrorName = 'AntonioError';
 type IsAntonioErrorFlag = true;
-
-export class AntonioError<D> extends Error {
+export class AntonioError<D = unknown> extends Error {
     name: AntonioErrorName;
     request: Request;
     response: Response;
@@ -18,3 +17,5 @@ export class AntonioError<D> extends Error {
         this.isAntonioError = true;
     }
 }
+
+export const isAntonioError = (error: any): error is AntonioError => error?.isAntonioError === true;
