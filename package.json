@@ -68,7 +68,7 @@
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged",
-            "pre-push": "yarn circular-modules && yarn docs:compile && yarn docs:commit"
+            "pre-push": "yarn circular-modules && yarn docs:build && yarn docs:commit"
         }
     },
     "lint-staged": {
