@@ -1,4 +1,4 @@
-## @ackee/antonio-core - v4.0.0-beta.21
+## @ackee/antonio-core - v4.0.0-beta.24
 
 -   [Home](../wiki/Home)
 -   [Exports](../wiki/Exports)
@@ -10,5 +10,6 @@
 
 ### Interfaces
 
--   [FullRequestConfig](../wiki/Interface:%20FullRequestConfig)
+-   [RequestConfig](../wiki/Interface:%20RequestConfig)
+-   [RequestParams](../wiki/Interface:%20RequestParams)
 -   [RequestResult](../wiki/Interface:%20RequestResult)

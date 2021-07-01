@@ -1,3 +1,9 @@
+## Type parameters
+
+| Name | Type            |
+| :--- | :-------------- |
+| `D`  | `D` = `unknown` |
+
 ## Hierarchy
 
 -   `Error`
@@ -30,15 +36,21 @@
 
 ### constructor
 
-• **new AntonioError**(`request`, `response`, `data`)
+• **new AntonioError**<D\>(`request`, `response`, `data`)
+
+#### Type parameters
+
+| Name | Type            |
+| :--- | :-------------- |
+| `D`  | `D` = `unknown` |
 
 #### Parameters
 
-| Name       | Type                                         |
-| :--------- | :------------------------------------------- |
-| `request`  | `Request`                                    |
-| `response` | `Response`                                   |
-| `data`     | [ResponseData](../wiki/Exports#responsedata) |
+| Name       | Type       |
+| :--------- | :--------- |
+| `request`  | `Request`  |
+| `response` | `Response` |
+| `data`     | `D`        |
 
 #### Overrides
 
@@ -46,17 +58,17 @@ Error.constructor
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:11](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L11)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:8](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L8)
 
 ## Properties
 
 ### data
 
-• **data**: [ResponseData](../wiki/Exports#responsedata)
+• **data**: `D`
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:10](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L10)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:7](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L7)
 
 ---
 
@@ -66,7 +78,7 @@ Error.constructor
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:11](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L11)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:8](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L8)
 
 ---
 
@@ -94,7 +106,7 @@ Error.name
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:7](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L7)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:4](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L4)
 
 ---
 
@@ -104,7 +116,7 @@ Error.name
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:8](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L8)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:5](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L5)
 
 ---
 
@@ -114,7 +126,7 @@ Error.name
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:9](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L9)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:6](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L6)
 
 ---
 

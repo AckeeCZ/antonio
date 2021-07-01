@@ -1,3 +1,10 @@
+## Type parameters
+
+| Name                  | Type                          |
+| :-------------------- | :---------------------------- |
+| `TSuccessDataDefault` | `TSuccessDataDefault` = `any` |
+| `TErrorDataDefault`   | `TErrorDataDefault` = `any`   |
+
 ## Table of contents
 
 ### Constructors
@@ -7,12 +14,12 @@
 ### Properties
 
 -   [defaults](../wiki/Class:%20Antonio#defaults)
+-   [generalConfig](../wiki/Class:%20Antonio#generalconfig)
 -   [interceptors](../wiki/Class:%20Antonio#interceptors)
 
 ### Methods
 
 -   [delete](../wiki/Class:%20Antonio#delete)
--   [destroy](../wiki/Class:%20Antonio#destroy)
 -   [get](../wiki/Class:%20Antonio#get)
 -   [head](../wiki/Class:%20Antonio#head)
 -   [options](../wiki/Class:%20Antonio#options)
@@ -24,7 +31,7 @@
 
 ### constructor
 
-• **new Antonio**(`requestConfig?`, `generalConfig?`)
+• **new Antonio**<TSuccessDataDefault, TErrorDataDefault\>(`requestConfig?`, `generalConfig?`)
 
 **`example`**
 
@@ -36,16 +43,23 @@ const api = new Antonio({
 });
 ```
 
+#### Type parameters
+
+| Name                  | Type                          |
+| :-------------------- | :---------------------------- |
+| `TSuccessDataDefault` | `TSuccessDataDefault` = `any` |
+| `TErrorDataDefault`   | `TErrorDataDefault` = `any`   |
+
 #### Parameters
 
 | Name             | Type                                                       |
 | :--------------- | :--------------------------------------------------------- |
-| `requestConfig?` | [RequestConfig](../wiki/Exports#requestconfig)             |
+| `requestConfig?` | [RequestConfig](../wiki/Interface:%20RequestConfig)        |
 | `generalConfig?` | `Partial`<[GeneralConfig](../wiki/Exports#generalconfig)\> |
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:13](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L13)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:16](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L16)
 
 ## Properties
 
@@ -55,7 +69,17 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:12](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L12)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:14](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L14)
+
+---
+
+### generalConfig
+
+• `Readonly` **generalConfig**: [GeneralConfig](../wiki/Exports#generalconfig)
+
+#### Defined in
+
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:16](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L16)
 
 ---
 
@@ -65,170 +89,203 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:13](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L13)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:15](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L15)
 
 ## Methods
 
 ### delete
 
-▸ **delete**(`url`, `requestConfig?`): `Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult), IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)\>\> \| `Promise`<[RequestResult](../wiki/Interface:%20RequestResult)\>
+▸ **delete**<TSuccessData, TErrorData\>(`url`, `requestConfig?`): `Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>, IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>\>\>
+
+#### Type parameters
+
+| Name           | Type                                   |
+| :------------- | :------------------------------------- |
+| `TSuccessData` | `TSuccessData` = `TSuccessDataDefault` |
+| `TErrorData`   | `TErrorData` = `TErrorDataDefault`     |
 
 #### Parameters
 
-| Name             | Type                                           |
-| :--------------- | :--------------------------------------------- |
-| `url`            | `string`                                       |
-| `requestConfig?` | [RequestConfig](../wiki/Exports#requestconfig) |
+| Name             | Type                                                |
+| :--------------- | :-------------------------------------------------- |
+| `url`            | `string`                                            |
+| `requestConfig?` | [RequestConfig](../wiki/Interface:%20RequestConfig) |
 
 #### Returns
 
-`Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult), IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)\>\> \| `Promise`<[RequestResult](../wiki/Interface:%20RequestResult)\>
+`Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>, IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>\>\>
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:58](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L58)
-
----
-
-### destroy
-
-▸ **destroy**(): `void`
-
-Clears-up memory after the current Antonio instance.
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:73](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L73)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:73](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L73)
 
 ---
 
 ### get
 
-▸ **get**(`url`, `requestConfig?`): `Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult), IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)\>\> \| `Promise`<[RequestResult](../wiki/Interface:%20RequestResult)\>
+▸ **get**<TSuccessData, TErrorData\>(`url`, `requestConfig?`): `Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>, IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>\>\>
+
+#### Type parameters
+
+| Name           | Type                                   |
+| :------------- | :------------------------------------- |
+| `TSuccessData` | `TSuccessData` = `TSuccessDataDefault` |
+| `TErrorData`   | `TErrorData` = `TErrorDataDefault`     |
 
 #### Parameters
 
-| Name             | Type                                           |
-| :--------------- | :--------------------------------------------- |
-| `url`            | `string`                                       |
-| `requestConfig?` | [RequestConfig](../wiki/Exports#requestconfig) |
+| Name             | Type                                                |
+| :--------------- | :-------------------------------------------------- |
+| `url`            | `string`                                            |
+| `requestConfig?` | [RequestConfig](../wiki/Interface:%20RequestConfig) |
 
 #### Returns
 
-`Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult), IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)\>\> \| `Promise`<[RequestResult](../wiki/Interface:%20RequestResult)\>
+`Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>, IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>\>\>
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:54](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L54)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:66](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L66)
 
 ---
 
 ### head
 
-▸ **head**(`url`, `requestConfig?`): `Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult), IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)\>\> \| `Promise`<[RequestResult](../wiki/Interface:%20RequestResult)\>
+▸ **head**<TSuccessData, TErrorData\>(`url`, `requestConfig?`): `Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>, IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>\>\>
+
+#### Type parameters
+
+| Name           | Type                                   |
+| :------------- | :------------------------------------- |
+| `TSuccessData` | `TSuccessData` = `TSuccessDataDefault` |
+| `TErrorData`   | `TErrorData` = `TErrorDataDefault`     |
 
 #### Parameters
 
-| Name             | Type                                           |
-| :--------------- | :--------------------------------------------- |
-| `url`            | `string`                                       |
-| `requestConfig?` | [RequestConfig](../wiki/Exports#requestconfig) |
+| Name             | Type                                                |
+| :--------------- | :-------------------------------------------------- |
+| `url`            | `string`                                            |
+| `requestConfig?` | [RequestConfig](../wiki/Interface:%20RequestConfig) |
 
 #### Returns
 
-`Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult), IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)\>\> \| `Promise`<[RequestResult](../wiki/Interface:%20RequestResult)\>
+`Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>, IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>\>\>
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:62](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L62)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:80](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L80)
 
 ---
 
 ### options
 
-▸ **options**(`url`, `requestConfig?`): `Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult), IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)\>\> \| `Promise`<[RequestResult](../wiki/Interface:%20RequestResult)\>
+▸ **options**<TSuccessData, TErrorData\>(`url`, `requestConfig?`): `Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>, IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>\>\>
+
+#### Type parameters
+
+| Name           | Type                                   |
+| :------------- | :------------------------------------- |
+| `TSuccessData` | `TSuccessData` = `TSuccessDataDefault` |
+| `TErrorData`   | `TErrorData` = `TErrorDataDefault`     |
 
 #### Parameters
 
-| Name             | Type                                           |
-| :--------------- | :--------------------------------------------- |
-| `url`            | `string`                                       |
-| `requestConfig?` | [RequestConfig](../wiki/Exports#requestconfig) |
+| Name             | Type                                                |
+| :--------------- | :-------------------------------------------------- |
+| `url`            | `string`                                            |
+| `requestConfig?` | [RequestConfig](../wiki/Interface:%20RequestConfig) |
 
 #### Returns
 
-`Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult), IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)\>\> \| `Promise`<[RequestResult](../wiki/Interface:%20RequestResult)\>
+`Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>, IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>\>\>
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:66](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L66)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:87](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L87)
 
 ---
 
 ### patch
 
-▸ **patch**(`url`, `body`, `requestConfig?`): `Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult), IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)\>\> \| `Promise`<[RequestResult](../wiki/Interface:%20RequestResult)\>
+▸ **patch**<TSuccessData, TErrorData\>(`url`, `body`, `requestConfig?`): `Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>, IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>\>\>
+
+#### Type parameters
+
+| Name           | Type                                   |
+| :------------- | :------------------------------------- |
+| `TSuccessData` | `TSuccessData` = `TSuccessDataDefault` |
+| `TErrorData`   | `TErrorData` = `TErrorDataDefault`     |
 
 #### Parameters
 
-| Name             | Type                                               |
-| :--------------- | :------------------------------------------------- |
-| `url`            | `string`                                           |
-| `body`           | [RequestBodyData](../wiki/Exports#requestbodydata) |
-| `requestConfig?` | [RequestConfig](../wiki/Exports#requestconfig)     |
+| Name             | Type                                                |
+| :--------------- | :-------------------------------------------------- |
+| `url`            | `string`                                            |
+| `body`           | [RequestBodyData](../wiki/Exports#requestbodydata)  |
+| `requestConfig?` | [RequestConfig](../wiki/Interface:%20RequestConfig) |
 
 #### Returns
 
-`Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult), IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)\>\> \| `Promise`<[RequestResult](../wiki/Interface:%20RequestResult)\>
+`Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>, IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>\>\>
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:50](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L50)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:58](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L58)
 
 ---
 
 ### post
 
-▸ **post**(`url`, `body`, `requestConfig?`): `Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult), IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)\>\> \| `Promise`<[RequestResult](../wiki/Interface:%20RequestResult)\>
+▸ **post**<TSuccessData, TErrorData\>(`url`, `body`, `requestConfig?`): `any`
+
+#### Type parameters
+
+| Name           | Type                                   |
+| :------------- | :------------------------------------- |
+| `TSuccessData` | `TSuccessData` = `TSuccessDataDefault` |
+| `TErrorData`   | `TErrorData` = `TErrorDataDefault`     |
 
 #### Parameters
 
-| Name             | Type                                               |
-| :--------------- | :------------------------------------------------- |
-| `url`            | `string`                                           |
-| `body`           | [RequestBodyData](../wiki/Exports#requestbodydata) |
-| `requestConfig?` | [RequestConfig](../wiki/Exports#requestconfig)     |
+| Name             | Type                                                |
+| :--------------- | :-------------------------------------------------- |
+| `url`            | `string`                                            |
+| `body`           | [RequestBodyData](../wiki/Exports#requestbodydata)  |
+| `requestConfig?` | [RequestConfig](../wiki/Interface:%20RequestConfig) |
 
 #### Returns
 
-`Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult), IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)\>\> \| `Promise`<[RequestResult](../wiki/Interface:%20RequestResult)\>
+`any`
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:42](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L42)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:42](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L42)
 
 ---
 
 ### put
 
-▸ **put**(`url`, `body`, `requestConfig?`): `Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult), IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)\>\> \| `Promise`<[RequestResult](../wiki/Interface:%20RequestResult)\>
+▸ **put**<TSuccessData, TErrorData\>(`url`, `body`, `requestConfig?`): `Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>, IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>\>\>
+
+#### Type parameters
+
+| Name           | Type                                   |
+| :------------- | :------------------------------------- |
+| `TSuccessData` | `TSuccessData` = `TSuccessDataDefault` |
+| `TErrorData`   | `TErrorData` = `TErrorDataDefault`     |
 
 #### Parameters
 
-| Name             | Type                                               |
-| :--------------- | :------------------------------------------------- |
-| `url`            | `string`                                           |
-| `body`           | [RequestBodyData](../wiki/Exports#requestbodydata) |
-| `requestConfig?` | [RequestConfig](../wiki/Exports#requestconfig)     |
+| Name             | Type                                                |
+| :--------------- | :-------------------------------------------------- |
+| `url`            | `string`                                            |
+| `body`           | [RequestBodyData](../wiki/Exports#requestbodydata)  |
+| `requestConfig?` | [RequestConfig](../wiki/Interface:%20RequestConfig) |
 
 #### Returns
 
-`Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult), IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)\>\> \| `Promise`<[RequestResult](../wiki/Interface:%20RequestResult)\>
+`Generator`<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>, IteratorResult<unknown, [RequestResult](../wiki/Interface:%20RequestResult)<any\>\>\>
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:46](https://github.com/AckeeCZ/antonio/blob/f5ba39d/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L46)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:50](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L50)
