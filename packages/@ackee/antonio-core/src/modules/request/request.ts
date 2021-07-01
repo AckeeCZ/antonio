@@ -20,7 +20,7 @@ export function* createRequest(
         if (requestInterceptor.onRequestParams) {
             requestParams = yield requestInterceptor.onRequestParams(requestParams, requestMethod);
 
-            if (!requestParams || !requestParams.bodyData || !requestParams.config || !requestParams.url) {
+            if (!requestParams || !('bodyData' in requestParams) || !requestParams.config || !requestParams.url) {
                 throw new TypeError(
                     // eslint-disable-next-line max-len
                     `An onRequestParams method of request interceptor with id '${id}' must return object with shape of '{ url: string; config: RequestConfig; bodyData:  RequestBodyData; }'.\nReceived: ${JSON.stringify(

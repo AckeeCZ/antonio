@@ -61,7 +61,7 @@ class RequestInterceptorManager {
     // For instance, some API might only accepts encoded arrays with key suffix `[]`:
     const suffixSearchParamName = (name: string) => `${name}[]`;
 
-    function encodeParamsToSearchParams(params: RequestSearchParams) {
+    function encodeSearchParams(params: RequestSearchParams) {
         if (params instanceof URLSearchParams) {
             return params;
         }
@@ -81,7 +81,7 @@ class RequestInterceptorManager {
      *
      * const interceptorId = api.interceptors.request.use(({ url, bodyData, config }: RequestParams, method: RequestMethod) => {
      *    if (config.params) {
-     *       config.params = encodeSearchParams(params);
+     *       config.params = encodeSearchParams(config.params);
      *    }
      *
      *    return { url, bodyData, config };
