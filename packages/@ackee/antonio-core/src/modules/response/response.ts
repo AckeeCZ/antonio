@@ -1,5 +1,5 @@
 import { Header } from '../../constants';
-import type { RequestConfig, RequestMethod, RequestParams } from '../../types';
+import type { RequestConfig, RequestMethod, RequestParams, RequestResult } from '../../types';
 
 import type { ResponseInterceptors } from '../interceptors/responseInterceptors';
 import type { TAntonio } from '../core/models/Antonio';
@@ -27,55 +27,42 @@ async function* applyResponseInterceptors<TSuccessData, TErrorData>(
     requestParams: RequestParams,
     requestConfig: RequestConfig,
 ) {
-    try {
-        let response = await fetch(request);
+    let response = await fetch(request);
 
-        for (const [id, responseInterceptor] of responseInterceptors.entries()) {
-            if (responseInterceptor.onFulfilled) {
-                response = yield responseInterceptor.onFulfilled(response, request, requestParams);
+    for (const [id, responseInterceptor] of responseInterceptors.entries()) {
+        if (responseInterceptor.onFulfilled) {
+            response = yield responseInterceptor.onFulfilled(response, request, requestParams);
 
-                if (!(response instanceof Response)) {
-                    throw new TypeError(
-                        // eslint-disable-next-line max-len
-                        `An 'onFulfilled' callback of a response interceptor with id '${id}' must return a Response instance. Received ${JSON.stringify(
-                            response,
-                        )}`,
-                    );
-                }
+            if (!(response instanceof Response)) {
+                throw new TypeError(
+                    // eslint-disable-next-line max-len
+                    `An 'onFulfilled' callback of a response interceptor with id '${id}' must return a Response instance. Received ${JSON.stringify(
+                        response,
+                    )}`,
+                );
             }
         }
+    }
 
-        const responseDataType = chooseResponseDataType(
-            requestConfig,
-            response.headers,
-            request.method as RequestMethod,
-        );
-        const data = await parseResponse(responseDataType, response);
+    const responseDataType = chooseResponseDataType(requestConfig, response.headers, request.method as RequestMethod);
+    const data = await parseResponse(responseDataType, response);
 
-        if (!response.ok) {
-            throw new AntonioError<TErrorData>(request, response, data as unknown as TErrorData);
-        }
-
-        return {
-            data: data as unknown as TSuccessData,
-            response,
-        };
-    } catch (e) {
-        let error = e;
+    if (!response.ok) {
+        const error = new AntonioError<TErrorData>(request, response, data as unknown as TErrorData);
 
         for (const responseInterceptor of responseInterceptors.values()) {
             if (responseInterceptor.onRejected) {
-                error = yield responseInterceptor.onRejected(e, request, requestParams);
+                yield responseInterceptor.onRejected(error, request, requestParams);
             }
         }
 
-        if (error || !isAntonioError(e)) {
-            throw error;
-        }
-
-        const { response } = e;
-        return { response, data: null };
+        throw error;
     }
+
+    return {
+        data: data as unknown as TSuccessData,
+        response,
+    };
 }
 
 export async function* processRequest<TSuccessData, TErrorData>(
@@ -93,7 +80,7 @@ export async function* processRequest<TSuccessData, TErrorData>(
         requestConfig,
     );
 
-    const result = {
+    const result: RequestResult<TSuccessData> = {
         request,
         response,
         data,
