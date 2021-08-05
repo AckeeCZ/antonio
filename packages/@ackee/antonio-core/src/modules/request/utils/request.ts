@@ -1,3 +1,4 @@
+import Headers from 'fetch-headers';
 import type { RequestMethod, RequestConfig, RequestHeaders, RequestParams } from '../../../types';
 import { Header } from '../../../constants';
 import type { GeneralConfig } from '../../core/general-config';
@@ -8,7 +9,7 @@ import { createRequestUrl } from './url';
 import { formatBodyData } from './formatBodyData';
 
 function setContentTypeHeader(method: RequestMethod, config: RequestConfig, body?: BodyInit): RequestHeaders {
-    const headers = config.headers as Headers;
+    const headers = new Headers(config.headers);
 
     if (!headers.has(Header.CONTENT_TYPE) && method !== 'HEAD' && body) {
         const defaultMimeType = getDefaultRequestMimeType(body);
