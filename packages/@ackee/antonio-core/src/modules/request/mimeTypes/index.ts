@@ -1,14 +1,14 @@
 import type { RequestBody } from '../../../types';
 
-// TODO: a possible improvement in precision of conveying document type:
-// https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#other_methods_of_conveying_document_type
 const defaultRequestMimeTypes = {
     string: 'application/json',
     Blob: 'application/octet-stream',
+    File: 'application/octet-stream',
     ArrayBuffer: 'application/octet-stream',
     DataView: 'application/octet-stream',
     ReadableStream: 'application/octet-stream',
     URLSearchParams: 'application/x-www-form-urlencoded',
+    FormData: 'multipart/form-data',
 } as const;
 
 type RequestBodyType = keyof typeof defaultRequestMimeTypes;
@@ -18,7 +18,22 @@ function getBodyType(body: RequestBody): RequestBodyType {
     return typeof body === 'string' ? 'string' : body[Symbol.toStringTag];
 }
 
-export function getDefaultRequestMimeType(body: RequestBody): RequestMimeType | undefined {
+export function getDefaultRequestMimeType(body: RequestBody): RequestMimeType | string | undefined {
     const bodyType = getBodyType(body);
-    return defaultRequestMimeTypes[bodyType];
+    const defaultMimeType = defaultRequestMimeTypes[bodyType];
+
+    switch (bodyType) {
+        case 'Blob':
+        case 'File':
+            const blob = body as Blob;
+            return blob.type || defaultMimeType;
+
+        case 'FormData':
+            // Detect mime-type from the 1st form data value
+            const formData = body as FormData;
+            const firstItem = formData.values().next().value;
+            return getDefaultRequestMimeType(firstItem);
+    }
+
+    return defaultMimeType;
 }
