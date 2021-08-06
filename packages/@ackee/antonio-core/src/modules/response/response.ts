@@ -6,7 +6,7 @@ import type { TAntonio } from '../core/models/Antonio';
 
 import { getResponseDataType } from './responseDataTypes';
 
-import { AntonioError, isAntonioError } from './errors';
+import { AntonioError } from './errors';
 import { parseResponse, hasEmptyContentLength } from './utils';
 
 function chooseResponseDataType(config: RequestConfig, headers: Headers, requestMethod: RequestMethod) {
