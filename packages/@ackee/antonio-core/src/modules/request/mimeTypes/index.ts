@@ -29,10 +29,15 @@ export function getDefaultRequestMimeType(body: RequestBody): RequestMimeType | 
             return blob.type || defaultMimeType;
 
         case 'FormData':
-            // Detect mime-type from the 1st form data value
-            const formData = body as FormData;
-            const firstItem = formData.values().next().value;
-            return getDefaultRequestMimeType(firstItem);
+            /**
+             * Warning:
+             * When using FormData to submit POST requests using XMLHttpRequest
+             * or the Fetch_API with the multipart/form-data Content-Type (e.g. when uploading Files and Blobs to the server),
+             * do not explicitly set the Content-Type header on the request.
+             * Doing so will prevent the browser from being able to set the Content-Type header with the boundary expression
+             * it will use to delimit form fields in the request body.
+             */
+            return undefined;
     }
 
     return defaultMimeType;
