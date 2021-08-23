@@ -1,5 +1,5 @@
 import Headers from 'fetch-headers';
-import type { RequestMethod, RequestConfig, RequestHeaders, RequestParams } from '../../../types';
+import type { RequestMethod, RequestConfig, RequestParams } from '../../../types';
 import { Header } from '../../../constants';
 import type { GeneralConfig } from '../../core/general-config';
 
@@ -8,7 +8,7 @@ import { getDefaultRequestMimeType } from '../mimeTypes';
 import { createRequestUrl } from './url';
 import { formatBodyData } from './formatBodyData';
 
-function setContentTypeHeader(method: RequestMethod, config: RequestConfig, body?: BodyInit): RequestHeaders {
+export function setContentTypeHeader(method: RequestMethod, config: RequestConfig, body?: BodyInit) {
     const headers = new Headers(config.headers);
 
     if (!headers.has(Header.CONTENT_TYPE) && method !== 'HEAD' && body) {
