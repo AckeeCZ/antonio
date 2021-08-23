@@ -1,6 +1,6 @@
 import type { RequestBody } from '../../../types';
 
-const defaultRequestMimeTypes = {
+export const defaultRequestMimeTypes = {
     string: 'application/json',
     Blob: 'application/octet-stream',
     File: 'application/octet-stream',
