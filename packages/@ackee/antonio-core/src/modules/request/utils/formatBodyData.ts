@@ -1,6 +1,6 @@
 import { RequestBodyData, Primitive } from '../../../types';
 
-const primitives = new Set<Primitive>(['number', 'bigint', 'string', 'boolean', 'undefined']);
+const primitives = new Set<Primitive>(['number', 'string', 'boolean']);
 
 function isStringifable(data: RequestBodyData): boolean {
     return (
@@ -18,6 +18,10 @@ export function formatBodyData(data?: RequestBodyData | null) {
 
     if (isStringifable(data)) {
         return JSON.stringify(data);
+    }
+
+    if (typeof data === 'bigint') {
+        return data.toString();
     }
 
     return data as BodyInit;

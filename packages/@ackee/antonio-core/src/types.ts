@@ -149,7 +149,7 @@ export interface RequestConfig extends Omit<RequestInit, 'body' | 'headers' | 'm
     /**
      * @deprecated This prop is going to be removed in next major relase. Use `signal` prop instead.
      */
-    cancelToken?: AbortSignal;
+    cancelToken?: any;
 }
 
 export interface RequestResult<D = any> {
