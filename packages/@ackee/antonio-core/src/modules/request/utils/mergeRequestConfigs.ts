@@ -50,7 +50,7 @@ function mergeParams(paramsA?: RequestSearchParams, paramsB?: RequestSearchParam
     return result;
 }
 
-interface FinalRequestConfig extends Omit<DefaultRequestConfig, 'params'> {
+export interface FinalRequestConfig extends Omit<DefaultRequestConfig, 'params'> {
     params?: URLSearchParams;
 }
 
