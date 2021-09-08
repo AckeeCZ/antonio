@@ -1,6 +1,11 @@
-name: Node.js CI
+name: Node.js Package
 
-on: [push, pull_request]
+on:
+    release:
+        types: [created]
+    push:
+        tags:
+            - '*'
 
 jobs:
     build:
@@ -12,9 +17,15 @@ jobs:
             - uses: actions/setup-node@v2
               with:
                   node-version: '14.x'
+                  registry-url: 'https://registry.npmjs.org'
 
             - name: Install dependencies & build packages
               run: yarn install --frozen-lockfile
 
             - name: Run tests
               run: yarn test:ci
+
+            - name: Publish packages
+              run: yarn release:beta
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_TEST }}

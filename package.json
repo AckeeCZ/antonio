@@ -23,6 +23,7 @@
         "format": "prettier --config ./prettier.config.js --write 'packages/@ackee/*/src/**/*.ts' '*.{js,json}' --loglevel warn",
         "release": "lerna publish --no-push",
         "release:beta": "yarn release --dist-tag beta --no-push",
+        "release:alpha": "yarn release --dist-tag alpha --no-push",
         "prepare": "yarn build",
         "release:yalc": "yarn prepare && lerna exec -- yalc push --no-scripts",
         "circular-modules": "lerna exec -- madge --circular src",
@@ -69,7 +70,7 @@
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged",
-            "pre-push": "yarn circular-modules && yarn docs:build && yarn docs:commit"
+            "pre-push": "yarn circular-modules"
         }
     },
     "lint-staged": {
