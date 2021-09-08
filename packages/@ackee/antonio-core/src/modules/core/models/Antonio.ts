@@ -10,7 +10,7 @@ import makeRequest from '../makeRequest';
 import type { InterceptorManagers } from '../../interceptors';
 import RequestInterceptorManager from '../../interceptors/requestInterceptors';
 import ResponseInterceptorManager from '../../interceptors/responseInterceptors';
-export class Antonio<TSuccessDataDefault = any, TErrorDataDefault = any> {
+export class Antonio<TSuccessDataDefault = unknown, TErrorDataDefault = unknown> {
     readonly defaults: DefaultRequestConfig;
     readonly interceptors: InterceptorManagers;
     readonly generalConfig: GeneralConfig;

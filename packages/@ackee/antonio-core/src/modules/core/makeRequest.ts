@@ -28,7 +28,7 @@ export async function generatorToPromise<T>(it: AsyncGenerator<any, T> | Generat
     return result.value;
 }
 
-export function* asyncGeneratorToGenerator<T, TReturn, TNext = unknown>(it: AsyncGenerator<T, TReturn, TNext>) {
+export function* asyncGeneratorToGenerator<T, TReturn = any, TNext = unknown>(it: AsyncGenerator<T, TReturn, TNext>) {
     let result: IteratorResult<T, TReturn> = yield it.next();
 
     while (!result.done) {
