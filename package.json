@@ -17,6 +17,7 @@
         "type-check:watch": "yarn type-check -- --watch",
         "test:root": "jest --watch",
         "test:packages": "lerna exec --scope=@ackee/antonio-core -- jest --watch",
+        "test:ci": "lerna exec --scope=@ackee/antonio-core -- jest",
         "start": "yarn build && onchange 'packages/@ackee/*/src/**/*.ts' -- yarn release:yalc",
         "changelog": "gitmoji-changelog",
         "format": "prettier --config ./prettier.config.js --write 'packages/@ackee/*/src/**/*.ts' '*.{js,json}' --loglevel warn",
