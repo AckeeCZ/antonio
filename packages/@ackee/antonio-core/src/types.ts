@@ -1,3 +1,4 @@
+import type { FinalRequestConfig } from 'modules/request/utils';
 import type { IterableStream } from './modules/response/iterableStream';
 
 export type Primitive = bigint | boolean | null | number | string | undefined;
@@ -180,6 +181,6 @@ export interface RequestResult<D = any> {
 
 export interface RequestParams {
     url: string;
-    config: RequestConfig;
+    config: FinalRequestConfig;
     bodyData: RequestBodyData;
 }
