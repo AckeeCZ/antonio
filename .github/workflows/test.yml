@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Test Node.js Package
 
 on: [pull_request]
 
