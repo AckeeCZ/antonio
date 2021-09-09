@@ -6,7 +6,7 @@ import { setUriParams } from './uriParams';
 
 const removeSlashAtStartAndAtEnd = (chunk: string) => chunk.replace(/^\/|\/$/g, '');
 
-function joinUrlChunks(baseUrl?: string, ...path: string[]) {
+export function joinUrlChunks(baseUrl?: string, ...path: string[]) {
     const joinedUrl = [baseUrl, ...path].filter(Boolean).map(removeSlashAtStartAndAtEnd).join('/');
     return new URL(joinedUrl);
 }
