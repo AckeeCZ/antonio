@@ -1,5 +1,27 @@
 # Changelog
 
+<a name="4.0.0-beta.39"></a>
+
+## 4.0.0-beta.39 (2021-09-10)
+
+### Added
+
+-   ✨ Run type-check in code QA workflow [[2528ad2](https://github.com/AckeeCZ/antonio/commit/2528ad22bb42f297ce34bdca3c017d2a00fd8195)]
+
+### Removed
+
+-   🔥 Remove an irrelevant comment [[1a6de80](https://github.com/AckeeCZ/antonio/commit/1a6de808c2485557319dbf9da43265eebd4864d6)]
+
+### Fixed
+
+-   ✏️ Move FinalRequestConfig type to global types [[fab9e7b](https://github.com/AckeeCZ/antonio/commit/fab9e7b13c4477cefc70745afb9164c9fc606709)]
+
+### Miscellaneous
+
+-   📝 Add docs generated with typedoc for @ackee/antonio-auth, @ackee/antonio-utils [[ed63597](https://github.com/AckeeCZ/antonio/commit/ed635977a3caae32aee2998f19973ceed5957ed6)]
+-   📝 Update docs [[996ffec](https://github.com/AckeeCZ/antonio/commit/996ffecec9cb27a365f7983e1c82d7f55ee694c5)]
+-   📝 Update docs [[8bc697c](https://github.com/AckeeCZ/antonio/commit/8bc697c3cee51d8038895a18e0e9f2433d58767f)]
+
 <a name="4.0.0-beta.37"></a>
 
 ## 4.0.0-beta.37 (2021-09-10)
