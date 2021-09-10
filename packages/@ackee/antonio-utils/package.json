@@ -18,8 +18,7 @@
         "lib"
     ],
     "publishConfig": {
-        "access": "public",
-        "tag": "@ackee/antonio-utils"
+        "access": "public"
     },
     "repository": {
         "type": "git",
