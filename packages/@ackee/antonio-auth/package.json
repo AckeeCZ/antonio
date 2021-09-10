@@ -1,6 +1,6 @@
 {
     "name": "@ackee/antonio-auth",
-    "version": "4.0.0-beta.34",
+    "version": "4.0.0-beta.36",
     "description": "",
     "keywords": [
         "ackee",
@@ -28,7 +28,7 @@
         "node": ">=12"
     },
     "dependencies": {
-        "@ackee/antonio-utils": "^4.0.0-beta.34"
+        "@ackee/antonio-utils": "^4.0.0-beta.36"
     },
     "devDependencies": {
         "@ackee/petrus": "5.2.1"

@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="4.0.0-beta.36"></a>
+
+## 4.0.0-beta.36 (2021-09-10)
+
+### Changed
+
+-   🔧 Update npm release script [[910a9b6](https://github.com/AckeeCZ/antonio/commit/910a9b6106e3e8f8a0f169b75138215a98e651f1)]
+
 <a name="4.0.0-beta.35"></a>
 
 ## 4.0.0-beta.35 (2021-09-10)
