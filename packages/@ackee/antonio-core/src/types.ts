@@ -1,4 +1,4 @@
-import type { FinalRequestConfig } from 'modules/request/utils';
+import type { DefaultRequestConfig } from './modules/request/config';
 import type { IterableStream } from './modules/response/iterableStream';
 
 export type Primitive = bigint | boolean | null | number | string | undefined;
@@ -179,6 +179,9 @@ export interface RequestResult<D = any> {
     config: {};
 }
 
+export interface FinalRequestConfig extends DefaultRequestConfig {
+    params?: URLSearchParams;
+}
 export interface RequestParams {
     url: string;
     config: FinalRequestConfig;

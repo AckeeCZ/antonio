@@ -1,6 +1,5 @@
+import type { FinalRequestConfig } from '../../../../types';
 import type { GeneralConfig } from '../../../core/general-config';
-
-import type { FinalRequestConfig } from '../mergeRequestConfigs';
 
 import { setUriParams } from './uriParams';
 

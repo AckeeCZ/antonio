@@ -1,6 +1,6 @@
 import Headers from 'fetch-headers';
 
-import type { RequestConfig, RequestHeaders, RequestSearchParams } from '../../../types';
+import type { RequestConfig, RequestHeaders, RequestSearchParams, FinalRequestConfig } from '../../../types';
 
 import type { DefaultRequestConfig } from '../config';
 
@@ -48,10 +48,6 @@ function mergeParams(paramsA?: RequestSearchParams, paramsB?: RequestSearchParam
     }
 
     return result;
-}
-
-export interface FinalRequestConfig extends DefaultRequestConfig {
-    params?: URLSearchParams;
 }
 
 export function mergeRequestConfigs(configA: DefaultRequestConfig, configB: RequestConfig = {}) {
