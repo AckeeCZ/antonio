@@ -36,7 +36,7 @@ function setSearchParam(searchParams: URLSearchParams, name: string, value: any)
     }
 }
 
-function mergeParams(paramsA?: RequestSearchParams, paramsB?: RequestSearchParams) {
+function mergeParams(paramsA?: RequestSearchParams, paramsB?: RequestSearchParams): URLSearchParams {
     const result = new URLSearchParams();
 
     for (const [key, value] of getEntriesOf(paramsA)) {
@@ -50,7 +50,7 @@ function mergeParams(paramsA?: RequestSearchParams, paramsB?: RequestSearchParam
     return result;
 }
 
-export interface FinalRequestConfig extends Omit<DefaultRequestConfig, 'params'> {
+export interface FinalRequestConfig extends DefaultRequestConfig {
     params?: URLSearchParams;
 }
 
@@ -60,7 +60,7 @@ export function mergeRequestConfigs(configA: DefaultRequestConfig, configB: Requ
         ...configB,
     };
 
-    if (configA.headers && configB.headers) {
+    if (configA.headers || configB.headers) {
         result.headers = mergeHeaders(configA.headers, configB.headers);
     }
 
@@ -71,7 +71,7 @@ export function mergeRequestConfigs(configA: DefaultRequestConfig, configB: Requ
         };
     }
 
-    if (configA.params && configB.params) {
+    if (configA.params || configB.params) {
         result.params = mergeParams(configA.params, configB.params);
     }
 

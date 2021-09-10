@@ -130,4 +130,15 @@ describe('mergeRequestConfigs', () => {
         expect(params.get('page')).toBe('1');
         expect(params.get('limit')).toBe('20');
     });
+
+    it.only('merges params (object with undefined)', () => {
+        configA.params = {
+            page: 2,
+        };
+        const configB = undefined;
+        const configC = mergeRequestConfigs(configA, configB);
+
+        expect(configC.params).toBeInstanceOf(URLSearchParams);
+        expect(configC.params?.get('page')).toBe('2');
+    });
 });
