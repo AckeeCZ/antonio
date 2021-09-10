@@ -1,5 +1,20 @@
 # Changelog
 
+<a name="4.0.0-beta.37"></a>
+
+## 4.0.0-beta.37 (2021-09-10)
+
+### Changed
+
+-   ♻️ Extend codesandbox template [[d9dd042](https://github.com/AckeeCZ/antonio/commit/d9dd042c51100dc4a3a98a307ad319b8f470992f)]
+-   🔧 Add linting step to the test github workflow [[610bdfd](https://github.com/AckeeCZ/antonio/commit/610bdfd457fc79672e2c53a037c52c6773610f56)]
+-   ⬆️ Bump path-parse from 1.0.6 to 1.0.7 [[4ad1ba5](https://github.com/AckeeCZ/antonio/commit/4ad1ba5804003ce06ecf3489d48cadf09295fc81)]
+-   ⬆️ Bump tar from 4.4.13 to 4.4.19 [[3351c1d](https://github.com/AckeeCZ/antonio/commit/3351c1d1cc3cb9738e005bb17b69bbffb84fb226)]
+
+### Fixed
+
+-   🐛 Fix merging of params -&gt; result must be instance of URLSearchParams [[5dfba3b](https://github.com/AckeeCZ/antonio/commit/5dfba3b401d30f1c4d0a553073c6e30c6e64d0a0)]
+
 <a name="4.0.0-beta.36"></a>
 
 ## 4.0.0-beta.36 (2021-09-10)
