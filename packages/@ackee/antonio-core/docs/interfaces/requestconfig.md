@@ -1,3 +1,7 @@
+[@ackee/antonio-core - v4.0.0-beta.38](../README.md) / [Exports](../modules.md) / RequestConfig
+
+# Interface: RequestConfig
+
 ## Hierarchy
 
 -   `Omit`<RequestInit, `"body"` \| `"headers"` \| `"method"`\>
@@ -8,22 +12,22 @@
 
 ### Properties
 
--   [baseURL](../wiki/Interface:%20RequestConfig#baseurl)
--   [cache](../wiki/Interface:%20RequestConfig#cache)
--   [cancelToken](../wiki/Interface:%20RequestConfig#canceltoken)
--   [credentials](../wiki/Interface:%20RequestConfig#credentials)
--   [headers](../wiki/Interface:%20RequestConfig#headers)
--   [integrity](../wiki/Interface:%20RequestConfig#integrity)
--   [keepalive](../wiki/Interface:%20RequestConfig#keepalive)
--   [mode](../wiki/Interface:%20RequestConfig#mode)
--   [params](../wiki/Interface:%20RequestConfig#params)
--   [redirect](../wiki/Interface:%20RequestConfig#redirect)
--   [referrer](../wiki/Interface:%20RequestConfig#referrer)
--   [referrerPolicy](../wiki/Interface:%20RequestConfig#referrerpolicy)
--   [responseDataType](../wiki/Interface:%20RequestConfig#responsedatatype)
--   [signal](../wiki/Interface:%20RequestConfig#signal)
--   [uriParams](../wiki/Interface:%20RequestConfig#uriparams)
--   [window](../wiki/Interface:%20RequestConfig#window)
+-   [baseURL](requestconfig.md#baseurl)
+-   [cache](requestconfig.md#cache)
+-   [cancelToken](requestconfig.md#canceltoken)
+-   [credentials](requestconfig.md#credentials)
+-   [headers](requestconfig.md#headers)
+-   [integrity](requestconfig.md#integrity)
+-   [keepalive](requestconfig.md#keepalive)
+-   [mode](requestconfig.md#mode)
+-   [params](requestconfig.md#params)
+-   [redirect](requestconfig.md#redirect)
+-   [referrer](requestconfig.md#referrer)
+-   [referrerPolicy](requestconfig.md#referrerpolicy)
+-   [responseDataType](requestconfig.md#responsedatatype)
+-   [signal](requestconfig.md#signal)
+-   [uriParams](requestconfig.md#uriparams)
+-   [window](requestconfig.md#window)
 
 ## Properties
 
@@ -36,7 +40,7 @@ It can be convenient to set `baseURL` for an instance of antonio to pass relativ
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:140](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L140)
+[packages/@ackee/antonio-core/src/types.ts:140](https://github.com/AckeeCZ/antonio/blob/8bc697c/packages/@ackee/antonio-core/src/types.ts#L140)
 
 ---
 
@@ -64,7 +68,7 @@ node_modules/typescript/lib/lib.dom.d.ts:1610
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:153](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L153)
+[packages/@ackee/antonio-core/src/types.ts:153](https://github.com/AckeeCZ/antonio/blob/8bc697c/packages/@ackee/antonio-core/src/types.ts#L153)
 
 ---
 
@@ -86,11 +90,11 @@ node_modules/typescript/lib/lib.dom.d.ts:1614
 
 ### headers
 
-• `Optional` **headers**: [RequestHeaders](../wiki/Exports#requestheaders)
+• `Optional` **headers**: [RequestHeaders](../modules.md#requestheaders)
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:146](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L146)
+[packages/@ackee/antonio-core/src/types.ts:146](https://github.com/AckeeCZ/antonio/blob/8bc697c/packages/@ackee/antonio-core/src/types.ts#L146)
 
 ---
 
@@ -144,11 +148,11 @@ node_modules/typescript/lib/lib.dom.d.ts:1634
 
 ### params
 
-• `Optional` **params**: [RequestSearchParams](../wiki/Exports#requestsearchparams)
+• `Optional` **params**: [RequestSearchParams](../modules.md#requestsearchparams)
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:148](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L148)
+[packages/@ackee/antonio-core/src/types.ts:148](https://github.com/AckeeCZ/antonio/blob/8bc697c/packages/@ackee/antonio-core/src/types.ts#L148)
 
 ---
 
@@ -202,11 +206,11 @@ node_modules/typescript/lib/lib.dom.d.ts:1646
 
 ### responseDataType
 
-• `Optional` **responseDataType**: [ResponseDataType](../wiki/Exports#responsedatatype)
+• `Optional` **responseDataType**: [ResponseDataType](../modules.md#responsedatatype)
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:142](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L142)
+[packages/@ackee/antonio-core/src/types.ts:142](https://github.com/AckeeCZ/antonio/blob/8bc697c/packages/@ackee/antonio-core/src/types.ts#L142)
 
 ---
 
@@ -228,11 +232,11 @@ node_modules/typescript/lib/lib.dom.d.ts:1650
 
 ### uriParams
 
-• `Optional` **uriParams**: [RequestUriParams](../wiki/Exports#requesturiparams)
+• `Optional` **uriParams**: [RequestUriParams](../modules.md#requesturiparams)
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:144](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L144)
+[packages/@ackee/antonio-core/src/types.ts:144](https://github.com/AckeeCZ/antonio/blob/8bc697c/packages/@ackee/antonio-core/src/types.ts#L144)
 
 ---
 

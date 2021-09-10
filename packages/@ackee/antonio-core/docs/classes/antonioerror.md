@@ -1,3 +1,7 @@
+[@ackee/antonio-core - v4.0.0-beta.38](../README.md) / [Exports](../modules.md) / AntonioError
+
+# Class: AntonioError<D\>
+
 ## Type parameters
 
 | Name | Type            |
@@ -14,23 +18,23 @@
 
 ### Constructors
 
--   [constructor](../wiki/Class:%20AntonioError#constructor)
+-   [constructor](antonioerror.md#constructor)
 
 ### Properties
 
--   [data](../wiki/Class:%20AntonioError#data)
--   [isAntonioError](../wiki/Class:%20AntonioError#isantonioerror)
--   [message](../wiki/Class:%20AntonioError#message)
--   [name](../wiki/Class:%20AntonioError#name)
--   [request](../wiki/Class:%20AntonioError#request)
--   [response](../wiki/Class:%20AntonioError#response)
--   [stack](../wiki/Class:%20AntonioError#stack)
--   [prepareStackTrace](../wiki/Class:%20AntonioError#preparestacktrace)
--   [stackTraceLimit](../wiki/Class:%20AntonioError#stacktracelimit)
+-   [data](antonioerror.md#data)
+-   [isAntonioError](antonioerror.md#isantonioerror)
+-   [message](antonioerror.md#message)
+-   [name](antonioerror.md#name)
+-   [request](antonioerror.md#request)
+-   [response](antonioerror.md#response)
+-   [stack](antonioerror.md#stack)
+-   [prepareStackTrace](antonioerror.md#preparestacktrace)
+-   [stackTraceLimit](antonioerror.md#stacktracelimit)
 
 ### Methods
 
--   [captureStackTrace](../wiki/Class:%20AntonioError#capturestacktrace)
+-   [captureStackTrace](antonioerror.md#capturestacktrace)
 
 ## Constructors
 
@@ -58,7 +62,7 @@ Error.constructor
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:8](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L8)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:8](https://github.com/AckeeCZ/antonio/blob/8bc697c/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L8)
 
 ## Properties
 
@@ -68,7 +72,7 @@ Error.constructor
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:7](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L7)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:7](https://github.com/AckeeCZ/antonio/blob/8bc697c/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L7)
 
 ---
 
@@ -78,7 +82,7 @@ Error.constructor
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:8](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L8)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:8](https://github.com/AckeeCZ/antonio/blob/8bc697c/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L8)
 
 ---
 
@@ -106,7 +110,7 @@ Error.name
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:4](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L4)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:4](https://github.com/AckeeCZ/antonio/blob/8bc697c/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L4)
 
 ---
 
@@ -116,7 +120,7 @@ Error.name
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:5](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L5)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:5](https://github.com/AckeeCZ/antonio/blob/8bc697c/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L5)
 
 ---
 
@@ -126,7 +130,7 @@ Error.name
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:6](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L6)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:6](https://github.com/AckeeCZ/antonio/blob/8bc697c/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L6)
 
 ---
 
