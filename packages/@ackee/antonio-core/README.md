@@ -10,7 +10,7 @@ HTTP client built on Fetch API.
 
 -   [Install](#install)
 -   [Usage](#usage)
--   [API](./docs/modules.md)
+-   [API (TypeDoc)](./docs)
 
 ---
 

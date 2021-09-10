@@ -15,6 +15,7 @@ export default function* cancellableHandler({ handlerArg, CANCEL, handler, onCom
         yield call(onComplete);
     }
 
+    /* @ts-ignore */
     const result = yield race({
         tasks: call(tasks),
         cancel: take(CANCEL),

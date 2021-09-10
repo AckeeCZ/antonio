@@ -6,6 +6,12 @@
 
 It includes a request interceptor for `@ackee/antonio-core` that sets the `Authorization` header with an access token obtained from `getAccessToken` from `@ackee/petrus`.
 
+## Table of contents
+
+-   [Install](#install)
+-   [API](#api)
+-   [API (TypeDoc)](./docs)
+
 ## Install
 
 ```bash

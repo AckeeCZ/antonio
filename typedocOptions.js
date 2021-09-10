@@ -4,4 +4,5 @@ module.exports = {
     hideGenerator: true,
     includeVersion: true,
     plugin: ['typedoc-plugin-markdown'],
+    readme: 'none',
 };

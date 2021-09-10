@@ -19,6 +19,8 @@ Custom Saga effects with built-in cancelation of API requests.
     -   Auth utils
         -   [`setAuthHeader`](#setAuthHeader)
 
+-   [API (TypeDoc)](./docs)
+
 ---
 
 ## <a name="install"></a>Install

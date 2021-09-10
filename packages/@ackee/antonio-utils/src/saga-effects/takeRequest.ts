@@ -7,6 +7,7 @@ import cancellableHandler from './utils/cancellableHandler';
  */
 export default function* takeRequest(actionTypes: TakeRequest, handler: RequestHandler) {
     while (true) {
+        /* @ts-ignore */
         const action = yield take(actionTypes.REQUEST);
 
         yield cancellableHandler({

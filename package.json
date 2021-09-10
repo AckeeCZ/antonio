@@ -29,8 +29,7 @@
         "prepare": "yarn build",
         "release:yalc": "yarn prepare && lerna exec -- yalc push --no-scripts",
         "circular-modules": "lerna exec -- madge --circular src",
-        "docs:build": "lerna exec --scope=@ackee/antonio-core -- typedoc --options ./typedocsOptions.js",
-        "docs:commit": "git add ./packages/@ackee/antonio-core/docs/api && git commit -m ':memo: Update docs - API references'"
+        "docs:build": "lerna exec -- typedoc --options ./typedocsOptions.js"
     },
     "devDependencies": {
         "@ackee/browserslist-config": "^1.0.1",
