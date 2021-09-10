@@ -36,7 +36,7 @@ It can be convenient to set `baseURL` for an instance of antonio to pass relativ
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:139](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/types.ts#L139)
+[packages/@ackee/antonio-core/src/types.ts:140](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L140)
 
 ---
 
@@ -58,13 +58,13 @@ node_modules/typescript/lib/lib.dom.d.ts:1610
 
 ### cancelToken
 
-• `Optional` **cancelToken**: `AbortSignal`
+• `Optional` **cancelToken**: `any`
 
 **`deprecated`** This prop is going to be removed in next major relase. Use `signal` prop instead.
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:152](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/types.ts#L152)
+[packages/@ackee/antonio-core/src/types.ts:153](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L153)
 
 ---
 
@@ -90,7 +90,7 @@ node_modules/typescript/lib/lib.dom.d.ts:1614
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:145](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/types.ts#L145)
+[packages/@ackee/antonio-core/src/types.ts:146](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L146)
 
 ---
 
@@ -148,7 +148,7 @@ node_modules/typescript/lib/lib.dom.d.ts:1634
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:147](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/types.ts#L147)
+[packages/@ackee/antonio-core/src/types.ts:148](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L148)
 
 ---
 
@@ -206,7 +206,7 @@ node_modules/typescript/lib/lib.dom.d.ts:1646
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:141](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/types.ts#L141)
+[packages/@ackee/antonio-core/src/types.ts:142](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L142)
 
 ---
 
@@ -232,7 +232,7 @@ node_modules/typescript/lib/lib.dom.d.ts:1650
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:143](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/types.ts#L143)
+[packages/@ackee/antonio-core/src/types.ts:144](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L144)
 
 ---
 

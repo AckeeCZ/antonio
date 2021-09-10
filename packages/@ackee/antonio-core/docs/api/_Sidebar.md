@@ -1,4 +1,4 @@
-## @ackee/antonio-core - v4.0.0-beta.24
+## @ackee/antonio-core - v4.0.0-beta.38
 
 -   [Home](../wiki/Home)
 -   [Exports](../wiki/Exports)

@@ -18,13 +18,8 @@
 -   [RequestHeaders](../wiki/Exports#requestheaders)
 -   [RequestSearchParams](../wiki/Exports#requestsearchparams)
 -   [RequestUriParams](../wiki/Exports#requesturiparams)
--   [ResolverType](../wiki/Exports#resolvertype)
 -   [ResponseData](../wiki/Exports#responsedata)
 -   [ResponseDataType](../wiki/Exports#responsedatatype)
-
-### Variables
-
--   [resolverTypes](../wiki/Exports#resolvertypes)
 
 ### Functions
 
@@ -46,7 +41,7 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/general-config/index.ts:4](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/core/general-config/index.ts#L4)
+[packages/@ackee/antonio-core/src/modules/core/general-config/index.ts:4](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/modules/core/general-config/index.ts#L4)
 
 ---
 
@@ -56,7 +51,7 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:7](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/types.ts#L7)
+[packages/@ackee/antonio-core/src/types.ts:8](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L8)
 
 ---
 
@@ -66,7 +61,7 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:85](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/types.ts#L85)
+[packages/@ackee/antonio-core/src/types.ts:86](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L86)
 
 ---
 
@@ -101,7 +96,7 @@ api.get('/posts', {
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:128](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/types.ts#L128)
+[packages/@ackee/antonio-core/src/types.ts:129](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L129)
 
 ---
 
@@ -127,17 +122,7 @@ console.assert(data.id === '1');
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:102](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/types.ts#L102)
-
----
-
-### ResolverType
-
-Ƭ **ResolverType**: typeof [resolverTypes](../wiki/Exports#resolvertypes)[`ResolverTypesKeys`]
-
-#### Defined in
-
-[packages/@ackee/antonio-core/src/modules/core/constants/index.ts:7](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/core/constants/index.ts#L7)
+[packages/@ackee/antonio-core/src/types.ts:103](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L103)
 
 ---
 
@@ -147,7 +132,7 @@ console.assert(data.id === '1');
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:73](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/types.ts#L73)
+[packages/@ackee/antonio-core/src/types.ts:74](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L74)
 
 ---
 
@@ -223,24 +208,7 @@ function* fetchPosts() {
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:71](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/types.ts#L71)
-
-## Variables
-
-### resolverTypes
-
-• `Const` **resolverTypes**: `Object`
-
-#### Type declaration
-
-| Name        | Type          |
-| :---------- | :------------ |
-| `GENERATOR` | `"generator"` |
-| `PROMISE`   | `"promise"`   |
-
-#### Defined in
-
-[packages/@ackee/antonio-core/src/modules/core/constants/index.ts:1](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/core/constants/index.ts#L1)
+[packages/@ackee/antonio-core/src/types.ts:72](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L72)
 
 ## Functions
 
@@ -266,7 +234,7 @@ function* fetchPosts() {
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/makeRequest.ts:8](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/core/makeRequest.ts#L8)
+[packages/@ackee/antonio-core/src/modules/core/makeRequest.ts:8](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/modules/core/makeRequest.ts#L8)
 
 ---
 
@@ -286,7 +254,7 @@ error is AntonioError<unknown\>
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:21](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L21)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:21](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L21)
 
 ---
 
@@ -332,4 +300,4 @@ function* fetchPosts() {
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/utils/runIterableStream.ts:24](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/modules/response/utils/runIterableStream.ts#L24)
+[packages/@ackee/antonio-core/src/modules/response/utils/runIterableStream.ts:24](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/modules/response/utils/runIterableStream.ts#L24)

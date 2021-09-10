@@ -4,15 +4,13 @@
 
 # `@ackee/antonio-core`
 
-HTTP client built on Fetch API with similar API to [axios](https://github.com/axios/axios).
+HTTP client built on Fetch API.
 
 ## Table of contents
 
 -   [Install](#install)
--   [Setup](#setup)
+-   [Usage](#usage)
 -   [API](./docs-api/modules.md)
--   Guides
-    -   [Request & Response interceptors](./docs/interceptors.md)
 
 ---
 
@@ -24,25 +22,19 @@ yarn add @ackee/antonio-core -S
 
 ---
 
-## <a name="setup"></a>Setup
+## <a name="usage"></a>Usage
 
 ```js
-import { Antonio, detroy } from '@ackee/antonio-core';
+import { Antonio } from '@ackee/antonio-core';
 
-export const api = new Antonio({
+const api = new Antonio({
     baseURL: 'https://jsonplaceholder.typicode.com/',
 });
-```
-
-## Usage Examples
-
-```js
-import { api } from '...';
 
 function* fetchTodos() {
-    // Note the `yield*` instead of just `yield`: it makes TS types auto-completion work
+    // Since api.get returns generator function, `yield*` is required.
     const { data, request, response } = yield* api.get('/todos', {
-        searchParams: {
+        params: {
             page: 1,
             limit: 20,
         },
@@ -82,56 +74,6 @@ api.post(url: string, data: RequestBody, requestConfig?: RequestConfig): Generat
 api.put(url: string, data: RequestBody, requestConfig?: RequestConfig): Generator<any, RequestResult>
 
 api.patch(url: string, data: RequestBody, requestConfig?: RequestConfig): Generator<any, RequestResult>
-
-// It clears up memory after the current Antonio instance.
-api.destroy();
-```
-
-## <a name="api-request-config"></a>`requestConfig: RequestConfig`
-
-_Optional_ request config options:
-
-```ts
-{
-    // Default: undefined
-    baseUrl: 'https://jsonplaceholder.typicode.com/',
-
-    // Options: "json" | "blob" | "text" | "formData" | 'arrayBuffer' | 'stream' \ 'iterableStream' | undefined | null
-    // Default: undefined
-    responseDataType: undefined',
-
-    // Options: object | undefined
-    // Default: undefined
-    uriParams: {
-        id: '2',
-    },
-
-    // `headers` are custom headers to be sent
-    // Must be a plain object or a Headers object
-    // Default: new Headers()
-    headers: new Headers({
-        'X-Custom-Header': 1234,
-    }),
-
-    // `params` are the URL parameters to be sent with the request
-    // Must be a plain object or a URLSearchParams object
-    // Default: undefined
-    params: new URLSearchParams({
-        query: 'foo',
-    }),
-
-    // Following props are pass to Request constructor,
-    // see the official docs https://developer.mozilla.org/en-US/docs/Web/API/Request/Request
-    mode: undefined,
-    credentials: undefined,
-    cache: undefined,
-    redirect: undefined,
-    referrer: undefined,
-    referrerPolicy: undefined,
-    integrity: undefined,
-    keepalive: undefined,
-    signal: undefined,
-}
 ```
 
 ## <a name="api-general-config"></a>`generalConfig: GeneralConfig`

@@ -8,9 +8,9 @@ HTTP client built on top of `fetch` API.
 
 ## Monorepo structure
 
--   [@ackee/antonio-core](packages/@ackee/antonio-core/README.md) - The HTTP client.
--   [@ackee/antonio-utils](packages/@ackee/antonio-utils/README.md) - Custom redux-saga effects for canceling request.
--   [@ackee/antonio-auth](packages/@ackee/antonio-auth/README.md) - A request interceptor which sets the `Authorization` header to access token obtained from [@ackee/petrus](https://github.com/AckeeCZ/petrus).
+-   [@ackee/antonio-core](packages/@ackee/antonio-core) - The HTTP client.
+-   [@ackee/antonio-utils](packages/@ackee/antonio-utils) - Custom redux-saga effects for canceling request.
+-   [@ackee/antonio-auth](packages/@ackee/antonio-auth) - A request interceptor which sets the `Authorization` header to access token obtained from [@ackee/petrus](https://github.com/AckeeCZ/petrus).
 
 ![@ackee/antonio_monorepo_dependency_graph](assets/dependecy-graph.png)
 

@@ -14,17 +14,17 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:184](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/types.ts#L184)
+[packages/@ackee/antonio-core/src/types.ts:185](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L185)
 
 ---
 
 ### config
 
-• **config**: [RequestConfig](../wiki/Interface:%20RequestConfig)
+• **config**: `FinalRequestConfig`
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:183](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/types.ts#L183)
+[packages/@ackee/antonio-core/src/types.ts:184](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L184)
 
 ---
 
@@ -34,4 +34,4 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:182](https://github.com/AckeeCZ/antonio/blob/17ef1cc/packages/@ackee/antonio-core/src/types.ts#L182)
+[packages/@ackee/antonio-core/src/types.ts:183](https://github.com/AckeeCZ/antonio/blob/1a6de80/packages/@ackee/antonio-core/src/types.ts#L183)
