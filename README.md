@@ -4,7 +4,7 @@
 
 # Antonio
 
-HTTP client built on top of `fetch` API inspired by API design of [axios](https://github.com/axios/axios).
+HTTP client built on top of `fetch` API.
 
 ## Monorepo structure
 
