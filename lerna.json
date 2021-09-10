@@ -2,7 +2,7 @@
     "packages": ["packages/@ackee/*"],
     "npmClient": "yarn",
     "useWorkspaces": true,
-    "version": "independent",
+    "version": "4.0.0-beta.33",
     "changelog": {
         "repo": "AckeeCZ/antonio",
         "labels": {
