@@ -1,4 +1,4 @@
-name: Test Node.js Package
+name: Code Quality Assurance
 
 on: [pull_request]
 
@@ -15,6 +15,9 @@ jobs:
 
             - name: Install dependencies & build packages
               run: yarn install --frozen-lockfile
+
+            - name: Run lint
+              run: yarn lint
 
             - name: Run tests
               run: yarn test:ci
