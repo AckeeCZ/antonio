@@ -68,5 +68,5 @@ export default function requestTypeResolver<TSuccessData, TErrorData>(
 ) {
     const it = makeRequest<TSuccessData, TErrorData>(antonio, method, requestUrl, bodyData, requestConfig);
 
-    return asyncGeneratorToGenerator<unknown, RequestResult>(it);
+    return asyncGeneratorToGenerator<unknown, RequestResult<TSuccessData>>(it);
 }
