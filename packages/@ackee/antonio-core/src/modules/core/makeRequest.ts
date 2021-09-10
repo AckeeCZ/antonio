@@ -9,14 +9,6 @@ export async function generatorToPromise<T>(it: AsyncGenerator<any, T> | Generat
     let result: IteratorResult<any, T> = await it.next();
 
     while (true) {
-        // if (result.value[Symbol.iterator]) {
-        //     throw new SyntaxError(
-        //         [
-        //             `'resolverType: resolverType.promise' can't have generator function as an interceptor.`,
-        //             `Use 'resolverType: resolverType.generator' if you need such an option.`,
-        //         ].join('\n'),
-        //     );
-        // }
         const prevValue = await result.value;
         result = await it.next(prevValue);
 

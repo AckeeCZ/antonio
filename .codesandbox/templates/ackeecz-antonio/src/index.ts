@@ -4,10 +4,10 @@ const api = new Antonio({
     baseURL: 'https://jsonplaceholder.typicode.com/',
 });
 
-function* task() {
+function* fetchTodos() {
     const res = yield* api.get('/todos');
 
     console.log(res.data);
 }
 
-generatorToPromise(task());
+generatorToPromise(fetchTodos());
