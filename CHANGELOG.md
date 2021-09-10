@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="4.0.1"></a>
+
+## 4.0.1 (2021-09-10)
+
+### Fixed
+
+-   ✏️ Fix type in release:latest script: lastest -&gt; latest [[b89541e](https://github.com/AckeeCZ/antonio/commit/b89541e4586032897dea2f38282a90de0e1a108d)]
+
 <a name="4.0.0-beta.39"></a>
 
 ## 4.0.0-beta.39 (2021-09-10)
