@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="4.0.2"></a>
+
+## 4.0.2 (2021-09-10)
+
+### Fixed
+
+-   🐛 Fix release:latest [[471642f](https://github.com/AckeeCZ/antonio/commit/471642faa4fa83eed571d1fc51d0ea46729fcda7)]
+
 <a name="4.0.1"></a>
 
 ## 4.0.1 (2021-09-10)
