@@ -23,7 +23,7 @@
         "version": "yarn changelog",
         "format": "prettier --config ./prettier.config.js --write 'packages/@ackee/*/src/**/*.ts' '*.{js,json}' --loglevel warn",
         "release": "lerna publish --force-publish --no-push $1",
-        "release:latest": "yarn release --dist-tag lastest",
+        "release:latest": "yarn release --dist-tag latest",
         "release:beta": "yarn release --dist-tag beta",
         "release:alpha": "yarn release --dist-tag alpha",
         "prepare": "yarn build",
