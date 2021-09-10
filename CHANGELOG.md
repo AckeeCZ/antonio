@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="4.0.3"></a>
+
+## 4.0.3 (2021-09-10)
+
+### Fixed
+
+-   🐛 Remove tag from publishConfig [[931947d](https://github.com/AckeeCZ/antonio/commit/931947d02d5ca85a6437af88d7ed70f741ae3497)]
+
 <a name="4.0.2"></a>
 
 ## 4.0.2 (2021-09-10)
