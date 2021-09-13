@@ -131,7 +131,7 @@ describe('mergeRequestConfigs', () => {
         expect(params.get('limit')).toBe('20');
     });
 
-    it.only('merges params (object with undefined)', () => {
+    it('merges params (object with undefined)', () => {
         configA.params = {
             page: 2,
         };
