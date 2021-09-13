@@ -153,7 +153,7 @@ export interface RequestConfig extends Omit<RequestInit, 'body' | 'headers' | 'm
     cancelToken?: any;
 }
 
-export interface RequestResult<D = any> {
+export interface RequestResult<D> {
     request: Request;
     response: Response;
     data: D;
