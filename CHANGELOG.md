@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="4.0.4"></a>
+
+## 4.0.4 (2021-09-13)
+
+### Added
+
+-   ✅ Remove the &#x27;only&#x27; switch [[ad1e715](https://github.com/AckeeCZ/antonio/commit/ad1e715c6a05490e4866d4ae8ed3bc5183e47e25)]
+
+### Miscellaneous
+
+-   🏷️ Remove default type for generic D at RequestResult type [[d608d51](https://github.com/AckeeCZ/antonio/commit/d608d51995963581b437ea411883c74d889b5071)]
+-   💡 Update jsdoc comment [[4213fcf](https://github.com/AckeeCZ/antonio/commit/4213fcfeebabc60cd1c3a336f8498dbd785c63ba)]
+
 <a name="4.0.3"></a>
 
 ## 4.0.3 (2021-09-10)
