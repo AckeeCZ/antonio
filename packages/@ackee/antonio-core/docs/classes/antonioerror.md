@@ -1,4 +1,4 @@
-[@ackee/antonio-core - v4.0.0-beta.38](../README.md) / AntonioError
+[@ackee/antonio-core - v4.0.4](../README.md) / AntonioError
 
 # Class: AntonioError<D\>
 
@@ -62,7 +62,7 @@ Error.constructor
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:8](https://github.com/AckeeCZ/antonio/blob/fab9e7b/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L8)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:8](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L8)
 
 ## Properties
 
@@ -72,7 +72,7 @@ Error.constructor
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:7](https://github.com/AckeeCZ/antonio/blob/fab9e7b/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L7)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:7](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L7)
 
 ---
 
@@ -82,7 +82,7 @@ Error.constructor
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:8](https://github.com/AckeeCZ/antonio/blob/fab9e7b/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L8)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:8](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L8)
 
 ---
 
@@ -110,7 +110,7 @@ Error.name
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:4](https://github.com/AckeeCZ/antonio/blob/fab9e7b/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L4)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:4](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L4)
 
 ---
 
@@ -120,7 +120,7 @@ Error.name
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:5](https://github.com/AckeeCZ/antonio/blob/fab9e7b/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L5)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:5](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L5)
 
 ---
 
@@ -130,7 +130,7 @@ Error.name
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:6](https://github.com/AckeeCZ/antonio/blob/fab9e7b/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L6)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:6](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L6)
 
 ---
 

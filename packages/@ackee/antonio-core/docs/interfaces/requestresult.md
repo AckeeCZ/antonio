@@ -1,12 +1,12 @@
-[@ackee/antonio-core - v4.0.0-beta.38](../README.md) / RequestResult
+[@ackee/antonio-core - v4.0.4](../README.md) / RequestResult
 
 # Interface: RequestResult<D\>
 
 ## Type parameters
 
-| Name | Type        |
-| :--- | :---------- |
-| `D`  | `D` = `any` |
+| Name |
+| :--- |
+| `D`  |
 
 ## Table of contents
 
@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:179](https://github.com/AckeeCZ/antonio/blob/fab9e7b/packages/@ackee/antonio-core/src/types.ts#L179)
+[packages/@ackee/antonio-core/src/types.ts:179](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/types.ts#L179)
 
 ---
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:159](https://github.com/AckeeCZ/antonio/blob/fab9e7b/packages/@ackee/antonio-core/src/types.ts#L159)
+[packages/@ackee/antonio-core/src/types.ts:159](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/types.ts#L159)
 
 ---
 
@@ -52,7 +52,7 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:174](https://github.com/AckeeCZ/antonio/blob/fab9e7b/packages/@ackee/antonio-core/src/types.ts#L174)
+[packages/@ackee/antonio-core/src/types.ts:174](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/types.ts#L174)
 
 ---
 
@@ -62,7 +62,7 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:157](https://github.com/AckeeCZ/antonio/blob/fab9e7b/packages/@ackee/antonio-core/src/types.ts#L157)
+[packages/@ackee/antonio-core/src/types.ts:157](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/types.ts#L157)
 
 ---
 
@@ -72,7 +72,7 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:158](https://github.com/AckeeCZ/antonio/blob/fab9e7b/packages/@ackee/antonio-core/src/types.ts#L158)
+[packages/@ackee/antonio-core/src/types.ts:158](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/types.ts#L158)
 
 ---
 
@@ -84,7 +84,7 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:164](https://github.com/AckeeCZ/antonio/blob/fab9e7b/packages/@ackee/antonio-core/src/types.ts#L164)
+[packages/@ackee/antonio-core/src/types.ts:164](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/types.ts#L164)
 
 ---
 
@@ -96,4 +96,4 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:169](https://github.com/AckeeCZ/antonio/blob/fab9e7b/packages/@ackee/antonio-core/src/types.ts#L169)
+[packages/@ackee/antonio-core/src/types.ts:169](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/types.ts#L169)
