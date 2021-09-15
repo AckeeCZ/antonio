@@ -8,10 +8,8 @@ export function* createRequest(
     requestMethod: RequestMethod,
     url: string,
     bodyData: RequestBodyData,
-    requestConfig?: RequestConfig,
+    config?: RequestConfig,
 ) {
-    const config = mergeRequestConfigs(antonio.defaults, requestConfig);
-
     // @ts-ignore - Property 'interceptors' is protected and only accessible within class 'RequestInterceptorManager' and its subclasses
     const requestInterceptors = antonio.interceptors.request.interceptors;
     let requestParams = { url, config, bodyData };
@@ -33,7 +31,16 @@ export function* createRequest(
         }
     }
 
-    const { requestUrl, requestInit } = createRequestInit(requestMethod, requestParams, antonio.generalConfig);
+    const mergedConfig = mergeRequestConfigs(antonio.defaults, requestParams.config);
+
+    const { requestUrl, requestInit } = createRequestInit(
+        requestMethod,
+        {
+            ...requestParams,
+            config: mergedConfig,
+        },
+        antonio.generalConfig,
+    );
     let request = new Request(requestUrl, requestInit);
 
     for (const [id, requestInterceptor] of requestInterceptors.entries()) {
@@ -56,6 +63,6 @@ export function* createRequest(
     return {
         request,
         requestParams,
-        config,
+        config: mergedConfig,
     };
 }
