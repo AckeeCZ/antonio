@@ -1,5 +1,14 @@
 # Changelog
 
+<a name="4.0.5"></a>
+
+## 4.0.5 (2021-09-15)
+
+### Miscellaneous
+
+-   🏷️ Pass to onRequestParams callback unmerged req. config [[bbfd688](https://github.com/AckeeCZ/antonio/commit/bbfd688e28d2529262aec1ae995700d5c569556e)]
+-   📝 Generate new docs [[1da8919](https://github.com/AckeeCZ/antonio/commit/1da8919fe6dc30a02c966cdae19eb855dd263bea)]
+
 <a name="4.0.4"></a>
 
 ## 4.0.4 (2021-09-13)
