@@ -184,6 +184,12 @@ export interface FinalRequestConfig extends DefaultRequestConfig {
 }
 export interface RequestParams {
     url: string;
+    config?: RequestConfig;
+    bodyData: RequestBodyData;
+}
+
+export interface FinalRequestParams {
+    url: string;
     config: FinalRequestConfig;
     bodyData: RequestBodyData;
 }

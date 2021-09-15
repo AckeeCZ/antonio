@@ -8,6 +8,7 @@ export type {
     RequestBodyData,
     ResponseData,
     RequestParams,
+    FinalRequestParams,
 } from './types';
 export type { GeneralConfig } from './modules/core/general-config';
 export { Antonio, generatorToPromise } from './modules/core';

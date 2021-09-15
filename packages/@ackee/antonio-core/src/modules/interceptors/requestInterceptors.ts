@@ -31,7 +31,7 @@ class RequestInterceptorManager {
     /**
      * Intercept every request with attached methods:
      * 1. onRequestParams - Customize `bodyData`, `config` or `url` before they're used for creating a `Request`
-     *   - The `requestParams.config` is already merged with the defaults from Antonio's constructor at this point.
+     *   - The `requestParams.config` is NOT yet merged with the defaults from Antonio's constructor.
      * 2. onRequest - Customize `Request` object before passing it to the `fetch` method.
      *
      * _1. Example - Set the same `responseDataType` for each GET request_
