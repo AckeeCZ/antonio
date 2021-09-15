@@ -1,4 +1,4 @@
-[@ackee/antonio-core - v4.0.4](../README.md) / RequestParams
+[@ackee/antonio-core - v4.0.5](../README.md) / RequestParams
 
 # Interface: RequestParams
 
@@ -18,17 +18,17 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:188](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/types.ts#L188)
+[packages/@ackee/antonio-core/src/types.ts:188](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/types.ts#L188)
 
 ---
 
 ### config
 
-• **config**: `FinalRequestConfig`
+• `Optional` **config**: [RequestConfig](requestconfig.md)
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:187](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/types.ts#L187)
+[packages/@ackee/antonio-core/src/types.ts:187](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/types.ts#L187)
 
 ---
 
@@ -38,4 +38,4 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:186](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/types.ts#L186)
+[packages/@ackee/antonio-core/src/types.ts:186](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/types.ts#L186)

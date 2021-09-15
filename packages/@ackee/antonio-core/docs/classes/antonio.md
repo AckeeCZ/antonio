@@ -1,4 +1,4 @@
-[@ackee/antonio-core - v4.0.4](../README.md) / Antonio
+[@ackee/antonio-core - v4.0.5](../README.md) / Antonio
 
 # Class: Antonio<TSuccessDataDefault, TErrorDataDefault\>
 
@@ -63,7 +63,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:16](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L16)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:16](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L16)
 
 ## Properties
 
@@ -73,7 +73,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:14](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L14)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:14](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L14)
 
 ---
 
@@ -83,7 +83,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:16](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L16)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:16](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L16)
 
 ---
 
@@ -93,7 +93,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:15](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L15)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:15](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L15)
 
 ## Methods
 
@@ -121,7 +121,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:73](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L73)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:73](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L73)
 
 ---
 
@@ -149,7 +149,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:66](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L66)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:66](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L66)
 
 ---
 
@@ -177,7 +177,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:80](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L80)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:80](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L80)
 
 ---
 
@@ -205,7 +205,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:87](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L87)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:87](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L87)
 
 ---
 
@@ -234,7 +234,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:58](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L58)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:58](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L58)
 
 ---
 
@@ -263,7 +263,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:42](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L42)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:42](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L42)
 
 ---
 
@@ -292,4 +292,4 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:50](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L50)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:50](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L50)

@@ -1,4 +1,4 @@
-[@ackee/antonio-utils - v4.0.4](../README.md) / TakeLatestRequest
+[@ackee/antonio-utils - v4.0.5](../README.md) / TakeLatestRequest
 
 # Interface: TakeLatestRequest
 
@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[types.ts:18](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-utils/src/types.ts#L18)
+[types.ts:18](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-utils/src/types.ts#L18)
 
 ---
 
@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[types.ts:19](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-utils/src/types.ts#L19)
+[types.ts:19](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-utils/src/types.ts#L19)
 
 ---
 
@@ -67,4 +67,4 @@
 
 #### Defined in
 
-[types.ts:20](https://github.com/AckeeCZ/antonio/blob/326f728/packages/@ackee/antonio-utils/src/types.ts#L20)
+[types.ts:20](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-utils/src/types.ts#L20)
