@@ -1,5 +1,17 @@
 # Changelog
 
+<a name="4.0.6"></a>
+
+## 4.0.6 (2021-09-20)
+
+### Fixed
+
+-   🐛 Fix onRequestParams interceptor return value validation [[cdaabca](https://github.com/AckeeCZ/antonio/commit/cdaabca5c8c94a2b3bb7a1d6fa3b60e0e3d5ee18)]
+
+### Miscellaneous
+
+-   📝 Generate new docs [[3de8820](https://github.com/AckeeCZ/antonio/commit/3de882068db9f7e3c2a45613059d31d761b4a87b)]
+
 <a name="4.0.5"></a>
 
 ## 4.0.5 (2021-09-15)
