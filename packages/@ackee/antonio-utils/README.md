@@ -67,9 +67,9 @@ export default function* () {
 
 -   `params: TakeLatestRequest`
     -   `REQUEST: ActionPattern` - action type that launches the saga
-    -   `cancelTask: (requestId: RequestId, action: AnyAction) => AnyAction` - Redux action that will cancel the
+    -   `cancelTask<A extends AnyAction = AnyAction>(requestId: RequestId, action: A): A;` - Redux action that will cancel the
         running saga
-    -   `requestIdSelector?: (action: AnyAction) => RequestId` - A function that receives request action as 1st arg. and returns unique ID of this action, e.g. user ID.
+    -   `requestIdSelector?<A extends AnyAction = AnyAction>(action: A): RequestId;` - A function that receives request action as 1st arg. and returns unique ID of this action, e.g. user ID.
 -   `saga(requestAction, signal: Signal): Function` - the actual API request is made here
 
 #### Example
