@@ -37,7 +37,7 @@ yarn add @ackee/antonio-utils -S
 
 #### Parameters
 
--   `actionTypes: Object`
+-   `actionTypes: TakeRequest`
     -   `REQUEST: ActionPattern` - action type that launches the saga
     -   `CANCEL: ActionPattern` - action type that aborts the running saga
 -   `saga(requestAction, signal: Signal): Function` - the actual API request is made here
@@ -65,11 +65,11 @@ export default function* () {
 
 #### Parameters
 
--   `params: TakeLatestRequest`
-    -   `REQUEST: ActionPattern` - action type that launches the saga
+-   `params: TakeLatestRequest<RequestAction extends AnyAction, CancelAction extends AnyAction>`
+    -   `REQUEST: RequestAction['type']` - action type that launches the saga
     -   `cancelTask<A extends AnyAction = AnyAction>(requestId: RequestId, action: A): A;` - Redux action that will cancel the
         running saga
-    -   `requestIdSelector?<A extends AnyAction = AnyAction>(action: A): RequestId;` - A function that receives request action as 1st arg. and returns unique ID of this action, e.g. user ID.
+    -   `cancelTask(requestId: RequestId, action: RequestAction): CancelAction;` - A function that receives request action as 1st arg. and returns unique ID of this action, e.g. user ID.
 -   `saga(requestAction, signal: Signal): Function` - the actual API request is made here
 
 #### Example

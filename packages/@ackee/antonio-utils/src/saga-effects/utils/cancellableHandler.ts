@@ -1,5 +1,7 @@
+import type { AnyAction } from 'redux';
 import { call, take, race } from 'redux-saga/effects';
-import { CancellableHandler } from '../../types';
+import type { ActionPattern } from 'redux-saga/effects';
+import type { CancellableHandler } from '../../types';
 
 if (!('AbortController' in window)) {
     require('abortcontroller-polyfill/dist/abortcontroller-polyfill-only.js');
@@ -7,7 +9,12 @@ if (!('AbortController' in window)) {
 
 const noop = function* () {};
 
-export default function* cancellableHandler({ handlerArg, CANCEL, handler, onComplete = noop }: CancellableHandler) {
+export default function* cancellableHandler<RequestAction extends AnyAction, CancelActionType extends ActionPattern>({
+    handlerArg,
+    CANCEL,
+    handler,
+    onComplete = noop,
+}: CancellableHandler<RequestAction, CancelActionType>) {
     const controller = new AbortController();
 
     function* tasks() {
