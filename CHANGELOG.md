@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="4.0.7"></a>
+
+## 4.0.7 (2021-10-19)
+
+### Miscellaneous
+
+-   🏷️ Fix takeLatestRequest action types [[59b83ea](https://github.com/AckeeCZ/antonio/commit/59b83ea6cc8d0ebcf207299552ecc596c792a0db)]
+
 <a name="4.0.6"></a>
 
 ## 4.0.6 (2021-09-20)
