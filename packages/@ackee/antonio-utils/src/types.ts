@@ -1,23 +1,21 @@
-import { AnyAction } from 'redux';
+import type { AnyAction } from 'redux';
 import type { ActionPattern } from 'redux-saga/effects';
 
-type Fn = (...args: any[]) => any;
+export type RequestHandler<RequestAction> = (requestAction: RequestAction, signal: AbortSignal) => any;
 
-export type RequestHandler<A extends AnyAction = AnyAction> = (requestAction: A, signal: AbortSignal) => any;
-
-export interface CancellableHandler {
-    handlerArg: any;
-    CANCEL: ActionPattern;
-    handler: RequestHandler;
-    onComplete?: Fn;
+export interface CancellableHandler<RequestAction extends AnyAction, CancelActionType = AnyAction['type']> {
+    handlerArg: RequestAction;
+    CANCEL: CancelActionType;
+    handler: RequestHandler<RequestAction>;
+    onComplete?(...args: any[]): void;
 }
 
 export type RequestId = symbol | string | number;
 
-export interface TakeLatestRequest {
-    REQUEST: ActionPattern;
-    cancelTask<A extends AnyAction = AnyAction>(requestId: RequestId, action: A): A;
-    requestIdSelector?<A extends AnyAction = AnyAction>(action: A): RequestId;
+export interface TakeLatestRequest<RequestAction extends AnyAction, CancelAction extends AnyAction> {
+    REQUEST: RequestAction['type'];
+    cancelTask(requestId: RequestId, action: RequestAction): CancelAction;
+    requestIdSelector?(action: RequestAction): RequestId;
 }
 
 export interface TakeRequest {
