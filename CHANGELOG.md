@@ -1,5 +1,14 @@
 # Changelog
 
+<a name="4.0.8"></a>
+
+## 4.0.8 (2021-10-19)
+
+### Miscellaneous
+
+-   📝 Update README.md at utils packages [[1d5ad82](https://github.com/AckeeCZ/antonio/commit/1d5ad828b88099d1b5b5b75b7ac67899006288f0)]
+-   🏷️ Add proper typing for takeRequest &amp; takeLatestRequest utils [[be658bc](https://github.com/AckeeCZ/antonio/commit/be658bc78b18ce1571a331467b894ac281d1c622)]
+
 <a name="4.0.7"></a>
 
 ## 4.0.7 (2021-10-19)
