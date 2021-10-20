@@ -13,7 +13,7 @@ export interface CancellableHandler<RequestAction extends AnyAction, CancelActio
 export type RequestId = symbol | string | number;
 
 export interface TakeLatestRequest<RequestAction extends AnyAction, CancelAction extends AnyAction> {
-    REQUEST: RequestAction['type'];
+    REQUEST: ActionPattern<RequestAction>;
     cancelTask(requestId: RequestId, action: RequestAction): CancelAction;
     requestIdSelector?(action: RequestAction): RequestId;
 }
