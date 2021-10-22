@@ -3,7 +3,7 @@ import { call, take, race } from 'redux-saga/effects';
 import type { ActionPattern } from 'redux-saga/effects';
 import type { CancellableHandler } from '../../types';
 
-if (!('AbortController' in window)) {
+if (typeof window !== 'undefined' && !('AbortController' in window)) {
     require('abortcontroller-polyfill/dist/abortcontroller-polyfill-only.js');
 }
 
