@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="4.0.10"></a>
+
+## 4.0.10 (2021-10-25)
+
+### Changed
+
+-   ⬆️ Bump tmpl from 1.0.4 to 1.0.5 [[9262ea1](https://github.com/AckeeCZ/antonio/commit/9262ea105407e121e61b4c4b76d3dbc6a06a9cdb)]
+-   ⬆️ Bump semver-regex from 3.1.2 to 3.1.3 [[d528bf2](https://github.com/AckeeCZ/antonio/commit/d528bf2c8af1f22448f044687e16962e9988b0b9)]
+
+### Fixed
+
+-   🐛 Fix polyfilling abortcontroller in non window environment [[4db4489](https://github.com/AckeeCZ/antonio/commit/4db4489b6b71e9e97d94409871b7c18eee652beb)]
+
 <a name="4.0.9"></a>
 
 ## 4.0.9 (2021-10-20)
