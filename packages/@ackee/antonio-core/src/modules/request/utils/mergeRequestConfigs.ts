@@ -27,8 +27,6 @@ export function mergeHeaders(headersA?: RequestHeaders, headersB?: RequestHeader
 }
 
 function setSearchParam(searchParams: URLSearchParams, name: string, value: any): void {
-    searchParams.delete(name);
-
     if (Array.isArray(value)) {
         value.forEach(item => searchParams.append(name, String(item)));
     } else {
@@ -36,18 +34,36 @@ function setSearchParam(searchParams: URLSearchParams, name: string, value: any)
     }
 }
 
-function mergeParams(paramsA?: RequestSearchParams, paramsB?: RequestSearchParams): URLSearchParams {
-    const result = new URLSearchParams();
+export function mergeParams(paramsA: URLSearchParams, paramsB: URLSearchParams) {
+    const result = new URLSearchParams([...paramsA.entries()]);
 
-    for (const [key, value] of getEntriesOf(paramsA)) {
-        setSearchParam(result, key, value);
+    // delete conflicted keys
+    for (const key of paramsA.keys()) {
+        if (paramsB.has(key)) {
+            result.delete(key);
+        }
     }
 
-    for (const [key, value] of getEntriesOf(paramsB)) {
+    // append new values
+    for (const [key, value] of paramsB.entries()) {
         setSearchParam(result, key, value);
     }
 
     return result;
+}
+
+function parseParams(params?: RequestSearchParams) {
+    if (!params || params instanceof URLSearchParams) {
+        return params || new URLSearchParams();
+    }
+
+    const searchParams = new URLSearchParams();
+
+    Object.entries(params).forEach(([key, value]) => {
+        setSearchParam(searchParams, key, value);
+    });
+
+    return searchParams;
 }
 
 export function mergeRequestConfigs(configA: DefaultRequestConfig, configB: RequestConfig = {}) {
@@ -68,7 +84,7 @@ export function mergeRequestConfigs(configA: DefaultRequestConfig, configB: Requ
     }
 
     if (configA.params || configB.params) {
-        result.params = mergeParams(configA.params, configB.params);
+        result.params = mergeParams(parseParams(configA.params), parseParams(configB.params));
     }
 
     if (configB.cancelToken) {
