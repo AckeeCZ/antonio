@@ -2,7 +2,7 @@
     "packages": ["packages/@ackee/*"],
     "npmClient": "yarn",
     "useWorkspaces": true,
-    "version": "4.0.10",
+    "version": "4.0.11",
     "command": {
         "publish": {
             "message": "🔖 Publish"

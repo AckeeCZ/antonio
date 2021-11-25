@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="4.0.11"></a>
+
+## 4.0.11 (2021-11-25)
+
+### Fixed
+
+-   🐛 Fix mergeParams - handle multiple identical keys [[4edd52e](https://github.com/AckeeCZ/antonio/commit/4edd52e3d541ca49a2991ba8b06e9d15afc71121)]
+
 <a name="4.0.10"></a>
 
 ## 4.0.10 (2021-10-25)
