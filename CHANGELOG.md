@@ -1,5 +1,22 @@
 # Changelog
 
+<a name="4.0.12"></a>
+
+## 4.0.12 (2022-06-28)
+
+### Changed
+
+-   ⬆️ Bump semver-regex from 3.1.3 to 3.1.4 [[4267e43](https://github.com/AckeeCZ/antonio/commit/4267e4354cd9ab5ecbe04159a5efe71ce7c3a61f)]
+-   ⬆️ Bump trim-off-newlines from 1.0.1 to 1.0.3 [[0874d18](https://github.com/AckeeCZ/antonio/commit/0874d186acf41d74864b315bc6d7bbd70b8ef3e8)]
+-   ⬆️ Bump node-fetch from 2.6.1 to 2.6.7 [[fd0dd47](https://github.com/AckeeCZ/antonio/commit/fd0dd47d30f026db5c0993d1205ac20bb3d4f703)]
+-   ⬆️ Bump nanoid from 3.1.23 to 3.3.4 [[8b02ab9](https://github.com/AckeeCZ/antonio/commit/8b02ab9e9a83b81413cf7a9a9001928f72fdb6da)]
+-   ⬆️ Bump minimist from 1.2.5 to 1.2.6 [[c265ece](https://github.com/AckeeCZ/antonio/commit/c265ece8f68fc149799e7dccb7a17c5fc8af2334)]
+-   ⬆️ Bump shelljs from 0.8.4 to 0.8.5 [[9183b52](https://github.com/AckeeCZ/antonio/commit/9183b52f22654152d48603e5e2dc6b58e8a2de13)]
+
+### Fixed
+
+-   🐛 Fix takeLatestRequest [[26468fc](https://github.com/AckeeCZ/antonio/commit/26468fcee508f60fbc3bc4eb327d8ea6ff1ed95b)]
+
 <a name="4.0.11"></a>
 
 ## 4.0.11 (2021-11-25)
