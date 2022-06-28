@@ -27,7 +27,11 @@ export default function* takeLatestRequest<
             yield* cancellableHandler<RequestAction, CancelAction['type']>({
                 handler: requestHandler,
                 handlerArg: action,
-                CANCEL: cancelTask(requestId, action).type,
+                CANCEL: (action: AnyAction) => {
+                    return action.type === cancelTask(requestId, action).type && requestIdSelector
+                        ? requestIdSelector(action) === requestId
+                        : true;
+                },
                 onComplete() {
                     runningTasks.delete(requestId);
                 },
