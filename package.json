@@ -32,7 +32,7 @@
         "docs:build": "lerna exec -- typedoc --options ./typedocsOptions.js"
     },
     "devDependencies": {
-        "@ackee/browserslist-config": "^1.0.1",
+        "@ackee/browserslist-config": "^3.0.0",
         "@ackee/eslint-config": "^3.0.0",
         "@babel/cli": "^7.14.3",
         "@babel/core": "^7.14.3",
@@ -88,5 +88,8 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/AckeeCZ/antonio.git"
+    },
+    "dependencies": {
+        "caniuse-lite": "^1.0.30001457"
     }
 }
