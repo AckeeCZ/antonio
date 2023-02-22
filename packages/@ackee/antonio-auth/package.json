@@ -30,11 +30,11 @@
         "@ackee/antonio-utils": "^4.0.12"
     },
     "devDependencies": {
-        "@ackee/petrus": "5.2.1"
+        "@ackee/petrus": "6.0.2"
     },
     "peerDependencies": {
-        "@ackee/petrus": ">=5.2.1",
-        "core-js": "3.x"
+        "@ackee/petrus": ">=5",
+        "core-js": "3"
     },
     "author": "Jiří Čermák <jiri.cermak@ackee.cz>",
     "license": "MIT",
