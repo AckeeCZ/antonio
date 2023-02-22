@@ -1,5 +1,13 @@
 # Changelog
 
+<a name="4.0.14"></a>
+
+## 4.0.14 (2023-02-22)
+
+### Added
+
+-   ✨ Add generic type for data error prop to isAntonioError guard func. [[1c7bdf3](https://github.com/AckeeCZ/antonio/commit/1c7bdf3c6e2ac9d7da50d7853d8cd1a8dc9e8605)]
+
 <a name="4.0.13"></a>
 
 ## 4.0.13 (2023-02-22)
