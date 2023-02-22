@@ -1,5 +1,14 @@
 # Changelog
 
+<a name="4.0.13"></a>
+
+## 4.0.13 (2023-02-22)
+
+### Changed
+
+-   🔧 Update peer deps format of antonio-auth pkg [[4da0186](https://github.com/AckeeCZ/antonio/commit/4da01868805d86fa964053254ef32166bc7e58b4)]
+-   ⬆️ Update browserslist [[82e7c3b](https://github.com/AckeeCZ/antonio/commit/82e7c3bdeeeeeae54b6c04e5a9e165402930f298)]
+
 <a name="4.0.12"></a>
 
 ## 4.0.12 (2022-06-28)
