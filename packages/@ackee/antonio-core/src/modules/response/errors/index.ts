@@ -18,4 +18,4 @@ export class AntonioError<D = unknown> extends Error {
     }
 }
 
-export const isAntonioError = (error: any): error is AntonioError => error?.isAntonioError === true;
+export const isAntonioError = <D>(error: any): error is AntonioError<D> => error?.isAntonioError === true;
