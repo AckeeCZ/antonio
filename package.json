@@ -89,5 +89,6 @@
     },
     "dependencies": {
         "caniuse-lite": "^1.0.30001457"
-    }
+    },
+    "version": "0.0.0"
 }
