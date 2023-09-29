@@ -1,15 +1,29 @@
-import { RequestConfig, RequestBodyData } from '../../../types';
+import { RequestBodyData, RequestConfig, RequestMethod, RequestResult } from '../../../types';
 
-import { mergeRequestConfigs } from '../../request/utils';
 import { defaultRequestConfig, DefaultRequestConfig } from '../../request/config';
+import { mergeRequestConfigs } from '../../request/utils';
 
-import { defaultGeneralConfig } from '../general-config';
 import type { GeneralConfig } from '../general-config';
-import makeRequest from '../makeRequest';
+import { defaultGeneralConfig } from '../general-config';
+import makeRequest, { generatorToPromise } from '../makeRequest';
 
 import type { InterceptorManagers } from '../../interceptors';
 import RequestInterceptorManager from '../../interceptors/requestInterceptors';
 import ResponseInterceptorManager from '../../interceptors/responseInterceptors';
+
+export type AntonioRequest<RM extends RequestMethod> = Readonly<
+    RequestConfig & {} & (RM extends 'POST' | 'PATCH' | 'PUT'
+            ? {
+                  body: Required<RequestBodyData>;
+                  method: RM;
+                  url: string;
+              }
+            : {
+                  method: RM;
+                  url: string;
+              })
+>;
+
 export class Antonio<TSuccessDataDefault = unknown, TErrorDataDefault = unknown> {
     readonly defaults: DefaultRequestConfig;
     readonly interceptors: InterceptorManagers;
@@ -37,6 +51,17 @@ export class Antonio<TSuccessDataDefault = unknown, TErrorDataDefault = unknown>
             ...defaultGeneralConfig,
             ...generalConfig,
         });
+    }
+
+    request<RM extends RequestMethod, TSuccessData = TSuccessDataDefault, TErrorData = TErrorDataDefault>(
+        props: AntonioRequest<RM>,
+    ): Promise<RequestResult<TSuccessData>> {
+        // @ts-expect-error
+        const { method, url, body, ...requestConfig } = props;
+
+        const it = makeRequest<TSuccessData, TErrorData>(this, method, url, body, requestConfig);
+
+        return generatorToPromise<RequestResult<TSuccessData>>(it);
     }
 
     post<TSuccessData = TSuccessDataDefault, TErrorData = TErrorDataDefault>(
