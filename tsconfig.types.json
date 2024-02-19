@@ -13,7 +13,8 @@
         "esModuleInterop": true,
 
         "strictNullChecks": true,
-        "noImplicitAny": false
+        "noImplicitAny": false,
+        "skipLibCheck": true
     },
     "include": ["packages/@ackee/*/src"]
 }

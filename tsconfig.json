@@ -24,7 +24,6 @@
         "lib": ["DOM", "ESNext", "DOM.Iterable"]
     },
     "include": ["packages/@ackee/*/src"],
-    "exclude": ["**/__tests__/"],
     "typeAcquisition": {
         "include": ["jest"]
     }
