@@ -1,13 +1,13 @@
 import { Header } from '../../constants';
 import type { RequestConfig, RequestMethod, RequestParams, RequestResult } from '../../types';
 
-import type { ResponseInterceptors } from '../interceptors/responseInterceptors';
 import type { TAntonio } from '../core/models/Antonio';
+import type { ResponseInterceptors } from '../interceptors/responseInterceptors';
 
 import { getResponseDataType } from './responseDataTypes';
 
 import { AntonioError } from './errors';
-import { parseResponse, hasEmptyContentLength } from './utils';
+import { hasEmptyContentLength, parseResponse } from './utils';
 
 function chooseResponseDataType(config: RequestConfig, headers: Headers, requestMethod: RequestMethod) {
     if (hasEmptyContentLength(headers) || requestMethod === 'HEAD' || requestMethod === 'OPTIONS') {
@@ -80,15 +80,7 @@ export async function* processRequest<TSuccessData, TErrorData>(
         requestConfig,
     );
 
-    const result: RequestResult<TSuccessData> = {
-        request,
-        response,
-        data,
-        status: response.status,
-        statusText: response.statusText,
-        config: requestConfig,
-        headers: Object.fromEntries(response.headers.entries()),
-    };
+    const result: RequestResult<TSuccessData> = { request, response, data };
 
     return result;
 }

@@ -1,6 +1,6 @@
 import Headers from 'fetch-headers';
 
-import type { RequestConfig, RequestHeaders, RequestSearchParams, FinalRequestConfig } from '../../../types';
+import type { FinalRequestConfig, RequestConfig, RequestHeaders, RequestSearchParams } from '../../../types';
 
 import type { DefaultRequestConfig } from '../config';
 
@@ -85,11 +85,6 @@ export function mergeRequestConfigs(configA: DefaultRequestConfig, configB: Requ
 
     if (configA.params || configB.params) {
         result.params = mergeParams(parseParams(configA.params), parseParams(configB.params));
-    }
-
-    if (configB.cancelToken) {
-        delete result.cancelToken;
-        result.signal = configB.cancelToken;
     }
 
     return result as FinalRequestConfig;

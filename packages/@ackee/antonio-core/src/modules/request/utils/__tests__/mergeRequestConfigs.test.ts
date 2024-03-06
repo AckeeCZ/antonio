@@ -62,14 +62,6 @@ describe('mergeRequestConfigs', () => {
         };
     });
 
-    it('assigns cancel to signal', () => {
-        const configB = {
-            cancelToken: 'cancelToken',
-        };
-
-        expect(mergeRequestConfigs(configA, configB)).toHaveProperty('signal');
-    });
-
     it('merges uri params', () => {
         const configB = {
             uriParams: { id: '1' },

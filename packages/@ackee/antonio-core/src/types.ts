@@ -146,37 +146,12 @@ export interface RequestConfig extends Omit<RequestInit, 'body' | 'headers' | 'm
     headers?: RequestHeaders;
 
     params?: RequestSearchParams;
-
-    /**
-     * @deprecated This prop is going to be removed in next major relase. Use `signal` prop instead.
-     */
-    cancelToken?: any;
 }
 
 export interface RequestResult<D> {
     request: Request;
     response: Response;
     data: D;
-
-    /**
-     * @deprecated This prop is going to be removed in next major relase. Use `response.status` instead.
-     */
-    status: number;
-
-    /**
-     * @deprecated This prop is going to be removed in next major relase. Use `response.statusText` instead.
-     */
-    statusText: string;
-
-    /**
-     * @deprecated This prop is going to be removed in next major relase. Use `response.headers` instead.
-     */
-    headers: {};
-
-    /**
-     * @deprecated This prop is going to be removed in next major relase. Depend on properties in the `request`.
-     */
-    config: {};
 }
 
 export interface FinalRequestConfig extends DefaultRequestConfig {
