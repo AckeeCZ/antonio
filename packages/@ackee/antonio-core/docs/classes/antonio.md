@@ -1,4 +1,4 @@
-[@ackee/antonio-core - v4.0.5](../README.md) / Antonio
+[@ackee/antonio-core - v4.1.1](../README.md) / Antonio
 
 # Class: Antonio<TSuccessDataDefault, TErrorDataDefault\>
 
@@ -30,6 +30,7 @@
 -   [patch](antonio.md#patch)
 -   [post](antonio.md#post)
 -   [put](antonio.md#put)
+-   [request](antonio.md#request)
 
 ## Constructors
 
@@ -63,7 +64,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:16](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L16)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:30](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L30)
 
 ## Properties
 
@@ -73,7 +74,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:14](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L14)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:28](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L28)
 
 ---
 
@@ -83,7 +84,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:16](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L16)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:30](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L30)
 
 ---
 
@@ -93,7 +94,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:15](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L15)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:29](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L29)
 
 ## Methods
 
@@ -121,7 +122,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:73](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L73)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:98](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L98)
 
 ---
 
@@ -149,7 +150,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:66](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L66)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:91](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L91)
 
 ---
 
@@ -177,7 +178,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:80](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L80)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:105](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L105)
 
 ---
 
@@ -205,7 +206,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:87](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L87)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:112](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L112)
 
 ---
 
@@ -234,7 +235,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:58](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L58)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:83](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L83)
 
 ---
 
@@ -263,7 +264,7 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:42](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L42)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:67](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L67)
 
 ---
 
@@ -292,4 +293,32 @@ const api = new Antonio({
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:50](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L50)
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:75](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L75)
+
+---
+
+### request
+
+▸ **request**<RM, TSuccessData, TErrorData\>(`props`): `Promise`<[RequestResult](../interfaces/requestresult.md)<TSuccessData\>\>
+
+#### Type parameters
+
+| Name           | Type                                              |
+| :------------- | :------------------------------------------------ |
+| `RM`           | `RM`: [RequestMethod](../README.md#requestmethod) |
+| `TSuccessData` | `TSuccessData` = `TSuccessDataDefault`            |
+| `TErrorData`   | `TErrorData` = `TErrorDataDefault`                |
+
+#### Parameters
+
+| Name    | Type                                                                                                                                                                                                                                                              |
+| :------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `props` | `Readonly`<[RequestConfig](../interfaces/requestconfig.md) & `RM` extends `"POST"` \| `"PUT"` \| `"PATCH"` ? { `body`: `Required`<[RequestBodyData](../README.md#requestbodydata)\> ; `method`: `RM` ; `url`: `string` } : { `method`: `RM` ; `url`: `string` }\> |
+
+#### Returns
+
+`Promise`<[RequestResult](../interfaces/requestresult.md)<TSuccessData\>\>
+
+#### Defined in
+
+[packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts:56](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/core/models/Antonio.ts#L56)

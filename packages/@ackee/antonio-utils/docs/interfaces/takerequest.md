@@ -1,4 +1,4 @@
-[@ackee/antonio-utils - v4.0.5](../README.md) / TakeRequest
+[@ackee/antonio-utils - v4.1.1](../README.md) / TakeRequest
 
 # Interface: TakeRequest
 
@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[types.ts:25](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-utils/src/types.ts#L25)
+[types.ts:23](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-utils/src/types.ts#L23)
 
 ---
 
@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[types.ts:24](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-utils/src/types.ts#L24)
+[types.ts:22](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-utils/src/types.ts#L22)

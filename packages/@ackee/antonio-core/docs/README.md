@@ -1,6 +1,6 @@
-@ackee/antonio-core - v4.0.5
+@ackee/antonio-core - v4.1.1
 
-# @ackee/antonio-core - v4.0.5
+# @ackee/antonio-core - v4.1.1
 
 ## Table of contents
 
@@ -21,6 +21,7 @@
 -   [GeneralConfig](README.md#generalconfig)
 -   [RequestBodyData](README.md#requestbodydata)
 -   [RequestHeaders](README.md#requestheaders)
+-   [RequestMethod](README.md#requestmethod)
 -   [RequestSearchParams](README.md#requestsearchparams)
 -   [RequestUriParams](README.md#requesturiparams)
 -   [ResponseData](README.md#responsedata)
@@ -46,7 +47,7 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/general-config/index.ts:4](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/general-config/index.ts#L4)
+[packages/@ackee/antonio-core/src/modules/core/general-config/index.ts:4](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/core/general-config/index.ts#L4)
 
 ---
 
@@ -56,7 +57,7 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:8](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/types.ts#L8)
+[packages/@ackee/antonio-core/src/types.ts:8](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/types.ts#L8)
 
 ---
 
@@ -66,7 +67,17 @@
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:86](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/types.ts#L86)
+[packages/@ackee/antonio-core/src/types.ts:86](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/types.ts#L86)
+
+---
+
+### RequestMethod
+
+Ƭ **RequestMethod**: `"GET"` \| `"POST"` \| `"PUT"` \| `"PATCH"` \| `"DELETE"` \| `"OPTIONS"` \| `"HEAD"`
+
+#### Defined in
+
+[packages/@ackee/antonio-core/src/types.ts:6](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/types.ts#L6)
 
 ---
 
@@ -101,7 +112,7 @@ api.get('/posts', {
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:129](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/types.ts#L129)
+[packages/@ackee/antonio-core/src/types.ts:129](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/types.ts#L129)
 
 ---
 
@@ -127,7 +138,7 @@ console.assert(data.id === '1');
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:103](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/types.ts#L103)
+[packages/@ackee/antonio-core/src/types.ts:103](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/types.ts#L103)
 
 ---
 
@@ -137,7 +148,7 @@ console.assert(data.id === '1');
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:74](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/types.ts#L74)
+[packages/@ackee/antonio-core/src/types.ts:74](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/types.ts#L74)
 
 ---
 
@@ -213,39 +224,47 @@ function* fetchPosts() {
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:72](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/types.ts#L72)
+[packages/@ackee/antonio-core/src/types.ts:72](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/types.ts#L72)
 
 ## Functions
 
 ### generatorToPromise
 
-▸ **generatorToPromise**<T\>(`it`): `Promise`<T\>
+▸ **generatorToPromise**<TReturn, T, TNext\>(`it`): `Promise`<TReturn\>
 
 #### Type parameters
 
-| Name |
-| :--- |
-| `T`  |
+| Name      | Type                       |
+| :-------- | :------------------------- |
+| `TReturn` | `TReturn` = `any`          |
+| `T`       | `T` = `unknown`            |
+| `TNext`   | `TNext` = `TReturn` \| `T` |
 
 #### Parameters
 
-| Name | Type                                              |
-| :--- | :------------------------------------------------ |
-| `it` | `AsyncGenerator`<any, T\> \| `Generator`<any, T\> |
+| Name | Type                                                                    |
+| :--- | :---------------------------------------------------------------------- |
+| `it` | `AsyncGenerator`<T, TReturn, TNext\> \| `Generator`<T, TReturn, TNext\> |
 
 #### Returns
 
-`Promise`<T\>
+`Promise`<TReturn\>
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/core/makeRequest.ts:8](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/core/makeRequest.ts#L8)
+[packages/@ackee/antonio-core/src/modules/core/makeRequest.ts:8](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/core/makeRequest.ts#L8)
 
 ---
 
 ### isAntonioError
 
-▸ `Const` **isAntonioError**(`error`): error is AntonioError<unknown\>
+▸ `Const` **isAntonioError**<D\>(`error`): error is AntonioError<D\>
+
+#### Type parameters
+
+| Name |
+| :--- |
+| `D`  |
 
 #### Parameters
 
@@ -255,11 +274,11 @@ function* fetchPosts() {
 
 #### Returns
 
-error is AntonioError<unknown\>
+error is AntonioError<D\>
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:21](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L21)
+[packages/@ackee/antonio-core/src/modules/response/errors/index.ts:21](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/response/errors/index.ts#L21)
 
 ---
 
@@ -305,4 +324,4 @@ function* fetchPosts() {
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/modules/response/utils/runIterableStream.ts:24](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/modules/response/utils/runIterableStream.ts#L24)
+[packages/@ackee/antonio-core/src/modules/response/utils/runIterableStream.ts:24](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/modules/response/utils/runIterableStream.ts#L24)

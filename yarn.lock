@@ -14,10 +14,10 @@
   dependencies:
     eslint-config-react-app "^6.0.0"
 
-"@ackee/petrus@6.0.2":
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/@ackee/petrus/-/petrus-6.0.2.tgz#df44fd2bd7cc986e3611e50b0314bcd3bf6304f3"
-  integrity sha512-o0dh9HLm4o3acva4AkTjgf0Nh/0vtNyajOoHTliLo9lGaUi4Vs2hufTcQIve0gHqL9rAD3lpE652Yd7lMrwnwg==
+"@ackee/petrus@7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ackee/petrus/-/petrus-7.0.0.tgz#5f1f06df29fcc9bb7ed8703fa7680dfe8c1694f8"
+  integrity sha512-T44uucDzwhyeOG1PD0UWnfRUjTnxmR7UiM5BO32zjyiND7lJhjvnNqu6Or4YmpH8h+DP7JC+cEAtPM9TCt/KOw==
   dependencies:
     "@ackee/redux-utils" "^4.1.2"
     "@reduxjs/toolkit" "^1.8.1"

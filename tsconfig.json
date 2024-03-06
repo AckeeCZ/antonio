@@ -21,6 +21,7 @@
         "noFallthroughCasesInSwitch": true,
         "allowSyntheticDefaultImports": true,
         "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
         "lib": ["DOM", "ESNext", "DOM.Iterable"]
     },
     "include": ["packages/@ackee/*/src"],

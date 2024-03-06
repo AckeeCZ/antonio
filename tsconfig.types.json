@@ -16,5 +16,6 @@
         "noImplicitAny": false,
         "skipLibCheck": true
     },
-    "include": ["packages/@ackee/*/src"]
+    "include": ["packages/@ackee/*/src"],
+    "exclude": ["node_modules"]
 }

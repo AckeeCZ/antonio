@@ -30,7 +30,7 @@
         "@ackee/antonio-utils": "^4.1.1"
     },
     "devDependencies": {
-        "@ackee/petrus": "6.0.2"
+        "@ackee/petrus": "7.0.0"
     },
     "peerDependencies": {
         "@ackee/petrus": ">=5",

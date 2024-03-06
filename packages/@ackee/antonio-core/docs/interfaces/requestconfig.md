@@ -1,4 +1,4 @@
-[@ackee/antonio-core - v4.0.5](../README.md) / RequestConfig
+[@ackee/antonio-core - v4.1.1](../README.md) / RequestConfig
 
 # Interface: RequestConfig
 
@@ -14,7 +14,6 @@
 
 -   [baseURL](requestconfig.md#baseurl)
 -   [cache](requestconfig.md#cache)
--   [cancelToken](requestconfig.md#canceltoken)
 -   [credentials](requestconfig.md#credentials)
 -   [headers](requestconfig.md#headers)
 -   [integrity](requestconfig.md#integrity)
@@ -40,7 +39,7 @@ It can be convenient to set `baseURL` for an instance of antonio to pass relativ
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:140](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/types.ts#L140)
+[packages/@ackee/antonio-core/src/types.ts:140](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/types.ts#L140)
 
 ---
 
@@ -57,18 +56,6 @@ Omit.cache
 #### Defined in
 
 node_modules/typescript/lib/lib.dom.d.ts:1610
-
----
-
-### cancelToken
-
-• `Optional` **cancelToken**: `any`
-
-**`deprecated`** This prop is going to be removed in next major relase. Use `signal` prop instead.
-
-#### Defined in
-
-[packages/@ackee/antonio-core/src/types.ts:153](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/types.ts#L153)
 
 ---
 
@@ -94,7 +81,7 @@ node_modules/typescript/lib/lib.dom.d.ts:1614
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:146](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/types.ts#L146)
+[packages/@ackee/antonio-core/src/types.ts:146](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/types.ts#L146)
 
 ---
 
@@ -152,7 +139,7 @@ node_modules/typescript/lib/lib.dom.d.ts:1634
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:148](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/types.ts#L148)
+[packages/@ackee/antonio-core/src/types.ts:148](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/types.ts#L148)
 
 ---
 
@@ -210,7 +197,7 @@ node_modules/typescript/lib/lib.dom.d.ts:1646
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:142](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/types.ts#L142)
+[packages/@ackee/antonio-core/src/types.ts:142](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/types.ts#L142)
 
 ---
 
@@ -236,7 +223,7 @@ node_modules/typescript/lib/lib.dom.d.ts:1650
 
 #### Defined in
 
-[packages/@ackee/antonio-core/src/types.ts:144](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-core/src/types.ts#L144)
+[packages/@ackee/antonio-core/src/types.ts:144](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-core/src/types.ts#L144)
 
 ---
 

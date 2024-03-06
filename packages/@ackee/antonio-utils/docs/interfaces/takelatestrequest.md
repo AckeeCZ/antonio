@@ -1,12 +1,22 @@
-[@ackee/antonio-utils - v4.0.5](../README.md) / TakeLatestRequest
+[@ackee/antonio-utils - v4.1.1](../README.md) / TakeLatestRequest
 
-# Interface: TakeLatestRequest
+# Interface: TakeLatestRequest<RequestAction, CancelAction\>
+
+## Type parameters
+
+| Name            | Type                         |
+| :-------------- | :--------------------------- |
+| `RequestAction` | `RequestAction`: `AnyAction` |
+| `CancelAction`  | `CancelAction`: `AnyAction`  |
 
 ## Table of contents
 
 ### Properties
 
 -   [REQUEST](takelatestrequest.md#request)
+
+### Methods
+
 -   [cancelTask](takelatestrequest.md#canceltask)
 -   [requestIdSelector](takelatestrequest.md#requestidselector)
 
@@ -14,57 +24,49 @@
 
 ### REQUEST
 
-• **REQUEST**: `ActionPattern`<Action<any\>\>
+• **REQUEST**: `ActionPattern`<RequestAction\>
 
 #### Defined in
 
-[types.ts:18](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-utils/src/types.ts#L18)
+[types.ts:16](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-utils/src/types.ts#L16)
 
----
+## Methods
 
 ### cancelTask
 
-• **cancelTask**: (`requestId`: [RequestId](../README.md#requestid), `action`: `AnyAction`) => `AnyAction`
+▸ **cancelTask**(`requestId`, `action`): `CancelAction`
 
-#### Type declaration
-
-▸ (`requestId`, `action`): `AnyAction`
-
-##### Parameters
+#### Parameters
 
 | Name        | Type                                |
 | :---------- | :---------------------------------- |
 | `requestId` | [RequestId](../README.md#requestid) |
 | `action`    | `AnyAction`                         |
 
-##### Returns
+#### Returns
 
-`AnyAction`
+`CancelAction`
 
 #### Defined in
 
-[types.ts:19](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-utils/src/types.ts#L19)
+[types.ts:17](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-utils/src/types.ts#L17)
 
 ---
 
 ### requestIdSelector
 
-• `Optional` **requestIdSelector**: (`action`: `AnyAction`) => [RequestId](../README.md#requestid)
+▸ `Optional` **requestIdSelector**(`action`): [RequestId](../README.md#requestid)
 
-#### Type declaration
-
-▸ (`action`): [RequestId](../README.md#requestid)
-
-##### Parameters
+#### Parameters
 
 | Name     | Type        |
 | :------- | :---------- |
 | `action` | `AnyAction` |
 
-##### Returns
+#### Returns
 
 [RequestId](../README.md#requestid)
 
 #### Defined in
 
-[types.ts:20](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-utils/src/types.ts#L20)
+[types.ts:18](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-utils/src/types.ts#L18)

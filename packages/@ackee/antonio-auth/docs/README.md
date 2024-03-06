@@ -1,6 +1,6 @@
-@ackee/antonio-auth - v4.0.5
+@ackee/antonio-auth - v4.1.1
 
-# @ackee/antonio-auth - v4.0.5
+# @ackee/antonio-auth - v4.1.1
 
 ## Table of contents
 
@@ -26,4 +26,4 @@
 
 #### Defined in
 
-[requestAuthHeaderInterceptor.ts:4](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-auth/src/requestAuthHeaderInterceptor.ts#L4)
+[requestAuthHeaderInterceptor.ts:4](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-auth/src/requestAuthHeaderInterceptor.ts#L4)

@@ -1,6 +1,6 @@
-@ackee/antonio-utils - v4.0.5
+@ackee/antonio-utils - v4.1.1
 
-# @ackee/antonio-utils - v4.0.5
+# @ackee/antonio-utils - v4.1.1
 
 ## Table of contents
 
@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[types.ts:15](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-utils/src/types.ts#L15)
+[types.ts:13](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-utils/src/types.ts#L13)
 
 ## Functions
 
@@ -49,20 +49,27 @@
 
 #### Defined in
 
-[setAuthHeader.ts:5](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-utils/src/setAuthHeader.ts#L5)
+[setAuthHeader.ts:5](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-utils/src/setAuthHeader.ts#L5)
 
 ---
 
 ### takeLatestRequest
 
-▸ **takeLatestRequest**(`__namedParameters`, `requestHandler`): `Generator`<ForkEffect<never\>, void, unknown\>
+▸ **takeLatestRequest**<RequestAction, CancelAction\>(`__namedParameters`, `requestHandler`): `Generator`<ForkEffect<never\>, void, unknown\>
+
+#### Type parameters
+
+| Name            | Type                                                       |
+| :-------------- | :--------------------------------------------------------- |
+| `RequestAction` | `RequestAction`: `AnyAction`<RequestAction\> = `AnyAction` |
+| `CancelAction`  | `CancelAction`: `AnyAction`<CancelAction\> = `AnyAction`   |
 
 #### Parameters
 
-| Name                | Type                                                 |
-| :------------------ | :--------------------------------------------------- |
-| `__namedParameters` | [TakeLatestRequest](interfaces/takelatestrequest.md) |
-| `requestHandler`    | `RequestHandler`                                     |
+| Name                | Type                                                                               |
+| :------------------ | :--------------------------------------------------------------------------------- |
+| `__namedParameters` | [TakeLatestRequest](interfaces/takelatestrequest.md)<RequestAction, CancelAction\> |
+| `requestHandler`    | `RequestHandler`<RequestAction\>                                                   |
 
 #### Returns
 
@@ -70,22 +77,28 @@
 
 #### Defined in
 
-[saga-effects/takeLatestRequest.ts:6](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-utils/src/saga-effects/takeLatestRequest.ts#L6)
+[saga-effects/takeLatestRequest.ts:8](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-utils/src/saga-effects/takeLatestRequest.ts#L8)
 
 ---
 
 ### takeRequest
 
-▸ **takeRequest**(`actionTypes`, `handler`): `Generator`<TakeEffect \| Generator<RaceEffect<CallEffect<void\> \| TakeEffect\>, void, unknown\>, void, unknown\>
+▸ **takeRequest**<RequestAction\>(`actionTypes`, `handler`): `Generator`<TakeEffect \| Generator<RaceEffect<CallEffect<void\> \| TakeEffect\>, void, unknown\>, void, unknown\>
 
 Blocking custom saga effect that can cancel the API request
+
+#### Type parameters
+
+| Name            | Type                                                       |
+| :-------------- | :--------------------------------------------------------- |
+| `RequestAction` | `RequestAction`: `AnyAction`<RequestAction\> = `AnyAction` |
 
 #### Parameters
 
 | Name          | Type                                     |
 | :------------ | :--------------------------------------- |
 | `actionTypes` | [TakeRequest](interfaces/takerequest.md) |
-| `handler`     | `RequestHandler`                         |
+| `handler`     | `RequestHandler`<RequestAction\>         |
 
 #### Returns
 
@@ -93,4 +106,4 @@ Blocking custom saga effect that can cancel the API request
 
 #### Defined in
 
-[saga-effects/takeRequest.ts:8](https://github.com/AckeeCZ/antonio/blob/27c90ed/packages/@ackee/antonio-utils/src/saga-effects/takeRequest.ts#L8)
+[saga-effects/takeRequest.ts:9](https://github.com/AckeeCZ/antonio/blob/e92d67e/packages/@ackee/antonio-utils/src/saga-effects/takeRequest.ts#L9)
