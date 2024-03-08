@@ -1,5 +1,34 @@
 # Changelog
 
+<a name="5.0.0"></a>
+
+## 5.0.0 (2024-03-08)
+
+### Added
+
+-   ✨ Add changelog npm script [[8a456fe](https://github.com/AckeeCZ/antonio/commit/8a456fe0e7e7cfa50a25d91ae67ab626b0ff926b)]
+
+### Changed
+
+-   ⬆️ Install deps [[e92d67e](https://github.com/AckeeCZ/antonio/commit/e92d67e9a799bfb41c56787a2545de741e16efaf)]
+
+### Miscellaneous
+
+-   📝 Generate updated docs [[ef9d2fd](https://github.com/AckeeCZ/antonio/commit/ef9d2fdb19aed320086a7a0101ca63eddcdcef17)]
+-   💥 Remove already deprecated, only Axios relevant props [[85b2e93](https://github.com/AckeeCZ/antonio/commit/85b2e93fefe024fda3f9ba1eb5905cb74e93fae9)]
+
+<a name="4.1.0"></a>
+
+## 4.1.0 (2023-09-29)
+
+### Added
+
+-   ✨ Add general request (promise) method to Antonio class [[63e61d4](https://github.com/AckeeCZ/antonio/commit/63e61d42bcf23c0ca781e734bc5c32012c70fe9b)]
+
+### Miscellaneous
+
+-   🚩 Remove gitmoji-changelog [[ad0b756](https://github.com/AckeeCZ/antonio/commit/ad0b75602abd20bbe3b9a60b0ab74b2cc3f04f2e)]
+
 <a name="4.0.14"></a>
 
 ## 4.0.14 (2023-02-22)
