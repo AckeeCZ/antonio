@@ -12,7 +12,7 @@ export const defaultRequestMimeTypes = {
 } as const;
 
 type RequestBodyType = keyof typeof defaultRequestMimeTypes;
-type RequestMimeType = typeof defaultRequestMimeTypes[RequestBodyType];
+type RequestMimeType = (typeof defaultRequestMimeTypes)[RequestBodyType];
 
 function getBodyType(body: RequestBody): RequestBodyType {
     return typeof body === 'string' ? 'string' : body[Symbol.toStringTag];

@@ -25,10 +25,10 @@
     },
     "dependencies": {
         "fetch-headers": "^2.0.0",
-        "loglevel": "^1.7.1"
+        "loglevel": "^1.9.2"
     },
     "devDependencies": {
-        "@types/fetch-headers": "^2.0.0"
+        "@types/fetch-headers": "^2.0.2"
     },
     "peerDependencies": {
         "core-js": "3.x"

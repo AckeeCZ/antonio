@@ -14,7 +14,7 @@ export default function* takeRequest<RequestAction extends AnyAction = AnyAction
         /* @ts-ignore */
         const action = yield take(actionTypes.REQUEST);
 
-        yield cancellableHandler<RequestAction, typeof actionTypes['CANCEL']>({
+        yield cancellableHandler<RequestAction, (typeof actionTypes)['CANCEL']>({
             handler,
             handlerArg: action,
             CANCEL: actionTypes.CANCEL,
