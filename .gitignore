@@ -9,3 +9,4 @@ dist/
 yalc.lock
 packages/usage-example/
 notes/
+.yarn

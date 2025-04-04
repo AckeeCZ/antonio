@@ -93,5 +93,6 @@
     "dependencies": {
         "caniuse-lite": "^1.0.30001457"
     },
-    "version": "0.0.0"
+    "version": "0.0.0",
+    "packageManager": "yarn@4.8.1+sha256.8c8cf7bef23cced7c138d0da3ea72d43d2626727f1ae309edb853c41ab18ef1c"
 }
