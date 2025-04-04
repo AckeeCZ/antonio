@@ -8,8 +8,12 @@ interface OnResponseFulfilled {
         | Promise<Response>;
 }
 
+type OnResponseRejectedResult = AntonioError | Error | null;
+
 interface OnResponseRejected {
-    (error: AntonioError | Error, request: Request, requestParams: RequestParams): AntonioError | Error | null;
+    (error: AntonioError | Error, request: Request, requestParams: RequestParams):
+        | OnResponseRejectedResult
+        | Promise<OnResponseRejectedResult>;
 }
 
 export type ResponseInterceptors = Map<
