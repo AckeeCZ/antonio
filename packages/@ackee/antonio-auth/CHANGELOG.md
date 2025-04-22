@@ -1,5 +1,13 @@
 # @ackee/antonio-auth
 
+## 5.0.2
+
+### Patch Changes
+
+-   d973221: Add missing types.
+-   Updated dependencies [d973221]
+    -   @ackee/antonio-utils@5.0.2
+
 ## 5.0.1
 
 ### Patch Changes
