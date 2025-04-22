@@ -3,7 +3,7 @@ module.exports = {
         [
             '@babel/typescript',
             {
-                onlyRemoveTypeImports: true,
+                onlyRemoveTypeImports: false,
                 allowDeclareFields: true,
             },
         ],
