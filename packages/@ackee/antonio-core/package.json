@@ -1,6 +1,6 @@
 {
     "name": "@ackee/antonio-core",
-    "version": "5.0.2",
+    "version": "5.0.3",
     "description": "A HTTP client built on fetch API with axios-like API.",
     "keywords": [
         "http-client",

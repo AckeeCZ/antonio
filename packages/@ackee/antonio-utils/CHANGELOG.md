@@ -1,5 +1,11 @@
 # @ackee/antonio-utils
 
+## 5.0.3
+
+### Patch Changes
+
+-   22a7429: Exclude type imports from es/lib outputs.
+
 ## 5.0.2
 
 ### Patch Changes
