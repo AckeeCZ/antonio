@@ -9,7 +9,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ackee/antonio-auth@workspace:packages/@ackee/antonio-auth"
   dependencies:
-    "@ackee/antonio-utils": "npm:^5.0.2"
+    "@ackee/antonio-utils": "npm:^5.0.3"
     "@ackee/petrus": "npm:7.0.3"
   peerDependencies:
     "@ackee/petrus": ">=5"
@@ -29,7 +29,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ackee/antonio-utils@npm:^5.0.2, @ackee/antonio-utils@workspace:packages/@ackee/antonio-utils":
+"@ackee/antonio-utils@npm:^5.0.3, @ackee/antonio-utils@workspace:packages/@ackee/antonio-utils":
   version: 0.0.0-use.local
   resolution: "@ackee/antonio-utils@workspace:packages/@ackee/antonio-utils"
   dependencies:
